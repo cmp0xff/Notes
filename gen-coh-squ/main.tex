@@ -1,0 +1,71 @@
+\documentclass[a4paper]{article}
+
+
+\input{../preambles/preamble}
+\setdefaultlanguage{english}
+%\setotherlanguages{german,greek}
+
+\input{../preambles/mathematics}
+\input{../preambles/physics}
+
+%\newcommand{\RomaN}[1]{%
+%  \textup{\uppercase\expandafter{\romannumeral#1}}%
+%}
+
+
+%\addbibresource{main.bib}
+\title{Draft of Notes of\\Quantum Mechanics of\\Generalised Squeezed Coherent 
+State\\Classified for Internal Use Only}
+\author{YiFan Wang}
+
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\tableofcontents
+
+\section{Rotation operator}
+
+\begin{equation}
+\rfun{\widehat{R}}{\theta} \coloneqq \cfun{\expi}{\theta 
+	\rbr{\widehat{a}^\dagger \widehat{a}+\frac{1}{2}}}.
+\end{equation}
+
+\begin{equation}
+	\rfun{\widehat{R}^{-1}}{\theta} \equiv \rfun{\widehat{R}^\dagger}{\theta}
+	\equiv \rfun{\widehat{R}}{-\theta}.
+\end{equation}
+
+\begin{equation}
+	\rfun{\widehat{R}}{\theta}\widehat{a}\rfun{\widehat{R}^\dagger}{\theta}
+	= \ee^{\ii\theta}\widehat{a}.
+\end{equation}
+
+
+\input{sections/coherent}
+
+\input{sections/1squeeze}
+
+\input{sections/2squeeze}
+
+%\input{sections/found-cosmo}
+
+\appendix
+
+\input{sections/anal-geometry}
+
+\input{sections/quantum-mechanics}
+
+\input{sections/bch}
+
+\input{sections/simp-harm-osc}
+
+% Let's print the overall heading of the bibliography first:
+%\printbibheading
+%\printbibliography
+
+\end{document}

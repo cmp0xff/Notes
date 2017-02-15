@@ -1,0 +1,39 @@
+\section{Notes on analytical geometry}
+
+\begin{equation}
+Ax^2+Bxy+Cy^2+Dx+Ey+F = 0
+\end{equation}
+$ B^2 - 4AC < 0$
+
+\begin{equation}
+\Delta \coloneqq \det\begin{vmatrix}
+A & B/2 & D/2 \\
+B/2 & C & E/2 \\
+D/2 & E/2 & F
+\end{vmatrix} = 
+\rbr{AC-\frac{B^2}{4}}F+\frac{BED}{4}-\frac{CD^2}{4}-\frac{AE^2}{4}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+A &= a^2\sin^2\theta+b^2\cos^2\theta \\
+B &= 2\rbr{b^2 - a^2}\sin\theta\,\cos\theta \\
+C &= a^2\cos^2\theta+b^2\sin^2\theta \\
+D &=-2A x_0 - By_0 \\
+E &= -B x_0 - 2C y_0 \\
+F &= A x_0^2 + Bx_0 y_0 + cy_0^2 - a^2 b^2
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\frac{X^2}{a^2}+\frac{Y^2}{b^2} = 1,
+\end{equation}
+where
+\begin{equation}
+	\begin{pmatrix} X \\ Y \end{pmatrix} \coloneqq
+	\begin{pmatrix}
+	\cos\theta & \sin\theta \\ -\sin\theta & \cos\theta
+	\end{pmatrix}
+	\begin{pmatrix} x-x_0 \\ y-y_0 \end{pmatrix}.
+\end{equation}
+

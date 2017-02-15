@@ -1,0 +1,132 @@
+\section{Notes on quantum mechanics}
+
+\subsection{$\widehat{x}$ and $\widehat{p}$ acting on $\Ket{x}$}
+
+\begin{namedthm}{Linear hermitian functions}
+\begin{equation}
+	\widehat{p} \Ket{x} = \rbr{+\ii \frpa{}{x}} \Ket{x},\qquad
+	\Bra{x} \widehat{p} = \rbr{-\ii \frpa{}{x}} \Bra{x}.
+\end{equation}
+
+\end{namedthm} % Linear hermitian functions
+\begin{proof}
+\begin{align}
+\Bra{x} \widehat{p} &= \int_{-\infty}^{+\infty}\dif p\,\Braket{x | p}
+\Bra{p} \widehat{p} 
+= \int_{-\infty}^{+\infty}\dif p\,\rbr{2\pp}^{-1/2}\ee^{\ii p x}
+\Bra{p} p \nonumber \\
+&= \int_{-\infty}^{+\infty}\dif p\,
+\rbr{-\ii \frpa{}{x}} \rbr{2\pp}^{-1/2} \ee^{\ii p x} \Bra{p}
+= \rbr{-\ii \frpa{}{x}} \int_{-\infty}^{+\infty}\dif p\,
+\Braket{x | p} \Bra{p} \nonumber \\
+&= \rbr{-\ii \frpa{}{x}} \Bra{x}.
+\end{align}
+\end{proof}
+
+\begin{namedthm}{Linear unitary exponentials}
+
+\begin{equation}
+\ee^{\ii p_0 \widehat{x}} \Ket{x} = \ee^{\ii p_0 x} \Ket{x},
+\qquad
+\Bra{x} \ee^{\ii p_0 \widehat{x}} = \Bra{x} \ee^{\ii p_0 x};
+\end{equation}
+\begin{equation}
+\ee^{\ii x_0 \widehat{p}} \Ket{x} = \Ket{x-x_0},\qquad
+\Bra{x} \ee^{\ii x_0 \widehat{p}} = \Bra{x+x_0}.
+\end{equation}
+
+\end{namedthm} % Linear unitary exponentials
+
+\begin{proof}
+\begin{align}
+\ee^{\ii x_0 \widehat{p}} \Ket{x} &= \int_{-\infty}^{+\infty} \dif p\,
+\ee^{\ii x_0 \widehat{p}}\Ket{p}\Braket{p | x} \nonumber \\
+&= \int_{-\infty}^{+\infty} \dif p\,
+\ee^{\ii x_0 p}\Ket{p}\rbr{2\pp}^{-1/2}\ee^{-\ii x p}
+= \int_{-\infty}^{+\infty} \dif p\,
+\rbr{2\pp}^{-1/2}\ee^{-\ii \rbr{x-x_0} p}\Ket{p} \nonumber \\
+&= \int_{-\infty}^{+\infty} \dif p\,
+\Ket{p}\Braket{p | x-x_0} = \Ket{x-x_0};
+\label{eq:displace-x-ket}
+\end{align}
+
+\begin{equation}
+\Bra{x} \ee^{\ii x_0 \widehat{p}} = \int_{-\infty}^{+\infty} \dif p\,
+\ee^{\ii x_0 p}\Bra{p}\rbr{2\pp}^{-1/2}\ee^{+\ii x p}
+= \Bra{x+x_0}.
+\label{eq:displace-x-bra}
+\end{equation}
+
+\end{proof}
+
+\begin{namedthm}{Quadratic hermitian functions}
+\begin{equation}
+\widehat{x}^2 \Ket{x} = x^2 \Ket{x}, \qquad
+\Bra{x} \widehat{x}^2 = \Bra{x} x^2;
+\end{equation}
+\begin{equation}
+	\widehat{p}^2 \Ket{x} = -\frpa{^2}{x^2} \Ket{x}, \qquad
+	\Bra{x} \widehat{p}^2 = -\frpa{^2}{x^2} \Bra{x};
+\end{equation}
+\begin{equation}
+	\frac{\widehat{x}\widehat{p} + \widehat{p}\widehat{x}}{2} \Ket{x}
+	= +\ii \rbr{\frac{1}{2}+x\frpa{}{x}} \Ket{x}, \qquad
+	\Bra{x} \frac{\widehat{x}\widehat{p} + \widehat{p}\widehat{x}}{2}
+	= -\ii \rbr{\frac{1}{2}+x\frpa{}{x}} \Bra{x}.
+\end{equation}
+
+\end{namedthm} % Quadratic hermitian functions
+\begin{proof}
+456
+\end{proof}
+
+\begin{namedthm}{Quadratic unitary exponentials}
+\begin{equation}
+\ee^{\ii \sigma \widehat{x}^2} \Ket{x} = \ee^{\ii \sigma x^2} \Ket{x},
+\qquad
+\Bra{x} \ee^{\ii \sigma \widehat{x}^2} = \Bra{x} \ee^{\ii \sigma x^2};
+\end{equation}
+\begin{align}
+	\ee^{\ii \sigma \widehat{p}^2} \Ket{x}
+	&= \rbr{-4\pp\ii\sigma}^{-1/2}\int_{-\infty}^{+\infty}\dif x'\,\Ket{x'}
+	\cfun{\expi}{-\frac{\rbr{x-x'}^2}{4\sigma}}, \nonumber \\
+	\Bra{x} \ee^{\ii \sigma \widehat{p}^2}
+	&= \rbr{-4\pp\ii\sigma}^{-1/2}\int_{-\infty}^{+\infty}\dif x'\,\Bra{x'}
+	\cfun{\expi}{-\frac{\rbr{x-x'}^2}{4\sigma}};
+\end{align}
+\begin{align}
+	\ee^{\ii \lambda \rbr{\widehat{x}\widehat{p}
+		+ \widehat{p}\widehat{x}}/2} \Ket{x}
+	&= \ee^{-\lambda/2} \Ket{x\ee^{-\lambda}}, \nonumber \\
+	\Bra{x} \ee^{\ii \lambda \rbr{\widehat{x}\widehat{p}
+		+ \widehat{p}\widehat{x}}/2}
+	&= \ee^{+\lambda/2} \bra{x\ee^{+\lambda}}.
+\end{align}
+
+\end{namedthm} % Quadratic unitary exponentials
+\begin{proof}
+789
+\end{proof}
+
+
+
+\subsection{Time evolution}
+
+\begin{equation}
+\rfun{\widehat{\mscrU}}{t;t_0} = \ee^{-\ii \widehat{H}\rbr{t-t_0}}
+\end{equation}
+is the time-evolution operator in the Schrödinger picture.
+
+\subsection{Wigner transformation}
+
+\emph{Wigner transformation}
+\begin{equation}
+\rfun{g}{x,p} \coloneqq \frac{1}{2\pp}\int_{-\infty}^{+\infty}\dif s\,
+\ee^{\ii p s} \Braket{ x-\frac{s}{2} | \widehat{G} | x + \frac{s}{2} }.
+\end{equation}
+
+\begin{equation}
+\int_{\BbbR^2}\dif x\diff p\,\rfun{g}{x,p} \equiv \tr \widehat{G}.
+\end{equation}
+
+\

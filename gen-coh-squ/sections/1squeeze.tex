@@ -1,0 +1,351 @@
+\section{Single-mode squeezing}
+
+Let
+\begin{equation}
+\widehat{b}^-
+= \frac{\widehat{a}^- - \beta \widehat{a}^+}{\sqrt{1-\vbr{\beta}^2}},\qquad
+\widehat{b}^+ = \rbr{\widehat{b}^-}^\dagger
+= \frac{\widehat{a}^+ - \beta^*\widehat{a}^-}{\sqrt{1-\vbr{\beta}^2}},
+\label{eq:res-bogolyubov-b}
+\end{equation}
+so that
+\begin{equation}
+\sbr{\widehat{b}^-, \widehat{b}^+}_- =
+\rbr{1-\vbr{\beta}^2}^{-1}\rbr{\sbr{\widehat{a}^-, \widehat{a}^+}_-
++ \beta\beta^*\sbr{\widehat{a}^+, \widehat{a}^-}_-} = \widehat{1}.
+\end{equation}
+One seeks the state $\Ket{\beta}$ satisfying
+\begin{equation}
+\widehat{b}^-\Ket{\beta} = 0.
+\label{eq:squeezed-state-def-1}
+\end{equation}
+
+Note that \cref{eq:res-bogolyubov-b} is a restricted \emph{Bogolyubov
+transformation}, in that the coefficient of $\widehat{a}^-$ for $\widehat{b}^-$
+is real.
+
+\subsection{Single-mode squeeze operator}
+One attempts
+\begin{equation}
+\rfun{\widehat{S}}{z}\widehat{a}^-\rfun{\widehat{S}^{-1}}{z},
+\end{equation}
+where
+\begin{align}
+	\rfun{\widehat{S}}{z} &\coloneqq \cfun{\exp}{\frac{1}{2}\rbr{z 
+		\rbr{\widehat{a}^+}^2 - z^*\rbr{\widehat{a}^-}^2}} \nonumber \\
+&\equiv \cfun{\expi}%
+{\Im z\rbr{\frac{m\Omega}{2}\widehat{x}^2 - \frac{2}{m\Omega}\widehat{p}^2}
+-\Re z \frac{\widehat{x}\widehat{p}+\widehat{p}\widehat{x}}{2}}
+\end{align}
+is the \emph{single-mode squeeze operator}. Note that
+\begin{equation}
+\rfun{\widehat{S}^{-1}}{z} = \rfun{\widehat{S}}{-z}
+= \rfun{\widehat{S}^\dagger}{z}.
+\end{equation}
+
+The parameterisation $z = r\ee^{\ii\phi}$ will also be used, where $r = 
+\vbr{z}$, $\phi = \arg z$.
+
+\begin{namedthm}{Proposition}
+	\label{nthm:prop-ad-aminus}
+Let $X = \rbr{z\rbr{\widehat{a}^+}^2 - z^*\rbr{\widehat{a}^-}^2}/2$. Then
+\begin{align}
+	\ad_X^{(2n)} \widehat{a}^- &= \vbr{z}^{2n} \widehat{a}^-
+	= r^{2n} \widehat{a}^-,\\
+	\ad_X^{(2n+1)} \widehat{a}^-
+	&= -\vbr{z}^{2n+1}\frac{z}{\vbr{z}}\widehat{a}^+
+	= - r^{2n+1} \ee^{\ii\phi} \widehat{a}^+,
+	\qquad \forall n \ge 0.
+\end{align}
+\end{namedthm} % Proposition
+\begin{proof}
+	\begin{equation}
+		\ad_X^{(0)}\widehat{a}^- = \widehat{a}^-;
+	\end{equation}
+	\begin{align}
+		\ad_X^{(1)}\widehat{a}^- &=
+		\sbr{\frac{z}{2}\rbr{\widehat{a}^+}^2, \widehat{a}^-}_- 
+		= \frac{z}{2}\rbr{\widehat{a}^+ \sbr{\widehat{a}^+, \widehat{a}^-}_-
+		+ \sbr{\widehat{a}^+, \widehat{a}^-}_- \widehat{a}^+}
+		= -z\widehat{a}^+ \nonumber \\
+		&= -\frac{z}{\vbr{z}}\vbr{z}^1\widehat{a}^+
+		= -\ee^{\ii\phi} r^1 \widehat{a}^+,
+	\end{align}
+	\begin{align}
+		\ad_X^{(2)}\widehat{a}^- &=
+		\sbr{-\frac{z^*}{2}\rbr{\widehat{a}^-}^2, -z\widehat{a}^+}_-
+		= \frac{\vbr{z}^2}{2} 2\widehat{a}^- \nonumber \\
+		&= \vbr{z}^2\widehat{a}^- = r^2 \widehat{a}^-;
+	\end{align}
+	\begin{align}
+		\ad_X^{(3)}\widehat{a}^- &=
+		\sbr{\frac{z}{2}\rbr{\widehat{a}^+}^2, \vbr{z}^2\widehat{a}^-}_-
+		= \frac{z\vbr{z}^2}{2} \rbr{-2} \widehat{a}^+ \nonumber \\
+		&= -\frac{z}{\vbr{z}}\vbr{z}^3\widehat{a}^+
+		= -\ee^{\ii\phi} r^3 \widehat{a}^+.
+	\end{align}
+	Prop.~(\ref{nthm:prop-ad-aminus}) can then be proved by induction for 
+	even and odd integers, respectively.
+\end{proof}
+
+\begin{namedthm}{Proposition}
+\begin{align}
+	\rfun{\widehat{S}}{z} \widehat{a}^- \rfun{\widehat{S}^\dagger}{z}
+	&= \widehat{a}^-\cosh \vbr{z}
+		- \widehat{a}^+ \frac{z}{\vbr{z}} \sinh \vbr{z}
+	\nonumber \\
+	&= \widehat{a}^-\cosh r - \widehat{a}^+ \ee^{\ii\phi} \sinh r,
+	\label{eq:squeezed-aminus-parameter}
+\end{align}
+so that $z$ or $\rbr{r, \phi}$ is a parameterisation of $\beta$ in 
+\cref{eq:res-bogolyubov-b} in that
+\begin{equation}
+	\vbr{\beta} = \tanh\vbr{z} = \tanh r,\qquad \arg \beta = \arg z = \phi.
+	\label{eq:beta-parameter}
+\end{equation}
+\end{namedthm} %Proposition
+\begin{proof}
+	By prop.~\ref{nthm:prop-ad-aminus} and \cref{eq:bch-sandwich},
+	\begin{equation} % \begin{align}
+		\rfun{\widehat{S}}{z} \widehat{a}^- \rfun{\widehat{S}^\dagger}{z}
+		= \sum_{n=0}^{+\infty}\rbr{
+			\frac{\vbr{z}^{2n}}{\rbr{2n}!} \widehat{a}^-
+- \frac{z}{\vbr{z}}\frac{\vbr{z}^{2n+1}}{\rbr{2n+1}!}\widehat{a}^+}
+		%\nonumber \\
+		%&= \widehat{a}^-\cosh \vbr{z}
+		%- \widehat{a}^+ \frac{z}{\vbr{z}} \sinh \vbr{z} \nonumber \\
+		%&= \widehat{a}^-\cosh r - \widehat{a}^+ \ee^{\ii\phi} \sinh r,
+		\label{eq:squeezed-aminus-parameter-proof}
+	\end{equation} % \end{align}
+	which proves \cref{eq:squeezed-aminus-parameter}. Comparing 
+	\cref{eq:squeezed-aminus-parameter-proof} with \cref{eq:res-bogolyubov-b}, 
+	one gets
+	\begin{equation}
+		\left\{\begin{array}{l}
+			\rbr{1-\vbr{\beta}^2}^{-1/2} = \cosh \vbr{z} = \cosh r, \\
+			\beta (1-\vbr{\beta}^2)^{-1/2}
+			= \frac{z}{\vbr{z}}\sinh \vbr{z} = \ee^{\ii\phi}\sinh r,
+		\end{array}\right.
+	\end{equation}
+	which gives \cref{eq:beta-parameter}.
+\end{proof}
+
+
+\begin{namedthm}{Squeezed ground state}
+	$\Ket{\beta}$ in \cref{eq:squeezed-state-def-1} is the $\beta$-squeezed 
+ground state, namely
+\begin{equation}
+	\Ket{\beta} = \rfun{\widehat{S}}{z}\Ket{0}.
+\end{equation}
+
+\end{namedthm} % Squeezed ground state
+\begin{proof}
+Note that
+\begin{equation}
+a^-\Ket{0} \coloneqq 0 \eqqcolon \rfun{S^\dagger}{\beta} b^- \Ket{0}
+= a^- \rfun{S^\dagger}{\beta} \Ket{\beta}.
+\end{equation}
+With $\rfun{S}{\alpha}$ unitary in mind, one finds
+\begin{equation}
+\Ket{\beta} = \ee^{\ii\theta}\rfun{S}{\beta}\Ket{0}.
+\end{equation}
+One can fix the phase $\theta$ to be zero.
+\end{proof}
+
+
+\subsection{Time evolution}
+
+\begin{namedthm}{Proposition}
+	Let $X = \ii\Omega t a^+ a^-$, $Y = \frac{1}{2}\rbr{z 
+		\rbr{a^+}^2 - z^*\rbr{a^-}^2}$.
+	\begin{equation}
+		\ad_X^{(n)}Y = \frac{1}{2}\rbr{z \rbr{+2\ii\Omega t}^n
+		\rbr{a^+}^2 - z^*\rbr{-2\ii\Omega t}^n\rbr{a^-}^2}.
+	\end{equation}
+
+\end{namedthm} % Proposition
+\begin{proof}
+\begin{equation}
+\ad_X^{(0)}Y = Y = \rbr{2\ii t}^0 Y;
+\end{equation}
+
+\begin{align}
+	\ad_X^{(1)}Y &= \sbr{\ii\Omega t a^+ a^-, \frac{1}{2}\rbr{z 
+		\rbr{a^+}^2 - z^*\rbr{a^-}^2}}_- \nonumber \\
+&= \ii \Omega t\rbr{z\rbr{a^+}^2 + z^*\rbr{a^-}^2} \nonumber \\
+&= \frac{1}{2}\rbr{z \rbr{+2\ii\Omega t}^1
+		\rbr{a^+}^2 - z^*\rbr{-2\ii\Omega t}^1\rbr{a^-}^2};
+\end{align}
+\begin{align}
+	\ad_X^{(2)}Y &= \sbr{\ii\Omega t a^+ a^-, \ii \Omega t 
+\rbr{z\rbr{a^+}^2 + z^*\rbr{a^-}^2} }_- \nonumber \\
+&= 2\rbr{\ii \Omega t}^2\rbr{ z\rbr{a^+}^2 - z^*\rbr{a^-}^2} \nonumber \\
+&= \frac{1}{2}\rbr{z \rbr{+2\ii\Omega t}^2
+		\rbr{a^+}^2 - z^*\rbr{-2\ii\Omega t}^2\rbr{a^-}^2};
+\end{align}
+Can be proved by induction.
+\end{proof}
+
+\begin{namedthm}{Proposition}
+\begin{equation}
+\rfun{\mscrU}{t}\rfun{S}{z}	= \rfun{S}{z^t}\rfun{\mscrU}{t},
+\end{equation}
+where
+\begin{equation}
+z^t \coloneqq z\ee^{2\ii\Omega t}.
+\end{equation}
+
+\end{namedthm} % Proposition
+\begin{proof}
+Sum up.
+\end{proof}
+
+Note one also has $\beta^t \coloneqq \beta \ee^{2\ii\Omega t}$.
+
+
+\subsection{Particle numbers}
+
+\begin{namedthm}{Lemma}[Factorising $\rfun{\widehat{S}}{z}$]
+\begin{alignat}{3}
+\rfun{\widehat{S}}{z} &=&&
+\cfun{\exp}{+\frac{1}{2}\rbr{\widehat{a}^+}^2\ee^{+\ii\theta}\tanh r}
+\nonumber \\
+&&\cdot& \cfun{\exp}{\rbr{\frac{1}{2}+\widehat{a}^+\widehat{a}^-}\ln\sech r}
+\cfun{\exp}{-\frac{1}{2}\rbr{\widehat{a}^-}^2\ee^{-\ii\theta}\tanh r}
+\\
+&=&&\cfun{\exp}{\frac{\beta}{2} \rbr{\widehat{a}^+}^2} 
+\cfun{\exp}{\rbr{\frac{1}{2}+\widehat{a}^+\widehat{a}^-} 
+\ln\sqrt{1-\vbr{\beta}^2}}
+\cfun{\exp}{-\frac{\beta^*}{2}\rbr{\widehat{a}^-}^2}.
+\end{alignat}
+\end{namedthm} % Lemma
+
+\begin{nameddef}{Particle number representation of $\Ket{\beta}$}
+\begin{align}
+\Braket{2n | \beta} &= \rbr{1-\vbr{\beta}^2}^{1/4}
+\frac{\sqrt{\rbr{2n}!}}{2^n n!}\beta^n, \\
+\Braket{2n+1 | \beta} &= 0.
+\end{align}
+
+\end{nameddef}
+
+
+\begin{equation}
+	\Braket{\beta | \widehat{a}^+\widehat{a}^- | \beta}
+	= \Braket{0 | \rfun{S^\dagger}{z}\widehat{a}^+
+	\widehat{a}^-\rfun{S}{z} | 0}
+	= \sinh^2 r = \frac{\vbr{\beta}^2}{1-\vbr{\beta}^2}.
+\end{equation}
+
+\begin{equation}
+	\Braket{0 | \widehat{b}^+\widehat{b}^- | 0}
+	= \Braket{0 | \rfun{S}{z}\widehat{a}^+\rfun{S^\dagger}{z}
+	\rfun{S}{z}\widehat{a}^-\rfun{S^\dagger}{z} | 0}
+	= \sinh^2 r = \frac{\vbr{\beta}^2}{1-\vbr{\beta}^2}.
+\end{equation}
+
+\subsection{Wave function}
+
+\begin{namedthm}{Lemma}[Factorising $\rfun{\widehat{S}}{z}$]
+\begin{equation}
+	\rfun{\widehat{S}}{z} =
+	\rfun{\expi}{\frac{m\Omega}{2}\sigma_z \, x^2}
+	\rfun{\expi}{-\ln \lambda_z\,\frac{\widehat{x}\widehat{p} + 
+			\widehat{p}\widehat{x}}{2}}
+	\rfun{\expi}{-\frac{\sigma_z}{2m\Omega}\, p^2},
+\end{equation}
+with
+\begin{align}
+	\lambda_z &\coloneqq \cosh r + \cos\phi\,\sinh r \equiv
+	\ee^{+r} \cos^2\frac{\phi}{2}+\ee^{-r}\sin^2\frac{\phi}{2}, \\
+	\sigma_z &\coloneqq \frac{1}{\cot\phi+\coth r\,\csc\phi} \equiv
+	\frac{\sin\phi\,\sinh r}{\lambda_z}.
+	\end{align}
+\end{namedthm} % Lemma
+
+\begin{namedthm}{Proposition}
+\begin{equation}
+\lambda_z^2\rbr{1+\sigma_z^2} = \lambda_{2z}
+\end{equation}
+
+\end{namedthm} % Proposition
+
+
+\begin{nameddef}{Wave function of $\Ket{\beta}$}
+\begin{align}
+	&\phantom{{}={}} \Braket{x | \ee^{\ii b_1 \widehat{x}^2} \ee^{\ii b_2 
+		\rbr{\widehat{x} \widehat{p} + \widehat{p} \widehat{x}}/2} \ee^{\ii b_3 
+		\widehat{p}^2} | \psi} \nonumber \\
+	&= \ee^{\ii b_1 x^2} \Braket{x | \ee^{\ii b_2 
+		\rbr{\widehat{x} \widehat{p} + \widehat{p} \widehat{x}}/2} \ee^{\ii b_3 
+		\widehat{p}^2} | \psi} \nonumber \\
+	&= \ee^{\ii b_1 x^2 + b_2/2} \Braket{x \ee^{b_2} | \ee^{\ii b_3 
+	\widehat{p}^2} | \psi} \nonumber \\
+	&= \frac{\ee^{\ii b_1 x^2 + b_2/2}}{\rbr{-4\pp\ii b_3}^{1/2}}
+		\int_{-\infty}^{+\infty}\dif x'\,\cfun{\expi}{-\frac{\rbr{x\ee^{b_2} 
+		-x'}^2}{4b_3}}\Braket{x' | \psi}.
+\end{align}
+For $\rfun{\widehat{S}}{z}$, $b_1 = m\Omega\sigma_z/2$, $b_2 = -\ln \lambda_z$, 
+$b_3 = -\sigma_z/2m\Omega$, and $\Ket{\psi} = \Ket{0}$, so that
+	\begin{align}
+	&\phantom{{}={}} \rbr{\frac{m\Omega}{\pp}}^{-1/4} \Braket{x | 
+		\rfun{\widehat{S}}{z} | 0} \nonumber \\
+	&= \rbr{\lambda_z\rbr{1+\ii\sigma_z}}^{-1/2}
+	\cfun{\exp}{-\frac{m\Omega x^2}{2}
+	\rbr{\frac{1}{\lambda_z^2\rbr{1+\ii\sigma_z}} - \ii\sigma_z}} \nonumber \\
+	&= \rbr{\lambda_z^2\rbr{1+\sigma_z^2}}^{-1/4}
+	\cfun{\exp}{-\frac{m\Omega x^2}{2 \lambda_z^2\rbr{1+\sigma_z^2}}}
+	\cfun{\expi}{\frac{m\Omega x^2 \sigma_z}{2 \lambda_z^2\rbr{1+\sigma_z^2}}
+		- \frac{\rfun{\arg}{1+\ii\sigma_z}}{2}} \nonumber \\
+	&= \lambda_{2z}^{-1/4}
+	\cfun{\exp}{-\frac{m\Omega}{2 \lambda_{2z}} x^2} 
+	\cfun{\expi}{\frac{m\Omega\sigma_{2z}}{2} x^2 - \frac{1}{2}
+	\rfun{\arg}{1+\ii\sigma_z}}.
+	%\nonumber \\
+	\end{align}
+\end{nameddef} % Wave function of $\Ket{\beta}$
+
+\subsection{Density matrix and Wigner function}
+
+\begin{nameddef}{Density matrix in the particle number representation}
+\begin{align}
+\Braket{2n_1 | \widehat{\rho} | 2n_2} &= \sqrt{1-\vbr{\beta}^2}
+\frac{\sqrt{\rbr{2n_1}!\rbr{2n_2}!}}{2^{n_1+n_2}n_1!n_2!}
+\beta^{n_1} \rbr{\beta^*}^{n_2} \nonumber \\
+&= \sqrt{1-\vbr{\beta}^2}
+\frac{\sqrt{\rbr{2n_1}!\rbr{2n_2}!}}{2^{n_1+n_2}n_1!n_2!}
+\ee^{\ii\rbr{n1-n2}\phi}\rbr{\tanh r}^{n_1+n_2}.
+\end{align}
+\end{nameddef} % Density matrix in the particle number representation
+
+\begin{nameddef}{Density matrix in the position representation}
+\begin{equation}
+\Braket{x_1 | \widehat{\rho} | x_2} = \sqrt{\frac{m\Omega}{2\lambda_{2z}}}
+\cfun{\exp}{-\frac{m\Omega}{2\lambda_{2z}}\rbr{x_1^2 + x_2^2}}
+\cfun{\expi}{\frac{m\Omega\sigma_{2z}}{2}\rbr{x_1^2-x_2^2}}.
+\end{equation}
+\end{nameddef} % Density matrix in the position representation
+
+\begin{nameddef}{Wigner function}
+\begin{align}
+	&\phantom{{}={}} \rfun{W}{x, p} \nonumber \\
+	&= \pp^{-1} \cfun{\exp}{- m\Omega\lambda_{-2z} x^2
+	+ 2 \lambda_{2z} \sigma_{2z} x p - \lambda_{2z} \frac{p^2}{m\Omega}} \\
+	&\equiv \pp^{-1} \cfun{\exp}{-m\Omega \frac{X^2}{\ee^{+2r}} - 
+		\frac{1}{m\Omega}\frac{P^2}{\ee^{-2r}}},
+\end{align}
+where
+\begin{equation}
+	\begin{pmatrix} \rbr{m\Omega}^{+1/2} X \\
+		\rbr{m\Omega}^{-1/2} P \end{pmatrix} \coloneqq
+	\begin{pmatrix}
+	\cos\phi/2 & \sin\phi/2 \\ -\sin\phi/2 & \cos\phi/2
+	\end{pmatrix}
+	\begin{pmatrix} \rbr{m\Omega}^{+1/2} x \\
+		\rbr{m\Omega}^{-1/2} p \end{pmatrix}
+\end{equation}
+are principle coordinates of the Wigner ellipse. One sees that 
+$\phi/2$ rotates the canonical coordinates for the Wigner function, while
+$\ee^{+r}$ ($\ee^{-r}$) stretches (squeezes) the principle axis of $X$ ($P$),
+if $r > 0$.
+\end{nameddef} % Wigner function

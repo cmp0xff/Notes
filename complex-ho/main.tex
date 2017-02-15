@@ -1,0 +1,234 @@
+\documentclass[a4paper]{article}
+
+
+\input{../preambles/preamble}
+\setdefaultlanguage{english}
+%\setotherlanguages{german,greek}
+
+\input{../preambles/mathematics}
+\input{../preambles/physics}
+
+%\newcommand{\RomaN}[1]{%
+%  \textup{\uppercase\expandafter{\romannumeral#1}}%
+%}
+
+
+%\addbibresource{main.bib}
+\title{Complex Harmonic Oscillators and How to Squeeze Them}
+\author{YiFan Wang}
+
+\newcommand{\Poibr}[1]{\sbr{#1}_\text{P}}
+\newcommand{\Combr}[1]{\sbr{#1}_\text{-}}
+
+\newcommand{\tR}{\Re}
+\newcommand{\tI}{\Im}
+\newcommand{\tS}{\text{S}}
+\newcommand{\tD}{\text{D}}
+
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\tableofcontents
+
+\section{Single complex oscillator}
+
+\begin{nameddef}{Classical Hamiltonian in canonical coordinates}
+Complex phase space
+\begin{equation}
+H = \frac{1}{2}\pi^+\pi^- + \frac{\Omega^2}{2}\phi^+\phi^-,
+\end{equation}
+The corresponding Poisson brackets read
+\begin{equation}
+\Poibr{\rfun{f}{\eta^C}, \rfun{g}{\eta^C}} = \sum_C \rbr{
+\frpa{f}{\phi^C}\frpa{g}{\pi^C} - \frpa{f}{\pi^C}\frpa{g}{\phi^C}},
+\end{equation}
+where $C \in \cbr{+, -}$, $\eta^+ = \rbr{\eta^-}^*$ and $\eta \in \cbr{\pi, 
+\phi}$, so that
+\begin{equation}
+\Poibr{\phi^{C_1}, \pi^{C_2}} = \delta^{C_1 C_2},\qquad
+\Poibr{\phi^{C_1}, \phi^{C_2}} = \Poibr{\pi^{C_1}, \pi^{C_2}} = 0.
+\end{equation}
+
+Real phase space
+\begin{equation}
+\phi^C = \frac{1}{\sqrt{2}}\rbr{ \phi_\tR - C \ii \phi_\tI},\qquad
+\pi^C = \frac{1}{\sqrt{2}}\rbr{ \pi_\tR + C \ii \pi_\tI}.
+%\phi^* &= \frac{1}{\sqrt{2}}\rbr{\phi^\tR - \ii \phi^\tI},\qquad
+%\pi^* &&= \frac{1}{\sqrt{2}}\rbr{\pi^\tR + \ii \pi^\tI}.
+\end{equation}
+Inverse transformation
+\begin{equation}
+\begin{aligned}
+\phi_\tR &= \frac{1}{\sqrt{2}}\rbr{\phi^+ + \phi^-},
+&\phi_\tI &= \frac{\ii}{\sqrt{2}}\rbr{\phi^+ - \phi^-}, \\
+\pi_\tR &= \frac{1}{\sqrt{2}}\rbr{\pi^- + \pi^+},
+&\pi_\tI &= \frac{\ii}{\sqrt{2}}\rbr{\pi^- - \pi^+}. \\
+\end{aligned}
+\end{equation}
+
+One can verify
+\begin{equation}
+H = \sum_{F} \frac{1}{2} \pi_F^2 + \frac{\Omega^2}{2} \phi_F^2,
+\end{equation}
+where $F \in \cbr{\tR, \tI}$, and
+\begin{equation}
+\Poibr{\rfun{f}{\eta_F}, \rfun{g}{\eta_F}} = \sum_F
+\frpa{f}{\phi_F}\frpa{g}{\pi_F} - \frpa{f}{\pi_F}\frpa{g}{\phi_F},
+\end{equation}
+so that
+\begin{equation}
+\Poibr{\phi_{F_1}, \pi_{F_2}} = \delta_{F_1 F_2},\qquad
+\Poibr{\phi_{F_1}, \phi_{F_2}} = \Poibr{\pi_{F_1}, \pi_{F_2}} = 0.
+\end{equation}
+hold as well.
+\end{nameddef} % Classical Hamiltonian in canonical coordinates
+
+\begin{nameddef}{Ladder coordinates}
+Ladder coordinates (ladder `numbers', later to be quantised) in complex phase
+space
+\begin{align}
+a_\phi^C &= \frac{1}{\sqrt{2}} \rbr{\Omega^{+\frac{1}{2}}\phi^{C} - C \ii
+\Omega^{-\frac{1}{2}} \pi^{-C}}, \\
+a_\pi^C &= \frac{1}{\sqrt{2}} \rbr{\Omega^{+\frac{1}{2}}\phi^{-C} - C \ii
+\Omega^{-\frac{1}{2}} \pi^{C}},
+\end{align}
+where $-- = +$, $-+ = -$.
+Poisson brackets? Inverse transformation
+\begin{equation}
+\phi^- = \frac{\Omega^{-\frac{1}{2}}}{\sqrt{2}}\rbr{a_\pi^+ + a_\phi^-},\qquad
+\pi^- = \frac{\ii\Omega^{+\frac{1}{2}}}{\sqrt{2}}\rbr{a_\phi^+ - a_\pi^-}.
+\end{equation}
+
+
+Ladder coordinates in real phase space
+\begin{equation}
+a_F^C = \frac{1}{\sqrt{2}} \rbr{\Omega^{+\frac{1}{2}}\phi_F - C \ii
+\Omega^{-\frac{1}{2}} \pi_F}.
+\end{equation}
+Poisson brackets? Inverse transformation
+\begin{equation}
+\phi_F = \frac{\Omega^{-\frac{1}{2}}}{\sqrt{2}}\rbr{a_F^+ + a_F^-},\qquad
+\pi_F = \frac{\ii\Omega^{+\frac{1}{2}}}{\sqrt{2}}\rbr{a_F^+ - a_F^-}.
+\end{equation}
+
+
+One can check that
+\begin{equation}
+a_\phi^C = \frac{1}{\sqrt{2}}\rbr{a_\tR^C - C \ii a_\tI^C},\qquad
+a_\pi^C = \frac{1}{\sqrt{2}}\rbr{a_\tR^C + C \ii a_\tI^C}.
+\end{equation}
+%Inverse transformation
+%\begin{equation}
+%a_\phi^C = \frac{1}{\sqrt{2}}\rbr{a_\tR^C - C \ii a_\tI^C},\qquad
+%a_\pi^C = \frac{1}{\sqrt{2}}\rbr{a_\tR^C + C \ii a_\tI^C}.
+%\end{equation}
+
+
+\end{nameddef} % Ladder coordinates
+
+
+
+\begin{nameddef}{Quantisation}
+Quantisation in complex canonical coordinates
+\begin{equation}
+f \mapsto \what{f};\qquad
+\Poibr{f,g} \mapsto \Combr{\what{f},\what{g}} = \ii \what{\Poibr{f,g}}.
+\end{equation}
+All classical equations listed above can be immediately quantised, since no 
+product of non-commuting operators appears.
+
+%Quantum Hamiltonian in canonical coordinates
+%\begin{align}
+%\what{H} &= \frac{1}{2} \what{\pi}^ + \what{\pi}^- + 
+%\frac{\Omega^2}{2} \what{\phi}^+ \what{\phi}^-
+%\\
+%&= \sum_{F} \frac{1}{2} \what{\pi}_F^2 + \frac{\Omega^2}{2} \what{\phi}_F^2.
+%\end{align}
+
+Commutators of the ladder operators
+\begin{align}
+\Combr{\what{a}_{\eta_1}^{-C_1}, \what{a}_{\eta_2}^{C_2}} &= 
+\delta_{\eta_1 \eta_2} \delta^{C_1 C_2} \what{1}; \\
+\Combr{\what{a}_{F_1}^{-C_1}, \what{a}_{F_2}^{C_2}}
+&= \delta_{F_1 F_2} \delta^{C_1 C_2} \what{1}. \\
+\end{align}
+
+Number operators
+\begin{equation}
+\what{n}_\eta \coloneqq \what{a}_\eta^+ \what{a}_\eta^-,\qquad
+\what{n}_F \coloneqq \what{a}_F^+ \what{a}_F^-.
+\end{equation}
+
+
+Angular momentum operator
+\begin{align}
+\what{L} &\coloneqq
+\what{\phi}_\tR\what{\pi}_\tI - \what{\phi}_\tI\what{\pi}_\tR \nonumber \\
+&= \ii\rbr{\what{a}_\tI^+\what{a}_\tR^- - \what{a}_\tR^+\what{a}_\tI^-}
+\nonumber \\
+&= \ii\rbr{\what{\phi}^-\what{\pi}^- - \what{\phi}^+\what{\pi}^+}
+= \ii\rbr{\what{\pi}^-\what{\phi}^- - \what{\pi}^+\what{\phi}^+}
+\nonumber \\
+&= \what{n}_\pi - \what{n}_\phi.
+\label{eq:angular-momentum}
+\end{align}
+$\what{L} = \what{L}^\dagger$.
+
+\begin{align}
+\what{n}_\phi &= \frac{1}{2}
+\rbr{\Omega^{+\frac{1}{2}}\what{\phi}^+ - \ii\Omega^{-\frac{1}{2}}\what{\pi}^-}
+\rbr{\Omega^{+\frac{1}{2}}\what{\phi}^- + \ii\Omega^{-\frac{1}{2}}\what{\pi}^+}
+\nonumber \\
+&= \frac{1}{2} \rbr{\Omega^{+1} \what{\phi}^+\what{\phi}^- + 
+\ii\rbr{\what{\phi}^+\what{\pi}^+ - \what{\pi}^-\what{\phi}^-}
++ \Omega^{-1} \what{\pi}^-\what{\pi}^+} \nonumber \\
+&= \Omega^{-1}\what{H} - \frac{1}{2}\rbr{1+\what{L}}.
+\end{align}
+Substituting \eqref{eq:angular-momentum} yields the quantum Hamiltonian
+\begin{empheq}[box=\fbox]{equation}
+\what{H} = \frac{\Omega}{2}\rbr{\what{n}_\phi + \what{n}_\pi + 1}.
+\end{empheq} % equation
+%Luckily,
+%\begin{equation}
+%\Combr{\what{L},\what{H}} = 0
+%\end{equation}
+%so that
+%\begin{equation}
+%\Omega \Combr{\what{n},\what{L}} = \Combr{\what{n},\what{H}} = 0
+%\end{equation}
+%as well.
+
+
+%\begin{equation}
+%H = \frac{1}{2}\what{\pi}^+\what{\pi}^- + \frac{\Omega^2}{2}\phi^+\phi^-,
+%\end{equation}
+\end{nameddef}
+
+\begin{nameddef}{Wave function}
+One may choose the 
+\end{nameddef}
+
+
+\section{Rotating}
+
+\section{Cohering}
+
+\section{Single--mode squeezing}
+
+\section{Double--mode squeezing}
+
+\
+
+
+
+
+% Let's print the overall heading of the bibliography first:
+%\printbibheading
+%\printbibliography
+
+\end{document}

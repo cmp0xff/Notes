@@ -1,0 +1,158 @@
+\section{Double-mode squeezing}
+
+Let
+\begin{equation}
+\widehat{b}_i^-
+= \frac{\widehat{a}_i^- - \beta \widehat{a}_j^+}{\sqrt{1-\vbr{\beta}^2}},\qquad
+\widehat{b}_i^+ = \rbr{\widehat{b}_i^-}^\dagger
+= \frac{\widehat{a}_i^+ - \beta^*\widehat{a}_j^-}{\sqrt{1-\vbr{\beta}^2}},
+%\label{eq:res-bogolyubov-b}
+\end{equation}
+where $\cbr{i, j} = \cbr{1,2}$, so that
+\begin{equation}
+\sbr{\widehat{b}_i^-, \widehat{b}_j^+}_- =
+\delta_{ij}\widehat{1}.
+\end{equation}
+One seeks the state $\Ket{\beta}$ satisfying
+\begin{equation}
+\widehat{b}^-\Ket{\beta} = 0.
+%\label{eq:squeezed-state-def-1}
+\end{equation}
+
+Note that \cref{eq:res-bogolyubov-b} is again a restricted \emph{Bogolyubov
+transformation}, in that the coefficients of $\widehat{a}_i^-$ for 
+$\widehat{b}_i^-$ are real.
+
+\subsection{Double-mode squeeze operator}
+One attempts
+\begin{equation}
+\rfun{\widehat{S}_2}{z}\widehat{a}^-\rfun{\widehat{S_2}^{-1}}{z},
+\end{equation}
+where
+\begin{equation}
+\rfun{\widehat{S}_2}{z} \coloneqq \rfun{\exp}{z \widehat{a}_1^+ \widehat{a}_2^+ 
+- z^*\widehat{a}_1^-\widehat{a}_2^-}
+\end{equation}
+is the \emph{double-mode squeeze operator}. Note that
+\begin{equation}
+\rfun{\widehat{S}_2^{-1}}{z} = \rfun{\widehat{S}_2}{-z}
+= \rfun{\widehat{S}_2^\dagger}{z}.
+\end{equation}
+
+The parameterisation $z = r\ee^{\ii\phi}$ will also be used, where $r = 
+\vbr{z}$, $\phi = \arg z$.
+
+\begin{namedthm}{Proposition}
+	%\label{nthm:prop-ad-aminus}
+Let $X = z \widehat{a}_1^+ \widehat{a}_2^+ - z^*\widehat{a}_1^-\widehat{a}_2^-$. 
+Then
+\begin{align}
+	\ad_X^{(2n)} \widehat{a}_i^- &= \vbr{z}^{2n} \widehat{a}_i^-
+	= r^{2n} \widehat{a}_i^-,\\
+	\ad_X^{(2n+1)} \widehat{a}_i^-
+	&= -\vbr{z}^{2n+1}\frac{z}{\vbr{z}}\widehat{a}_j^+
+	= \ee^{\ii\phi} r^{2n+1}\ee^{\ii\phi} \widehat{a}_j^+,
+	\qquad \forall n \ge 0.
+\end{align}
+\end{namedthm} % Proposition
+
+\begin{namedthm}{Proposition}
+\begin{align}
+	\rfun{\widehat{S}_2}{z} \widehat{a}_i^- \rfun{\widehat{S}_2^\dagger}{z}
+	&= \widehat{a}_i^-\cosh \vbr{z}
+		- \widehat{a}_j^+ \frac{z}{\vbr{z}} \sinh \vbr{z}
+	\nonumber \\
+	&= \widehat{a}_i^-\cosh r - \widehat{a}_j^+ \ee^{\ii\phi} \sinh r,
+	%\label{eq:squeezed-aminus-parameter}
+\end{align}
+so that $z$ or $\rbr{r, \phi}$ is a parameterisation of $\beta$ in 
+\cref{eq:res-bogolyubov-b} in that
+\begin{equation}
+	\vbr{\beta} = \tanh\vbr{z} = \tanh r,\qquad \arg \beta = \arg z = \phi.
+	%\label{eq:beta-parameter}
+\end{equation}
+\end{namedthm} %Proposition
+
+\begin{namedthm}{Squeezed ground state}
+	$\Ket{\beta}$ in \cref{eq:squeezed-state-def-1} is the $\beta$-squeezed 
+ground state, namely
+\begin{equation}
+	\Ket{\beta} = \rfun{\widehat{S}_2}{z}\Ket{0}.
+\end{equation}
+\end{namedthm} % Squeezed ground state
+
+
+
+\subsection{Time evolution}
+
+%\begin{namedthm}{Proposition}
+%	Let $X = \ii\Omega t \rbr{a_1^+ a_1^- + a_2^+a_2^-}$, $Y = z a_1^+ a_2^+
+%- z^* a_1^- a_2^-$.
+%	\begin{equation}
+%		\ad_X^{(n)}Y = z \rbr{+2\ii\Omega t}^n
+%		\rbr{a^+}^2 - z^*\rbr{-2\ii\Omega t}^n\rbr{a^-}^2.
+%	\end{equation}
+%\end{namedthm} % Proposition
+
+%\begin{namedthm}{Proposition}
+%\begin{equation}
+%\rfun{\mscrU}{t}\rfun{S}{z}	= \rfun{S}{z\ee^{2\ii\Omega t}}\rfun{\mscrU}{t}.
+%\end{equation}
+%\end{namedthm} % Proposition
+%\begin{proof}
+%Sum up.
+%\end{proof}
+
+
+
+
+\subsection{Particle numbers}
+
+%\begin{equation}
+%	\Braket{\beta | \widehat{a}^+\widehat{a}^- | \beta}
+%	= \Braket{0 | \rfun{S^\dagger}{z}\widehat{a}^+
+%	\widehat{a}^-\rfun{S}{z} | 0}
+%	= \sinh^2 r = \frac{\vbr{\beta}^2}{1-\vbr{\beta}^2}.
+%\end{equation}
+
+%\begin{equation}
+%	\Braket{0 | \widehat{b}^+\widehat{b}^- | 0}
+%	= \Braket{0 | \rfun{S}{z}\widehat{a}^+\rfun{S^\dagger}{z}
+%	\rfun{S}{z}\widehat{a}^-\rfun{S^\dagger}{z} | 0}
+%	= \sinh^2 r = \frac{\vbr{\beta}^2}{1-\vbr{\beta}^2}.
+%\end{equation}
+
+\subsection{Wave function}
+
+\begin{nameddef}{Wave function}
+\begin{alignat}{3}
+&\phantom{{}={}}&&\rbr{\frac{m\Omega}{2}}^{-1/2}\Braket{x_1, x_2 | \beta} 
+\nonumber \\
+&=&& \rbr{\cosh^2 r - \ee^{2\ii\phi} \sinh^2 r}^{-1/2} \nonumber \\
+&&\cdot& \cfun{\exp}{-\frac{m\Omega}{2} \rbr{\frac{1 + \ee^{2\ii\phi}\tanh^2 r}%
+{1 - \ee^{2\ii\phi}\tanh^2 r} \rbr{x_1^2+x_2^2} - \frac{4\ee^{\ii\phi}
+\tanh r}{1 - \ee^{2\ii\phi}\tanh^2 r} x_1 x_2  }} \nonumber \\
+&=&& \rbr{\frac{1-\vbr{\beta}^2}{1-\beta^2}}^{1/2}
+\cfun{\exp}{-\frac{m\Omega}{2} \rbr{\frac{1+\beta^2}{1-\beta^2}\rbr{x_1^2+x_2^2}
+- \frac{4\beta}{1-\beta^2} x_1 x_2}}.
+\end{alignat}
+\end{nameddef}
+
+\subsection{Density matrix and Wigner function}
+
+Did not find any simplification for $\Braket{x_1, x_2 | \widehat{\rho} | y_1,
+y_2} \equiv \Braket{x_1, x_2 | \beta} \Braket{\beta | y_1,y_2} $.
+
+\begin{alignat}{3}
+&\phantom{{}={}}&&\rfun{W}{x_i; p_i} = \pp^{-2}
+\exp\mathopen{}\left\{ -\rbr{
+\frac{x_1^2+x_2^2}{\rbr{m\Omega}^{-1}}+
+\frac{p_1^2+p_2^2}{\rbr{m\Omega}^{+1}}}\cosh 2r \mathclose{}\right.
+\nonumber \\
+&&+& \left.2\left(
+ \rbr{\frac{x_1 x_2}{\rbr{m\Omega}^{-1}}
+-\frac{p_1 p_2}{\rbr{m\Omega}^{+1}}} \cos\phi
+-\rbr{x_1 p_2 + x_2 p_1} \sin\phi\right)\sinh 2r\right\}
+\end{alignat}
+
+Any insight?

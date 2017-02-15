@@ -1,0 +1,304 @@
+\section{Coherent state}
+
+Let
+\begin{equation}
+\widehat{b}^- = \widehat{a}^- - \alpha,\qquad
+\widehat{b}^+ = \rbr{\widehat{b}^-}^\dagger = \widehat{a}^+ - \alpha^*.
+\label{eq:displacement-b}
+\end{equation}
+One seeks the state $\Ket{\alpha}$ satisfying
+\begin{equation}
+\widehat{b}^-\Ket{\alpha} = 0.
+\label{eq:coherent-state-def-1}
+\end{equation}
+Expanding $\widehat{b}^-$ in terms of $\widehat{x}$ and $\widehat{p}$,
+\begin{equation}
+\widehat{b}^- = \sqrt{\frac{m\Omega}{2}}\rbr{\widehat{x}-x_\alpha}
++ \frac{\ii}{\sqrt{2m\Omega}}\rbr{\widehat{p}-p_\alpha},
+\end{equation}
+where
+\begin{equation}
+x_\alpha = \sqrt{\frac{2}{m\Omega}}\Re\alpha,\qquad
+p_\alpha = \sqrt{2m\Omega}\Im\alpha.
+\end{equation}
+
+One may define
+\begin{align}
+\widehat{y} & \coloneqq \widehat{x} - x_\alpha \widehat{1}
+= \widehat{x} - \ii x_\alpha\sbr{\widehat{p},\widehat{x}}_-
+= \ee^{-\ii x_\alpha \widehat{p}} \widehat{x} \ee^{+\ii x_\alpha \widehat{p}},
+\label{eq:coh-y}\\
+\widehat{k} & \coloneqq \widehat{p} - p_\alpha \widehat{1}
+= \widehat{p} + \ii p_\alpha\sbr{\widehat{x},\widehat{p}}_-
+= \ee^{+\ii p_\alpha \widehat{x}} \widehat{p} \ee^{-\ii p_\alpha \widehat{x}},
+\label{eq:coh-k}
+\end{align}
+where in the last steps, Lemma \ref{lem:bch-sandwich} has been applied.
+One can verify
+\begin{equation}
+\sbr{\widehat{y}, \widehat{k}}_- = \ii \widehat{1}.
+\end{equation}
+
+\subsection{Displacement operator}
+Inspired by \cref{eq:coh-y,eq:coh-k}, one attempts
+\begin{equation}
+\rfun{\widehat{D}}{\alpha}\widehat{a}^-\rfun{\widehat{D}^{-1}}{\alpha},
+\end{equation}
+where
+\begin{equation}
+\rfun{\widehat{D}}{\alpha} \coloneqq
+\ee^{+\alpha\widehat{a}^+ - \alpha^*\widehat{a}^-}
+\equiv \ee^{\ii\rbr{-x_\alpha\widehat{p}+p_\alpha\widehat{x}}}
+\end{equation}
+is the \emph{displacement operator}. Note that
+\begin{equation}
+\rfun{\widehat{D}^{-1}}{\alpha} = \rfun{\widehat{D}}{-\alpha}
+= \rfun{\widehat{D}^\dagger}{\alpha}.
+\end{equation}
+
+\begin{equation}
+b^- = a^- - \alpha = a^- + \alpha\sbr{a^+, a^-}_-
+= a^- + \sbr{\alpha a^+ - \alpha^* a^-, a^-}_-.
+\end{equation}
+Note that
+\begin{equation}
+\ad_{\alpha a^+ - \alpha^* a^-}^{\rbr{n}}a^- \equiv 0,\qquad\forall n \ge 2.
+\end{equation}
+By Lemma \ref{lem:bch-sandwich},
+\begin{equation}
+b^- = \ee^{+\alpha a^+ - \alpha^* a^-}a^-\ee^{-\alpha a^+ + \alpha^* a^-}
+= \rfun{D}{\alpha} a^- \rfun{D}{\alpha}^{-1}.
+\end{equation}
+Now
+\begin{equation}
+a^-\Ket{0} \coloneqq 0 \eqqcolon \rfun{D^\dagger}{\alpha} b^- \Ket{0}
+= a^- \rfun{D^\dagger}{\alpha} \Ket{\alpha}.
+\end{equation}
+With $\rfun{D}{\alpha}$ unitary in mind, one finds
+\begin{equation}
+\Ket{\alpha} = \ee^{\ii\theta}\rfun{D}{\alpha}\Ket{0}.
+\end{equation}
+One can fix the phase $\theta$ to be zero.
+
+\subsection{Time evolution}
+
+Compute
+\begin{equation}
+\rfun{\widehat{\mscrU}}{t} \rfun{\widehat{D}}{\alpha}
+\rfun{\widehat{\mscrU}^\dagger}{t}.
+\label{eq:tim-evo-disp-1}
+\end{equation}
+
+\Cref{eq:tim-evo-disp-1} simplifies to
+\begin{equation}
+\ee^{-\ii \Omega t a^+ a^-} \rfun{D}{\alpha}
+\ee^{+\ii \Omega t a^+ a^-}
+\label{eq:tim-evo-disp-2}
+\end{equation}
+
+One wishes to interchange $\ee^{-\ii \Omega t a^+ a^-}$ and
+$\rfun{D}{\alpha}$. By Theorem \ref{thm:bch-brading}, one computes
+\begin{align}
+\ad_{-\ii \Omega t a^+ a^-}^{(1)}\rbr{\alpha a^+ - \alpha^* a^-}
+&= \sbr{-\ii \Omega t a^+ a^- , \alpha a^+ - \alpha^* a^-}_-
+\nonumber\\
+&= -\ii\Omega t \rbr{\alpha a^+\sbr{a^-, a^+}_- - \alpha^*\sbr{a^+, a^-}_- a^-}
+\nonumber\\
+&= -\ii\Omega t \rbr{+\alpha a^+ + \alpha^* a^-} \nonumber\\
+&=	+ \alpha\rbr{-\ii\Omega t}^1 a^+
+	- \alpha\rbr{+\ii\Omega t}^1 a^-;
+\end{align}
+\begin{align}
+\ad_{-\ii \Omega t a^+ a^-}^{(2)}\rbr{\alpha a^+ - \alpha^* a^-}
+&= \sbr{-\ii \Omega t a^+ a^-,
+	-\ii\Omega t \rbr{+\alpha a^+ + \alpha^* a^-}}_-
+\nonumber\\
+&= \Omega^2 t^2\rbr{-\alpha a^+ + \alpha^* a^-}
+\nonumber\\
+&= + \alpha\rbr{-\ii\Omega t}^2 a^+
+- \alpha\rbr{+\ii\Omega t}^2 a^-.
+\end{align}
+By induction one can prove
+\begin{equation}
+\ad_{-\ii \Omega t a^+ a^-}^{(n)}\rbr{\alpha a^+ - \alpha^* a^-}
+= + \alpha\rbr{-\ii\Omega t}^n a^+
+- \alpha\rbr{+\ii\Omega t}^n a^-,
+\end{equation}
+so that \cref{eq:tim-evo-disp-1} transforms to
+\begin{align}
+&\phantom{{}={}}\rfun{\exp}{+\alpha\ee^{-\ii\Omega t}a^+
+	-\alpha^*\ee^{+\ii\Omega t}a^-}
+	\ee^{-\ii \Omega t a^+ a^-}
+	\ee^{+\ii \Omega t a^+ a^-} \\
+&= \rfun{\exp}{+\alpha\ee^{-\ii\Omega t}a^+
+-\alpha^*\ee^{+\ii\Omega t}a^-} \\
+&\equiv \rfun{D}{\alpha^t}.
+\end{align}
+by Theorem \ref{thm:bch-brading}, where
+\begin{equation}
+\alpha^t\coloneqq \alpha\ee^{-\ii\Omega t}.
+\end{equation}
+
+As a result, the time evolution of the coherent ground state is
+\begin{equation}
+\rfun{\mscrU}{t} \Ket{\alpha} = \rfun{\mscrU}{t} \rfun{D}{\alpha} \Ket{0}
+= \rfun{D}{\alpha^t} \rfun{\mscrU}{t} \Ket{0}
+= \ee^{-\ii\Omega t/2}\Ket{\alpha^t},
+\end{equation}
+in terms of the coherent parameter $\alpha$.
+
+\subsection{Particle numbers}
+
+\begin{namedthm}{Lemma}
+\begin{equation}
+\rfun{\widehat{D}}{\alpha} = \ee^{-\vbr{\alpha}^2/2}
+\ee^{+\alpha\widehat{a}^+} \ee^{-\alpha^*\widehat{a}^-}.
+\end{equation}
+\end{namedthm}
+\begin{proof}
+Use Corollary \ref{thm:bch-merging}.
+\end{proof}
+
+\begin{namedthm}{Particle number representation of $\Ket{\alpha}$}
+\begin{equation}
+\Braket{n | \alpha} = \ee^{-\vbr{\alpha}^2/2}
+\frac{\alpha^n}{\sqrt{n!}}.
+\end{equation}
+\end{namedthm}
+
+
+\begin{namedthm}{$\widehat{a}$-particle number in $\Ket{\alpha}$}
+\begin{equation}
+\Braket{\alpha | \widehat{a}^+ \widehat{a}^- | \alpha} = \vbr{\alpha}^2.
+\end{equation}
+\end{namedthm}
+\begin{proof}
+\begin{equation}
+\rfun{\widehat{D}^\dagger}{\alpha}\widehat{a}^-\rfun{\widehat{D}}{\alpha}
+= \widehat{a}^- + \sbr{-\alpha \widehat{a}^+, \widehat{a}^-}_-
+= \widehat{a}^- + \alpha;
+\end{equation}
+\begin{equation}
+\rfun{\widehat{D}^\dagger}{\alpha}\widehat{a}^+
+\widehat{a}^-\rfun{\widehat{D}}{\alpha}
+=
+\rfun{\widehat{D}^\dagger}{\alpha}\widehat{a}^+\rfun{\widehat{D}}{\alpha}
+\rfun{\widehat{D}^\dagger}{\alpha}\widehat{a}^-\rfun{\widehat{D}}{\alpha}
+=
+\rbr{\widehat{a}^+ + \alpha^*}\rbr{\widehat{a}^- + \alpha}.
+\end{equation}
+\end{proof}
+
+\begin{namedthm}{$\widehat{b}$-particle number in $\widehat{a}$-ground state}
+\begin{equation}
+\Braket{0 | \widehat{b}^+ \widehat{b}^- | 0} = \vbr{\alpha}^2
+\end{equation}
+\end{namedthm}
+
+\begin{proof}
+\begin{equation}
+\widehat{b}^+ \widehat{b}^- =
+\rbr{\widehat{a}^+ - \alpha^*}\rbr{\widehat{a}^- - \alpha}
+\end{equation}
+according to \ref{eq:displacement-b}.
+\end{proof}
+
+\begin{namedrem}{Remark}
+Since $\Ket{0}$ is stationary, $\Braket{0 | \widehat{b}^+ \widehat{b}^- | 0}$
+is a constant of motion.
+
+\end{namedrem}
+
+\subsection{Wave function}
+Since $\sbr{+\ii p_\alpha\widehat{x}, -\ii x_\alpha\widehat{p}}_- =
+\ii p_\alpha x_\alpha \widehat{1}$ is central, one has
+\begin{align}
+\Bra{x}\rfun{\widehat{D}}{\alpha}
+&= \Bra{x}\ee^{\ii\rbr{+p_\alpha\widehat{x}-x_\alpha\widehat{p}}}
+\nonumber\\
+&= \Bra{x}\ee^{+\ii p_\alpha\widehat{x}}\ee^{-\ii x_\alpha\widehat{p}}
+\ee^{-\sbr{+\ii p_\alpha\widehat{x}, -\ii x_\alpha\widehat{p}}_-/2}
+\nonumber \\
+&= \ee^{-\ii p_\alpha x_\alpha/2} \ee^{+\ii p_\alpha x}
+\Bra{x} \ee^{-\ii x_\alpha\widehat{p}}
+\nonumber \\
+&= \ee^{-\ii p_\alpha x_\alpha/2} \ee^{+\ii p_\alpha x}
+\Bra{x-x_\alpha},
+\label{eq:displacement-x-bra}
+\end{align}
+using \cref{eq:displace-x-bra}. Similarly
+\begin{align}
+\Bra{x}\rfun{\widehat{D}}{\alpha}
+&= \ee^{-\sbr{-\ii x_\alpha\widehat{p}, +\ii p_\alpha\widehat{x}}_-/2}
+\ee^{-\ii x_\alpha\widehat{p}}\ee^{+\ii p_\alpha\widehat{x}} \Ket{x}
+\nonumber \\
+&= \ee^{+\ii p_\alpha x_\alpha/2} \ee^{+\ii p_\alpha x} \Ket{x+x_\alpha}.
+\end{align}
+Note the extra phase factors compared with
+\cref{eq:displace-x-ket,eq:displace-x-bra}.
+
+\Cref{eq:displacement-x-bra} solves the wave function of coherent ground state
+\begin{align}
+\Braket{x | \alpha} &= \Braket{x | \rfun{D}{\alpha} | 0}
+\nonumber \\
+&= \rbr{\frac{m\Omega}{\pp}}^{1/4} \cfun{\exp}%
+{-\frac{1}{2}m\Omega\rbr{x-x_\alpha}^2}\cfun{\expi}{p_\alpha x - \frac{1}{2} 
+p_\alpha x_\alpha},
+\end{align}
+as well as its time evolution
+\begin{align}
+&\phantom{{}={}}\rbr{\frac{m\Omega}{\pp}}^{-1/4}\Braket{x | \rfun{\mscrU}{t} | 
+\alpha} \nonumber \\
+&=\ee^{-\ii\Omega t/2}
+\Braket{x | \rfun{D}{\alpha\ee^{-\ii\Omega t}} | 0}
+\nonumber \\
+&=\cfun{\exp}{-\frac{1}{2}m\Omega\rbr{x-x_\alpha^t}^2} 
+\cfun{\expi}{-\frac{1}{2}\Omega t + x p_\alpha^t
+- \frac{1}{2} p_\alpha^t x_\alpha^t},
+\end{align}
+where
+\begin{equation}
+x_\alpha^t \coloneqq x_{\alpha^t},\qquad
+p_\alpha^t \coloneqq p_{\alpha^t},
+\end{equation}
+or
+\begin{equation}
+\begin{pmatrix} \rbr{m\Omega}^{+1/2} x_\alpha^t \\
+\rbr{m\Omega}^{-1/2} p_\alpha^t \end{pmatrix} \coloneqq
+\begin{pmatrix}
+\cos\Omega t & \sin\Omega t \\ -\sin\Omega t & \cos\Omega t
+\end{pmatrix}
+\begin{pmatrix} \rbr{m\Omega}^{+1/2} x_\alpha \\
+\rbr{m\Omega}^{-1/2} p_\alpha\end{pmatrix}
+\end{equation}
+
+\subsection{Density matrix and Wigner function}
+
+\begin{nameddef}{Density matrix in the particle number representation}
+\begin{equation}
+\Braket{n_1 | \rfun{\widehat{\rho}}{t} | n_2} = \ee^{-\vbr{\alpha}^2}
+\frac{\rbr{\alpha^t}^{n_1} \rbr{\alpha^t{}^*}^{n_2}}{\sqrt{n_1!n_2!}}
+= \ee^{-\vbr{\alpha}^2} \frac{\alpha^{n_1} 
+\rbr{\alpha^*}^{n_2}}{\sqrt{n_1!n_2!}}\ee^{-\ii\Omega\rbr{n_1-n_2}t}.
+\end{equation}
+
+\end{nameddef} % Density matrix in the particle number representation
+
+
+
+\begin{nameddef}{Density matrix in the position representation}
+\begin{align}
+&\phantom{{}={}} \Braket{x_1 | \rfun{\widehat{\rho}}{t} | x_2} \nonumber \\
+&= \rbr{\frac{m\Omega}{\pp}}^{1/2} \cfun{\exp}{-\frac{m\Omega}{2}\rbr{\rbr{
+x_1-x_\alpha^t}^2 + \rbr{x_1-x_\alpha^t}^2}}\,
+\ee^{+\ii p_\alpha^t\rbr{x_1-x_2}}
+\end{align}
+\end{nameddef} % Density matrix in the position representation
+
+\begin{nameddef}{Wigner function}
+\begin{equation}
+\rfun{W}{x, p; t} = \frac{1}{\pp} \cfun{\exp}{-m\Omega \rbr{x-x_\alpha^t}^2
+-\frac{1}{m\Omega}\rbr{p-p_\alpha^t}^2}.
+\end{equation}
+\end{nameddef} % Wigner function
+

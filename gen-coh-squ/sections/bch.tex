@@ -1,0 +1,97 @@
+\section{Notes on BCH formula}
+
+Baker--Campbell--Hausdorff
+
+\begin{nameddef}{Linear adjoint endomophism}
+\begin{align}
+	\ad_X^{(0)} Y &\coloneqq Y, \\
+	\ad_X^{(n)} Y &\coloneqq \sbr{X, \ad_X^{(n-1)} Y}_-,\qquad\forall n\ge 1.\\
+\end{align}
+Specifically,
+\begin{equation}
+	\ad_X Y \coloneqq \ad_X^{(1)} Y \equiv \sbr{X, Y}_-.
+\end{equation}
+\end{nameddef} % Linear adjoint endomophism
+
+\begin{namedthm}{Lemma}
+\begin{equation}
+	\ee^{X} Y \ee^{-X} = \sum_{n=0}^{+\infty} \frac{1}{n!}\ad_X^{(n)}Y
+	\label{eq:bch-sandwich}
+\end{equation}
+\label{lem:bch-sandwich}
+\end{namedthm} % Lemma
+
+\begin{namedthm}{Corollary}
+	For $\sbr{X, Y}_-$ central, i.e.\ commuting with both $X$ and $Y$,
+	\begin{equation}
+		\ee^X\ee^Y = \ee^{X+Y+\sbr{X, Y}_-/2}.
+	\end{equation}
+	\label{thm:bch-merging}
+\end{namedthm} % Corollary
+
+
+\begin{namedthm}{Theorem}[Braiding identity]
+\begin{equation}
+\ee^X \ee^Y = \rfun{\exp}{\sum_{n=0}^{+\infty} \frac{1}{n!}\ad_X^{(n)}Y}\ee^X.
+\end{equation}
+\label{thm:bch-brading}
+\end{namedthm} % Braiding identity
+
+
+\begin{nameddef}{A factorisation algorithm for quadratic $x$ and $p$}
+Given $a_i\in\BbbR$, solve
+\begin{align}
+	U &= \cfun{\expi}{a_1 x^2 + a_2 \frac{xp+px}{2} + a_3 p^2}
+	\nonumber \\
+	&= \cfun{\expi}{b_1 x^2} \cfun{\expi}{b_2\frac{xp+px}{2}}
+		\cfun{\expi}{b_3 p^2}
+		\label{eq:to-be-factorised}
+\end{align}
+for $b_i$, $i = 1, 2, 3$.
+
+Let
+\begin{align}
+\rfun{L}{t} &\coloneqq
+\cfun{\expi}{t\rbr{a_1 x^2 + a_2 \frac{xp+px}{2} + a_3 p^2}}, \\
+\rfun{R}{t} &\coloneqq
+\cfun{\expi}{\rfun{c_1}{t} x^2} \cfun{\expi}{\rfun{c_2}{t}\frac{xp+px}{2}} 
+\cfun{\expi}{\frac{c_3}{t} p^2},
+\end{align}
+where $0 \le t \le 1$.
+One hopes to solve
+\begin{equation}
+	\rfun{L}{t} = \rfun{R}{t}
+	\label{eq:L=R}
+\end{equation}
+for $\rfun{c_i}{t}$. By setting $t = 0$ and observing $\rfun{L}{1} = 
+\rfun{R}{1} = U$, one recognises the boundary conditions
+\begin{equation}
+\rfun{c_i}{0} = 0,\qquad \rfun{c_i}{1} = b_i.
+\end{equation}
+
+By \eqref{eq:L=R} one has
+\begin{equation}
+	\dot{L}L^\dagger = \dot{R}R^\dagger.
+	\label{eq:LdLdg=RdRdg}
+\end{equation}
+Evaluating the right hand side of \eqref{eq:LdLdg=RdRdg} with the formulas 
+above and comparing the corresponding coefficients, one derives
+coefficients
+\begin{equation}
+	\left\{\begin{array}{l}
+		a_1 = \dot c_1 - 2 c_1 \dot{c}_2 + 4 c_1^2 \ee^{-2 c_2}\dot{c}_3 \\
+		a_2 = \dot{c}_2 - 4 c_1 \ee^{-2 c_2} \dot{c}_3 \\
+		a_3 = \ee^{-2 c_2} \dot{c}_3,
+	\end{array}\right.
+\end{equation}
+which further transforms to
+\begin{equation}
+	\left\{\begin{array}{l}
+		\dot{c}_1 = a_1 + 2 a_2 c_1 + 4 a_3 c_1^2 \\
+		\dot{c}_2 = a_2 + 4 a_3 c_1 \\
+		\dot{c}_3 = a_3 \ee^{2 c_2}.
+	\end{array}\right.
+	\label{eq:one-by-one}
+\end{equation}
+\Cref{eq:one-by-one} can be integrated on by one.
+\end{nameddef} % A factorisation algorithm

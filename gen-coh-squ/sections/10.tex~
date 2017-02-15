@@ -1,0 +1,749 @@
+\section{Differential Geometry 2: Modern Formulation}
+The modern formulation is mainly based on the work by Élie Cartan
+(1869 --- 1951) in the 1920s.
+
+\subsection{Tangent space and tangent vectors}
+Up to now, vectors have been given with respect to a \emph{coordinate system},
+also called \emph{natural} or \emph{holonomic} basis. It is often more
+convenient to introduce \emph{general basis}, or \emph{anholonomic} basis, if
+they were not provided by a coordinate system. The reasons to do this include
+\begin{itemize}
+\item	Adaptation to symmetries
+\item	Can always choose orthonormal basis
+\item	Necessity for spinor fields (formulation of Dirac equation)
+\end{itemize}
+
+To begin with, we construct a tangent vector at $P$ in a coordinate and basis independent way. Let $F$ be a $C^\infty$ function, mapping $\mathcal{M}^n$ to $\mathbb{R}$, defined in a neighbourhood $U$ of $P$, and being independent of coordinate system. Let $\mathcal{F}$ be the space of all such functions. Let $f = F\circ \sigma^{-1} :\quad \mathbb{R}^n \to \mathbb{R}$ be the coordinate expression for $F$.
+
+\begin{defn}
+A \emph{tangent vector} $v$ at $P$ is a \emph{linear map} \[\mathcal{F} \to
+\mathbb{R},\qquad F \mapsto v(F),\] which obeys the chain rule. That is, for
+\[G = g\left(G_1, G_2, \ldots\right),\qquad
+G,\,G_i \in \mathcal{F}, g\left(G_i\right)\text{ smooth},\]
+\begin{equation}
+v(G) = \sum_i \left.\frpa{g}{G_i}\right|_P v\left(G_i\right).
+\label{eq:chain-rule}
+\end{equation}
+\end{defn}
+In components, $v\left(G\right)$ is something like $G_{1k}v^k$, where $G = g\left(G_1\right)$, $G_{1k} = \frpa{g}{G_1}G_{1,k}$, so that $G_{1k}v^k = \frpa{g}{G_1}G_{1,k}v^k$.
+\begin{defn}
+If \cref{eq:chain-rule} is fulfilled by $u$ and $v$, then it would also be
+fulfilled by $\alpha u + \beta v$, $\forall \alpha,\,\beta \in\mathbb{R}$, so
+that these tangent vector span a \emph{vector space}, called the \emph{tangent
+space} at $P$, denoted by $T_P$.
+\end{defn}
+
+
+Next we introduce the \emph{frame} at $P$. Given the coordinate system $\sigma$, one can apply the chain rule to $F\circ\sigma^{-1} = f\left(x^1, x^2, \ldots\right)$:
+\begin{align}
+v\left(F\right) &= v\rbr{f\rbr{x^1, x^2, \ldots}} = \fat{\sum_\mu\frpa{f}{x^\mu}}{P} v(x^\mu) \nonumber \\
+& \equiv v^\mu\fat{\frpa{f}{x^\mu}}{P}.
+\end{align}
+Here $v^\mu$'s are components with respect to the coordinate system $\sigma$, and $\fat{\frpa{f}{x^\mu}}{P}$ defines $n$ tangent vectors
+\begin{equation}
+\fat{\partial_\mu}{P}\rbr{F} \coloneqq \fat{\frpa{f}{x^\mu}}{P}.
+\label{eq:def-partial}
+\end{equation}
+It is now clear that $v\rbr{f\rbr{\ldots}}$ serves as a `directional derivative', and we can write down
+\begin{empheq}[box=\fbox]{equation}
+\fat{v}{P} \equiv v^\mu \fat{\partial_\mu}{P}.
+\end{empheq}
+
+\begin{rem}
+$\fat{\partial_\mu}{P}$ is the \emph{notation} for a tangent vector, which is \emph{defined} by \cref{eq:def-partial}. When viewed as $n$ basis vectors, $\cbr{\fat{\partial_\mu}{P}}$ are a special \emph{$n$-Bein} (literally $n$-leg in German) or \emph{frame} at $P$.
+\end{rem}
+
+\begin{defn}
+A \emph{Vector field} is vectors at each point.
+\end{defn}
+
+\begin{defn}
+An \emph{$n$-Bein field} is a frame field. It is denoted by
+$\cbr{\partial_\mu}$ if provided by a coordinate system, and is also named as
+\emph{holonomic\footnote{The word is composed from the Greek ὅλος meaning
+\textit{whole, entire} and νόμ-ος meaning \textit{law}} frame.} in this case.
+In general, it is denoted by $\cbr{e_\mu}$.
+\end{defn}
+
+The Lie bracket of a general $n$-Bein field $\cbr{e_\mu}$ satisfies
+\begin{equation}
+\sbr{e_\mu, e_\nu} \eqqcolon C^\rho_{\mu\nu} e_\rho,
+\end{equation}
+where $C^\rho_{\mu\nu}$ is called \emph{anholonomy} or \emph{structure
+coefficients}. Obviously, $\sbr{e_\mu, e_\nu} = 0$ is necessary for the basis
+being holonomic\footnote{Locally, this is also sufficient.}.
+
+\subsection{Differentials and cotangent space}
+
+Define the following linear functional on $T_P$
+\begin{equation}
+\ud f \coloneqq f_{,\mu}u^\mu = u\rbr{f},
+\label{eq:def-df}
+\end{equation}
+which has the meaning of a \emph{differential}; see \cref{defn:ext-der}.
+It associates with each
+$u \in T_P$ the corresponding directional derivative of $f$. Note that
+$\ud f$ is \emph{not} an \emph{infinitesimal}, but formally has this property.
+
+\begin{defn}
+The linear functionals over a vector space $V$ (here $T_P$) with
+values in $\mathbb{R}$ form the \emph{dual vector space} $V^*$, here
+called the \emph{cotangent space} $T_P^*$.
+\end{defn}
+
+Consider $a \in V^*$ (so that $a\cbr{v}\in\mathbb{R}$), $u,\,v \in V$,
+$\alpha,\,\beta\in\mathbb{R}$.
+\begin{defn}
+The \emph{interior product} is defined as
+\begin{equation}
+a\rbr{v} \equiv \iota_va\rbr{v} \equiv v \invneg a.
+\end{equation}
+\end{defn}
+Sometimes this is also denoted as $\abr{a, v}$, but there is a danger of
+confusion with \emph{scalar product}, which is a more special notion, because
+it needs a metric.
+
+Next we construct the dual basis in $V^*$. Acting
+$a\in V^*$ on $v$,
+\begin{equation}
+a\rbr{v} = a\rbr{v^\mu e_\mu} = v^\mu a\rbr{e_\mu}
+\coloneqq a\rbr{e_\mu} \theta^\mu\rbr{v},
+\end{equation}
+where $\theta^\mu$ is defined such that $\theta^\mu\rbr{v} = v^\mu$. Now
+$\forall a\in V^*$ can be decomposed as
+\begin{equation}
+a = a\rbr{e_\mu}\theta^\mu \coloneqq a_\mu \theta^\mu,
+\end{equation}
+where $\cbr{\theta^\mu}$\footnote{Also called $\cbr{e^\mu}$ or
+$\cbr{\omega^\mu}$ in the literature.} is called the \emph{dual basis} of
+$V^*$. When viewed as vector field, it is also called the \emph{dual frame}.
+
+$a\rbr{v} = a\rbr{e_\mu} \theta^\mu\rbr{v} = a_\mu v^\mu$, where the lower
+$_\mu$ is called \emph{covariant} index, and the upper $^\mu$ 
+\emph{contravariant} index. In particular,
+\[
+\theta^\mu\rbr{e_\nu} = \theta^\mu\rbr{e_\rho}\theta^\rho\rbr{e_\nu},
+\]
+so that
+\begin{empheq}[box=\fbox]{equation}
+\theta^\rho\rbr{e_\nu} = \delta^\rho_\nu
+\label{eq:dual-basis}
+\end{empheq}
+must hold.
+
+Consider \cref{eq:def-df}. Choose $f = x^\nu$,
+\begin{equation}
+\ud x^\nu\rbr{v} = v\rbr{x^\nu} = v^\nu = \theta^\nu\rbr{v},
+\end{equation}
+so that $\cbr{\ud x^\nu}$ is the basis dual to $\cbr{\partial_\nu}$. Combining
+\cref{eq:dual-basis} yields
+\begin{equation}
+\ud x^\rho\rbr{\partial_\nu} = \delta^\rho_\nu.
+\end{equation}
+
+$a\in T_P^*$: $a = a_\mu \ud x^\mu$ (compare $v = v^\mu \partial_\mu$).
+Covector field: $a\rbr{x} = a_\mu\rbr{x}\ud x^\mu$.
+In general frame: $a = a_\mu \theta^\mu$, where $a_\mu$ is not equal to an
+$f_{,\mu}$ for an anholonomic basis.
+
+\subsection{Tensor algebra and metric}
+
+\textbf{Hey what is going on here, sometimes tensor sometimes Cartesian product.}
+
+$v\in V$, $w\in W$; $a\in V^*$, $b\in W^*$.
+The \emph{tensor product} $v\otimes w \in V\otimes W$. The tensor
+product defined on $V^*\times W^*$ is
+\begin{align}
+\rbr{v\times w}\rbr{a, b} &\coloneqq a\rbr{v}\,b\rbr{w} \nonumber \\
+&= \rbr{a_\mu b^\mu}\rbr{b_\nu w^\nu},
+\end{align}
+which is a bilinear functional on the Cartesian product $V^* \times
+W^*$.
+
+Let $\cbr{e_\mu}$, $\cbr{f_\nu}$ be basis of $V$ and $W$,
+respectively.
+\[\rbr{e_\mu\otimes f_\nu}\rbr{a, b} = a\rbr{e_\mu} b\rbr{f_\nu} =
+a_\mu b_\nu,\]
+so that $e_\mu\otimes f_\nu$ is a basis in $V\otimes W$.
+
+$T\in V\otimes W$:
+\begin{align}
+T\rbr{a, b} &= T\rbr{a_\mu \theta^\mu, b_\nu \eta^\nu} \nonumber \\
+&= \underbrace{a_\mu b^\nu}_{\rbr{e_\mu\otimes f_\nu}\rbr{a, b}}
+\underbrace{T\rbr{\theta^\mu, \eta^\nu}}_{\eqqcolon T^{\mu\nu}}.
+\end{align}
+we get
+\begin{empheq}[box=\fbox]{equation}
+T = T^{\mu\nu} e_\mu\otimes f_\nu
+\end{empheq}.
+
+Dimension of $V\otimes W$ is $mn$ if $m = \mathrm{dim}\,V$, $n =
+\mathrm{dim}\,W$. for $m=n$, also called \emph{dyadic product}.
+
+\begin{defn}
+Tensor of type $\rbr{p, q}$ over $V$
+\begin{empheq}[box=\fbox]{equation}
+T = \tensor{T}{^{\mu_1}^\ldots^{\mu_p}_{\nu_1}_\ldots_{\nu_q}}\,
+\bigotimes_{i=1}^p e_{\mu_i}\otimes\bigotimes_{i=1}^p\theta^{\rho_i}
+\end{empheq}
+is an element of $V^{\otimes p} \otimes \rbr{V^*}^{\otimes q}$.
+\end{defn}
+
+\begin{defn}
+The \emph{metric tensor} or \emph{metric} $g$ is of type $\rbr{0, 2}$
+denoted by
+\begin{equation}
+g\rbr{u, v} = g_{\mu\nu}u^\mu u^\nu
+\eqqcolon u\cdot v \text{ or } \abr{u, v}
+\end{equation}
+satisfying
+\begin{align}
+g\rbr{v, v} &= 0\quad\forall v\in V\quad\Rightarrow\quad v=0
+\qquad\text{(Non-singular)},\\
+g_{\mu\nu} &= g\rbr{e_\mu, e_\nu} = e_\mu\cdot e_\nu = g_{\nu\mu}
+\qquad\text{(symmetric)}.
+\end{align}
+\end{defn}
+
+For $n$ fixed: $g\rbr{u, \cdot}$ is a linear functional on $V$, that
+is, a covector; that is, one can associate each vector $u$ with a
+covector $g\rbr{u, \cdot}$, which is the abstract formulation of
+\emph{lowering index},
+\begin{equation}
+u_\mu \equiv g_{\mu\nu}u^\nu.
+\end{equation}
+
+$V = T_P$: $g\rbr{\partial_\mu, \partial_\nu} = g_{\mu\nu}$ (as in
+section 5), but now more flexible: can have $g\rbr{e_\nu, e_\nu} =
+\eta_{\mu\nu}$ by the choice of an orthonormal basis $\cbr{e_\mu}$.
+
+\begin{defn}
+\emph{Tensor algebra over $V$}: direct sum of the space with
+multiplication = tensor product.
+\begin{equation}
+\tensor{V}{^p_q}\coloneqq V^{\otimes p} \otimes \rbr{V^*}^{\otimes q},
+\end{equation}
+\end{defn}
+so that $\tensor{V}{^1_0} = V$, 
+$\tensor{V}{^0_1} = V^*$, $\tensor{V}{^0_0} = \mathbb{R}$.
+
+\subsection{The exterior algebra}
+Important subspace of the tensor algebra: \emph{exterior algebra}
+(Graßmann\footnote{Herrmann Günther Graßmann (1809 --- 1877), inventor of
+linear algebra as it is taught today, Sanskrit dictionary of 1873
+(\textbf{really?}).} number) $\Lambda$ over $V$, is \emph{defined} as the
+direct sum over $\Lambda^p(V)$, where $\Lambda^p$ denotes the space of all
+antisymmetric tensors\footnote{$T\rbr{a, b} = -T\rbr{b, a}$, $a, b\in V^*$}
+of type $(p, 0)$\footnote{Because over $V$; below over $V^*$.};
+$\Lambda^0 = \mathbb{R}$, $\Lambda^1 = V$.
+
+(below: $\Lambda^p\rbr{T_p^*}$, called \emph{differential forms}, antisymmetric
+tensor of type $\cbr{0, p}$.)
+
+Need a product that does not lead outside $\Lambda$, i.e.\ that again leads to
+antisymmetric tensors. Let $D\in\Lambda^p$, $T\in\Lambda^q$,
+$a_i\in V^*,\,i = 1, 2, \ldots, p+q$.
+\begin{defn}
+The \emph{exterior} or \emph{wege product} $\wedge$
+\begin{equation}
+\rbr{D\wedge T}\rbr{a_1, \ldots, a_{p+q}}\coloneqq
+\frac{1}{p!q!}\sum_{\pi} \mathrm{sgn}\,\pi\, \rbr{D\otimes T}
+\rbr{a_{\pi(1)}, \ldots, a_{\pi\rbr{p+q}}},
+\end{equation}
+where $\pi$ denotes all permutations of $1, \ldots, p+1$,
+$\mathrm{sgn}\,\pi = \pm 1$ for even/odd permutations, $1/p!q!$ makes the
+product associative.
+\end{defn}
+\begin{equation}
+D\wedge T = \rbr{-1}^{pq}T\wedge D.
+\end{equation}
+
+\begin{exmp}
+Let $v, w\in V \equiv \Lambda^1$, then
+\begin{equation}
+v\wedge w = v\otimes w - w\otimes v \in \Lambda^2
+\end{equation}
+which obeys
+\begin{equation}
+v\wedge w = -w\wedge v,\qquad v\wedge v = 0.
+\end{equation}
+when $V = \mathbb{R}^3$, $\wedge$ corresponds to \emph{vector product}.
+\end{exmp}
+
+Orthonormal basis in $\Lambda^2$: $e_\mu\wedge e_\nu$ ($\mu < \nu$). There are
+$\binom{n}{2}$ independent ones, so that $\dim \Lambda^2 =
+\binom{n}{2}$.
+
+\begin{exmp}
+In $n = 4$, the basis are
+\[\begin{matrix}
+e_0\wedge e_1 & e_0\wedge e_2 & e_0\wedge e_3 \\
+ & e_1\wedge e_2 & e_1\wedge e_3 \\
+ & & e_2\wedge e_3 \\
+\end{matrix}.\]
+Total number is $\binom{4}{2} = 6$.
+\end{exmp}
+
+One can write
+\begin{align}
+v\wedge w = v^\mu e_\mu \wedge w^\nu e_\nu &= \frac{1}{2!}
+\rbr{v^\mu w^\nu - v^\nu w^\mu}e_\mu\wedge e_\nu \nonumber \\
+&= \sum_{\mu < \nu}\rbr{v^\mu w^\nu - v^\nu w^\mu}e_\mu\wedge e_\nu,
+\end{align}
+where $v\wedge w$ is also called \emph{bivector}.
+
+\begin{exmp}
+For $n=2$,
+\[ v\wedge w = \rbr{v^1 w^2 - v^2 w^1}e_1\wedge e_2.\]
+\end{exmp}
+
+\begin{rem}
+Interesting observation by William Clifford (1845 --- 1879): set $v =
+v_1 + \ii v_2$ where $v, v_1, v_2 \in \mathbb{R}$,
+\begin{align}
+vw^* &= \rbr{v_1+\ii v_2}\rbr{w_1-\ii w_2} \nonumber \\
+&= \rbr{v_1w_1+v_2w_2}+\ii\rbr{v_2w_1-v_1w_2},
+\end{align}
+where the real and imaginary part correspond to the inner and wedge
+product, respectively. This is called \emph{Cliffold's geometric
+product}. See also \cite{ANDP:ANDP201010412}.
+\end{rem}
+
+Generally, for a basis of $\Lambda^p$,
+\begin{align}
+e_H &\coloneqq e_{h_1} \wedge \ldots \wedge e_{h_p}\qquad\text{with}\\
+H &\coloneqq\cbr{h_1,\ldots h_p| h_i<h_j,\quad\forall i < j}
+\end{align}
+so that $\dim \Lambda^p = \binom{n}{p}$ because we have $\binom{n}{p}$
+such products.
+\begin{exmp}
+\[\dim\Lambda = \sum_{p=0}^n\binom{n}{p} = \rbr{1+1}^n = 2^n.\]
+\end{exmp}
+
+Orthonormal basis $\cbr{e_\mu}$ in $V$: $e_\mu\cdot e_\nu =
+g\rbr{e_\mu, e_\nu} = \eta_{\mu\nu}$; $e_i\cdot e_j = \delta_{ij}$ in the
+Euclidean case.
+
+Let $v = v_1\wedge \ldots \wedge v_p$, $w = w_1\wedge\ldots\wedge w_p$, with
+$v_i, w_j \in V$, $i, j = 1, \ldots, p$.
+\begin{defn}
+\begin{equation}
+v\cdot w \coloneqq \det v_i\cdot w_j \equiv g\rbr{v_i, w_j}.
+\end{equation}
+\end{defn}
+\begin{exmp}
+\begin{align*}
+e&\coloneq e_1\wedge\ldots\wedge e_n\quad\in\Lambda^n \\
+\Rightarrow\qquad
+e\cdot e &= \det e_\mu\cdot e_\nu =
+\mathrm{diag}\rbr{-1, 1, \ldots, 1} = -1.
+\end{align*}
+\end{exmp}
+
+\begin{defn}
+The \emph{length} of $u\in V$ is
+\begin{equation}
+\vbr{u}\coloneqq\sqrt{\vbr{u\cdot u}}.
+\end{equation}
+\end{defn}
+\begin{exmp}
+\[\vbr{e} = 1 = \prod_{i = 1}^n \vbr{e_i}.\]
+\end{exmp}
+
+Let $v_i \in V$, $i = 1, \ldots, n$.
+\begin{defn}
+\begin{equation}
+v_1\wedge\ldots v_n \eqqcolon \mathcal{V}\cdot e,
+\end{equation}
+where $\vbr{\mathcal{V}}$ is the volume of parallelepiped\footnote{Pronunced
+\textIPA{/ˌpærəlɛlˈɛpᵻpɛd/}
+\textIPA{\textsc{parr}-ə-lel-\textsc{ep}-i-ped}
+in accordance with its
+etymology in Greek παραλληλ-επίπεδον, a body ``having parallel planes''.},
+spanned by $n$ arbitrary vectors $\cbr{v_i}$, and $\mathrm{sgn}\,\mathcal{V}$
+is the relative orientation of the $v_i$ with respect to the $e_\mu$.
+\end{defn}
+\begin{exmp}
+some diagrams
+\end{exmp}
+
+One can show
+\begin{equation}
+\vbr{\mathcal{V}} = \sqrt{\vbr{\det g_{ij}}}\qquad\text{where }
+g_{ij} = v_i\cdot v_j,
+\end{equation}
+which is important for \emph{integration theory on manifolds} (see ealier).
+
+
+The \emph{Levi-Civita symbol} $\epsilon$ is a further important quantity.
+\begin{exmp}
+In $n = 4$,
+\[a^\mu \coloneqq \frac{1}{3!} g^{\mu\xi}\epsilon_{\xi\nu\rho\lambda}
+a^{\nu\rho\lambda},\]
+where $a^{\nu\rho\lambda} = a^{\sbr{\nu\rho\lambda}}$ is totally antisymmetric.
+\textbf{(Notiz auf Deutsch?)}
+\end{exmp}
+\begin{defn}
+The \emph{$*$-operator} or \emph{Hodge star} maps
+\begin{empheq}[box=\fbox]{equation}
+\Lambda^p\xleftrightarrow{*}\Lambda^{n-p}
+\end{empheq}
+in this way, where $\dim\Lambda^p = \binom{n}{p} = \binom{n}{n-p} =
+\dim\Lambda^{n-p}$.
+\end{defn}
+
+\subsection{Exterior $p$-forms}
+\label{ssec:extpf}
+
+\emph{Exterior algebra} can be built over covector fields (more
+important than over vector fields because of \emph{exterior
+  derivative}, which can be defined without metric, see below)
+
+\begin{defn}
+An \emph{exterior} or \emph{differential} $p$-form maps every point
+$P$ to an element of $\Lambda^p$ ($T_P^*$) (here: totally
+antisymmetric tensors of type $(0, p)$). Specifically, $q$-form $w$:
+\[\omega = \sum_{H}\omega_H\rbr{x^\mu}\,\ud x^H\]
+with respect to \emph{holonomic} $\omega$ basis, where $H$ stands for a
+sequence of indices $\cbr{h_1 < h_2 < \ldots < h_q}$, and $\ud x^H =
+\ud x^{h_1} \wedge \ldots \wedge \ud x^{h_q}$.
+\end{defn}
+\begin{exmp}
+$0$-forms are scalar functions.
+\end{exmp}
+\begin{exmp}
+$n=3$: $0$-form: $\Phi = f\rbr{x, y, z}$;
+$1$-form: $\lambda = a\ud x + b\ud y + c\ud z$;
+$2$-form: $\mu = f\ud y\wedge\ud z + g\ud z\wedge\ud x + h\ud x\wedge\ud y$;
+$3$-form: $\nu = a\ud x \wedge\ud y\wedge\ud z$;
+higher forms are identically zero.
+
+Dimension of $\Lambda$ is $1+3+3+1 = 2^3 = 8$.
+\label{exmp:vec-anal-0}
+\end{exmp}
+
+\begin{defn}
+\emph{Exterior derivative} $\ud$ maps $q$-forms linearly into $(q+1)$-forms
+and is uniquely determined by the following properties:
+\begin{enumerate}
+\item \label{enum:ext-der-1}
+$\ud\wedge\rbr{\omega+\eta} = \ud\wedge\omega+\ud\wedge\eta$;
+\item \label{enum:ext-der-2}
+$\ud\wedge\rbr{\omega\wedge\eta} = \rbr{\ud\wedge\omega}\wedge\eta
++\rbr{-1}^{\mathrm{deg}\,\omega}\omega\wedge\rbr{\ud\wedge\eta}$;
+\item \label{enum:ext-der-3}
+$\ud\wedge\rbr{\ud\wedge\omega} = 0$;
+\item \label{enum:ext-der-4}
+$\ud\wedge f = \ud f$ for a scalar function $f$.
+\end{enumerate}
+The $\wedge$ is often skipped after $\ud$.
+\label{defn:ext-der}
+\end{defn}
+\begin{exmp}
+For the above form $\omega = \sum_H \omega_H\rbr{x^\mu}\,\ud x^H$,
+\begin{empheq}[box=\fbox]{equation}
+\ud\omega = \sum_H \frpa{\omega_H}{x^\nu}\,\ud x^\nu\wedge\ud x^H
+= \sum_H \ud\omega_H\wedge\ud x^H.
+\end{empheq}
+One can confirm that this fulfils all conditions.
+\end{exmp}
+
+\begin{exmp}
+An example for $\wedge$.
+$n=3$, $\omega = xy^2\,\ud x\wedge\ud y - z\,\ud y\wedge\ud z$ $2$-form,
+$\zeta = x\,\ud x+y\,\ud y+z\,\ud z$ $1$-form. $\omega\wedge\zeta$ is a
+$3$-form and must therefore be proportional to $\ud x\wedge\ud y\wedge\ud z$:
+\begin{align*}
+\omega\wedge\zeta =
+&x^2y^2\,\underbrace{\ud x\wedge\ud y\wedge\ud x}_{0}
++xy^3\,\underbrace{\ud x\wedge\ud y\wedge\ud y}_{0} \\
++&xy^2z\,\ud x\wedge\ud y\wedge\ud z
+-xz\,\underbrace{\ud y\wedge\ud z\wedge\ud x}_%
+{\ud x\wedge\ud y\wedge\ud z} \\
+-&yz\,\underbrace{\ud y\wedge\ud z\wedge\ud y}_{0}
+-z^2\,\underbrace{\ud y\wedge\ud z\wedge\ud z}_{0} \\
+=&\rbr{xy^2z-xz}\,\ud x\wedge\ud y\wedge\ud z.
+\end{align*}
+\end{exmp}
+
+\begin{exmp}
+An example for $\ud$.
+$n=2$, $\omega = P\,\ud x+Q\,\ud y$ $1$-form.
+\begin{align*}
+\Rightarrow\quad
+\ud\omega &= \ud P\wedge\ud x+\ud Q\wedge\ud y \\
+&= \rbr{\frpa{P}{x}\,\ud x+\frpa{P}{y}\,\ud y}\wedge x
++\rbr{\frpa{Q}{x}\,\ud x+\frpa{Q}{y}\,\ud y}\wedge y \\
+&= \frpa{P}{y}\,\ud y\wedge\ud x +\frpa{Q}{x}\,\ud x\wedge\ud y
+=\rbr{\frpa{Q}{x}-\frpa{P}{y}}\,\ud x\wedge\ud y
+\end{align*}
+is a $2$-form, where the first line used \ref{enum:ext-der-2} and
+\ref{enum:ext-der-3} ($\ud\ud x = 0$) in \cref{defn:ext-der}, and
+the second line used \ref{enum:ext-der-4}. The result
+reminds one of $\nabla\times\vec{a}$.
+\label{ex:ext-der-curl}
+\end{exmp}
+
+\begin{exmp}
+Recall \cref{exmp:vec-anal-0}. Connection with vector analysis in $n=3$:
+\begin{enumerate}
+\item $\Phi = f\rbr{x, y, z}$ ($0$-form) \\
+\begin{align*}
+\Rightarrow\quad &= \frpa{f}{x}\,\ud x+\frpa{f}{y}\,\ud y+\frpa{f}{z}\,\ud z
+\\
+&\equiv\rbr{\mathrm{grad}\,f}\cdot\ud\vec{x}
+\equiv\rbr{\nabla f}\cdot\ud\vec{x}.
+\end{align*}
+
+\item
+$\lambda = a\,\ud x+b\,\ud y+c\,\ud z\equiv\vec{a}\cdot\ud\vec{x}$
+($1$-form).
+\begin{align*}
+\Rightarrow\quad\ud\lambda&=
+\rbr{\frpa{c}{y}-\frpa{b}{z}}\,\ud y\wedge\ud z
++\rbr{\frpa{a}{z}-\frpa{c}{x}}\,\ud z\wedge\ud x
++\rbr{\frpa{b}{x}-\frpa{a}{y}}\,\ud x\wedge\ud y \\
+&\equiv\rbr{\mathrm{curl}\,\vec{a}}\cdot\ud\vec{O}
+\equiv\rbr{\nabla\times\vec{a}}\cdot\ud\vec{O},\qquad\text{where}
+\end{align*}
+\[
+\vec{a} = \begin{pmatrix} a \\ b \\ c \end{pmatrix},\qquad
+\ud\vec{O} = \begin{pmatrix}
+\ud y\wedge\ud z \\
+\ud z\wedge\ud x \\
+\ud x\wedge\ud y \end{pmatrix}
+\quad\text{vector-valued $2$-form}.
+\]
+
+\item
+\begin{align*}
+\mu &= f\,\ud y\wedge\ud z+g\,\ud z\wedge\ud x+h\,\ud x\wedge\ud y
+\qquad\text{($2$-form)} \\
+&\equiv \vec{v}\cdot\ud\vec{O},\qquad
+\vec{v} = \begin{pmatrix} f \\ g \\ h \end{pmatrix}.
+\end{align*}
+$\int \vec{v}\cdot\ud\vec{O}$: flux of vector field through directed surface
+\begin{align*}
+\Rightarrow\quad
+\ud\mu &=
+\rbr{\frpa{f}{x}+\frpa{g}{y}+\frpa{h}{z}}\,\ud x\wedge\ud y\wedge z \\
+&\equiv \rbr{\mathrm{div}\,\vec{v}}\,\ud^3 x
+\equiv\rbr{\nabla\cdot\vec{v}}\,\ud^3 x.
+\end{align*}
+\end{enumerate}
+\label{exmp:vec-anal-1}
+\end{exmp}
+
+\begin{defn}
+$\omega$ \emph{exact} if $\omega = \ud\alpha$,
+$\omega$ \emph{closed} if $\ud\omega = 0$.
+\end{defn}
+Since $\ud\rbr{\ud\alpha}=0$: $\omega$ exact $\Rightarrow$ $\omega$ closed. 
+Inverse?
+\begin{defn}
+In a \emph{star-shaped} region, from a \emph{given} point, every other
+point can be reached by a straight line.
+\label{defn:star-shaped}
+\end{defn}
+\begin{rem}
+In a \emph{convex} region, however, the property in
+\cref{defn:star-shaped} holds for \emph{any} two points.
+\end{rem}
+\begin{lem}[Poincaré Lemma]
+If $\omega$ is closed, then $\omega$ is exact in a star-shaped region.
+\label{lem:poincare}
+\end{lem}
+\begin{rem}
+Gilt allgemeinhin als ``simply connected''.
+\end{rem}
+Study of closed forms which are not exact leads to the \emph{de Rham
+cohomology} and \emph{Betti numbers}.
+
+\begin{exmp}
+Necessary for holonomic cobasis: $\ud\theta^\mu = 0$.
+For example, $\ud x^\mu$.
+\end{exmp}
+\begin{exmp}
+Recall \cref{exmp:vec-anal-1}. $\ud\rbr{\ud\omega} = 0$ yields for
+\begin{enumerate}
+\item
+$\omega = \lambda = a\,\ud x + b\,\ud y + c\,\ud z$:
+\begin{align*}
+\ud\rbr{\mathrm{curl}\,\vec{a}\cdot\ud\vec{O}} &= 0 \\
+\Rightarrow\qquad\mathrm{div}\,\mathrm{curl}\,\vec{a} &= 0.
+\end{align*}
+
+\item
+$\omega = \Phi = f\rbr{x, y, z}$:
+\begin{align*}
+\ud\rbr{\mathrm{grad}\,f\cdot\ud\vec{x}} &= 0 \\
+\Rightarrow\qquad\mathrm{curl}\,\mathrm{grad}\,f &= 0.
+\end{align*}
+\end{enumerate}
+
+\nameref{lem:poincare}: locally, one has
+\begin{align*}
+\mathrm{div}\,\vec{v}&=0\quad\Rightarrow\quad
+&\vec{v}&=\mathrm{curl}\,\vec{a}, \\
+\mathrm{curl}\,\vec{a}&=0\quad\Rightarrow\quad
+&\vec{a}&=\mathrm{grad}\,f.
+\end{align*}
+\end{exmp}
+
+\begin{defn}
+Tensor-valued $q$-forms of type $0, b$ maps every point $P$ to an element
+from
+\begin{equation}
+\underbrace{\tensor{V}{^a_b}}_\text{tensor-valued}\otimes
+\underbrace{\Lambda^q\rbr{T_P^*}}_\text{$q$-form}
+\end{equation} 
+\end{defn}
+
+\subsection{Connections and Riemann geometry}
+
+We had in \cref{ssec:extpf}: exterior derivative
+
+Concept of differentiation that can be introduced in a basis-independent way
+without having \emph{additional distinguished structures}, see
+\cref{fig:add-dist-struct}.
+\begin{figure}
+\centering
+\begin{tabular}{rcl}
+\emph{metric $g$} &\multicolumn{2}{l}{in Riemann geometry} \\
+\multicolumn{1}{c}{$\downarrow$} && \\
+\emph{connection} & $\leftrightarrow$ & covariant derivative
+\end{tabular}
+\caption{An example of additional distinguished structure
+\label{fig:add-dist-struct}}
+\end{figure}
+
+Recall: $\cD_\mu v^\nu = \partial_\mu v^\nu + \Gamma^{\nu}_{\mu\lambda} v^\lambda$
+
+A connection enables one to compare vectors in the tangent spaces of
+infinitesimally neighboured points (`parallel transport')
+
+One can define a connection independent of any metric (\emph{if} defined from
+a metric: Levi-Civita connection, or `Christoffel symbol')
+
+\paragraph{Construction of a connection} \mbox{} \\
+
+$\left\{e_\mu\right\}$: $n$-bein field; $e_\mu(Q)$: at $Q$, etc.\ \\
+$\left\{\theta^\mu\right\}$: dual frame
+
+\textbf{[figure]}
+
+$e'_\mu(P)$: $n$-bein transported from $Q$ to $P$.
+
+\begin{align}
+T_p \ni \cD_{\epsilon u} e_\mu &:= e'_\mu(P)-e_\mu(P) \nonumber \\
+&=: \tensor{\omega}{^\nu_\mu}(\epsilon u) e_\nu(P)
+\end{align}
+where $\tensor{\omega}{^\nu_\mu}(\epsilon u)$ is the \emph{connection}
+(Zusammenhang, Übertragung); here also \emph{spin connection}, if with respect
+to an orthonormal frame field.
+
+We only consider \emph{linear connections}, where $\cD_{\epsilon u}e_\mu$ and $\tensor{\omega}{^\nu_\mu}(\epsilon u)$ depend linearly on $\epsilon u$, so that $\epsilon$ cancels out.
+\begin{empheq}[box=\fbox]{equation}
+\cD_u e_\mu = \tensor{\omega}{^\nu_\mu}(\epsilon u) e_\nu,
+\label{eq:cDuemu}
+\end{empheq}
+\emph{absolute} or \emph{covariant} differential.
+
+We then have a map
+\begin{equation}
+u \mapsto \tensor{\omega}{^\nu_\mu}(u),
+\end{equation}
+where $\tensor{\omega}{^\nu_\mu}$ defines a matrix of one-forms (for each $(\mu, \nu)$ one one-form)
+
+Decomposition into dual basis
+\begin{empheq}[box=\fbox]{equation}
+\tensor{\omega}{^\nu_\mu} = \tensor{L}{^\nu_{\mu\lambda}}\theta^\lambda,
+\end{empheq}
+where $\tensor{L}{^\nu_{\mu\lambda}}$ are \emph{connection coefficients}.
+
+Without $u$, \cref{eq:cDuemu} can be written as
+\begin{empheq}[box=\fbox]{align}
+\cD e_\mu &= \tensor{\omega}{^\nu_\mu}\otimes e_\nu \nonumber \\
+&= \tensor{L}{^\nu_{\mu\lambda}}\theta^\lambda \otimes e_\nu
+\end{empheq}
+
+Covariant derivative of an arbitrary vector field $v = v^\mu e_\mu$: demand the validity of the product rule, additivity, and $\cD f := \ud f$ for scalar fields; then
+\begin{align}
+\cD v = \cD\left(v^\mu e_\mu\right) &=
+\underbrace{\ud v^\mu}_\text{one-form for each $\mu$} \otimes e_\mu
+	+ v^\mu \cD e_\mu \nonumber \\
+&= \ud v^\mu \otimes e_\mu + v^\mu \tensor{L}{^\nu_{\mu\lambda}}\,
+	\theta^\lambda \otimes e_\nu \nonumber \\
+&= \left(\ud v^\mu + \tensor{\omega}{^\nu_\mu}v^\nu\right)\otimes e_\mu,
+\end{align}
+where
+\begin{align}
+\ud v^\mu &= \tensor{v}{^\mu_{,\lambda}}\,\ud x^\lambda\qquad
+&\text{(coordinate basis)} \\
+\ud v^\mu &= e_\lambda\rbr{v^\mu}\,\theta^\lambda\qquad
+&\text{(general basis)}. \\
+\end{align}
+Note that in general, $\ud f = e_\lambda\rbr{f}\,\theta^\lambda$. Therefore,
+\begin{align}
+\cD v &= e_\lambda\rbr{v^\mu}\,\theta^\lambda\otimes e_\mu +
+v^\nu \tensor{L}{^\mu_\nu_\lambda}\,\theta^\lambda\otimes e_\mu \nonumber \\
+&= \rbr{e_\lambda\rbr{v^\mu}+v^\nu\tensor{L}{^\mu_\nu_\lambda}
+\,\theta^\mu\otimes e_\mu} \nonumber \\
+&\equiv\cD_\lambda v^\lambda\,\theta^\lambda\otimes e_\mu
+\equiv \tensor{v}{^\mu_{;\lambda}}\,\theta^\lambda\otimes e_\mu. \\
+\end{align}
+In a coordinate basis, this reads
+\begin{equation}
+\cD v = \rbr{\frpa{v^\mu}{x^\lambda} + \tensor{L}{^\mu_\nu_\lambda}{v^\nu}}
+\,\ud x^\lambda\otimes\partial_\mu.
+\end{equation}
+$\tensor{L}{^\nu_\mu_\lambda}$ where $\mu$ and $\lambda$ are different types
+of indices, defined independently of the metric; do not have to be symmetric
+in $\mu$ and $\lambda$, even if $e_\mu = \partial_\mu$, unless torsion
+vanishes, see below.
+
+$\cD \theta^\mu$?
+\begin{equation}
+\theta^\mu\rbr{e_\nu} = \delta^\mu_\nu\quad
+\xrightarrow{\substack{\text{demand} \\ \text{Leibniz} \\ \text{rule}}}\quad
+\cD\theta^\mu\rbr{e_\nu}+\theta^\mu\rbr{\cD e_\nu} = 0,
+\end{equation}
+where $\cD e_\nu = \tensor{\omega}{^\rho_\nu}\otimes e_\rho$.
+\begin{align*}
+\Rightarrow\quad\cD\theta^\mu\rbr{e_\nu} &=
+-\tensor{\omega}{^\rho_\nu}\otimes
+\underbrace{\theta^\mu\rbr{e_\rho}}_{\delta^\mu_\rho} =
+-\tensor{\omega}{^\mu_\nu} \\
+\Rightarrow\quad\cD\theta^\mu &=
+-\tensor{\omega}{^\mu_\nu}\otimes\theta^\nu \\
+&= -\tensor{L}{^\mu_\nu_\lambda}\,\theta^\lambda\otimes\theta^\nu
+\end{align*}
+Let $a$ be a $1$-form
+\begin{align*}
+\cD a &= \cD\rbr{a_\mu \theta^\mu} =
+	\underbrace{\ud a_\mu}_{e_\nu\rbr{a_\mu}\theta^\nu}\otimes\theta^\mu +
+	a_\nu\,\underbrace{\cD\theta^\mu}_%
+	{-\tensor{L}{^\mu_\nu_\lambda}\,\theta^\lambda\otimes\theta^\nu} \\
+&= e_\nu\rbr{a_\mu}\,\theta^\nu\otimes\theta^\mu -
+	a_\lambda\tensor{L}{^\lambda_\mu_\nu}\,\theta^\nu\otimes\theta^\mu \\
+&= \rbr{e_\nu\rbr{a_\mu}-\tensor{L}{^\lambda_\mu_\nu}a_\lambda}\,
+	\theta^\nu\otimes\theta^\mu \\
+&\equiv \cD_\nu a_\mu\,\theta^\nu\otimes\theta^\mu \\
+&\equiv \tensor{a}{_\mu_{;\nu}}\,\theta^\nu\otimes\theta^\mu.
+\end{align*}
+
+
+\paragraph{Transformation of $\tensor{\omega}{^\mu_\nu}$ under a change of
+basis}\mbox{} \\
+\begin{equation}
+e_{\overline{\alpha}} = \tensor{p}{^\nu_{\overline{\alpha}}}\,e_\nu \quad
+%\xhookrightarrow{\text{inverse}} \quad
+\xrightarrow{\text{inverse}} \quad
+e_\nu = \tensor{p}{^{\overline{\alpha}}_\nu}\,e_{\overline{\alpha}}
+\end{equation}
+\begin{align}
+e_\nu &= \tensor{p}{^{\overline{\alpha}}_\nu}\,e_{\overline{\alpha}} \\
+&=\underbrace{\overbrace{\tensor{p}{^{\overline{\alpha}}_\nu}}^{p}
+\overbrace{\tensor{p}{^\mu_{\overline{\alpha}}}}^{p^{-1}}}_{\eeq
+\delta^\mu_\nu}\,e_\mu
+\end{align}

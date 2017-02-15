@@ -1,0 +1,74 @@
+\documentclass[a4paper]{article}
+
+
+\input{../preambles/preamble}
+\setdefaultlanguage{english}
+%\setotherlanguages{german,greek}
+
+\input{../preambles/mathematics}
+\input{../preambles/physics}
+
+%\newcommand{\RomaN}[1]{%
+%  \textup{\uppercase\expandafter{\romannumeral#1}}%
+%}
+
+
+%\addbibresource{main.bib}
+\title{Unruh effect}
+\author{YiFan Wang}
+
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\tableofcontents
+
+Defining
+\begin{equation}
+x_- = t-x,\qquad x_+ = t+x.
+\end{equation}
+
+\section{Two-dimensional classical field by Unruh construction}
+
+\begin{equation}
+\Ld = -\sqrt{-g}\rbr{g_{\mu\nu}\partial_\mu \partial_\nu \Phi}.
+\end{equation}
+
+In flat space-time with Minkowski metric,
+\begin{equation}
+\rbr{\partial_t^2 - \partial_x^2}\Phi = 0.
+\label{eq:eom-Minkowski}
+\end{equation}
+Solve \cref{eq:eom-Minkowski} simultaneously with 
+\begin{equation}
+\ii\what{\mscrB}_x \Phi = \frac{\kappa}{a}\Psi
+\end{equation}
+to find a complete set of basis of solution, where
+\begin{equation}
+\what{\mscrB}_x = x\partial_t + t \partial_x
+\end{equation}
+is the Lorentz boost generator in the $x$ direction, and is time-like in $L$ 
+and $R$ region. 
+
+One finds the basis of solutions in $R$ region to be
+\begin{equation}
+\sbr{N\rbr{\frac{-x_-}{x_{-0}}}^{+\ii\kappa/a}, 
+N\rbr{\frac{x_+}{x_{+0}}}^{-\ii\kappa/a}},
+\end{equation}
+Which are named as \emph{boost modes}. Requiring phase at $\rbr{t, x} = \rbr{0, 
+1/a}$ to be zero yields $x_{-0} = x_{+0}$.
+
+
+
+
+
+
+% Let's print the overall heading of the bibliography first:
+%\printbibheading
+%\printbibliography
+
+\end{document}

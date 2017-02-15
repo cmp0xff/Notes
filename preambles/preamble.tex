@@ -1,0 +1,91 @@
+% Fonts and languages
+
+% Multilingual support
+%\usepackage{polyglossia}
+
+% more symbols
+\usepackage{textcomp}
+
+% AMS--related
+\usepackage{amsmath,amssymb}
+
+% ':=' as \coloneqq
+\usepackage{mathtools}
+% Physical bras and kets
+\usepackage{braket}
+% SI units
+\usepackage{siunitx}
+\sisetup{separate-uncertainty}
+
+\usepackage{graphicx}
+%\usepackage[colorinlistoftodos]{todonotes}
+
+
+% Boxed equations. NEED TO BE LOADED BEFORE unicode-math!
+\usepackage{empheq}
+% Theorems
+\usepackage{amsthm}
+
+% Chemical elements
+%\usepackage[version=4]{mhchem}
+
+
+%\usepackage{fancybox}
+
+\usepackage{enumitem} % \begin{enumerate}[label=\Alph*]
+
+
+% Other formats
+
+% Labelling equations according to sections
+\numberwithin{equation}{section}
+
+
+% Bibliography in the main text!!!
+
+%\usepackage[
+			%style=alphabetic,
+%			backend=biber]{biblatex}
+%\usepackage{hyperref}
+\usepackage{nameref}
+
+% Cross-references
+% The \newtheorem commands have to come after the loading of {cleveref}.
+% Additionally, the cleverref package has to be loaded after ntheorem or
+% amsthm. cleverref has to be loaded after hyperref!
+\usepackage{cleveref}
+%\usepackage{nameref}%,thmtools}
+
+% Plot
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{calc}
+% save compiled tikz plots; enable --shell-escape
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=./tikz/]
+
+% Fontspec fot XeLaTeX
+\usepackage{fontspec}
+	% Unicode fonts
+	\setmainfont{CMU Serif}
+	\setsansfont{CMU Sans Serif}
+	\setmonofont{CMU Typewriter Text}
+	% declare a command \doulos to load the Doulos SIL font
+	%\newfontfamily\brill{Brill}
+	% now create a \textIPA{} command
+	%\DeclareTextFontCommand{\textIPA}{\brill}
+\usepackage{amsfonts}
+\usepackage{unicode-math}
+\usepackage{unicode-math}
+	\setmathfont{Latin Modern Math} % default
+	%\setmathfont[range=\mathalpha]{Asana Math}
+	\setmathfont{Asana Math}[range={\mathbin}] %\mathord
+	\setmathfont{STIX Math}[range={"02609}] % ☉
+	\setmathfont{XITS Math}[range={"1D4B6-"1D4CF}] % Script, Latin, lowercase
+	\setmathfont{Latin Modern Math}[range={"1D608-"1D63B}, sans-style=italic]
+	\setmathfont{Latin Modern Math}[range={
+		"00391-"003A9,
+		"003B1-"003F5, 
+		"1D6A8-"1D6E1},	% Bold Greek
+		sans-style=upright]
+	%\setmathfont{⟨font name⟩}[range=⟨unicode range⟩,⟨font features⟩]

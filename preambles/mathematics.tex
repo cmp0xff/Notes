@@ -1,0 +1,178 @@
+% Math symbols and user-defined extensions
+
+
+% some unicode characters
+% ≙ for equal with hat
+
+
+% Mathematical constants
+\newcommand{\ii}{{\Bbbi}}
+\newcommand{\ee}{{\Bbbe}}
+\newcommand{\pp}{{\Bbbpi}}
+
+% Bracket-like
+\newcommand{\rbr}[1]{{\left(#1\right)}}
+\newcommand{\sbr}[1]{{\left[#1\right]}}
+\newcommand{\cbr}[1]{{\left\{#1\right\}}}
+\newcommand{\abr}[1]{{\left<#1\right>}}
+\newcommand{\vbr}[1]{{\left|#1\right|}}
+\newcommand{\dvbr}[1]{{\left\|#1\right\|}}
+\newcommand{\fat}[2]{{\left.#1\right|_{#2}}}
+% Functions; note the space between the name and the bracket!
+\newcommand{\rfun}[2]{{#1}\mathopen{}\left(#2\right)\mathclose{}}
+\newcommand{\sfun}[2]{{#1}\mathopen{}\left[#2\right]\mathclose{}}
+\newcommand{\cfun}[2]{{#1}\mathopen{}\left\{#2\right\}\mathclose{}}
+\newcommand{\afun}[2]{{#1}\mathopen{}\left<#2\right>\mathclose{}}
+\newcommand{\vfun}[2]{{#1}\mathopen{}\left|#2\right|\mathclose{}}
+% Differentials
+\newcommand{\DD}{\BbbD}
+\newcommand{\dd}{\Bbbd}
+\newcommand{\dva}{\mupdelta} % no better way?!
+% Fraction-like
+\newcommand{\frde}[2]{{\frac{\dd{#1}}{\dd{#2}}}}
+\newcommand{\frDe}[2]{{\frac{\DD{#1}}{\DD{#2}}}}
+\newcommand{\frpa}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\frdva}[2]{{\frac{\dva{#1}}{\dva{#2}}}}
+% Equal marks
+\newcommand{\eeq}{{\overset{!}{=}}}
+\newcommand{\lls}{{\overset{!}{<}}}
+\newcommand{\ggt}{{\overset{!}{>}}}
+\newcommand{\lle}{{\overset{!}{\le}}}
+\newcommand{\gge}{{\overset{!}{\ge}}}
+% overline-like marks
+\newcommand{\ol}[1]{{\overline{{#1}}}}
+\newcommand{\ul}[1]{{\underline{{#1}}}}
+\newcommand{\tld}[1]{{\widetilde{{#1}}}}
+\newcommand{\ora}[1]{{\overrightarrow{#1}}}
+\newcommand{\ola}[1]{{\overleftarrow{#1}}}
+\newcommand{\td}[1]{{\widetilde{#1}}}
+\newcommand{\what}[1]{{\widehat{#1}}}
+%\newcommand{\prm}{{\symbol{"2032}}}
+
+% Math operators
+% Why does \DeclareMathOperator not work?
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\opdiv}{div}
+\DeclareMathOperator{\opdeg}{deg}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\ad}{ad}
+
+\DeclareMathOperator{\expi}{expi}
+
+% Group and Algebras
+\newcommand{\SO}{\mathsf{SO}\,}
+\newcommand{\SU}{\mathsf{SU}\,}
+\newcommand{\so}{\mathfrak{so}\,}
+\newcommand{\su}{\mathfrak{su}\,}
+
+
+% amsthm
+\newcommand{\thistheoremname}{} % for generic stuff
+% definition of new styles
+\newtheoremstyle{varplain}% name
+	{}{}%      Spaces above and below, empty = `usual value'
+	{\itshape}% Body font
+	{}%         Indent amount (empty = no indent, \parindent = para indent)
+	{\bfseries}% Thm head font
+	{}%        Punctuation after thm head
+	{\newline}% Space after thm head: \newline = linebreak
+	{{\normalfont\thmnumber{(#2)}}\thmname{ #1}{\normalfont\thmnote{ (#3)}}}
+	%         Thm head spec
+\newtheoremstyle{vardefinition}% name
+	{}{}%      Spaces above and below, empty = `usual value'
+	{\upshape}% Body font
+	{}%         Indent amount (empty = no indent, \parindent = para indent)
+	{\bfseries}% Def head font
+	{}%        Punctuation after thm head
+	{\newline}% Space after thm head: \newline = linebreak
+	{{\normalfont\thmnumber{(#2)}}\thmname{ #1}{\normalfont\thmnote{ (#3)}}}
+	%         Thm head spec
+\newtheoremstyle{varremark}% name
+	{}{}%      Spaces above and below, empty = `usual value'
+	{\upshape}% Body font
+	{}%         Indent amount (empty = no indent, \parindent = para indent)
+	{\itshape}% Rem head font
+	{}%        Punctuation after thm head
+	{\newline}% Space after thm head: \newline = linebreak
+	{{\normalfont\upshape\thmnumber{(#2)}}\thmname{ #1}{\normalfont\thmnote{ (#3)}}}
+	%         Thm head spec
+% Plain style
+\theoremstyle{plain}% default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+% Definition style
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{ppty}{Property}[section]
+% Remark style
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+% variant plain style
+\theoremstyle{varplain}
+% for specifying a named theorem with numbering
+\newtheorem{genericthm}{\thistheoremname}[section]
+\newenvironment{namedthm}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericthm}}
+	{\end{genericthm}}
+% for specifying a named theorem without numbering
+\newtheorem*{genericthm*}{\thistheoremname}
+\newenvironment{namedthm*}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericthm*}}
+	{\end{genericthm*}}
+\newtheorem{unamedthm}[genericthm]{Theorem}
+% variant definition style
+\theoremstyle{vardefinition}
+% for specifying a named definition with numbering
+\newtheorem{genericdef}[genericthm]{\thistheoremname}
+\newenvironment{nameddef}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericdef}}
+	{\end{genericdef}}
+% for specifying a named definition without numbering
+\newtheorem*{genericdef*}{\thistheoremname}
+\newenvironment{nameddef*}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericdef*}}
+	{\end{genericdef*}}
+\newtheorem{unameddef}[genericthm]{Definition}
+% variant remark style
+\theoremstyle{varremark}
+% for specifying a named  with numbering
+\newtheorem{genericrem}[genericthm]{\thistheoremname}
+\newenvironment{namedrem}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericrem}}
+	{\end{genericrem}}
+% for specifying a name without numbering
+\newtheorem*{genericrem*}{\thistheoremname}
+\newenvironment{namedrem*}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+		\begin{genericrem*}}
+	{\end{genericrem*}}
+\newtheorem{unamedrem}[genericthm]{Remark}
+
+
+% cleveref
+\crefname{lem}{lemma}{lemmas}
+\Crefname{lem}{Lemma}{Lemmas}
+\crefname{thm}{theorem}{theorems}
+\Crefname{thm}{Theorem}{Theorems}
+\crefname{defn}{definition}{definitions}
+\Crefname{defn}{Definition}{Definitions}
+\crefname{exmp}{example}{examples}
+\Crefname{exmp}{Example}{Examples}
+\crefname{namedthm}{}{}
+\Crefname{namedthm}{}{}
