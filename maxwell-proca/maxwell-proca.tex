@@ -1,0 +1,226 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+
+
+\input{../preambles/preamble}
+\input{../preambles/unicode}
+
+\setmainlanguage{english}
+\setotherlanguages{german,greek,russian}
+
+\input{../preambles/math-single}
+\input{../preambles/math-brac}
+\input{../preambles/math-thm}
+\input{../preambles/phys-chem}
+
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\usepackage[%style=authoryear-icomp,
+			backend=biber]{biblatex}
+\addbibresource{./maxwell-proca.bib}
+
+\title{Hamiltonian Dynamics of Maxwell--Proca theory in $\rbr{d+1}$-dimensions}
+\author{Yi-Fan Wang (王\ 一帆)}
+%\date{}
+
+\begin{document}
+\maketitle
+
+
+\section{Maxwell--Proca theory in flat space-time}
+
+Consider a Maxwell--Proca theory with source
+\begin{equation}
+\Ld = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} - \frac{1}{2} m^2 A_\mu A^\mu
++ A_\mu J^\mu,
+\end{equation}
+where $m > 0$ corresponds to the Proca theory \cite[sec.\ 2.3]{Gitman1990}, and 
+$m = 0$ the Maxwell theory \cite[sec.\ 3.3.3]{Rothe2010}, \cite[sec.\ 
+2.4]{Gitman1990}.
+
+The Lagrangian density with velocity reads
+\begin{equation}
+\Ld^\text{v} = \frac{1}{2} \rbr{V_i - \partial_i A_0}^2 - \frac{1}{4} F_{ij}^2 
++ \frac{m^2}{2} \rbr{A_0^2 - A_i^2} + A_0 J^0 + A_i J^i;
+\end{equation}
+the canonical momenta densities are
+\begin{equation}
+\Pi^0 \coloneqq \frpa{\Ld^\text{v}}{V_0} = 0,\qquad
+\Pi^i \coloneqq \frpa{\Ld^\text{v}}{V_i} = V^i - \partial^i A_0.
+\end{equation}
+The fundamental Poisson brackets are
+\begin{equation}
+\sbr{\rfun{A_i}{\vec x_1}, \rfun{\Pi^j}{\vec x_2}}_\text{P} =
+\delta^i{}_j\rfun{\delta^d}{\vec x_1 - \vec x_2}.
+\end{equation}
+
+The Hamiltonian with primary constraint, as well as the canonical Hamiltonian, 
+are
+\begin{align}
+\mscrH^\text{p} &= \mscrH^\text{c} + V_0 \Phi_1,\\
+\mscrH^\text{c} &= \frac{1}{2} \rbr{\Pi^i}^2 + \Pi^i \partial_i A_0 + 
+\frac{1}{4} 
+F_{ij}^2 + \frac{m^2}{2} \rbr{-A_0^2 + A_i^2} - A_0 J^0 - A_i J^i,
+\label{eq:canonical-Hamil-general-MP}\\
+\end{align}
+where
+\begin{equation}
+\Phi_1 \coloneqq \Pi^0
+\end{equation}
+is the only primary constraint.
+
+\subsection{Constraint algebra}
+The Poisson bracket of $\Phi_1$ and $\mscrH^\text{p}$ is
+\begin{align}
+\sbr{\rfun{\Phi_1}{\vec{x}_1},\rfun{\mscrH^\text{p}}{\vec{x}_2}}_\text{P} &=
+\sbr{\rbr{\Pi^0}_1,\rbr{\Pi^i\partial_i A_0-\frac{m^2}{2}A_0^2-A_0 
+J^0}_2}_\text{P}
+\nonumber \\
+&= \rbr{-\Pi^i\partial_i + m^2 A_0 - J_0}_2 
+\rfun{\delta}{\vec{x}_1-\vec{x}_2},
+\end{align}
+where $J_0 = -J^0$. Integration with $\dd^d x_2$ yields the secondary constraint
+\begin{equation}
+\sbr{\Phi_1, H^\text{p}}_\text{P} = \partial_i \Pi^i + m^2 A_0 - J_0 
+\eqqcolon \Phi_2,
+\label{eq:secondary-general-MP}
+\end{equation}
+so that
+\begin{equation}
+\sbr{\rfun{\Phi_1}{\vec{x}_1},\rfun{\Phi_2}{\vec{x}_2}}_\text{P} = 
+-m^2\rfun{\delta}{\vec{x}_1-\vec{x}_2}.
+\label{eq:Maxwell-Proca-Q}
+\end{equation}
+One may further compute
+\begin{equation}
+\sbr{\rfun{\Phi_2}{\vec{x}_1}, \rfun{\mscrH^\text{c}}{\vec{x}_2}}_\text{P} = 
+\sbr{\rbr{\partial_i \Pi^i}_1,
+\rbr{\frac{1}{4} F_{jk}^2 + \frac{m^2}{2} A_j^2 - A_j J^j}_2}_\text{P},
+\end{equation}
+in which
+\begin{align}
+\sbr{\rbr{\partial_i \Pi^i}_1, \rbr{\frac{1}{4} 
+F_{jk}^2}_2}_\text{P} &=
+\rbr{\partial_j A_k - \partial_k A_j}_2 \rbr{\partial_i}_1
+\sbr{\rbr{\Pi^i}_1, \rbr{\partial^j A^k}_2}_\text{P} \nonumber \\
+&= -\rbr{F^{ij} \partial_j}_2 \rbr{\partial_i}_1
+\rfun{\delta}{\vec{x}_1-\vec{x}_2}.
+\end{align}
+The Poisson bracket can be evaluated to be
+\begin{equation}
+\sbr{\rfun{\Phi_2}{\vec{x}_1}, \rfun{\mscrH^\text{c}}{\vec{x}_2}}_\text{P} =
+-\rbr{F^{ij} \partial_j + m^2 A^i + J^i}_2 \rbr{\partial_i}_1 
+\rfun{\delta}{\vec{x}_1-\vec{x}_2}.
+\end{equation}
+Integration with $\dd^d x_2$ yields
+\begin{equation}
+\sbr{\Phi_2, H^\text{c}}_\text{P} = -\partial_i\rbr{m^2 A^i + J^i}.
+\label{eq:persistence-Phi2}
+\end{equation}
+
+\subsection{Free Maxwell theory}
+
+For Maxwell theory $m = 0$. Persistence condition on \cref{eq:persistence-Phi2} 
+requires $\partial_i J = 0$. The canonical Hamiltonian in 
+\cref{eq:canonical-Hamil-general-MP} takes the form
+\begin{equation}
+\mscrH^\text{c} = \frac{1}{2} \rbr{\Pi^i}^2 + \Pi^i \partial_i A_0 + 
+\frac{1}{4} 
+F_{ij}^2 - A_0 J^0 - A_i J^i,\\
+\end{equation}
+the secondary constraint $\Phi_2$ in \cref{eq:secondary-general-MP} now 
+reads
+\begin{equation}
+\Phi_2 = \partial_i \Pi^i - J_0.
+\end{equation}
+Since the Poisson bracket of $\Phi_2$ and $H^\text{p}$
+\begin{equation}
+\sbr{\Phi_2, H^\text{p}}_\text{P} = -\partial_i J^i
+\end{equation}
+contains now no canonical variable, the algorithm terminates. Furthermore, 
+the constraint algebra is commutative, hence the system is a purely 
+first-class one.
+
+
+
+
+\subsection{Proca theory}
+
+For Proca theory $m > 0$ , then the algorithm terminates, and one obtains a 
+pure second-class system.
+\begin{equation}
+\mbfQ = \begin{pmatrix}0 & -m^2 \\ +m^2 & 0\end{pmatrix},
+\qquad
+\mbfQ^{-1} = \begin{pmatrix}0 & +m^{-2} \\ -m^{-2} & 0\end{pmatrix}.
+\end{equation}
+Dirac bracket
+\begin{equation}
+\begin{split}
+&\phantom{}
+\sbr{\rfun{f}{\vec{x}_1},\rfun{g}{\vec{x}_2}}_\text{D} =
+\sbr{\rbr{f}_1, \rbr{g}_2}_\text{P} + \int \dd^d x_3 \\
+\Bigl(&- \sbr{\rbr{f}_1, \rbr{\Pi^0}_3}_\text{P}
+\sbr{\rbr{m^{-2}\partial_i \Pi^i + A_0}_3, \rbr{g}_2}_\text{P} \\
+&+ \sbr{\rbr{f}_1, \rbr{m^{-2}\partial_i \Pi^i + A_0}_3}_\text{P}
+\sbr{\rbr{\Pi^0}_3, \rbr{g}_2}_\text{P} \Bigr).
+\end{split}
+\end{equation}
+The fundamental ones different from Poisson brackets are
+\begin{equation}
+\sbr{\rfun{A_0}{\vec{x}_1},\rfun{A_i}{\vec{x}_2}}_\text{D} =
+m^{-2} \rbr{\partial_i}_1 \rfun{\delta}{\vec{x}_1 - \vec{x}_2},\qquad
+\sbr{\rfun{A_0}{\vec{x}_1},\rfun{\Pi^0}{\vec{x}_2}}_\text{D} = 0.
+\end{equation}
+
+Introducing the regularising coordinates
+\begin{alignat}{3}
+\alpha_i &= A_i + m^{-2}\rbr{\partial_i \Pi^0 - J_i},&\qquad \beta^i &= \Pi^i; 
+\\
+\alpha_0 &= A_0 + m^{-2}\rbr{\partial_i \Pi^i - J_0},&\qquad \beta^0 &= \Pi^0.
+\end{alignat}
+Note that $J^i = J_i$. It is easy to show that
+\begin{align}
+\sbr{\rfun{\alpha_i}{\vec{x}_1},\rfun{\beta^j}{\vec{x}_2}}_\text{D} &= 
+\delta^i_j\rfun{\delta}{\vec{x}_1,\vec{x}_2},\\
+\sbr{\rfun{\alpha_i}{\vec{x}_1},\rfun{\alpha_j}{\vec{x}_2}}_\text{D} &= 0 =
+\sbr{\rfun{\beta^i}{\vec{x}_1},\rfun{\beta^j}{\vec{x}_2}}_\text{D}.
+\end{align}
+Furthermore, one has
+\begin{equation}
+\mscrH^\text{p} = \mscrH^\text{phy}+\mscrH^\text{con}+\mscrH^\text{irr},
+\end{equation}
+where
+\begin{align}
+\begin{split}
+\mscrH^\text{phy} &= \frac{1}{2}\rbr{\beta^i}^2 + \frac{m^2}{2}\alpha_i^2 +
+\frac{1}{4}\rbr{\partial_i \alpha_j - \partial_j \alpha_i}^2 + 
+\frac{1}{2m^2}\rbr{\partial_i \beta^i}^2 \\
+&\quad +\frac{1}{m^2} J^0 \partial_i \beta^i,
+\end{split}\\
+\mscrH^\text{con} &= -\frac{m^2}{2}\alpha_0^2 - \frac{1}{2m^2} 
+\rbr{\partial_i \beta^0}^2,\\
+\begin{split}
+\mscrH^\text{irr} &= \partial_i\rbr{\alpha_0\beta^i - \beta^0\alpha_i + 
+\frac{1}{m^2}\rbr{\beta^0\partial_i\beta^0 - 
+\beta^i\partial_j\beta^j - J^0 \beta^i}} \\
+&\quad + \frac{1}{2m^2}\rbr{\rbr{J^0}^2 - \rbr{J^i}^2}.
+\end{split}
+\end{align}
+Further more,
+\begin{equation}
+\Phi_1 = \beta^0,\qquad\Phi_2 = m^2\alpha_0 \propto \alpha_0.
+\end{equation}
+Thus the $\rbr{\alpha_i, \beta^i}$ are regular pairs of canonical variables, 
+whereas $\rbr{\alpha_0, \beta^0}$ are the singular variables as constraints. 
+The canonical dynamics of the physical $\rbr{\alpha_i, \beta^i}$'s are 
+determined by $\mscrH^\text{phy}$ as a regular system.
+
+\textbf{Should one compute $\mscrH^\text{a}$ here?}
+
+
+\printbibliography
+
+\end{document}
