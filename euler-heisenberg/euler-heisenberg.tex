@@ -254,12 +254,12 @@ The total action for spinor electrodynamics reads
 \begin{align}
 \sfun{S_{1/2}}{A_\mu, \psi, \bar\psi} &\coloneqq 
 S_\text{Dirac} + S_\text{IDM}+S_\text{Maxwell} \nonumber \\
-&= \int\dif^{d+1}x\,\cbr{-\bar\psi\rbr{\gamma^\mu D_\mu+m}\psi
+&= \int\dif^{d+1}x\,\cbr{-\bar\psi\rbr{\gamma^\mu \nabla_\mu+m}\psi
 -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
 \end{align}
 where
 \begin{align}
-D_\mu\psi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\psi.
+\nabla_\mu\psi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\psi.
 \end{align}
 
 
@@ -406,13 +406,16 @@ The total action for scalar electrodynamics reads
 \begin{align}
 \sfun{S_0}{A_\mu, \phi, \phi^*} &\coloneqq 
 S_\text{CKG} + S_\text{ICKGM} + S_\text{Maxwell} \nonumber \\
-&= \int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
-\rbr{D_\mu\phi}^* \rbr{D_\nu\phi} - m^2\phi^*\phi
--\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
+&= \int\dif^{d+1}x\,\cbr{-\rbr{\nabla_\mu\phi}^* \rbr{\nabla^\mu\phi} - 
+m^2\phi^*\phi -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
+% \nonumber \\
+% &= \int\dif^{d+1} x \cbr{\phi^*\rbr{-\nabla_\mu \nabla^\mu - m^2}\phi
+% - \frac{1}{4} F^{\mu\nu} F_{\mu\nu} + \text{b.t.}},
 \end{align}
 where
 \begin{align}
-D_\mu\phi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\phi.
+\nabla_\mu\phi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\phi.
+%,\qquad\text{b.t.} = \partial_\mu \rbr{\phi^*\nabla^\mu \phi}.
 \end{align}
 
 Generating functional
@@ -434,22 +437,67 @@ In other words,
 \cfun{\exp}{\mi\sfun{\varGamma}{A_\mu}} &\coloneqq \int\Dif\phi\,\Dif\phi^*\,
 \cfun{\exp}{\mi\rbr{S_\text{CKG}+S_\text{ICKGM}}}
 \nonumber \\
-&\equiv \int\Dif\phi\,\Dif\phi^*\,
-\cfun{\exp}{\mi\int\dif^{d+1} x
-\rbr{-\eta^{\mu\nu}
-\rbr{D_\mu\phi}^* \rbr{D_\nu\phi} - m^2\phi^*\phi}}
-\nonumber \\
-&= \int\Dif\phi\,\Dif\phi^*\,
-\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
-\rfun{\phi^*}{x} \rfun{M}{x, y} \rfun{\phi}{y}}
+&\equiv  \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\int\dif^{d+1}x\,\cbr{-\rbr{\nabla_\mu\phi}^* 
+\rbr{\nabla^\mu\phi} - m^2\phi^*\phi}}.
+\label{eq:scalar-qed-to-be-manipulated}
 %\nonumber \\
-%&= \mathcal{N}\sfun{\det}{-\mi \rfun{M}{x, y}},
+\end{align}
+The integral in the exponent can be manipulated; only the first term is 
+essential
+\begin{align}
+&\quad\int\dif^{d+1}x\,\rbr{-\rbr{\nabla_\mu\phi}^* \rbr{\nabla^\mu\phi}} 
+\nonumber \\
+&= \int\dif^{d+1}x\,\dif^{d+1}y\,\rbr{
+-\rbr{\nabla_{x^\mu}\rfun{\phi}{x}}^* \rfun{\delta^{d+1}}{x-y}
+\nabla^{y^\mu}\rfun{\phi}{y}},
+\label{eq:scalar-qed-matrix-1}
 \end{align}
 where
 \begin{align}
-\rfun{M}{x, y} \coloneqq
-%\rbr{+\slashed{\partial}_y-\mi e 
-%\rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
+\rfun{\delta^{d+1}}{x-y} \rbr{\nabla^{y^\mu}\rfun{\phi}{y}}
+&= \rfun{\delta^{d+1}}{x-y}
+\rbr{\partial^{y^\mu}+\mi e \rfun{A^\mu}{y}}\rfun{\phi}{y} \nonumber \\
+&= \cbr{-\rbr{\nabla^{y^\mu}}^*\rfun{\delta^{d+1}}{x-y}}\rfun{\phi}{y}
++\partial^{y^\mu}B,
+\end{align}
+in which
+\begin{align}
+B = \rfun{B}{x,y} \coloneqq \rfun{\delta^{d+1}}{x-y}\rfun{\phi}{y};
+\end{align}
+going back to \cref{eq:scalar-qed-matrix-1},
+\begin{align}
+&= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{
+-\cbr{\rbr{\partial_{x^\mu}+\mi e \rfun{A_\mu}{x}}\rfun{\phi}{x}}^* 
+\rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}}
+\nonumber \\
+&= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{ -\partial_{x^\mu} C^\mu + 
+\rfun{\phi^*}{x}
+\nabla_{x^\mu}
+\rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}} \nonumber \\
+&= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{ -\partial_{x^\mu} C^\mu + 
+\rfun{\phi^*}{x}
+\rbr{-\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^*\rfun{\delta^{d+1}}{x-y}}
+\rfun{\phi}{y} + \partial^{y^\mu}\nabla_{x^\mu} B},
+\end{align}
+in which
+\begin{equation}
+C^\mu = \rfun{C^\mu}{x,y} \coloneqq \rfun{\phi^*}{x} 
+\rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}.
+\end{equation}
+Now \cref{eq:scalar-qed-to-be-manipulated} can be written as (dropping the 
+boundary terms)
+\begin{align}
+&= \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
+\rfun{\phi^*}{x} \rfun{M}{x, y} \rfun{\phi}{y}}
+\nonumber \\
+&= \mathcal{N}\cbr{\sfun{\det}{-\mi \rfun{M}{x, y}}}^{-1/2},
+\end{align}
+where
+\begin{align}
+\rfun{M}{x, y} \coloneqq \mathcal{M}_y \rfun{\delta^{d+1}}{x-y},\qquad
+\mathcal{M}_y \coloneqq -\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* - m^2.
 \end{align}
 
 %\begin{align}
