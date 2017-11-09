@@ -232,34 +232,42 @@
 
 \section{Spinor electrodynamics in flat space-time}
 
-Maxwell lagrangian
+Maxwell Lagrangian
 \begin{equation}
-\sfun{S_\text{Maxwell}}{A_\mu} \coloneqq \int\dif^4 x\,\rbr{
+\sfun{S_\text{Maxwell}}{A_\mu} \coloneqq \int\dif^{d+1} x\,\rbr{
 -\frac{1}{4} F^{\mu\nu} F_{\mu\nu} }
 \end{equation}
 
-Dirac lagrangian \citep[sec.~11]{weinberg1995}
+Dirac Lagrangian \citep[sec.~11]{weinberg1995}
 \begin{equation}
-\sfun{S_\text{Dirac}}{\psi, \bar\psi} \coloneqq \int\dif^4 x\,
+\sfun{S_\text{Dirac}}{\psi, \bar\psi} \coloneqq \int\dif^{d+1} x\,
 \cbr{-\bar{\psi} \rbr{\gamma^\mu\partial_\mu + m}\psi}.
 \end{equation}
 
-Interacting term
+Interaction term
 \begin{equation}
-S_\text{IMD} \coloneqq \int\dif^4 x\,\rbr{-\bar{\psi}\gamma^\mu\mi e A_\mu\psi}.
+\sfun{S_\text{IDM}}{A_\mu, \psi, \bar\psi} \coloneqq \int\dif^{d+1} 
+x\,\rbr{-\bar{\psi}\gamma^\mu\mi e A_\mu\psi}.
 \end{equation}
 
+The total action for spinor electrodynamics reads
+\begin{align}
+\sfun{S_{1/2}}{A_\mu, \psi, \bar\psi} &\coloneqq 
+S_\text{Dirac} + S_\text{IDM}+S_\text{Maxwell} \nonumber \\
+&= \int\dif^{d+1}x\,\cbr{-\bar\psi\rbr{\gamma^\mu D_\mu+m}\psi
+-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
+\end{align}
+where
+\begin{align}
+D_\mu\psi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\psi.
+\end{align}
 
-\begin{equation}
-\sfun{S_{1/2}}{A_\mu, \psi, \bar\psi} \coloneqq 
-S_\text{Maxwell}+S_\text{Dirac} + S_\text{IMD}.
-\end{equation}
 
 Generating functional
 \begin{equation}
 \sfun{\mathcal{Z}}{j^\mu, \bar\eta, \eta} \coloneqq
 \int\Dif A\,\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_{1/2}
-+\int\dif^4 x\,\rbr{j^\mu A_\mu + \bar\eta \psi+\bar\psi \eta}}}
++\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + \bar\eta \psi+\bar\psi \eta}}}
 \end{equation}
 
 Effective action
@@ -267,17 +275,17 @@ Effective action
 \sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
 \int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
 \sfun{\varGamma}{A_\mu}
-+\int\dif^4 x \,j^\mu A_\mu}}.
++\int\dif^{d+1} x \,j^\mu A_\mu}}.
 \end{equation}
 In other words,
 \begin{align}
 \cfun{\exp}{\mi\sfun{\varGamma}{A_\mu}} &\equiv \int
-\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_\text{Dirac}+S_\text{IMD}}}
+\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_\text{Dirac}+S_\text{IDM}}}
 \nonumber \\
-&\equiv \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^4 x
+&\equiv \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,
 \bar{\psi} \rbr{-\slashed{\partial}-\mi e \slashed{A} - m}\psi}
 \nonumber \\
-&= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^4 x\,\dif^4 y\,
+&= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
 \rfun{\bar\psi}{x} \rfun{M}{x, y} \rfun{\psi}{y}}
 \nonumber \\
 &= \mathcal{N}\sfun{\det}{-\mi \rfun{M}{x, y}},
@@ -285,7 +293,7 @@ In other words,
 where
 \begin{equation}
 \rfun{M}{x, y} \coloneqq \rbr{+\slashed{\partial}_y-\mi e 
-\rfun{\slashed{A}}{y} - m}\rfun{\delta^4}{x-y}.
+\rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
 \end{equation}
 
 \begin{align}
@@ -299,15 +307,15 @@ Note that
 \Tr \sfun{\ln}{-\mi \rfun{M}{x, y}} &\equiv
 \Tr \sfun{\ln}{-\mi \rfun{M^\intercal}{x, y}} \nonumber \\
 &= \Tr \sfun{\ln}{\mi\rbr{ +\slashed{\partial}_y^\intercal -\mi e 
-\rfun{\slashed{A}^\intercal}{y} - m}\rfun{\delta^4}{x-y}} \nonumber \\
+\rfun{\slashed{A}^\intercal}{y} - m}\rfun{\delta^{d+1}}{x-y}} \nonumber \\
 &= \Tr \sfun{\ln}{\mi\rbr{ -\mathscr{C}\slashed{\partial}_y\mathscr{C}^{-1}
 +\mi e \mathscr{C}\rfun{\slashed{A}}{y}\mathscr{C}^{-1}
--\mathscr{C}m\mathscr{C}^{-1}} \rfun{\delta^4}{x-y}} \nonumber \\
+-\mathscr{C}m\mathscr{C}^{-1}} \rfun{\delta^{d+1}}{x-y}} \nonumber \\
 &= \cfun{\Tr}{\mathscr{C}\sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
-+\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^4}{x-y}}\mathscr{C}^{-1}} 
++\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}\mathscr{C}^{-1}} 
 \nonumber \\
 &= \Tr \sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
-+\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^4}{x-y}}.
++\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}.
 \end{align}
 where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
 \begin{equation}
@@ -317,7 +325,7 @@ where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
 \end{equation}
 where
 \begin{align}
-\rfun{M_2}{x, y} \coloneqq \mathcal{M}_y \rfun{\delta^4}{x-y},\quad
+\rfun{M_2}{x, y} \coloneqq \mathcal{M}_y \rfun{\delta^{d+1}}{x-y},\quad
 \mathcal{M}_y \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
 \rfun{\slashed{A}}{y}}^2 - m^2}.
 \label{eq:M_2-def}
@@ -353,7 +361,7 @@ F_{30} \equiv -F_{03} = E_3 \eqqcolon E,\qquad
 F_{12} \equiv -F_{21} = B_3 \eqqcolon B.
 \label{eq:const-EM-strength}
 \end{equation}
-A Landau-like choice of four-potential \citep{Landau_1930}
+A Landau-like choice of four-potential \citep{landau1930}
 \begin{equation}
 A_{\mu} \coloneqq \begin{pmatrix} 0 & -Bx_2 & 0 & Ex_0 \end{pmatrix}
 \end{equation}
@@ -363,7 +371,7 @@ matrix reduces to
 \mathcal{M} = 
 \end{equation}
 
-
+\cite{heisenberg1936}
 
 %Further using the trick
 %\begin{equation}
@@ -380,12 +388,79 @@ matrix reduces to
 %\end{align}
 
 
-
-
-
 \section{Scalar electrodynamics in flat space-time}
 
+Complex Klein--Gordon Lagrangian
+\begin{align}
+\sfun{S_\text{CKG}}{\phi,\phi^*}\coloneqq\int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
+\rbr{\partial_\mu\phi}^* \rbr{\partial_\nu\phi} - m^2\phi^*\phi}.
+\end{align}
+Interaction term
+\begin{align}
+\sfun{S_\text{ICKGM}}{A_\mu,\phi,\phi^*} \coloneqq \int\dif^{d+1}x\,
+\eta^{\mu\nu}{}
+\cbr{\mi e A_\mu \rbr{-\phi^*\partial_\nu\phi+\phi\partial_\nu\phi^*}
++e^2 A_\mu A_\nu \phi^* \phi}.
+\end{align}
+The total action for scalar electrodynamics reads
+\begin{align}
+\sfun{S_0}{A_\mu, \phi, \phi^*} &\coloneqq 
+S_\text{CKG} + S_\text{ICKGM} + S_\text{Maxwell} \nonumber \\
+&= \int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
+\rbr{D_\mu\phi}^* \rbr{D_\nu\phi} - m^2\phi^*\phi
+-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
+\end{align}
+where
+\begin{align}
+D_\mu\phi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\phi.
+\end{align}
 
+Generating functional
+\begin{equation}
+\sfun{\mathcal{Z}}{j^\mu, \bar J, J} \coloneqq
+\int\Dif A\,\Dif\phi\,\Dif\phi^*\,\cfun{\exp}{\mi\rbr{S_0
++\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + J^* \psi+\psi^* J}}}.
+\end{equation}
+
+Effective action
+\begin{equation}
+\sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
+\int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
+\sfun{\varGamma}{A_\mu}
++\int\dif^{d+1} x \,j^\mu A_\mu}}.
+\end{equation}
+In other words,
+\begin{align}
+\cfun{\exp}{\mi\sfun{\varGamma}{A_\mu}} &\coloneqq \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\rbr{S_\text{CKG}+S_\text{ICKGM}}}
+\nonumber \\
+&\equiv \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\int\dif^{d+1} x
+\rbr{-\eta^{\mu\nu}
+\rbr{D_\mu\phi}^* \rbr{D_\nu\phi} - m^2\phi^*\phi}}
+\nonumber \\
+&= \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
+\rfun{\phi^*}{x} \rfun{M}{x, y} \rfun{\phi}{y}}
+%\nonumber \\
+%&= \mathcal{N}\sfun{\det}{-\mi \rfun{M}{x, y}},
+\end{align}
+where
+\begin{align}
+\rfun{M}{x, y} \coloneqq
+%\rbr{+\slashed{\partial}_y-\mi e 
+%\rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
+\end{align}
+
+%\begin{align}
+%\sfun{\varGamma}{A_\mu} &\equiv
+%-\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi M}} \nonumber \\
+%&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{M}{x, y}}}.
+%\end{align}
+
+
+
+\cite{weisskopf1936}
 
 
 
