@@ -274,12 +274,12 @@ Effective action
 \begin{equation}
 \sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
 \int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
-\sfun{\varGamma}{A_\mu}
+\sfun{\varGamma_\text{EH}}{A_\mu}
 +\int\dif^{d+1} x \,j^\mu A_\mu}}.
 \end{equation}
 In other words,
 \begin{align}
-\cfun{\exp}{\mi\sfun{\varGamma}{A_\mu}} &\equiv \int
+\cfun{\exp}{\mi\sfun{\varGamma_\text{EH}}{A_\mu}} &\equiv \int
 \Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_\text{Dirac}+S_\text{IDM}}}
 \nonumber \\
 &\equiv \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,
@@ -297,8 +297,8 @@ where
 \end{equation}
 
 \begin{align}
-\sfun{\varGamma}{A_\mu} &\equiv
--\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi M}} \nonumber \\
+\sfun{\varGamma_\text{EH}}{A_\mu} &\equiv
+-\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi S^{-1}}} \nonumber \\
 &= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}}}.
 \end{align}
 
@@ -429,12 +429,13 @@ Effective action
 \begin{equation}
 \sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
 \int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
-\sfun{\varGamma}{A_\mu}
+\sfun{\varGamma_\text{W}}{A_\mu}
 +\int\dif^{d+1} x \,j^\mu A_\mu}}.
 \end{equation}
 In other words,
 \begin{align}
-\cfun{\exp}{\mi\sfun{\varGamma}{A_\mu}} &\coloneqq \int\Dif\phi\,\Dif\phi^*\,
+\cfun{\exp}{\mi\sfun{\varGamma_\text{W}}{A_\mu}} &\coloneqq 
+\int\Dif\phi\,\Dif\phi^*\,
 \cfun{\exp}{\mi\rbr{S_\text{CKG}+S_\text{ICKGM}}}
 \nonumber \\
 &\equiv  \int\Dif\phi\,\Dif\phi^*\,
@@ -489,19 +490,25 @@ Now \cref{eq:scalar-qed-to-be-manipulated} can be written as (dropping the
 boundary terms)
 \begin{align}
 &= \int\Dif\phi\,\Dif\phi^*\,
-\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
+\cfun{\exp}{-\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
 \rfun{\phi^*}{x} \rfun{D^{-1}}{x, y} \rfun{\phi}{y}}
 \nonumber \\
-&= \mathcal{N}\cbr{\sfun{\det}{-\mi \rfun{D^{-1}}{x, y}}}^{-1/2},
+&= \mathcal{N}\cbr{\sfun{\det}{\rfun{D^{-1}}{x, y}}}^{-1/2},
 \end{align}
 where
 \begin{align}
 \rfun{D^{-1}}{x, y} \coloneqq \mathcal{D}^{-1}_y \rfun{\delta^{d+1}}{x-y},\qquad
-\mathcal{D}^{-1}_y \coloneqq -\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* - m^2.
+\mathcal{D}^{-1}_y \coloneqq +\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* + m^2.
+\end{align}
+
+\begin{align}
+\sfun{\varGamma_\text{W}}{A_\mu} &\equiv
+-\mi\rbr{\ln\mathcal{N} - \frac{1}{2} \ln \det D^{-1}} \nonumber \\
+&= -\mi\ln\mathcal{N} + \frac{\mi}{2} \tr \ln D^{-1}.
 \end{align}
 
 %\begin{align}
-%\sfun{\varGamma}{A_\mu} &\equiv
+%\sfun{\varGamma_\text{W}}{A_\mu} &\equiv
 %-\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi M}} \nonumber \\
 %&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{D^{-1}}{x, y}}}.
 %\end{align}
