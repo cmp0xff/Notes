@@ -286,25 +286,25 @@ In other words,
 \bar{\psi} \rbr{-\slashed{\partial}-\mi e \slashed{A} - m}\psi}
 \nonumber \\
 &= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
-\rfun{\bar\psi}{x} \rfun{M}{x, y} \rfun{\psi}{y}}
+\rfun{\bar\psi}{x} \rfun{S^{-1}}{x, y} \rfun{\psi}{y}}
 \nonumber \\
-&= \mathcal{N}\sfun{\det}{-\mi \rfun{M}{x, y}},
+&= \mathcal{N}\sfun{\det}{-\mi \rfun{S^{-1}}{x, y}},
 \end{align}
 where
 \begin{equation}
-\rfun{M}{x, y} \coloneqq \rbr{+\slashed{\partial}_y-\mi e 
+\rfun{S^{-1}}{x, y} \coloneqq \rbr{+\slashed{\partial}_y-\mi e 
 \rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
 \end{equation}
 
 \begin{align}
 \sfun{\varGamma}{A_\mu} &\equiv
 -\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi M}} \nonumber \\
-&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{M}{x, y}}}.
+&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}}}.
 \end{align}
 
 Note that
 \begin{align}
-\Tr \sfun{\ln}{-\mi \rfun{M}{x, y}} &\equiv
+\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} &\equiv
 \Tr \sfun{\ln}{-\mi \rfun{M^\intercal}{x, y}} \nonumber \\
 &= \Tr \sfun{\ln}{\mi\rbr{ +\slashed{\partial}_y^\intercal -\mi e 
 \rfun{\slashed{A}^\intercal}{y} - m}\rfun{\delta^{d+1}}{x-y}} \nonumber \\
@@ -319,14 +319,14 @@ Note that
 \end{align}
 where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
 \begin{equation}
-\Tr \sfun{\ln}{-\mi \rfun{M}{x, y}} =
+\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} =
 \frac{1}{2} \Tr \sfun{\ln}{\rfun{M_2}{x, y}},
 \label{eq:Tr-M_2}
 \end{equation}
 where
 \begin{align}
-\rfun{M_2}{x, y} \coloneqq \mathcal{M}_y \rfun{\delta^{d+1}}{x-y},\quad
-\mathcal{M}_y \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
+\rfun{M_2}{x, y} \coloneqq \mathcal{S}^{-1}_y \rfun{\delta^{d+1}}{x-y},\quad
+\mathcal{S}^{-1}_y \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
 \rfun{\slashed{A}}{y}}^2 - m^2}.
 \label{eq:M_2-def}
 \end{align}
@@ -345,7 +345,7 @@ One may further simplify \cref{eq:M_2-def} by noting ($y$ suppressed)
 \end{align}
 so that
 \begin{align}
-\mathcal{M} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\mathcal{S}^{-1} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
 \frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2},
 \label{eq:M_2-simp}
 \end{align}
@@ -368,7 +368,7 @@ A_{\mu} \coloneqq \begin{pmatrix} 0 & -Bx_2 & 0 & Ex_0 \end{pmatrix}
 can be applied which leads to \cref{eq:const-EM-strength}. In this choice the
 matrix reduces to
 \begin{equation}
-\mathcal{M} = 
+\mathcal{S}^{-1} = 
 \end{equation}
 
 \cite{heisenberg1936}
@@ -455,9 +455,9 @@ essential
 \end{align}
 where
 \begin{align}
-\rfun{\delta^{d+1}}{x-y} \rbr{\nabla^{y^\mu}\rfun{\phi}{y}}
+\rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}
 &= \rfun{\delta^{d+1}}{x-y}
-\rbr{\partial^{y^\mu}+\mi e \rfun{A^\mu}{y}}\rfun{\phi}{y} \nonumber \\
+\cbr{\partial^{y^\mu}+\mi e \rfun{A^\mu}{y}}\rfun{\phi}{y} \nonumber \\
 &= \cbr{-\rbr{\nabla^{y^\mu}}^*\rfun{\delta^{d+1}}{x-y}}\rfun{\phi}{y}
 +\partial^{y^\mu}B,
 \end{align}
@@ -468,7 +468,7 @@ B = \rfun{B}{x,y} \coloneqq \rfun{\delta^{d+1}}{x-y}\rfun{\phi}{y};
 going back to \cref{eq:scalar-qed-matrix-1},
 \begin{align}
 &= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{
--\cbr{\rbr{\partial_{x^\mu}+\mi e \rfun{A_\mu}{x}}\rfun{\phi}{x}}^* 
+-\cbr{\cbr{\partial_{x^\mu}+\mi e \rfun{A_\mu}{x}}\rfun{\phi}{x}}^* 
 \rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}}
 \nonumber \\
 &= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{ -\partial_{x^\mu} C^\mu + 
@@ -477,7 +477,7 @@ going back to \cref{eq:scalar-qed-matrix-1},
 \rfun{\delta^{d+1}}{x-y} \nabla^{y^\mu}\rfun{\phi}{y}} \nonumber \\
 &= \int\dif^{d+1}x\,\dif^{d+1}y\,\cbr{ -\partial_{x^\mu} C^\mu + 
 \rfun{\phi^*}{x}
-\rbr{-\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^*\rfun{\delta^{d+1}}{x-y}}
+\cbr{-\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^*\rfun{\delta^{d+1}}{x-y}}
 \rfun{\phi}{y} + \partial^{y^\mu}\nabla_{x^\mu} B},
 \end{align}
 in which
@@ -490,20 +490,20 @@ boundary terms)
 \begin{align}
 &= \int\Dif\phi\,\Dif\phi^*\,
 \cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
-\rfun{\phi^*}{x} \rfun{M}{x, y} \rfun{\phi}{y}}
+\rfun{\phi^*}{x} \rfun{D^{-1}}{x, y} \rfun{\phi}{y}}
 \nonumber \\
-&= \mathcal{N}\cbr{\sfun{\det}{-\mi \rfun{M}{x, y}}}^{-1/2},
+&= \mathcal{N}\cbr{\sfun{\det}{-\mi \rfun{D^{-1}}{x, y}}}^{-1/2},
 \end{align}
 where
 \begin{align}
-\rfun{M}{x, y} \coloneqq \mathcal{M}_y \rfun{\delta^{d+1}}{x-y},\qquad
-\mathcal{M}_y \coloneqq -\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* - m^2.
+\rfun{D^{-1}}{x, y} \coloneqq \mathcal{D}^{-1}_y \rfun{\delta^{d+1}}{x-y},\qquad
+\mathcal{D}^{-1}_y \coloneqq -\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* - m^2.
 \end{align}
 
 %\begin{align}
 %\sfun{\varGamma}{A_\mu} &\equiv
 %-\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi M}} \nonumber \\
-%&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{M}{x, y}}}.
+%&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{D^{-1}}{x, y}}}.
 %\end{align}
 
 
