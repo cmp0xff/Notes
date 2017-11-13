@@ -288,7 +288,7 @@ In other words,
 &= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
 \rfun{\bar\psi}{x} \rfun{S^{-1}}{x, y} \rfun{\psi}{y}}
 \nonumber \\
-&= \mathcal{N}\sfun{\det}{-\mi \rfun{S^{-1}}{x, y}},
+&= \tilde{\mathcal{N}}\sfun{\det}{-\mi \rfun{S^{-1}}{x, y}},
 \end{align}
 where
 \begin{equation}
@@ -298,8 +298,10 @@ where
 
 \begin{align}
 \sfun{\varGamma_\text{EH}}{A_\mu} &\equiv
--\mi\rbr{\ln\mathcal{N} + \ln \sfun{\det}{-\mi S^{-1}}} \nonumber \\
-&= -\mi \rbr{\ln\mathcal{N} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}}}.
+-\mi\rbr{\ln\tilde{\mathcal{N}} + \ln \sfun{\det}{-\mi S^{-1}}} 
+\nonumber \\
+&= -\mi \rbr{\ln\tilde{\mathcal{N}} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, 
+y}}}.
 \end{align}
 
 Note that
@@ -320,13 +322,14 @@ Note that
 where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
 \begin{equation}
 \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} =
-\frac{1}{2} \Tr \sfun{\ln}{\rfun{M_2}{x, y}},
+\frac{1}{2} \Tr \sfun{\ln}{\rfun{S_2^{-1}}{x, y}},
 \label{eq:Tr-M_2}
 \end{equation}
 where
 \begin{align}
-\rfun{M_2}{x, y} \coloneqq \mathcal{S}^{-1}_y \rfun{\delta^{d+1}}{x-y},\quad
-\mathcal{S}^{-1}_y \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
+\rfun{S_2^{-1}}{x, y} \coloneqq \mathcal{S}_{2y}^{-1} 
+\rfun{\delta^{d+1}}{x-y},\quad
+\mathcal{S}_{2y}^{-1} \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
 \rfun{\slashed{A}}{y}}^2 - m^2}.
 \label{eq:M_2-def}
 \end{align}
@@ -345,31 +348,81 @@ One may further simplify \cref{eq:M_2-def} by noting ($y$ suppressed)
 \end{align}
 so that
 \begin{align}
-\mathcal{S}^{-1} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\mathcal{S}_{2}^{-1} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
 \frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2},
 \label{eq:M_2-simp}
 \end{align}
-where $y$ is suppressed as well.
+where $y$ is suppressed as well. Now we may write
+\begin{align}
+\sfun{\varGamma_{\text{EH}}}{A_\mu} &= -\frac{\mi}{2} \Tr \cfun{\ln}{
+\mathcal{N}^{-1} \rfun{S_{2}^{-1}}{x,y}} \nonumber \\
+&= -\frac{\mi}{2} \Tr\int_0^{+\infty}\frac{\dif s}{s}\cbr{
+-\me^{\mi s\rbr{\rfun{S_{2}^{-1}}{x,y}+\mi 0^+}}
++\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}} \nonumber \\
+&= +\frac{\mi}{2} \int_0^{+\infty} \frac{\dif s}{s}
+\int\dif^{d+1}x\,\dif^{d+1}y\,\rfun{\delta^{d+1}}{x-y}\nonumber \\
+&\quad\cdot\cfun{\tr}{+\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+-\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}},
+\end{align}
+where $\tr$ takes place in the spinor space.
+
 
 \subsection{Constant background field in $\rbr{3+1}$-dimensions}
 
 \Cref{eq:Tr-M_2} can be solved exactly when $F_{\mu\nu}$ is constant throughout 
-space-time. Take the case \citep{resetsky2012} where $\vec{E}\parallel\vec{B}$ 
-and, without loss of generality, $\vec{B}\parallel\vec{z}$. One has
+space-time. %Take the case \citep{resetsky2012} where $\vec{E}\parallel\vec{B}$ 
+%and, without loss of generality, $\vec{B}\parallel\vec{z}$.
+One has
 \begin{equation}
-F_{30} \equiv -F_{03} = E_3 \eqqcolon E,\qquad
-F_{12} \equiv -F_{21} = B_3 \eqqcolon B.
+F_{0i} \equiv -F_{i0} = -E_i,\qquad
+F_{ij} \equiv -F_{ji} = \epsilon_{ijk}B^k,
+%F_{30} \equiv -F_{03} = E_3 \eqqcolon E,\qquad
+%F_{12} \equiv -F_{21} = B_3 \eqqcolon B.
 \label{eq:const-EM-strength}
 \end{equation}
-A Landau-like choice of four-potential \citep{landau1930}
-\begin{equation}
-A_{\mu} \coloneqq \begin{pmatrix} 0 & -Bx_2 & 0 & Ex_0 \end{pmatrix}
-\end{equation}
-can be applied which leads to \cref{eq:const-EM-strength}. In this choice the
-matrix reduces to
-\begin{equation}
-\mathcal{S}^{-1} = 
-\end{equation}
+and the spinor part of \cref{eq:M_2-simp} can be calculated
+\begin{align}
+-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu} = -e
+\begin{bmatrix}
+\rbr{\vec B-\mi \vec E} \cdot\vec\sigma & 0 \\
+0 & \rbr{\vec B+\mi \vec E} \cdot\vec\sigma
+\end{bmatrix},
+\end{align}
+so that
+\begin{align}
+&\quad\tr\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+\nonumber \\
+&= \me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2
+- m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}},
+\end{align}
+in which
+\begin{align}
+\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}} &=
+\rfun{\cos}{se\sqrt{\rbr{\vec B+\mi\vec E}^2}}+
+\rfun{\cos}{se\sqrt{\rbr{\vec B-\mi\vec E}^2}} \\
+&= 4\rfun{\cos}{seB}\rfun{\cosh}{seE}\qquad
+\vec B = B \hat x^3,\quad \vec E = E \hat x^3.
+\end{align}
+
+
+A Landau-like choice of four-potential \citep{landau1930} reads
+\begin{align}
+A_{\mu} &\coloneqq \begin{pmatrix} 0 &
+-x^0 E_1 + x^3 B^2 &
+-x^0 E_2 + x^1 B^3 &
+-x^0 E_3 + x^2 B^1 \end{pmatrix} \nonumber \\
+&=
+\rbr{0, -x^0 E_i + \epsilon_{ijk} B^j x^k}.
+\end{align}
+applying which leads to \cref{eq:const-EM-strength}. In this choice the scalar 
+part of \cref{eq:M_2-simp} is
+\begin{align}
+\rbr{\partial_{\mu} - \mi e A_\mu}^2 - m^2 = -\partial_0^2 +
+\cbr{\partial_i - \mi e \rbr{-x^0 E_i + \epsilon_{ijk}B^j x^k}}^2 - m^2.
+\end{align}
 
 \cite{heisenberg1936}
 
@@ -493,7 +546,7 @@ boundary terms)
 \cfun{\exp}{-\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
 \rfun{\phi^*}{x} \rfun{D^{-1}}{x, y} \rfun{\phi}{y}}
 \nonumber \\
-&= \mathcal{N}\cbr{\sfun{\det}{\rfun{D^{-1}}{x, y}}}^{-1/2},
+&= \tilde{\mathcal{N}}\cbr{\sfun{\det}{\rfun{D^{-1}}{x, y}}}^{-1/2},
 \end{align}
 where
 \begin{align}
@@ -503,8 +556,14 @@ where
 
 \begin{align}
 \sfun{\varGamma_\text{W}}{A_\mu} &\equiv
--\mi\rbr{\ln\mathcal{N} - \frac{1}{2} \ln \det D^{-1}} \nonumber \\
-&= -\mi\ln\mathcal{N} + \frac{\mi}{2} \tr \ln D^{-1}.
+-\mi\rbr{\ln\tilde{\mathcal{N}} - \frac{1}{2} \ln \det D^{-1}} \nonumber \\
+&= \frac{\mi}{2} \tr_x \rfun{\ln}{\mathcal{N}^{-1} D^{-1}} \nonumber \\
+&= \frac{\mi}{2} \int_0^{+\infty}\frac{\dif s}{s}
+\int\dif^{d+1}x\,\dif^{d+1}y\,\rfun{\delta^{d+1}}{x-y} \nonumber \\
+&\quad\cdot\cbr{
+-\me^{\mi s\rbr{+\rbr{\nabla_{y^\mu}}\rbr{\nabla^{y^\mu}}^* + m^2 + \mi 0^+}
+\rfun{\delta^{d+1}}{x-y}}
++\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}}.
 \end{align}
 
 %\begin{align}
@@ -526,7 +585,8 @@ where
 
 \section{Notions and conventions}
 
-$\eta_{\mu\nu} \coloneqq \rfun{\diag}{-, +, +, +}$
+The metric convention is mostly positive, i.e.\
+$\eta_{\mu\nu} \coloneqq \rfun{\diag}{-, +, +, \ldots}$
 
 Pauli matrices
 \begin{equation}
@@ -535,9 +595,9 @@ Pauli matrices
 \sigma^3 \coloneqq \begin{pmatrix} +1 & 0 \\ 0 & -1 \end{pmatrix}.
 \end{equation}
 
-\citep[sec.~5]{weinberg1995}
+The $\gamma$-matrices satisfy \citep[sec.~5]{weinberg1995}
 \begin{equation}
-\sbr{\gamma^\mu, \gamma^\nu}_+ \coloneqq 2\eta^{\mu\nu}
+\sbr{\gamma^\mu, \gamma^\nu}_+ \coloneqq 2\eta^{\mu\nu} \mathbf{1}_4.
 \end{equation}
 
 \begin{equation}
@@ -549,7 +609,7 @@ Pauli matrices
 \equiv -2 \mathscr{J}^{\mu\nu}.
 \end{equation}
 
-Choose the chiral representation
+In $\rbr{3+1}$ dimensions, choose the chiral representation
 \begin{equation}
 \gamma^\mu = -\mi
 \begin{bmatrix}0 & \sigma^\mu \\ \bar\sigma^\mu & 0\end{bmatrix},
@@ -569,12 +629,12 @@ where
 &=
 \begin{cases}
 0 & \mu = 0, \nu = 0; \\
-\mi \begin{bmatrix}-\sigma^j & 0 \\ 0 & +\sigma^j\end{bmatrix}
+\mi \begin{bmatrix}+\sigma^j & 0 \\ 0 & -\sigma^j\end{bmatrix}
 & \mu = 0, \nu = j; \\
-\mi \begin{bmatrix}+\sigma^i & 0 \\ 0 & -\sigma^i\end{bmatrix}
+\mi \begin{bmatrix}-\sigma^i & 0 \\ 0 & +\sigma^i\end{bmatrix}
 & \mu = i, \nu = 0; \\
 \begin{bmatrix}
--\epsilon^{ij}{}_k \sigma^k & 0
++\epsilon^{ij}{}_k \sigma^k & 0
 \\ 0 & +\epsilon^{ij}{}_k \sigma^k\end{bmatrix}
 & \mu = i, \nu = j.
 \end{cases}
