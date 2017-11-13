@@ -400,29 +400,103 @@ so that
 \end{align}
 in which
 \begin{align}
-\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}} &=
+\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}} &= 2\cbr{
 \rfun{\cos}{se\sqrt{\rbr{\vec B+\mi\vec E}^2}}+
-\rfun{\cos}{se\sqrt{\rbr{\vec B-\mi\vec E}^2}} \\
-&= 4\rfun{\cos}{seB}\rfun{\cosh}{seE}\qquad
+\rfun{\cos}{se\sqrt{\rbr{\vec B-\mi\vec E}^2}}} \\
+&= 4\rfun{\cos}{seB}\rfun{\cosh}{seE},\qquad\text{for}\quad
 \vec B = B \hat x^3,\quad \vec E = E \hat x^3.
 \end{align}
-
 
 A Landau-like choice of four-potential \citep{landau1930} reads
 \begin{align}
 A_{\mu} &\coloneqq \begin{pmatrix} 0 &
 -x^0 E_1 + x^3 B^2 &
 -x^0 E_2 + x^1 B^3 &
--x^0 E_3 + x^2 B^1 \end{pmatrix} \nonumber \\
-&=
-\rbr{0, -x^0 E_i + \epsilon_{ijk} B^j x^k}.
+-x^0 E_3 + x^2 B^1 \end{pmatrix}, %\nonumber \\
+%&=
+%\rbr{0, -x^0 E_i + \epsilon_{ijk} B^j x^k}.
 \end{align}
-applying which leads to \cref{eq:const-EM-strength}. In this choice the scalar 
-part of \cref{eq:M_2-simp} is
+applying which leads to \cref{eq:const-EM-strength}.
+
+Consider the case where $\vec B = B \hat x^3$, $\vec E = E \hat x^3$. 
+The scalar part of \cref{eq:M_2-simp} simplifies to
 \begin{align}
-\rbr{\partial_{\mu} - \mi e A_\mu}^2 - m^2 = -\partial_0^2 +
-\cbr{\partial_i - \mi e \rbr{-x^0 E_i + \epsilon_{ijk}B^j x^k}}^2 - m^2.
+\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2 &=
+-\partial_0^2 + \partial_1^2 + \rbr{\partial_2 - \mi e x^1 B}^2
++\rbr{\partial_3 + \mi e x^0 E}^2 - m^2 \nonumber \\
+&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
+\rbr{eE}^2 \rbr{x^0}^2} U^\dagger,
+\label{eq:scalar-part-M_2}
 \end{align}
+where
+\begin{align}
+U \coloneqq \me^{+\mi\rbr{\partial_1\partial_2/eB-\partial_3\partial_0/eE}}.
+\end{align}
+
+One can first solve the sub-eigensystem
+\begin{align}
+\cbr{+\partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 - \lambda}
+\rfun{\tilde{f}_\lambda}{x^1} = 0,
+\end{align}
+and the general solution is
+\begin{align}
+\rfun{\tilde{f}_\lambda}{x}
+= c_1 \rfun{\mathrm{D}_{-\frac{\lambda}{2eB}-\frac{1}{2}}}{\sqrt{2eB}x}
++ c_2 \rfun{\mathrm{D}_{+\frac{\lambda}{2eB}-\frac{1}{2}}}{\mi\sqrt{2eB}x},
+\label{eq:parabolic-cylinder}
+\end{align}
+where $\rfun{\mathrm{D}_\nu}{z}$ is the parabolic cylinder function. For
+\begin{align}
+\lambda = -(2n+1)eB,\qquad n = -\frac{1}{2}-\frac{\lambda}{2eB}
+\end{align}
+\cref{eq:parabolic-cylinder} reduces to a combination of the Hermite polynomials
+\begin{align}
+\rfun{\tilde{f}_n}{x}
+= c_1 2^{-n/2}\me^{-eBx^2/2}\rfun{\mathrm{H}_n}{\sqrt{eB}x}
++ c_2 2^{+\rbr{n+1}/2}\me^{+eBx^2/2}\rfun{\mathrm{H}_{-n-1}}{\mi\sqrt{eB}x}.
+\end{align}
+The first branch constitutes a complete orthogonal set of basis for 
+$\rfun{L^2}{\mathbb{R}}$ when $n\in\mathbb{Z}^+$, and its normalised version 
+will be denoted as $\cbr{f_n}$.
+
+It has been argued that the same solution applies for
+\begin{align}
+\cbr{-\partial_0^2 - \rbr{eE}^2 \rbr{x^0}^2 - \lambda}
+\rfun{\tilde{g}_\lambda}{x^0} = 0
+\end{align}
+if one applies $E\to\mi B$, so that the eigenfunctions are
+\begin{align}
+\rfun{g_n}{x} = \rfun{f_n}{x},\qquad n = -\frac{1}{2}-\frac{\mi \lambda}{2eE}
+\quad\text{or}\quad \lambda = \mi\rbr{2n+1}eE.
+\end{align}
+However, we know that complex differential equations are subtle!
+
+The eigenfunctions of \cref{eq:scalar-part-M_2} can now be written down
+\begin{align}
+&\quad\cbr{\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2}
+\cbr{U\rfun{f_n}{x^1}\rfun{g_k}{x^0}} \nonumber \\
+&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
+\rbr{eE}^2 \rbr{x^0}^2} \rfun{f_n}{x^1} \rfun{g_k}{x^0} \nonumber \\
+&= -\mi\rbr{2n+1}\rbr{2k+1}e^2BE \cbr{U \rfun{f_n}{x^1} \rfun{g_k}{x^0}},
+\end{align}
+and they are
+\begin{align}
+\rfun{\phi_{nk}}{x} \coloneqq U\rfun{f_n}{x^1}\rfun{g_k}{x^0}.
+\end{align}
+
+\begin{align}
+\rfun{\delta^4}{x-y} &=
+\sum_{n,k} \rfun{\phi_{nk}^\dagger}{x} \rfun{\phi_{nk}}{y} \nonumber \\
+&= \sum_{n,k}
+\cbr{\rfun{U}{x}\rfun{f_n}{x^1}\rfun{g_k}{x^0}}^\dagger 
+\cbr{\rfun{U}{y}\rfun{f_n}{y^1}\rfun{g_k}{y^0}}.
+\end{align}
+
+
+
+
+
+
 
 \cite{heisenberg1936}
 
@@ -644,6 +718,20 @@ where
 \section{Fresnel functional integral}
 
 \citep[ch.~10]{mosel2004}
+
+\section{Algebra}
+\begin{align}
+\sbr{a\partial_1 \partial_2, x^1}_- = a\partial_2
+\end{align}
+central.
+
+Baker--Campbell--Hausdorff formula
+
+\begin{align}
+\me^{+a\partial_1\partial_2} x^1 \me^{-a\partial_1\partial_2}
+= x^1 + a \partial_2.
+\end{align}
+
 
 
 \printbibliography
