@@ -1,0 +1,116 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+
+
+\input{../preambles/preamble}
+\input{../preambles/unicode}
+
+\setmainlanguage{english}
+\setotherlanguages{german,greek,russian}
+
+\input{../preambles/math-single}
+\input{../preambles/math-brac}
+\input{../preambles/math-thm}
+\input{../preambles/phys-chem}
+
+\setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\usepackage[%style=authoryear-icomp,
+			backend=biber]{biblatex}
+\addbibresource{./exp-pot.bib}
+
+\title{Non-relativistic Particle in an Exponential Potential}
+\author{Yi-Fan Wang (王\ 一帆)}
+%\date{}
+
+\begin{document}
+\maketitle
+
+Consider the one-dimensional motion of a non-relativistic particle in an 
+exponential potential, the motion of which can be described by the Lagrangian 
+action
+\begin{align}
+S \coloneqq \int \dd t\,\cbr{\frac{m}{2}\dot{x}^2 - V\ee^{g x}},
+\end{align}
+where $g$ and $V$ are real quantities. One sees that when $V > 0$ ($< 0$), the 
+potential is bounded below (above), and the second case is potentially 
+problematic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Canonical formalism}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The canonical Hamiltonian of the particle reads
+\begin{align}
+H = \frac{p^2}{2m} + V\ee^{g x}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Canonical quantisation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Using the Laplace--Beltrami operator, the Hamiltonian ``operator'' reads
+\begin{align}
+\widehat{H} = -\frac{\phs^2}{2m}\partial_x^2 + V\ee^{g x}.
+\end{align}
+Note that the domain of the unbounded operator has not been specified; hence 
+comes the quotation marks. In \cite[ch.\ 4]{Gitman2012}, it was suggested 
+that one could use \emph{operation} instead of ``operator'' to distinguish the 
+case, where only the action of an operator is described, whereas the domain is 
+not.
+
+%%%%%%%%%%%%%%%%
+\subsection{Spectrum and generalised eigenfunctions of the Hamiltonian}
+
+%%%%%%%%%%%%%%%%
+
+The eigenvalue equation of the Hamiltonian, or the time-independent Schrödinger 
+equation, reads
+\begin{align}
+-\frac{\phs^2}{2m}\partial_x^2 \rfun{\psi}{x} + V\ee^{g x} \rfun{\psi}{x} =
+E \rfun{\psi}{x}.
+\end{align}
+Defining
+\begin{align}
+v \coloneqq \frac{\sqrt{8m\vbr{E}}}{g\phs},
+\end{align}
+and transforming the coordinate
+\begin{align}
+\xi \coloneqq \frac{\sqrt{8m\vbr{V}\ee^{g x}}}{g\phs}
+\end{align}
+yield the Hamiltonian ``operator'' in terms of dimensionless variables
+\begin{align}
+\widehat{H} = \frac{g^2\phs^2}{8m}\rbr{-\xi^2\partial_\xi^2 - \xi\partial_\xi + 
+\mscrv \xi^2},\qquad \mscrv \coloneqq \sgn V
+\end{align}
+and the corresponding eigenvalue equation in the standard Besselian form
+\begin{align}
+\xi^2 \rfun{\psi''}{\xi} + \xi^1 \rfun{\psi'}{\xi} +
+\rbr{-\mscrv \xi^2 + \mscre v^2} \rfun{\psi}{\xi} = 0,\qquad
+\mscre \coloneqq \sgn E.
+\end{align}
+Transforming
+\begin{align}
+\ee^y \coloneqq \xi = \frac{\sqrt{8m\vbr{V}\ee^{g x}}}{g\phs}
+\end{align}
+yields the Hamiltonian ``operator'' in terms of an alternative dimensionless 
+form
+\begin{align}
+\widehat{H} = \frac{g^2\phs^2}{8m}\rbr{-\partial_y^2 + \mscrv \ee^{2y}}.
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%
+\subsection{}
+
+%%%%%%%%%%%%%%%%
+
+\printbibliography
+
+\end{document}
