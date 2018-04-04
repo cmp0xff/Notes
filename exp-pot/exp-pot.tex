@@ -57,6 +57,7 @@ H = \frac{p^2}{2m} + V\ee^{g x}.
 Using the Laplace--Beltrami operator, the Hamiltonian ``operator'' reads
 \begin{align}
 \widehat{H} = -\frac{\phs^2}{2m}\partial_x^2 + V\ee^{g x}.
+\label{eq:hamilt-optr-0}
 \end{align}
 Note that the domain of the unbounded operator has not been specified; hence 
 comes the quotation marks. In \cite[ch.\ 4]{Gitman2012}, it was suggested 
@@ -74,26 +75,68 @@ equation, reads
 \begin{align}
 -\frac{\phs^2}{2m}\partial_x^2 \rfun{\psi}{x} + V\ee^{g x} \rfun{\psi}{x} =
 E \rfun{\psi}{x}.
+\label{eq:tise-0}
 \end{align}
-Defining
+
+In order to solve \cref{eq:tise-0}, define
 \begin{align}
-v \coloneqq \frac{\sqrt{8m\vbr{E}}}{g\phs},
+\nu \coloneqq \frac{\sqrt{8m\vbr{E}}}{g\phs},
 \end{align}
-and transforming the coordinate
+and transform the coordinate
 \begin{align}
-\xi \coloneqq \frac{\sqrt{8m\vbr{V}\ee^{g x}}}{g\phs}
+\xi \coloneqq \frac{\sqrt{8m\vbr{V}\ee^{g x}}}{g\phs},
+\label{eq:trsf-x-xi-0}
 \end{align}
-yield the Hamiltonian ``operator'' in terms of dimensionless variables
+so that the Hamiltonian ``operator'' reads
 \begin{align}
 \widehat{H} = \frac{g^2\phs^2}{8m}\rbr{-\xi^2\partial_\xi^2 - \xi\partial_\xi + 
-\mscrv \xi^2},\qquad \mscrv \coloneqq \sgn V
+\mscrv \xi^2},\qquad \mscrv \coloneqq \sgn V,
+\label{eq:hamilt-optr-1}
 \end{align}
-and the corresponding eigenvalue equation in the standard Besselian form
+and \cref{eq:tise-0} transforms into the standard Besselian form
 \begin{align}
 \xi^2 \rfun{\psi''}{\xi} + \xi^1 \rfun{\psi'}{\xi} +
-\rbr{-\mscrv \xi^2 + \mscre v^2} \rfun{\psi}{\xi} = 0,\qquad
+\rbr{-\mscrv \xi^2 + \mscre \nu^2} \rfun{\psi}{\xi} = 0,\qquad
 \mscre \coloneqq \sgn E.
+\label{eq:tise-1}
 \end{align}
+The solutions of \cref{eq:tise-1} can be classified into four cases 
+according to $\rbr{\mscrv, \mscre}$ and are listed in \cref{tab:tise-1}. 
+Because of the transformation in \cref{eq:trsf-x-xi-0}, the corresponding 
+representation space $\mbfF_\xi$ of the state vectors \cite[ch.\ 
+5.1]{Kiefer2012} consists of the square-integrable functions on $\rbr{0, 
++\infty}$ endowed with the inner product
+\begin{align}
+\rbr{\psi, \phi}_\xi \coloneqq \int_0^{+\infty}\frac{\dd \xi}{\xi}\,
+\rfun{\psi^*}{\xi}\rfun{\phi}{\xi}.
+\end{align}
+\begin{table}
+\begin{center}
+\begin{tabular}{c||r@{, }l|r@{, }l}
+\toprule
+Sign & \multicolumn{2}{c|}{Solution 1} & \multicolumn{2}{c}{Solution 2} \\
+\midrule
+$\rbr{+,+}$ &
+$\rfun{\BesselK_{\ii \nu}}{\xi}$ & D & 
+$\rfun{\BesselI_{\ii \nu}}{\xi}$ & U \\
+$\rbr{-,-}$ &
+$\rfun{\BesselK_{\nu}}{\xi}$ & U & 
+$\rfun{\BesselI_{\nu}}{\xi}$ & U \\
+$\rbr{+,-}$ &
+$\rfun{\BesselF_{\ii \nu}}{\xi}$ & D & 
+$\rfun{\BesselG_{\ii \nu}}{\xi}$ & D \\
+$\rbr{-,+}$ &
+$\rfun{\BesselJ_{\nu}}{\xi}$ & N & 
+$\rfun{\BesselY_{\nu}}{\xi}$ & U \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Local solutions of \cref{eq:tise-1} and their normalisability, where 
+sign means $\rbr{\mscrv, \mscre}$, N denotes normalisable, D 
+$\mupdelta$-normalisable, and U unnormalisable.
+\label{tab:tise-1}}
+\end{table}
+
 Transforming
 \begin{align}
 \ee^y \coloneqq \xi = \frac{\sqrt{8m\vbr{V}\ee^{g x}}}{g\phs}
@@ -102,14 +145,49 @@ yields the Hamiltonian ``operator'' in terms of an alternative dimensionless
 form
 \begin{align}
 \widehat{H} = \frac{g^2\phs^2}{8m}\rbr{-\partial_y^2 + \mscrv \ee^{2y}}.
+\label{eq:hamilt-optr-2}
+\end{align}
+The solutions of the eigenvalue equation for \cref{eq:hamilt-optr-2} are the 
+ones listed in \cref{tab:tise-1} with $\xi$ replaced by $\ee^y$. The 
+representation space $\mbfF_y$ is comprised of the square-integrable functions 
+on $\rbr{-\infty, +\infty}$ endowed with the inner product
+\begin{align}
+\rbr{\psi, \phi}_y \coloneqq \int_{-\infty}^{+\infty}\dd y\,
+\rfun{\psi^*}{y}\rfun{\phi}{y}.
 \end{align}
 
-
+%%%%%%%%%%%%%%%%
+\subsection{Problem of self-adjointness}
 
 %%%%%%%%%%%%%%%%
-\subsection{}
+On a Hilbert space $\mbfH$ endowed with the inner product $\rbr{\cdot,\cdot}$, 
+An operator $A$ is characterised by its \emph{domain} $\rfun{\mathrm{Dom}}{A}$ 
+and the operation on a vector in $\rfun{\mathrm{Dom}}{A}$. Physicists often skip 
+the discussion about the domain, which proves to be problematic in the current 
+case.
 
-%%%%%%%%%%%%%%%%
+To be more specific, the following definitions are needed. $A$ is called 
+\emph{symmetric} if $\rbr{f, A g} \equiv \rbr{A f, g}$, $\forall f, g \in 
+\rfun{\mathrm{Dom}}{A}$. The \emph{adjoint} of $A$ is denoted as $A^\dagger$ and 
+satisfies $\rbr{A^\dagger f, g} \coloneqq \rbr{f, A g}$, $\forall g \in 
+\rfun{\mathrm{Dom}}{A}$. Finally, $A$ is \emph{self-adjoint} if $A^\dagger = A$, 
+which implies the identical operation $A^\dagger f \equiv A f$, $\forall f \in 
+\rfun{\mathrm{Dom}}{A}$ and the identical domain, 
+$\rfun{\mathrm{Dom}}{A^\dagger} equiv \rfun{\mathrm{Dom}}{A}$.
+
+Note that in infinite dimensions, for an unbounded $A$, $\mbfH \supsetneq 
+\rfun{\mathrm{Dom}}{A^\dagger} \supseteq \rfun{\mathrm{Dom}}{A}$ \cite[ch.\ 
+9]{Hall2013}, which is the main difference from the case in finite dimensions, 
+where $\mbfH = \rfun{\mathrm{Dom}}{A^\dagger} = \rfun{\mathrm{Dom}}{A}$.
+
+The Hamiltonian in \cref{eq:hamilt-optr-2} is manifestly not self-adjoint for 
+some of the cases. If it were always self-adjoint, the (generalised) 
+eigenfunctions of different eigenvalues would necessarily be orthogonal. This 
+is obviously not the case for $\rbr{-,+}$, where
+\begin{align}
+\rbr{J_{\nu_1}, J_{\nu_2}}_y = 
+\end{align}
+
 
 \printbibliography
 
