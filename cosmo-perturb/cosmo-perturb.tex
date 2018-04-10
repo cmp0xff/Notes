@@ -1,0 +1,51 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+
+
+\input{../preambles/preamble}
+\input{../preambles/unicode}
+
+\setmainlanguage{english}
+\setotherlanguages{german,greek,russian}
+
+\input{../preambles/math-single}
+\input{../preambles/math-brac}
+\input{../preambles/math-thm}
+\input{../preambles/phys-chem}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\usepackage[%style=authoryear-icomp,
+			backend=biber]{biblatex}
+\addbibresource{./cosmo-perturb.bib}
+
+\title{Cosmological Perturbations}
+\author{Yi-Fan Wang (王\ 一帆)}
+%\date{}
+
+\begin{document}
+\maketitle
+
+Following \cite[ch.~5]{Weinberg2008}.
+
+\begin{align}
+g = g^{(0)} + \epsilon g^{(1)} + \rfun{\Omicron}{\epsilon^2}
+\end{align}
+
+\begin{align}
+g^{(0)}_{\mu\nu}\,\dd x^\mu\,\dd x^\nu =
+-\rfun{N^2}{t}\,\dd t^2 + \rfun{a^2}{t}\,\dd \Omega_3^2
+\end{align}
+
+\begin{align}
+g^{(1)}_{00} &= -E, \\
+g^{(1)}_{i0} = g^{(1)}_{i0} &= a\rbr{F_{,i}+G_i}, \\
+g^{(1)}_{ij} &= a^2\rbr{A \delta_{ij} + B_{,i,j}+C_{i,j}+C_{j,i}+D_{ij}}.
+\end{align}
+
+\printbibliography
+
+\end{document}
