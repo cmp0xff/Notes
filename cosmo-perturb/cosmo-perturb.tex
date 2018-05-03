@@ -171,7 +171,7 @@ S &= \int\dd t\,\dd x^3\,\cbr{
 -N\mfrakH^\perp - N_i\mfrakH^i - \mfrakP V - \mfrakP^i V_i}, \\
 \mfrakH^\perp &= \frac{\varkappa}{\sqrt{\mfrakh}}\rbr{
 h_{ik}h_{jl} + h_{il}h_{kj} - h_{ij}h_{kl}} \mfrakp^{ij}\mfrakp^{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} {}^{(3)}R, \\
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}, \\
 \mfrakH^i &= -2 \mfrakp^{ij}{}_{|j},
 \end{align}
 where $\cbr{V, V_i}$ are velocity of $N$ and $N_i$ and play the role of 
@@ -212,8 +212,9 @@ $g_{ij}$ and the momenta have to be worked out as
 \dva \mfrakP &= -\rbr{\xi_\perp \mfrakP^i}_{|i} - \xi_\perp{}_{|i} \mfrakP^i
 - \rbr{\xi_i \mfrakP}^{|i},\\
 \dva \mfrakP^i &= -\xi_\perp{}_{|i} \mfrakP
-- \rbr{\xi_j \mfrakP^i}^{|j} - \xi_j{}^{|i}\mfrakP^j;
+- \rbr{\xi_j \mfrakP^i}^{|j} - \xi_j{}^{|i}\mfrakP^j,
 \end{align}
+where only the primary constraints are involved;
 \begin{align}
 \dva g_{ij} &= -\frpa{}{\mfrakp^{ij}}
 \rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i}
@@ -224,9 +225,25 @@ $g_{ij}$ and the momenta have to be worked out as
 \dva \mfrakp^{ij} &= \frpa{}{g_{ij}}
 \rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i}
 \nonumber \\
-&=.
+&= \xi_\perp \bigg\{\frac{\varkappa}{\sqrt{\mfrakh}}\bigg[
+\rbr{4\mupdelta^i{}_k \mupdelta^j{}_m h_{ln} - h^{ij} h_{km} h_{ln}}
+\nonumber \\
+&\qquad\quad
+-\frac{1}{2}
+\rbr{4\mupdelta^i{}_k \mupdelta^j{}_m h_{ln} - h^{ij} h_{km} h_{ln}}
+\bigg] \mfrakp^{kl}\mfrakp^{mn}
+\nonumber \\
+&\qquad\quad
++\frac{\sqrt{\mfrakh}}{2\varkappa}\sfun{G^{ij}}{h}
+\bigg\}
+\nonumber \\
+&\quad\,+???
+\nonumber \\
+&\quad\,
++\xi_i
 \end{align}
-
+where $\sfun{G^{ij}}{h} = \sfun{R^{ij}}{h} - h^{ij}\sfun{R}{h}/2$, and only the 
+secondary constraints are involved.
 
 
 
