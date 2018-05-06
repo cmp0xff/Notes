@@ -267,7 +267,7 @@ First variation of $h^{ij}$
 
 First variation of $\mfrakh = \det h_{ij}$
 \begin{align}
-\dva \mfrakh = \frac{1}{2} \mfrakh h^{ij}\,\dva h_{ij}.
+\dva \mfrakh = \mfrakh h^{ij}\,\dva h_{ij}.
 \end{align}
 
 First variation of $\Gamma^i{}_{jk}$
@@ -292,11 +292,24 @@ h^{il}\,\dva\Gamma^{j}{}_{kl} - h^{ij}\,\dva\Gamma^{l}{}_{kl}.
 \end{align}
 \Cref{eq:var-R_{ij}} can be obtained by using normal coordinates.
 
-First variation of $\sqrt{\mfrakh}\sfun{R}{h}$
+First variation of $\sqrt{\mfrakh}\,\sfun{R}{h}$
 \begin{align}
-\dva\rbr{\sqrt{\mfrakh}\sfun{R}{h}} = \sqrt{\mfrakh}
+\dva\rbr{\sqrt{\mfrakh}\sfun{R}{h}} = \sqrt{\mfrakh}\,
 \cbr{-\sfun{G^{ij}}{h}\,\dva h_{ij} +
 \bar{\dva}u^{ji}{}_{j|i}}.
+\end{align}
+
+First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
+\begin{align}
+&
+\dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
+= \sqrt{\mfrakh}\bigg\{-\frac{1}{2}\,\dva h_{kl}\cdot
+\nonumber \\
+&\quad\quad\rbr{
+R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
+\nonumber \\
+&\quad +\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
+- \frac{1}{2}h^{ij}\,\bar{\dva}u^{lk}{}_{l}}_{|k} \bigg\}.
 \end{align}
 
 \subsection*{Second variations}
