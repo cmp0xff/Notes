@@ -171,21 +171,23 @@ S &=
 \mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
 -N\mfrakH^\perp - N_i\mfrakH^i - \mfrakP V - \mfrakP^i V_i}, \\
 \mfrakH^\perp &=
-2 \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
+2 \varkappa \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
 - \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
-= 2 \mfrakH^{ijkl} h_{ij}h_{kl}
+=
+2 \varkappa \mfrakF^{ijkl} h_{ij}h_{kl}
 - \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
 \\
 \mfrakH^i &=
 -2 \mfrakp^{ij}{}_{|j},
+\\
 \mfrakG_{ijkl} &\coloneqq \frac{1}{2\sqrt{\mfrakh}}
 \rbr{h_{ik}h_{jl}+h_{il}h_{kj}-h_{ij}h_{kl}},
 \\
-\mfrakH^{ijkl} &\coloneqq \frac{1}{2\sqrt{\mfrakh}}
+\mfrakF^{ijkl} &\coloneqq \frac{1}{2\sqrt{\mfrakh}}
 \rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
 -\mfrakp^{ij}\mfrakp^{kl}},
 \end{align}
-where $\cbr{V, V_i}$ are velocity of $N$ and $N_i$ and play the role of 
+where $V$ and $V_i$ are velocities of $N$ and $N_i$ and play the role of 
 Lagrange multipliers. Technical details about the boundary terms can be 
 found in \cite[ch.\ 4.2]{Poisson2004} and the references therein. Note that 
 $\cbr{N, N_i, h_{ij}; \mfrakP, \mfrakP^i, \mfrakp^{ij}}$ are not the unique 
@@ -283,8 +285,12 @@ First variation of $\mfrakh = \det h_{ij}$
 
 First variation of $\Gamma^i{}_{jk}$
 \begin{align}
-\dva \Gamma^{i}{}_{jk} = \frac{1}{2} h^{il}
-\cbr{-\rbr{\dva h_{jk}}_{|l} + \rbr{\dva h_{kl}}_{|j} + \rbr{\dva h_{lj}}_{|k}}.
+\dva \Gamma^{i}{}_{jk} &= \frac{1}{2} h^{il}
+\cbr{-\rbr{\dva h_{jk}}_{|l} + \rbr{\dva h_{kl}}_{|j} + \rbr{\dva h_{lj}}_{|k}}
+\\
+&= \frac{1}{2} \cbr{-h^{il}\mupdelta^m{}_j\mupdelta^n{}_k
++h^{in}\mupdelta^l{}_j\mupdelta^m{}_k
++h^{im}\mupdelta^n{}_j\mupdelta^l{}_k}\,\rbr{\dva h_{mn}}_{|l}.
 \end{align}
 
 First variation of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$
@@ -311,38 +317,43 @@ First variation of $\sqrt{\mfrakh}\,\sfun{R}{h}$
 \end{align}
 
 First variation of $\mfrakG_{ijkl}\mfrakp^{ij}\mfrakp^{kl} \equiv
-\mfrakH^{ijkl}h_{ij}h_{kl}$
+\mfrakF^{ijkl}h_{ij}h_{kl}$
 \begin{align}
-\dva\rbr{ \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}}
-&=\dva h_{ij}\,\rbr{-
-\frac{1}{2} h^{ij} \mfrakH^{klmn} h_{kl} h_{mn}
-+ 2 \mfrakH^{ijkl} h_{kl}}
+&\quad\,\dva\rbr{ \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}}
+\equiv \dva\rbr{\mfrakF^{ijkl}h_{ij}h_{kl}}
 \nonumber \\
-&\quad\,
+&=\dva h_{ij}\,\rbr{-\frac{1}{2} h^{ij} \mfrakF^{klmn} h_{mn}
++ 2 \mfrakF^{ijkl} } h_{kl} 
 +\dva \mfrakp^{ij}\,2 \mfrakG_{ijkl}\mfrakp^{kl}.
 \end{align}
 
 First variation of $\mfrakH^\perp$
 \begin{align}
 \dva \mfrakH^\perp &= \dva h_{ij}\,\bigg\{
-2\varkappa \bigg[ -\frac{1}{2}h^{ij} \mfrakH^{klmn} h_{mn}
-+ 2 \mfrakH^{ijkl} \bigg]h_{kl}
+2\varkappa \rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
++ 2 \mfrakF^{ijkl} } h_{kl}
 \nonumber \\
-&\qquad\qquad
+&\qquad
 +\frac{\sqrt{\mfrakh}}{2\varkappa}\rbr{\sfun{G^{ij}}{h}
--\bar{\dva}u^{ji}{}_{j|i}}\bigg\}
-\nonumber \\
-&\quad\,
+-\bar{\dva}u^{ji}{}_{j|i}} \bigg\}
 +\dva \mfrakp^{ij}\,4\varkappa \mfrakG_{ijkl}\mfrakp^{kl},
 \end{align}
-where the second line comes from variation of the three Ricci scalar. The last 
-term in the second line is expected to be cancelled by the boundary terms.
+where the term with a $\sqrt{\mfrakh}/2\varkappa$ factor comes from variation 
+of the three Ricci scalar, and the $\bar{\dva}$ term is expected to be cancelled 
+by the boundary terms.
 
-First variation of $\mfrakH^{ijkl}h_{kl}$
+First variation of $\mfrakH^i$
 \begin{align}
-\dva\rbr{\mfrakH^{ijkl}h_{kl}} &= \dva h_{kl}\,
-\rbr{-\frac{1}{2}\mfrakH^{ijmn}h^{kl}h_{mn}+\mfrakH^{ijkl}}
+\dva \mfrakH^i = \rbr{\dva p^{ij}}_{|j}
++ \dva\Gamma^{i}{}_{jk}\,p^{jk}.
+\end{align}
+
+First variation of $\mfrakF^{ijkl}h_{kl}$
+\begin{align}
+\dva\rbr{\mfrakF^{ijkl}h_{kl}} &= \dva h_{kl}\,
+\rbr{-\frac{1}{2}\mfrakF^{ijmn}h^{kl}h_{mn}+\mfrakF^{ijkl}}
 \nonumber \\
+&\quad\,
 +\dva \mfrakp^{kl}\,\rbr{
 \mupdelta^{i}{}_{k}\mfrakG^{j}{}_{lmn} +
 \mupdelta^{i}{}_{m}\mfrakG^{j}{}_{nkl}}\mfrakp^{mn}.
@@ -351,13 +362,13 @@ First variation of $\mfrakH^{ijkl}h_{kl}$
 First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
 \begin{align}
 \dva\rbr{\mfrakG_{ijkl}\mfrakp^{kl}} &= \dva h_{kl}\,
-\rbr{-\frac{1}{2}\mfrakG_{ijmk}h^{kl}+
-\mupdelta^{l}{}_{i}\mfrakG^{k}{}_{jmn}+
-\mupdelta^{l}{}_{m}\mfrakG^{k}{}_{nij}}\mfrakp^{mn}
-+\dva p^{kl}\,\mfrakG_{ijkl}
+\rbr{-\frac{1}{2}\mfrakG_{ijmn}h^{kl}+
+\mupdelta^{k}{}_{i}\mfrakG^{l}{}_{jmn}+
+\mupdelta^{k}{}_{m}\mfrakG^{l}{}_{nij}}\mfrakp^{mn}
+\nonumber \\
+&\quad\,
++\dva p^{kl}\,\mfrakG_{ijkl}.
 \end{align}
-
-
 
 First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
 \begin{align}
@@ -376,6 +387,57 @@ R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
 
 \subsection*{Second variations}
 
+Second variation of $\mfrakH^\perp$
+\begin{align}
+&\quad\,
+\dva^2\rbr{\mfrakH^\perp}
+\nonumber \\
+&= \dva h_{ij}\,\dva h_{kl}\,\bigg\{ 2\varkappa\bigg[
+\frac{1}{4}\rbr{h^{ik}h^{lj}+h^{il}h^{kj}+h^{ij}h^{kl}} \mfrakF^{mnrs} 
+h_{mn} h_{rs}
+\nonumber \\
+&\qquad\qquad\qquad
+-\rbr{h^{ij}\mfrakF^{klmn}+\mfrakF^{ijmn}h^{kl}}h_{mn}
++\mfrakF^{ijkl} \bigg]
+\nonumber \\
+&\qquad\quad
+-\frac{\sqrt{\mfrakh}}{4\varkappa}\rbr{
+R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
+\bigg\}
+\nonumber \\
+&\quad\,
++\dva h_{ij}\,\frac{\sqrt{\mfrakh}}{2\varkappa}
+\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
+- \frac{1}{2}h^{ij}\,\bar{\dva}u^{lk}{}_{l}}_{|k} 
+\nonumber \\
+&\quad\,
++\dva h_{ij}\,\dva \mfrakp^{kl}\,4\varkappa
+\cbr{-h^{ij}\mfrakG_{klmn}+2\rbr{\mupdelta^i{}_k\mfrakG^{j}{}_{lmn} 
++\mupdelta^i{}_m\mfrakG^{j}{}_{nkl}} } \mfrakp^{mn}
+\nonumber \\
+&\quad\,
++\dva p^{ij}\,\dva p^{kl}\,4\varkappa \mfrakG_{ijkl}
+\nonumber \\
+&\quad\,
+-\dva h_{ij}\,
+\dva\rbr{\,\frac{\sqrt{\mfrakh}}{2\varkappa}\,\bar{\dva}u^{lk}{}_{l|k}}.
+\end{align}
+
+Second variation of $\Gamma^i{}_{jk}$
+\begin{align}
+\dva^2 \Gamma^i{}_{jk} &=
+- h^{im} \,\dva\Gamma^{l}{}_{jk} \,\dva h_{lm}.
+\end{align}
+
+Second variation of $\mfrakH^i$
+\begin{align}
+\dva^2\rbr{\mfrakH^i} = -h^{im}p^{jk}
+\,\dva\Gamma^{l}{}_{jk}\,\dva h_{lm} + 2\,\dva\Gamma^{i}{}_{jk}\,\dva p^{jk}.
+\end{align}
+
+
+\subsection*{Other second variations}
+
 Second variation of $h^{ij}$
 \begin{align}
 \dva^2 h^{ij} = \rbr{h^{im}h^{jl}h^{kn}+h^{ik}h^{jm}h^{ln}}
@@ -393,30 +455,24 @@ First variation of $\rbr{\dva h_{ij}}_{|k}$
 \dva\cbr{\rbr{\dva h_{ij}}_{|k}} = -2 \dva\Gamma^l{}_{k(i}\,\dva h_{j)l}.
 \end{align}
 
-Second variation of $\Gamma^i{}_{jk}$
-\begin{align}
-\dva^2 \Gamma^i{}_{jk} &=
--\frac{1}{2} h^{im} \,\dva\Gamma^{l}{}_{jk} \,\dva h_{lm}.
-\end{align}
-
-Second variation of $\sqrt{\mfrakh}\sfun{R}{h}$
-\begin{align}
-&
-\dva^2\rbr{\sqrt{\mfrakh}R} = \sqrt{\mfrakh} \bigg\{
-\dva h_{ij}\,\dva h_{kl}\bigg[
-\frac{1}{4}R\rbr{h^{ik}h^{jl}+h^{il}h^{jk}-h^{ij}h^{kl}}
-\nonumber \\
-&\qquad
-+\frac{1}{2}\rbr{
-R^{ij}h^{kl}+R^{kl}h^{ij}-R^{ik}h^{jl}-R^{il}h^{jk}-R^{jk}h^{il}-R^{il}h^{kj}}
-\bigg]
-\nonumber \\
-&\quad
-+h^{ik}\,\bar{\dva}u^{jl}{}_{k|l}+\dva\rbr{\bar{\dva}u^{ji}{}_{j|i}} \bigg\}
-\end{align}
+% Second variation of $\sqrt{\mfrakh}\sfun{R}{h}$
+% \begin{align}
+% &
+% \dva^2\rbr{\sqrt{\mfrakh}R} = \sqrt{\mfrakh} \bigg\{
+% \dva h_{ij}\,\dva h_{kl}\bigg[
+% \frac{1}{4}R\rbr{h^{ik}h^{jl}+h^{il}h^{jk}-h^{ij}h^{kl}}
+% \nonumber \\
+% &\qquad
+% +\frac{1}{2}\rbr{
+% R^{ij}h^{kl}+R^{kl}h^{ij}-R^{ik}h^{jl}-R^{il}h^{jk}-R^{jk}h^{il}-R^{il}h^{kj}}
+% \bigg]
+% \nonumber \\
+% &\quad
+% +h^{ik}\,\bar{\dva}u^{jl}{}_{k|l}+\dva\rbr{\bar{\dva}u^{ji}{}_{j|i}} \bigg\}
+% \end{align}
 
 
-In a general background, the second variations of the quantities  are much more 
+In a general background, the second variations of the quantities are much more 
 tedious.
 
 In Robertson--Walker background, 
