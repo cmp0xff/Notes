@@ -166,13 +166,24 @@ One can verify that
 Up to boundary terms, the Hamiltonian action for General Relativity in terms 
 of Arnowitt--Deser--Misner variables is \cite[ch.4.2.2]{Kiefer2012}
 \begin{align}
-S &= \int\dd t\,\dd x^3\,\cbr{
+S &=
+\int\dd t\,\dd x^3\,\cbr{
 \mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
 -N\mfrakH^\perp - N_i\mfrakH^i - \mfrakP V - \mfrakP^i V_i}, \\
-\mfrakH^\perp &= \frac{\varkappa}{\sqrt{\mfrakh}}\rbr{
-h_{ik}h_{jl} + h_{il}h_{kj} - h_{ij}h_{kl}} \mfrakp^{ij}\mfrakp^{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}, \\
-\mfrakH^i &= -2 \mfrakp^{ij}{}_{|j},
+\mfrakH^\perp &=
+2 \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
+= 2 \mfrakH^{ijkl} h_{ij}h_{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
+\\
+\mfrakH^i &=
+-2 \mfrakp^{ij}{}_{|j},
+\mfrakG_{ijkl} &\coloneqq \frac{1}{2\sqrt{\mfrakh}}
+\rbr{h_{ik}h_{jl}+h_{il}h_{kj}-h_{ij}h_{kl}},
+\\
+\mfrakH^{ijkl} &\coloneqq \frac{1}{2\sqrt{\mfrakh}}
+\rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
+-\mfrakp^{ij}\mfrakp^{kl}},
 \end{align}
 where $\cbr{V, V_i}$ are velocity of $N$ and $N_i$ and play the role of 
 Lagrange multipliers. Technical details about the boundary terms can be 
@@ -299,16 +310,67 @@ First variation of $\sqrt{\mfrakh}\,\sfun{R}{h}$
 \bar{\dva}u^{ji}{}_{j|i}}.
 \end{align}
 
+First variation of $\mfrakG_{ijkl}\mfrakp^{ij}\mfrakp^{kl} \equiv
+\mfrakH^{ijkl}h_{ij}h_{kl}$
+\begin{align}
+\dva\rbr{ \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}}
+&=\dva h_{ij}\,\rbr{-
+\frac{1}{2} h^{ij} \mfrakH^{klmn} h_{kl} h_{mn}
++ 2 \mfrakH^{ijkl} h_{kl}}
+\nonumber \\
+&\quad\,
++\dva \mfrakp^{ij}\,2 \mfrakG_{ijkl}\mfrakp^{kl}.
+\end{align}
+
+First variation of $\mfrakH^\perp$
+\begin{align}
+\dva \mfrakH^\perp &= \dva h_{ij}\,\bigg\{
+2\varkappa \bigg[ -\frac{1}{2}h^{ij} \mfrakH^{klmn} h_{mn}
++ 2 \mfrakH^{ijkl} \bigg]h_{kl}
+\nonumber \\
+&\qquad\qquad
++\frac{\sqrt{\mfrakh}}{2\varkappa}\rbr{\sfun{G^{ij}}{h}
+-\bar{\dva}u^{ji}{}_{j|i}}\bigg\}
+\nonumber \\
+&\quad\,
++\dva \mfrakp^{ij}\,4\varkappa \mfrakG_{ijkl}\mfrakp^{kl},
+\end{align}
+where the second line comes from variation of the three Ricci scalar. The last 
+term in the second line is expected to be cancelled by the boundary terms.
+
+First variation of $\mfrakH^{ijkl}h_{kl}$
+\begin{align}
+\dva\rbr{\mfrakH^{ijkl}h_{kl}} &= \dva h_{kl}\,
+\rbr{-\frac{1}{2}\mfrakH^{ijmn}h^{kl}h_{mn}+\mfrakH^{ijkl}}
+\nonumber \\
++\dva \mfrakp^{kl}\,\rbr{
+\mupdelta^{i}{}_{k}\mfrakG^{j}{}_{lmn} +
+\mupdelta^{i}{}_{m}\mfrakG^{j}{}_{nkl}}\mfrakp^{mn}.
+\end{align}
+
+First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
+\begin{align}
+\dva\rbr{\mfrakG_{ijkl}\mfrakp^{kl}} &= \dva h_{kl}\,
+\rbr{-\frac{1}{2}\mfrakG_{ijmk}h^{kl}+
+\mupdelta^{l}{}_{i}\mfrakG^{k}{}_{jmn}+
+\mupdelta^{l}{}_{m}\mfrakG^{k}{}_{nij}}\mfrakp^{mn}
++\dva p^{kl}\,\mfrakG_{ijkl}
+\end{align}
+
+
+
 First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
 \begin{align}
 &
 \dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
-= \sqrt{\mfrakh}\bigg\{-\frac{1}{2}\,\dva h_{kl}\cdot
+= \sqrt{\mfrakh}\bigg\{\dva h_{kl}\cdot
 \nonumber \\
-&\quad\quad\rbr{
+&\qquad\quad
+\rbr{-\frac{1}{2}}\rbr{
 R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
 \nonumber \\
-&\quad +\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
+&\quad
++\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
 - \frac{1}{2}h^{ij}\,\bar{\dva}u^{lk}{}_{l}}_{|k} \bigg\}.
 \end{align}
 
@@ -352,14 +414,6 @@ R^{ij}h^{kl}+R^{kl}h^{ij}-R^{ik}h^{jl}-R^{il}h^{jk}-R^{jk}h^{il}-R^{il}h^{kj}}
 &\quad
 +h^{ik}\,\bar{\dva}u^{jl}{}_{k|l}+\dva\rbr{\bar{\dva}u^{ji}{}_{j|i}} \bigg\}
 \end{align}
-
-
-%First variation of $\bar{\dva}u^{ij}{}_{k}$
-% \begin{align}
-% \dva\rbr{\bar{\dva}u^{ij}{}_{k}} =\rbr{
-% 2h^{im}h^{n[j}\,\dva\Gamma^{l]}{}_{kl}
-% +3h^{i[j}h^{l]m}\,\dva\Gamma^{n}{}_{kl}}\,\dva h_{mn}.
-% \end{align}
 
 
 In a general background, the second variations of the quantities  are much more 
