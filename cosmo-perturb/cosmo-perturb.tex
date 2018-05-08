@@ -296,16 +296,33 @@ First variation of $\Gamma^i{}_{jk}$
 First variation of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$
 \begin{align}
 \dva \sfun{R_{ij}}{h} &=
-\rbr{\dva\Gamma^k{}_{ij}}_{|k} - \rbr{\dva\Gamma^k{}_{ik}}_{|j},
+\rbr{\dva\Gamma^k{}_{ji}}_{|k} - \rbr{\dva\Gamma^k{}_{ki}}_{|j}
 \label{eq:var-R_{ij}}
+\\
+&=
+\frac{1}{2}\rbr{\dva h_{kl}}_{|m|n}\,\big(
+\mupdelta^k{}_ih^{ln}\mupdelta^m{}_j+
+\mupdelta^m{}_i\mupdelta^l{}_jh^{kn}
+\nonumber \\
+&\qquad\qquad
+-\mupdelta^k{}_i\mupdelta^l{}_jh^{mn}
+-\mupdelta^m{}_i\mupdelta^n{}_jh^{kl}\big),
 \\
 \dva \sfun{R^{ij}}{h} &=
 -2R^{ki}h^{jl}\,\dva h_{kl} + h^{ik}\,\bar{\dva}u^{jl}{}_{k|l},
 \end{align}
 where
 \begin{align}
-\bar{\dva}u^{ij}{}_{k} \coloneqq
-h^{il}\,\dva\Gamma^{j}{}_{kl} - h^{ij}\,\dva\Gamma^{l}{}_{kl}.
+\bar{\dva}u^{ij}{}_{k} &\coloneqq
+h^{il}\,\dva\Gamma^{j}{}_{kl} - h^{ij}\,\dva\Gamma^{l}{}_{kl}
+\\
+&= 
+\frac{1}{2}\rbr{\dva h_{mn}}_{|l}\,\big\{
+-\mupdelta^m{}_k\rbr{h^{in}h^{jl}-h^{ij}h^{ln}}
+\nonumber \\
+&\qquad\qquad
++\mupdelta^l{}_k\rbr{h^{im}h^{jn}-h^{ij}h^{mn}}
++\mupdelta^n{}_k\rbr{h^{il}h^{jm}-h^{ij}h^{lm}}\big\}.
 \end{align}
 \Cref{eq:var-R_{ij}} can be obtained by using normal coordinates.
 
@@ -315,6 +332,10 @@ First variation of $\sqrt{\mfrakh}\,\sfun{R}{h}$
 \cbr{-\sfun{G^{ij}}{h}\,\dva h_{ij} +
 \bar{\dva}u^{ji}{}_{j|i}}.
 \end{align}
+The $\bar\dva$ term contains second derivatives of $\dva h_{ij}$, which is not 
+desired. Being a covariant divergence of a vector, it can be pushed to the 
+boundary upon variation of the action, and will be cancelled by the boundary 
+terms.
 
 First variation of $\mfrakG_{ijkl}\mfrakp^{ij}\mfrakp^{kl} \equiv
 \mfrakF^{ijkl}h_{ij}h_{kl}$
@@ -332,11 +353,11 @@ First variation of $\mfrakH^\perp$
 \dva \mfrakH^\perp &= \dva h_{ij}\,\bigg\{
 2\varkappa \rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
 + 2 \mfrakF^{ijkl} } h_{kl}
++\frac{\sqrt{\mfrakh}}{2\varkappa}\sfun{G^{ij}}{h}\bigg\}
 \nonumber \\
 &\qquad
-+\frac{\sqrt{\mfrakh}}{2\varkappa}\rbr{\sfun{G^{ij}}{h}
--\bar{\dva}u^{ji}{}_{j|i}} \bigg\}
-+\dva \mfrakp^{ij}\,4\varkappa \mfrakG_{ijkl}\mfrakp^{kl},
++\dva \mfrakp^{ij}\,4\varkappa \mfrakG_{ijkl}\mfrakp^{kl}
+-\frac{\sqrt{\mfrakh}}{2\varkappa} \bar{\dva}u^{ji}{}_{j|i}} 
 \end{align}
 where the terms with a $\sqrt{\mfrakh}/2\varkappa$ factor come from variation 
 of the three Ricci scalar.
