@@ -29,10 +29,26 @@
 \begin{document}
 \maketitle
 
-In General Relativity, if one uses components of the metric $\cbr{g_{\mu\nu}}$ 
-as the (superficial) degrees of freedom, one obtains a 
-reparametrisation-invariant theory, and the gauge transformation of which is 
-related to the infinitesimal general coordinate transformation
+Gauge structure is one of the corner stones in modern theoretical physics. In 
+particle physics, where fundamental interactions are modelled by Yang--Mills 
+theories, gauge structures are input of the theoretical description, and 
+mathematical physicists use redundant variables in the configuration space such 
+that the gauge invariance is manifest.
+
+In gravitational physics, things are less clear compared to the former case. On 
+the one hand, if one follows the way by which a Yang--Mills theory would be 
+constructed, one derives Poincar\'e gauge theories, which is much more generic 
+than the acknowledged General Relativity. On the other hand, even if one starts 
+with General Relativity and call the reparametrisation invariance as a gauge 
+invariance, one still faces another challenge, that in many applications, the 
+theory is not written down with those variables where the gauge invariance is 
+most manifest and the gauge transformation is simplest. The usage of the
+Arnowitt--Deser--Misner variables is such an example.
+
+Let us be more specific. If one uses components of the metric 
+$\cbr{g_{\mu\nu}}$ as the (superficial) degrees of freedom, the gauge 
+transformation of which is related to the infinitesimal general coordinate 
+transformation
 \begin{align}
 x^\mu \mapsto x^\mu - \rfun{\eta^\mu}{x} +
 \rfun{\Omicron}{\eta^2}
@@ -47,13 +63,16 @@ by
 \eta^{\lambda}{}_{,\nu} g_{\mu\lambda}.
 \label{eq:var-gmunu}
 \end{align}
-Here the generator of the general coordinate transformation 
-$\rfun{\eta^\mu}{x}$ plays the role of gauge generator. Upon canonical 
-quantisation, one would like to apply \cref{eq:var-gmunu} to the canonical 
-variables. However, the common practice is to use the Arnowitt--Deser--Misner 
-variables $\cbr{N, N_i, h_{ij}}$ in the canonical formalism, instead of 
-$\cbr{g_{\mu\nu}}$. The former ones are an alternative parametrisation of the 
-latter, and they are related by
+Here the generator of the general coordinate transformation $\rfun{\eta^\mu}{x}$ 
+plays the role of the gauge generator.
+
+Rewrite the text below \dots
+
+Upon canonical quantisation, one would 
+like to apply \cref{eq:var-gmunu} to the canonical variables. However, the 
+common practice is to use the Arnowitt--Deser--Misner variables $\cbr{N, N_i, 
+h_{ij}}$ in the canonical formalism, instead of $\cbr{g_{\mu\nu}}$. The former 
+ones are an alternative parametrisation of the latter, and they are related by
 \begin{align}
 g_{\mu\nu}\,\dd x^\mu\,\dd x^\nu = \dd s^2 = -N^2\,\dd t^2 + h_{ij}
 \rbr{N^i\,\dd t + \dd x^i}\rbr{N^j\,\dd t + \dd x^j},
