@@ -22,7 +22,8 @@
 			backend=biber]{biblatex}
 \addbibresource{./cosmo-perturb.bib}
 
-\title{Perturbation of the ADM Hamiltonian Action}
+\title{Gauge Transformation and Perturbation of the Canonical General 
+Relativity}
 \author{Yi-Fan Wang (王\ 一帆)}
 %\date{}
 
@@ -31,9 +32,9 @@
 
 Gauge structure is one of the corner stones in modern theoretical physics. In 
 particle physics, where fundamental interactions are modelled by Yang--Mills 
-theories, gauge structures are input of the theoretical description, and 
-mathematical physicists use redundant variables in the configuration space such 
-that the gauge invariance is manifest.
+theories, gauge structure is an \emph{input} of the theoretical description, 
+and mathematical physicists use redundant variables in the configuration space 
+such that the gauge invariance is manifest.
 
 In gravitational physics, things are less clear compared to the former case. On 
 the one hand, if one follows the way by which a Yang--Mills theory would be 
@@ -61,179 +62,63 @@ by
 = \eta^\lambda g_{\mu\nu,\lambda} + 
 \eta^{\lambda}{}_{,\mu} g_{\lambda\nu} +
 \eta^{\lambda}{}_{,\nu} g_{\mu\lambda}.
-\label{eq:var-gmunu}
+\label{eq:gauge-gmunu}
 \end{align}
 Here the generator of the general coordinate transformation $\rfun{\eta^\mu}{x}$ 
 plays the role of the gauge generator.
 
-Rewrite the text below \dots
-
-Upon canonical quantisation, one would 
-like to apply \cref{eq:var-gmunu} to the canonical variables. However, the 
-common practice is to use the Arnowitt--Deser--Misner variables $\cbr{N, N_i, 
-h_{ij}}$ in the canonical formalism, instead of $\cbr{g_{\mu\nu}}$. The former 
-ones are an alternative parametrisation of the latter, and they are related by
+In the canonical formalism, the common practice is to use the 
+Arnowitt--Deser--Misner variables $\cbr{N, N_i, h_{ij}}$, instead of 
+$\cbr{g_{\mu\nu}}$. The former ones are an alternative set of variables in the 
+configuration space, and are related to the latter by
 \begin{align}
 g_{\mu\nu}\,\dd x^\mu\,\dd x^\nu = \dd s^2 = -N^2\,\dd t^2 + h_{ij}
 \rbr{N^i\,\dd t + \dd x^i}\rbr{N^j\,\dd t + \dd x^j},
 \label{eq:metric-Dirac-ADM}
 \end{align}
 where $N^i$ is understood as $h^{ij}N_j$, and $h^{ij}$ are implicit functions 
-of $h_{ij}$. It is less well-known that one can also consistently derive a 
-Hamiltonian action by using $\cbr{g_{\mu\nu}}$ and their conjugate momenta 
-$\cbr{\mbfitrho^{\mu\nu}}$, as \citeauthor{Dirac1958} has done in 
-\cite{Dirac1958}. The Dirac and the Arnowitt--Deser--Misner approaches have been 
-compared in \cite{Kiriushcheva2008}, where some subtle differences have been 
-shown; in particular, the gauge transformation in the former case 
-(\cref{eq:var-gmunu}) is different than the latter one 
-(\crefrange{eq:var-Np}{eq:var-pij}). This difference can be quantified, in the 
-sense that the relation between $\cbr{\eta_\mu}$ and $\cbr{\xi_\perp, \xi_i}$, 
-which are the gauge generator of the Dirac and Arnowitt--Deser--Misner 
+of $h_{ij}$. One expects that $\cbr{N, N_i, h_{ij}}$ and $\cbr{g_{\mu\nu}}$ 
+share the same gauge structure; however, the gauge transformation of the two 
+variables looks quite differently.
+
+In this work, we are interested in the canonical formalism, and the gauge 
+structure will be described by gauge transformation in \emph{phase space}. It is 
+less well-known that one can also derive a Hamiltonian action consistently by 
+using $\cbr{g_{\mu\nu}}$ and their conjugate momenta $\cbr{\mbfitrho^{\mu\nu}}$, 
+as \citeauthor{Dirac1958} has done in \cite{Dirac1958}. The Dirac and the 
+Arnowitt--Deser--Misner approaches have been compared in 
+\cite{Kiriushcheva2008}, where some subtle differences have been shown; in 
+particular, the gauge transformation (in the phase space) in the former case 
+(\cref{eq:gauge-gmunu}) is different than the latter one 
+(\crefrange{eq:gauge-Np}{eq:gauge-pij}). This difference can be quantified, in 
+the sense that the relation between $\cbr{\eta_\mu}$ and $\cbr{\xi_\perp, 
+\xi_i}$, which are the gauge generator of the Dirac and Arnowitt--Deser--Misner 
 approaches respectively, can be derived explicitly.
 
-We would like to see if this difference has any consequence on the cosmological 
-perturbation theory; in particular, we would like to see if the gauge-invariant 
-variables could be changed from this perspective. In order to do this, we start 
-from the Hamiltonian formalism in the Arnowitt--Deser--Misner variables and 
-derive the gauge transformations of all the canonical variables; we then perturb 
-the Hamiltonian action up to the second order on an arbitrary background with 
-those variables directly; and finally we fix a Robertson--Walker background 
-metric and discuss the gauge transformation of the perturbative coordinates and 
-momenta.
+Here we go with outlooks. We would like to see if this difference has any 
+consequence on the cosmological perturbation theory; in particular, we would 
+like to see if the gauge-invariant variables could be changed from this 
+perspective. In order to do this, we start from the Hamiltonian formalism in the 
+Arnowitt--Deser--Misner variables and derive the gauge transformations of all 
+the canonical variables; we then perturb the Hamiltonian action up to the second 
+order on an arbitrary background with those variables directly; and finally we 
+fix a Robertson--Walker background metric and discuss the gauge transformation 
+of the perturbative coordinates and momenta.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Gauge transformation of the ADM canonical variables}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-The Hamiltonian action for General Relativity in terms 
-of Arnowitt--Deser--Misner variables is \cite[ch.\ 4.2.2]{Kiefer2012}
-\begin{align}
-S &=
-\int\dd t\,\dd x^3\,\Big\{
-\mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
--N\mfrakH^\perp - N_i\mfrakH^i
-\nonumber \\
-&\qquad\qquad
-- \mfrakP V - \mfrakP^i V_i\Big\} +\,\text{boundary terms},
-\label{eq:ADM-Hamiltonian-action}
-\end{align}
-where
-\begin{align}
-\mfrakH^\perp &=
-2 \varkappa\,\mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
-\equiv
-2 \varkappa\,\mfrakF^{ijkl} h_{ij}h_{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
-\\
-\mfrakH^i &=
--2 \mfrakp^{ij}{}_{|j}
-\end{align}
-are the secondary constraints,
-\begin{align}
-\mfrakG_{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
-\rbr{h_{ik}h_{lj}+h_{il}h_{kj}-h_{ij}h_{kl}}
-\equiv -\frdva{\rbr{\mfrakh^{-1/2}h_{ij}}}{h^{kl}},\\
-\mfrakG^{ijkl} &\coloneqq \frac{\mfrakh^{1/2}}{2}
-\rbr{h^{ik}h^{lj}+h^{il}h^{kj}-2h^{ij}h^{kl}}
-\equiv -\mfrakh^{-1/2}\frdva{\rbr{\mfrakh h^{ij}}}{h_{kl}}
-\end{align}
-are the DeWitt metric and its inverse, and
-\begin{align}
-\mfrakF^{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
-\rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
--\mfrakp^{ij}\mfrakp^{kl}}
-\end{align}
-is a convenient notation. In \cref{eq:ADM-Hamiltonian-action}, $V$ and $V_i$ 
-are velocities of $N$ and $N_i$ and play the role of Lagrange multipliers. 
-Technical details about the boundary terms can be found in \cite[ch.\ 
-4.2]{Poisson2004} and the references therein.
-% Note that $\cbr{N, N_i, h_{ij}; \mfrakP, \mfrakP^i, \mfrakp^{ij}}$ are not the 
-% unique choice of canonical variables for General Relativity in Hamiltonian 
-% formalism; instead, they are a special parametrisation of the phase space. One 
-% can also choose the components of the original four-metric and their conjugate 
-% momenta $\cbr{g_{\mu\nu}; \mfrakp^{\mu\nu}}$ as canonical variables, 
-
-Gauge transformations in the Arnowitt--Deser--Misner canonical variables are 
-generated by \cite{Castellani1982} 
-\begin{align}
-G &= -\int\dd^3 x\,\Big\{ \sbr{
-	\xi_\perp \rbr{
-		\mfrakH^\perp + N_{|i} \mfrakP^i + \rbr{N\mfrakP^i}_{|i} + 
-			\rbr{N_i \mfrakP}^{|i}} +
-	\dot{\xi}_\perp \mfrakP}
-\nonumber \\
-&\qquad\qquad\ \,+ \sbr{
-	\xi_i \rbr{
-		\mfrakH^i + N_j{}^{|i} \mfrakP^j + \rbr{N_j \mfrakP^i}^{|j} + N^{|i} 
-\mfrakP} +
-	\dot{\xi}_i \mfrakP^i} \Big\}
-\nonumber \\
-&\quad\,
-+\,\text{boundary terms},
-\end{align}
-where the boundary terms have probably not been discussed so far, but are 
-surely needed for non-compact spatial topologies in order to cancel the second 
-spatial derivatives in the potential term in $\mfrakH^\perp$. The infinitesimal 
-gauge transformations of $\cbr{N, N_i; \mfrakP, \mfrakP^i}$ are 
-\cite{Kiriushcheva2008}
-\begin{align}
-\dva N &= \sbr{N, G}_\text{P} = 
-\xi_\perp{}^{|i} N_i - \dot{\xi}_\perp - \xi_i N^{|i},
-\label{eq:var-Np} \\
-\dva N_i &= %\sbr{N_i, G}_\text{P} =
-- \xi_\perp N_{|i} + \xi_\perp{}_{|i} N
-- \xi_j N_{i}{}^{|j} + \xi_i{}^{|j} N_j - \dot{\xi}_i;
-\label{eq:var-Ni} \\
-\dva \mfrakP &= -\rbr{\xi_\perp \mfrakP^i}_{|i} - \xi_\perp{}_{|i} \mfrakP^i
-- \rbr{\xi_i \mfrakP}^{|i},
-\label{eq:var-Pp} \\
-\dva \mfrakP^i &= -\xi_\perp{}^{|i} \mfrakP
-- \rbr{\xi_j \mfrakP^i}^{|j} - \xi_j{}^{|i}\mfrakP^j,
-\label{eq:var-Pi}
-\end{align}
-where only the primary constraints are involved; transformations of 
-$\cbr{g_{ij}; \mfrakp^{ij}}$ are
-\begin{align}
-\dva h_{ij} &= -\frpa{}{\mfrakp^{ij}}
-\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i}
-\nonumber \\
-&= -\xi^\perp\,4\varkappa\,\mfrakG_{ijkl}\mfrakp^{kl}
-- \xi_{i|j} - \xi_{j|i},
-\label{eq:var-hij}
-\\
-\dva \mfrakp^{ij} &= \frpa{}{h_{ij}}
-\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i}
-\nonumber \\
-&=
-2\varkappa\,\xi_\perp\rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
-+ 2 \mfrakF^{ijkl}} h_{kl}
-\nonumber \\
-&\quad\,
-+\frac{1}{2\varkappa}
-\rbr{ \sqrt{\mfrakh}\,\xi_\perp\sfun{G^{ij}}{h}
--\mfrakG^{ijkl}\rbr{\xi_{\perp}}_{|k|l}}
-\nonumber \\
-&\quad\,
-+\cbr{\rbr{\mfrakp^{il}h^{kj}+\mfrakp^{jl}h^{ki}
--\mfrakp^{ij}h^{kl}}\xi_k}_{|l},
-\label{eq:var-pij}
-\end{align}
-where
-%$\sfun{G^{ij}}{h} = \sfun{R^{ij}}{h} - h^{ij}\sfun{R}{h}/2$, and
-only the secondary constraints are involved. 
-
-\Cref{eq:var-hij} could be different than what one would expect from 
-\cref{eq:var-gmunu}. In \cref{sec:Dirac-ADM-canonical} we will try to 
-understand this discrepancy.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Dirac and the ADM canonical variables}
+\section{Canonical transformation between the Dirac and ADM variables}
 \label{sec:Dirac-ADM-canonical}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-From \cref{eq:metric-Dirac-ADM} one can read off the relations between 
+In this section we will see that the Dirac and the Arnowitt--Deser--Misner 
+canonical variables, $\cbr{g_{\mu\nu}; \mbfitrho^{\mu\nu}}$ and $\cbr{N, N_i, 
+h_{ij}; \mfrakP, \mfrakP^i, \mfrakp^{ij}}$, are related by a canonical 
+transformation, where in the momentum sector, coordinates and momenta \emph{mix 
+up}. This could be surprising, since one might expect that those canonical 
+variables are related by a \emph{point transformation}.
+
+From \cref{eq:metric-Dirac-ADM}, one can read off the relations between 
 $\cbr{g_{\mu\nu}}$ and $\cbr{N, N_i, h_{ij}}$, motivating one to use the 
 generating functional of the third type $F_3 = \sfun{F_3}{\mbfitrho^{\mu\nu}; 
 N, N_i, h_{ij}}$. Then the relations can be written as
@@ -244,13 +129,13 @@ g_{00}
 \label{eq:g00nnh}\\
 g_{i0} 
 &= N_i
-&&= -\frdva{F_3}{\mbfitrho^{i0}}, \quad
+&&= -\frdva{F_3}{\mbfitrho^{i0}}, \qquad
 &g_{0i}
 &= -\frdva{F_3}{\mbfitrho^{0i}},
 \label{eq:g0innh}\\
 g_{ji}
 &= h_{ji}
-&&= -\frdva{F_3}{\mbfitrho^{ji}}, \quad
+&&= -\frdva{F_3}{\mbfitrho^{ji}}, \qquad
 &g_{ij}
 &= -\frdva{F_3}{\mbfitrho^{ij}};
 \label{eq:gijnnh}
@@ -307,9 +192,9 @@ One can verify that
 \mfrakP\,\dva N + \mfrakP^i\,\dva N_i + \mfrakp^{ij}\,\dva h_{ij} = 
 \mbfitrho^{\mu\nu}\,\dva g_{\mu\nu}
 \end{align}
-holds, which is a criterion of time-independent canonical transformation; 
-one may further verify that the fundamental Poisson brackets\footnote{Note that 
-$\sbr{h_{12}, \mfrakp^{12}} \propto 1/2$, not $1$!}
+holds, which is a criterion for the canonicality of a time-independent 
+transformation; one may further verify that the fundamental Poisson in the old
+brackets\footnote{Note that $\sbr{h_{12}, \mfrakp^{12}} \propto 1/2$, not $1$!}
 \begin{align}
 \sbr{\rfun{g_{\mu\nu}}{x_1}, \rfun{\mbfitrho^{\rho\sigma}}{x_2}}_\text{P} &= 
 \frac{1}{2} \rbr{
@@ -317,6 +202,7 @@ $\sbr{h_{12}, \mfrakp^{12}} \propto 1/2$, not $1$!}
 \mupdelta^\sigma{}_\mu \mupdelta^\rho{}_\nu}
 \rfun{\mbfitdelta^{(3)}}{x_1, x_2};
 \end{align}
+and new variables
 \begin{align}
 \begin{aligned}
 \sbr{\rfun{N}{x_1}, \rfun{\mfrakP}{x_2}}_\text{P} &= 
@@ -338,29 +224,211 @@ $\sbr{h_{12}, \mfrakp^{12}} \propto 1/2$, not $1$!}
 \end{align}
 are invariant.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Canonical actions and their first variations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Perturbative expansion of the ADM Hamiltonian action}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+The canonical action for General Relativity in terms of the 
+Arnowitt--Deser--Misner canonical variables is \cite[ch.\ 4.2.2]{Kiefer2012}
 \begin{align}
-\dva S &= \int\dd t\,\dd^3 x \,\Big\{
-\mscrP^{ij}\,\dva h_{ij} + \mscrQ_{ij}\,\dva \mfrakp^{ij} +
-\mscrC\,\dva N + \mscrC^i\,\dva N_i
+S &=
+\int\dd t\,\dd x^3\,\Big\{
+\mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
+-N\mfrakH^\perp - N_i\mfrakH^i
 \nonumber \\
 &\qquad\qquad
-+ \mscrD\,\dva \mscrP + 
-\mscrD_i\,\dva \mscrP^i + \mscrE\,\dva V + \mscrE^i\,\dva V_i
-\Big\}
+- \mfrakP V - \mfrakP^i V_i\Big\} +\,\text{boundary terms},
+\label{eq:ADM-Hamiltonian-action}
 \end{align}
-No further boundary terms!
+where $\mfrakP$ and $\mfrakP^i$ are the primary constraints,
+\begin{align}
+\mfrakH^\perp &=
+2 \varkappa\,\mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
+\equiv
+2 \varkappa\,\mfrakF^{ijkl} h_{ij}h_{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
+\\
+\mfrakH^i &=
+-2 \mfrakp^{ij}{}_{|j}
+\end{align}
+are the secondary constraints,
+\begin{align}
+\mfrakG_{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
+\rbr{h_{ik}h_{lj}+h_{il}h_{kj}-h_{ij}h_{kl}}
+\equiv -\frdva{\rbr{\mfrakh^{-1/2}h_{ij}}}{h^{kl}},\\
+\mfrakG^{ijkl} &\coloneqq \frac{\mfrakh^{1/2}}{2}
+\rbr{h^{ik}h^{lj}+h^{il}h^{kj}-2h^{ij}h^{kl}}
+\equiv -\mfrakh^{-1/2}\frdva{\rbr{\mfrakh h^{ij}}}{h_{kl}}
+\end{align}
+are the DeWitt metric and its inverse, and
+\begin{align}
+\mfrakF^{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
+\rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
+-\mfrakp^{ij}\mfrakp^{kl}}
+\end{align}
+is a convenient notation. In \cref{eq:ADM-Hamiltonian-action}, $V$ and $V_i$ 
+are velocities of $N$ and $N_i$ and play the role of Lagrange 
+multipliers. Details about the action with velocities can be found in 
+\cite{Gitman1990}; those about the boundary terms can be found in \cite[ch.\ 
+4.2]{Poisson2004} and the references therein.
+
+Using the results in \cref{ssec:first-var}, the first variation of 
+\cref{eq:ADM-Hamiltonian-action} can be derived to be
+\begin{align}
+&\quad
+\dva S = \int\dd t\,\dd^3 x \,\Big\{ -
+\rbr{\dot{\mfrakp}^{ij} - \rfun{\mscrP^{ij}}{N, N_i}}\,\dva h_{ij} +
+\rbr{\dot{h}_{ij} - \rfun{\mscrH_{ij}}{N, N_i}}\,\dva \mfrakp^{ij}
+\nonumber \\
+&-
+\rbr{\dot{\mfrakP} + \mfrakH^\perp}\,\dva N -
+\rbr{\dot{\mfrakP}^i + \mfrakH^i}\,\dva N_i +
+\rbr{\dot{N} - V}\,\dva \mscrP + 
+\rbr{\dot{N}_i - V_i}\,\dva \mscrP^i
+\nonumber \\
+&-
+\mfrakP\,\dva V - \mfrakP^i\,\dva V_i
+\Big\},
+\label{eq:first-variation-ADM-100}
+\end{align}
+where
+\begin{align}
+\rfun{\mscrH_{ij}}{N, N_i} &\coloneqq
+2\rbr{2\varkappa\,N\mfrakG_{ijkl}\mfrakp^{kl} + N_{(i|j)}},
+\label{eq:mscrPij-100} \\
+\rfun{\mscrP^{ij}}{N, N_i} &\coloneqq
+2 \varkappa\,N\rbr{\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
+- 2 \mfrakF^{ijkl}} h_{kl}
+\nonumber \\
+&\quad\,
++\frac{1}{2\varkappa}
+\rbr{-N\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}
++\mfrakG^{ijkl} N_{|k|l}}
+\nonumber \\
+&\quad\,
+-\cbr{\rbr{h^{ki}\mfrakp^{jl}+h^{kj}\mfrakp^{il}-h^{kl}\mfrakp^{ij}}N_k}_{|l}.
+\label{eq:mscrHij-100}
+\end{align}
+Also notes that in \cref{eq:first-variation-ADM-100} no further boundary term 
+is present; those in \cref{eq:ADM-Hamiltonian-action} have all been used to 
+eliminate the boundary integral with first derivatives.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Infinitesimal canonical gauge transformation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section the infinitesimal gauge transformation in General Relativity 
+will be constructed in the canonical formalism, namely in phase space. The 
+results with the Arnowitt--Deser--Misner variables and the Dirac variables will 
+be worked out separately. In the former case, one sees that the lapse and shift 
+functions as well as their conjugate momenta are also involved in the gauge 
+transformation, and the action has to contain them in order to be invariant 
+under the transformation.
+
+%%%%%%%%%%%%%%%%
+\subsection{The Arnowitt--Deser--Misner canonical variables}
+
+%%%%%%%%%%%%%%%%
+
+Gauge transformations in the Arnowitt--Deser--Misner canonical variables are 
+generated by \cite{Castellani1982} 
+\begin{align}
+G &= -\int\dd^3 x\,\Big\{ \sbr{
+	\xi_\perp \rbr{
+		\mfrakH^\perp + N_{|i} \mfrakP^i + \rbr{N\mfrakP^i}_{|i} + 
+			\rbr{N_i \mfrakP}^{|i}} +
+	\dot{\xi}_\perp \mfrakP}
+\nonumber \\
+&\qquad\qquad\ \,+ \sbr{
+	\xi_i \rbr{
+		\mfrakH^i + N_j{}^{|i} \mfrakP^j + \rbr{N_j \mfrakP^i}^{|j} + N^{|i} 
+\mfrakP} +
+	\dot{\xi}_i \mfrakP^i} \Big\}
+\nonumber \\
+&\quad\,
++\,\text{boundary terms},
+\end{align}
+where the boundary terms have probably not been discussed so far, but are 
+surely needed for non-compact spatial topologies in order to cancel the second 
+spatial derivatives in the potential term in $\mfrakH^\perp$. The infinitesimal 
+gauge transformations of $\cbr{N, N_i; \mfrakP, \mfrakP^i}$ are 
+\cite{Kiriushcheva2008}
+\begin{align}
+\dva N &= \sbr{N, G}_\text{P} = 
+\xi_\perp{}^{|i} N_i - \dot{\xi}_\perp - \xi_i N^{|i},
+\label{eq:gauge-Np} \\
+\dva N_i &= %\sbr{N_i, G}_\text{P} =
+- \xi_\perp N_{|i} + \xi_\perp{}_{|i} N
+- \xi_j N_{i}{}^{|j} + \xi_i{}^{|j} N_j - \dot{\xi}_i;
+\label{eq:gauge-Ni} \\
+\dva \mfrakP &= -\rbr{\xi_\perp \mfrakP^i}_{|i} - \xi_\perp{}_{|i} \mfrakP^i
+- \rbr{\xi_i \mfrakP}^{|i},
+\label{eq:gauge-Pp} \\
+\dva \mfrakP^i &= -\xi_\perp{}^{|i} \mfrakP
+- \rbr{\xi_j \mfrakP^i}^{|j} - \xi_j{}^{|i}\mfrakP^j,
+\label{eq:gauge-Pi}
+\end{align}
+where only the primary constraints are involved; transformations of 
+$\cbr{g_{ij}; \mfrakp^{ij}}$ are
+\begin{align}
+\dva h_{ij} &= -\frpa{}{\mfrakp^{ij}}
+\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i} =
+-\rfun{\mscrH_{ij}}{\xi_\perp, \xi_i},
+% \nonumber \\
+% &= -\xi^\perp\,4\varkappa\,\mfrakG_{ijkl}\mfrakp^{kl}
+% - \xi_{i|j} - \xi_{j|i},
+\label{eq:gauge-hij} \\
+\dva \mfrakp^{ij} &= \frpa{}{h_{ij}}
+\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i} =
+-\rfun{\mscrP^{ij}}{\xi_\perp, \xi_i},
+% \nonumber \\
+% &=
+% 2\varkappa\,\xi_\perp\rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
+% + 2 \mfrakF^{ijkl}} h_{kl}
+% \nonumber \\
+% &\quad\,
+% +\frac{1}{2\varkappa}
+% \rbr{ \sqrt{\mfrakh}\,\xi_\perp\sfun{G^{ij}}{h}
+% -\mfrakG^{ijkl}\rbr{\xi_{\perp}}_{|k|l}}
+% \nonumber \\
+% &\quad\,
+% +\cbr{\rbr{\mfrakp^{il}h^{kj}+\mfrakp^{jl}h^{ki}
+% -\mfrakp^{ij}h^{kl}}\xi_k}_{|l},
+\label{eq:gauge-pij}
+\end{align}
+where only the secondary constraints are involved. 
+%$\sfun{G^{ij}}{h} = \sfun{R^{ij}}{h} - h^{ij}\sfun{R}{h}/2$, and
+
+% \Crefrange{eq:gauge-hij} could be different than what one would expect from 
+% \cref{eq:gauge-gmunu}. In \cref{sec:Dirac-ADM-canonical} we will try to 
+% understand this discrepancy.
+
+%%%%%%%%%%%%%%%%
+\subsection{The Dirac canonical variables}
+
+%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Perturbative expansion of the canonical action}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 
-\section*{Some useful results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Some useful results}
 
-\subsection*{First variations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+\subsection{First variations}
+\label{ssec:first-var}
+%%%%%%%%%%%%%%%%
 
 The first variation of the inverse metric $h^{ij}$ reads
 \begin{align}
@@ -478,7 +546,7 @@ Finally, the first variation of $N_i \mfrakH^i$ with respect to $\cbr{h_{ij},
 \begin{align}
 &
 N_i\,\dva \mfrakH^i = \dva h_{ij}\,
-\cbr{\rbr{\mfrakp^{il}h^{kj}+\mfrakp^{jl}h^{ki}-\mfrakp^{ij}h^{kl}}N_k}_{|l}
+\cbr{\rbr{h^{ki}\mfrakp^{jl}+h^{kj}\mfrakp^{il}-h^{kl}\mfrakp^{ij}}N_k}_{|l}
 +\dva \mfrakp^{ij}\,2N_{(i|j)}
 \nonumber \\
 &\qquad
