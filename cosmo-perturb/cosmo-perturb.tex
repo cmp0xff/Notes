@@ -34,21 +34,24 @@ Gauge structure is one of the corner stones in modern theoretical physics. In
 particle physics, where fundamental interactions are modelled by Yang--Mills 
 theories, gauge structure is an \emph{input} of the theoretical description, 
 and mathematical physicists use redundant variables in the configuration space 
-such that the gauge invariance is manifest.
+so that the gauge invariance is manifest.
 
 In gravitational physics, things are less clear compared to the former case. On 
 the one hand, if one follows the way by which a Yang--Mills theory would be 
 constructed, one derives Poincar\'e gauge theories, which is much more generic 
 than the acknowledged General Relativity. On the other hand, even if one starts 
-with General Relativity and call the reparametrisation invariance as a gauge 
-invariance, one still faces another challenge, that in many applications, the 
-theory is not written down with those variables where the gauge invariance is 
-most manifest and the gauge transformation is simplest. The usage of the
-Arnowitt--Deser--Misner variables is such an example.
+with General Relativity, and call the reparametrisation 
+invariance\footnote{Also known as diffeomorphism invariance or general 
+covariance.} as a gauge invariance, one still faces another challenge, that in 
+many applications, the theory is not written down with those variables where the 
+gauge invariance is most manifest and the gauge transformation is simplest. The 
+usage of the Arnowitt--Deser--Misner variables is such an example.
 
 Let us be more specific. If one uses components of the metric 
-$\cbr{g_{\mu\nu}}$ as the (superficial) degrees of freedom, the gauge 
-transformation of which is related to the infinitesimal general coordinate 
+$\cbr{g_{\mu\nu}}$ as the (superficial) degrees of freedom, where $\mu, \nu, 
+\rho, \ldots$ runs from $0$ to $d$ and $d$ is the \emph{spatial} dimension, the 
+gauge transformation of those configuration-space variables is related to the 
+infinitesimal general coordinate 
 transformation
 \begin{align}
 x^\mu \mapsto x^\mu - \rfun{\eta^\mu}{x} +
@@ -65,45 +68,58 @@ by
 \label{eq:gauge-gmunu}
 \end{align}
 Here the generator of the general coordinate transformation $\rfun{\eta^\mu}{x}$ 
-plays the role of the gauge generator.
+plays the role of gauge generator.
 
-In the canonical formalism, the common practice is to use the 
-Arnowitt--Deser--Misner variables $\cbr{N, N_i, h_{ij}}$, instead of 
-$\cbr{g_{\mu\nu}}$. The former ones are an alternative set of variables in the 
-configuration space, and are related to the latter by
+In the canonical formalism of General Relativity, the common practice is to use 
+the Arnowitt--Deser--Misner variables $\cbr{N, N_i, h_{ij}}$ in configuration 
+space, instead of $\cbr{g_{\mu\nu}}$. The former ones are related to the latter 
+by
 \begin{align}
 g_{\mu\nu}\,\dd x^\mu\,\dd x^\nu = \dd s^2 = -N^2\,\dd t^2 + h_{ij}
 \rbr{N^i\,\dd t + \dd x^i}\rbr{N^j\,\dd t + \dd x^j},
 \label{eq:metric-Dirac-ADM}
 \end{align}
-where $N^i$ is understood as $h^{ij}N_j$, and $h^{ij}$ are implicit functions 
-of $h_{ij}$. One expects that $\cbr{N, N_i, h_{ij}}$ and $\cbr{g_{\mu\nu}}$ 
-share the same gauge structure; however, the gauge transformation of the two 
-variables looks quite differently.
+where $N^i$ is understood as $h^{ij}N_j$, $h^{ij}$ are implicit functions 
+of $h_{ij}$, and $i, j, k, \ldots$ runs from $1$ to $d$. One expects that 
+$\cbr{N, N_i, h_{ij}}$ and $\cbr{g_{\mu\nu}}$ share the same gauge structure; 
+however, the gauge transformation of the two variables looks quite different, 
+as will become clear in our work.
 
-In this work, we are interested in the canonical formalism, and the gauge 
-structure will be described by gauge transformation in \emph{phase space}. It is 
-less well-known that one can also derive a Hamiltonian action consistently by 
+In this work, it is the \emph{Hamiltonian} or \emph{canonical} formalism which 
+is interested in, and the gauge structure will be described by gauge 
+transformation in \emph{phase space}, instead of in configuration space. It is 
+less well-known that one can also derive a canonical action consistently by 
 using $\cbr{g_{\mu\nu}}$ and their conjugate momenta $\cbr{\mbfitrho^{\mu\nu}}$, 
 as \citeauthor{Dirac1958} has done in \cite{Dirac1958}. The Dirac and the 
-Arnowitt--Deser--Misner approaches have been compared in 
+Arnowitt--Deser--Misner approaches have been compared, for instance, in
 \cite{Kiriushcheva2008}, where some subtle differences have been shown; in 
 particular, the gauge transformation (in the phase space) in the former case 
-(\cref{eq:gauge-gmunu}) is different than the latter one 
-(\crefrange{eq:gauge-Np}{eq:gauge-pij}). This difference can be quantified, in 
-the sense that the relation between $\cbr{\eta_\mu}$ and $\cbr{\xi_\perp, 
-\xi_i}$, which are the gauge generator of the Dirac and Arnowitt--Deser--Misner 
-approaches respectively, can be derived explicitly.
+is drastically different than the latter one.
+%(\crefrange{eq:gauge-Np}{eq:gauge-pij}).
+This difference can be quantified, in the sense that the relation between 
+$\cbr{\eta_\mu}$ and $\cbr{\xi_\perp, \xi_i}$, which are the gauge generator of 
+the Dirac and Arnowitt--Deser--Misner approaches respectively, can be derived 
+explicitly.
 
-Here we go with outlooks. We would like to see if this difference has any 
-consequence on the cosmological perturbation theory; in particular, we would 
-like to see if the gauge-invariant variables could be changed from this 
-perspective. In order to do this, we start from the Hamiltonian formalism in the 
-Arnowitt--Deser--Misner variables and derive the gauge transformations of all 
-the canonical variables; we then perturb the Hamiltonian action up to the second 
-order on an arbitrary background with those variables directly; and finally we 
-fix a Robertson--Walker background metric and discuss the gauge transformation 
-of the perturbative coordinates and momenta.
+Here it goes with the plan. We would like to see if this difference has any 
+consequence on the perturbation theory of General Relativity, for example, in 
+the context of cosmological and black-hole perturbations. In particular, we 
+would like to see if the gauge-invariant variables, for instance, the 
+Mukhanov--Sasaki variables, could be changed from this perspective.
+
+In order to do this, we start from the canonical formalism of General 
+Relativity in the Arnowitt--Deser--Misner variables. We derive the gauge 
+transformations of all the canonical variables by using the gauge generator 
+derived by other authors (done), and construct the correspondence to the Dirac 
+variables (not yet done, but others have done it).
+
+Here is what is going on next. We then perturb the Hamiltonian action up to the 
+second order on an arbitrary background with those variables directly. For the 
+application in cosmology, we fix a Robertson--Walker background metric and 
+discuss the gauge transformation of the perturbative coordinates and momenta.
+
+If there are any positive outcomes, we could further investigate the 
+application in the context of black-hole space-times.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,32 +131,37 @@ In this section we will see that the Dirac and the Arnowitt--Deser--Misner
 canonical variables, $\cbr{g_{\mu\nu}; \mbfitrho^{\mu\nu}}$ and $\cbr{N, N_i, 
 h_{ij}; \mfrakP, \mfrakP^i, \mfrakp^{ij}}$, are related by a canonical 
 transformation, where in the momentum sector, coordinates and momenta \emph{mix 
-up}. This could be surprising, since one might expect that those canonical 
-variables are related by a \emph{point transformation}.
+up}.
+
+This could be surprising, since one might expect that those canonical 
+variables are related by a \emph{point transformation}. Since the 
+transformation in configuration space is non-linear, one actually should expect 
+a non-trivial transformation in the momentum sector.
 
 From \cref{eq:metric-Dirac-ADM}, one can read off the relations between 
 $\cbr{g_{\mu\nu}}$ and $\cbr{N, N_i, h_{ij}}$, motivating one to use the 
 generating functional of the third type $F_3 = \sfun{F_3}{\mbfitrho^{\mu\nu}; 
 N, N_i, h_{ij}}$. Then the relations can be written as
 \begin{alignat}{5}
-g_{00}
-&= -N^2 + h^{ij} N_i N_j
+-N^2 + h^{ij} N_i N_j &=
+g_{00} 
 &&= -\frdva{F_3}{\mbfitrho^{00}},
 \label{eq:g00nnh}\\
-g_{i0} 
-&= N_i
+N_i &=
+g_{i0}
 &&= -\frdva{F_3}{\mbfitrho^{i0}}, \qquad
 &g_{0i}
 &= -\frdva{F_3}{\mbfitrho^{0i}},
 \label{eq:g0innh}\\
+h_{ji} &=
 g_{ji}
-&= h_{ji}
 &&= -\frdva{F_3}{\mbfitrho^{ji}}, \qquad
 &g_{ij}
 &= -\frdva{F_3}{\mbfitrho^{ij}};
 \label{eq:gijnnh}
 \end{alignat}
-the inverse of \crefrange{eq:g00nnh}{eq:gijnnh} reads\footnote{We take $N > 0$.}
+the inverse of \crefrange{eq:g00nnh}{eq:gijnnh} reads\footnote{We take $N > 0$; 
+this has not been considered seriously.}
 \begin{align}
 N = \frac{1}{\rbr{-g^{00}}^{1/2}},\qquad
 N_i = \frac{g_{i0} + g_{0i}}{2},\qquad
@@ -150,13 +171,7 @@ It is also useful to note that the transformation of the inverse metric is
 \begin{align}
 g^{00} = -\frac{1}{N^2}, \qquad
 g^{0i} = g^{i0} = \frac{N^i}{N^2}, \qquad
-g^{ij} = h^{ij}-\frac{N^i N^j}{N^2},
-\end{align}
-and the variation of $N$ with respect to $\cbr{g_{\mu\nu}}$ reads
-\begin{align}
-\dva N = \frac{1}{2}\rbr{-\sqrt{-g^{00}}\,\dva g_{00}
-+\frac{g^{0i}\,\dva g_{0i}+g^{i0}\,\dva g_{i0}}{\rbr{-g^{00}}^{1/2}}
--\frac{g^{0i}g^{0j}}{\rbr{-g^{00}}^{3/2}}\,\dva g_{ij}}.
+g^{ij} = h^{ij}-\frac{N^i N^j}{N^2}.
 \end{align}
 \Crefrange{eq:g00nnh}{eq:gijnnh} can be formally integrated to get
 \begin{align}
@@ -194,7 +209,8 @@ One can verify that
 \end{align}
 holds, which is a criterion for the canonicality of a time-independent 
 transformation; one may further verify that the fundamental Poisson in the old
-brackets\footnote{Note that $\sbr{h_{12}, \mfrakp^{12}} \propto 1/2$, not $1$!}
+brackets\footnote{Note that $\sbr{g_{12}, \mbfitrho^{12}}_\text{P} \propto 
+1/2$, not $1$!}
 \begin{align}
 \sbr{\rfun{g_{\mu\nu}}{x_1}, \rfun{\mbfitrho^{\rho\sigma}}{x_2}}_\text{P} &= 
 \frac{1}{2} \rbr{
@@ -217,20 +233,25 @@ and new variables
 \mupdelta^k{}_i \mupdelta^l{}_j + \mupdelta^l{}_i \mupdelta^k{}_j}
 \rfun{\mbfitdelta^{(3)}}{x_1, x_2};
 \\
-\sbr{\rfun{N}{x_1}, \rfun{\mfrakP^i}{x_2}} &=
-\sbr{\rfun{N}{x_1}, \rfun{\mfrakp^{ij}}{x_2}} =
-\sbr{\rfun{N^i}{x_1}, \rfun{\mfrakp^{jk}}{x_2}} = 0
+\sbr{\rfun{N}{x_1}, \rfun{\mfrakP^i}{x_2}}_\text{P} &=
+\sbr{\rfun{N}{x_1}, \rfun{\mfrakp^{ij}}{x_2}}_\text{P} =
+\sbr{\rfun{N^i}{x_1}, \rfun{\mfrakp^{jk}}{x_2}}_\text{P} = 0
 \end{aligned}
 \end{align}
 are invariant.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Canonical actions and their first variations}
+To conclude, since the transformation is complicated in the momentum sector, 
+one expects that the gauge transformations would also take a different form in 
+the different variables of phase space. This will be investigated in 
+\cref{sec:can-gauge-trsf}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Canonical ADM action and its first variation}
+\label{sec:can-action-first-var}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The canonical action for General Relativity in terms of the 
-Arnowitt--Deser--Misner canonical variables is \cite[ch.\ 4.2.2]{Kiefer2012}
+Arnowitt--Deser--Misner variables is \cite[ch.\ 4.2.2]{Kiefer2012}
 \begin{align}
 S &=
 \int\dd t\,\dd x^3\,\Big\{
@@ -318,16 +339,16 @@ eliminate the boundary integral with first derivatives.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Infinitesimal canonical gauge transformation}
-
+\label{sec:can-gauge-trsf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section the infinitesimal gauge transformation in General Relativity 
-will be constructed in the canonical formalism, namely in phase space. The 
-results with the Arnowitt--Deser--Misner variables and the Dirac variables will 
-be worked out separately. In the former case, one sees that the lapse and shift 
-functions as well as their conjugate momenta are also involved in the gauge 
-transformation, and the action has to contain them in order to be invariant 
-under the transformation.
+In this section the infinitesimal gauge transformation of General Relativity 
+will be constructed in terms of the canonical variables, namely in phase 
+space. The results with the Arnowitt--Deser--Misner variables and the Dirac 
+variables will be worked out separately. In the former case, one sees that the 
+lapse and shift functions as well as their conjugate momenta are also involved 
+in the gauge transformation, and the action has to contain them in order to be 
+invariant under the transformation.
 
 %%%%%%%%%%%%%%%%
 \subsection{The Arnowitt--Deser--Misner canonical variables}
@@ -412,9 +433,38 @@ where only the secondary constraints are involved.
 
 %%%%%%%%%%%%%%%%
 
+\begin{align}
+\eta_0 &= ,
+\\
+\eta_i &= .
+\end{align}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Perturbative expansion of the canonical action}
+\section{Second variation of the canonical ADM action}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align}
+\dva^2 S &=
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Canonical perturbation of the Friedmann--Lema\^itre--Klein--Gordon 
+model}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align}
+\dd s^2 = -\rfun{N^2}{t}\,\dd t^2 + \rfun{a^2}{t}\,\dd \vec{x}^2
+\end{align}
+
+$\rfun{h_{ij}}{\vec{x}} = \rfun{a^2}{t}\mupdelta_{ij}\,
+\rfun{\mbfitdelta^3}{\vec{x}-\vec{x}'}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgement}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -422,13 +472,22 @@ where only the secondary constraints are involved.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Some useful results}
-
+\label{sec:useful-results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Here some useful intermediate results are collected.
 
 %%%%%%%%%%%%%%%%
 \subsection{First variations}
 \label{ssec:first-var}
 %%%%%%%%%%%%%%%%
+
+The variation of $N$ with respect to $\cbr{g_{\mu\nu}}$ reads
+\begin{align}
+\dva N = \frac{1}{2}\rbr{-\sqrt{-g^{00}}\,\dva g_{00}
++\frac{g^{0i}\,\dva g_{0i}+g^{i0}\,\dva g_{i0}}{\rbr{-g^{00}}^{1/2}}
+-\frac{g^{0i}g^{0j}}{\rbr{-g^{00}}^{3/2}}\,\dva g_{ij}}.
+\end{align}
 
 The first variation of the inverse metric $h^{ij}$ reads
 \begin{align}
@@ -563,7 +622,9 @@ $\fat{\dva h_{ij}}{\partial\Sigma} = 0 =
 \fat{\dva \mfrakp^{ij}}{\partial\Sigma}$. The results can be checked with 
 \cite[ch.\ 4.2.7]{Poisson2004}.
 
-\subsection*{Second variations}
+\subsection{Second variations}
+
+The results are not solid.
 
 First variation of $\mfrakF^{ijkl}h_{kl}$
 \begin{align}
