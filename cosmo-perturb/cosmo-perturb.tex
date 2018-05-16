@@ -166,6 +166,7 @@ this has not been considered seriously.}
 N = \frac{1}{\rbr{-g^{00}}^{1/2}},\qquad
 N_i = \frac{g_{i0} + g_{0i}}{2},\qquad
 h_{ij} = g_{ij}.
+\label{eq:inv-nnhg}
 \end{align}
 It is also useful to note that the transformation of the inverse metric is
 \begin{align}
@@ -246,35 +247,18 @@ the different variables of phase space. This will be investigated in
 \cref{sec:can-gauge-trsf}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Canonical ADM action and its first variation}
+\section{Canonical actions and the first variation}
 \label{sec:can-action-first-var}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The canonical action for General Relativity in terms of the 
+The Lagrangian action for General Relativity in terms of the 
 Arnowitt--Deser--Misner variables is \cite[ch.\ 4.2.2]{Kiefer2012}
 \begin{align}
-S &=
-\int\dd t\,\dd x^3\,\Big\{
-\mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
--N\mfrakH^\perp - N_i\mfrakH^i
-\nonumber \\
-&\qquad\qquad
-- \mfrakP V - \mfrakP^i V_i\Big\} +\,\text{boundary terms},
-\label{eq:ADM-Hamiltonian-action}
+S &= \frac{1}{2\varkappa}\int\dd t\,\dd^d x\,N\cbr{\mfrakG^{ijkl}K_{ij}K_{kl}+
+\sqrt{\mfrakh}\,\sfun{R}{h}}+\,\text{surface terms},
+\label{eq:ADM-Lagrangian-action}
 \end{align}
-where $\mfrakP$ and $\mfrakP^i$ are the primary constraints,
-\begin{align}
-\mfrakH^\perp &=
-2 \varkappa\,\mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
-\equiv
-2 \varkappa\,\mfrakF^{ijkl} h_{ij}h_{kl}
-- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
-\\
-\mfrakH^i &=
--2 \mfrakp^{ij}{}_{|j}
-\end{align}
-are the secondary constraints,
+where
 \begin{align}
 \mfrakG_{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
 \rbr{h_{ik}h_{lj}+h_{il}h_{kj}-h_{ij}h_{kl}}
@@ -283,7 +267,35 @@ are the secondary constraints,
 \rbr{h^{ik}h^{lj}+h^{il}h^{kj}-2h^{ij}h^{kl}}
 \equiv -\mfrakh^{-1/2}\frdva{\rbr{\mfrakh h^{ij}}}{h_{kl}}
 \end{align}
-are the DeWitt metric and its inverse, and
+are the DeWitt metric and its inverse. We emphasise that 
+\cref{eq:ADM-Lagrangian-action} is expected to be \emph{identical} to the 
+Einstein--Hilbert action with proper boundary terms of the 
+Gibbons--Hawking--York type.
+
+\Cref{eq:ADM-Lagrangian-action} leads to the canonical action
+\begin{align}
+S &=
+\int\dd t\,\dd x^d\,\Big\{
+\mfrakp^{ij}\dot{h}_{ij} + \mfrakP\dot{N} + \mfrakP^i \dot{N}_i
+-N\mfrakH_\text{G}^\perp - N_i\mfrakH_\text{G}^i
+\nonumber \\
+&\qquad\qquad
+- \mfrakP V - \mfrakP^i V_i\Big\} +\,\text{surface terms},
+\label{eq:ADM-Hamiltonian-action}
+\end{align}
+where $\mfrakP$ and $\mfrakP^i$ are the primary constraints,
+\begin{align}
+\mfrakH_\text{G}^\perp &=
+2 \varkappa\,\mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h}
+\equiv
+2 \varkappa\,\mfrakF^{ijkl} h_{ij}h_{kl}
+- \frac{\sqrt{\mfrakh}}{2\varkappa} \sfun{R}{h},
+\\
+\mfrakH_\text{G}^i &=
+-2 \mfrakp^{ij}{}_{|j}
+\end{align}
+are the secondary constraints, and
 \begin{align}
 \mfrakF^{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
 \rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
@@ -292,24 +304,32 @@ are the DeWitt metric and its inverse, and
 is a convenient notation. In \cref{eq:ADM-Hamiltonian-action}, $V$ and $V_i$ 
 are velocities of $N$ and $N_i$ and play the role of Lagrange 
 multipliers. Details about the action with velocities can be found in 
-\cite{Gitman1990}; those about the boundary terms can be found in \cite[ch.\ 
+\cite{Gitman1990}; those about the surface terms can be found in \cite[ch.\ 
 4.2]{Poisson2004} and the references therein.
+
+As for the canonical action in the Dirac variables, it can be derived in two 
+ways. One is to start from \cref{eq:ADM-Lagrangian-action} and substitute the 
+coordinate-space transformation in \cref{eq:inv-nnhg}; the other is to start 
+from \cref{eq:ADM-Hamiltonian-action} and use the canonical transformation in
+\cref{eq:inv-nnhg} and \crefrange{eq:Pinrho00}{eq:pijinrhoij}. 
+\citeauthor{Kiriushcheva2008} claimed \cite{Kiriushcheva2008} that the two 
+approaches give different results.
 
 Using the results in \cref{ssec:first-var}, the first variation of 
 \cref{eq:ADM-Hamiltonian-action} can be derived to be
 \begin{align}
-&\quad
+&
 \dva S = \int\dd t\,\dd^3 x \,\Big\{ -
 \rbr{\dot{\mfrakp}^{ij} - \rfun{\mscrP^{ij}}{N, N_i}}\,\dva h_{ij} +
 \rbr{\dot{h}_{ij} - \rfun{\mscrH_{ij}}{N, N_i}}\,\dva \mfrakp^{ij}
 \nonumber \\
-&-
-\rbr{\dot{\mfrakP} + \mfrakH^\perp}\,\dva N -
-\rbr{\dot{\mfrakP}^i + \mfrakH^i}\,\dva N_i +
+&\quad-
+\rbr{\dot{\mfrakP} + \mfrakH_\text{G}^\perp}\,\dva N -
+\rbr{\dot{\mfrakP}^i + \mfrakH_\text{G}^i}\,\dva N_i +
 \rbr{\dot{N} - V}\,\dva \mscrP + 
 \rbr{\dot{N}_i - V_i}\,\dva \mscrP^i
 \nonumber \\
-&-
+&\quad-
 \mfrakP\,\dva V - \mfrakP^i\,\dva V_i
 \Big\},
 \label{eq:first-variation-ADM-100}
@@ -336,7 +356,6 @@ Also notes that in \cref{eq:first-variation-ADM-100} no further boundary term
 is present; those in \cref{eq:ADM-Hamiltonian-action} have all been used to 
 eliminate the boundary integral with first derivatives.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Infinitesimal canonical gauge transformation}
 \label{sec:can-gauge-trsf}
@@ -360,13 +379,14 @@ generated by \cite{Castellani1982}
 \begin{align}
 G &= -\int\dd^3 x\,\Big\{ \sbr{
 	\xi_\perp \rbr{
-		\mfrakH^\perp + N_{|i} \mfrakP^i + \rbr{N\mfrakP^i}_{|i} + 
+		\mfrakH_\text{G}^\perp + N_{|i} \mfrakP^i + \rbr{N\mfrakP^i}_{|i} + 
 			\rbr{N_i \mfrakP}^{|i}} +
 	\dot{\xi}_\perp \mfrakP}
 \nonumber \\
 &\qquad\qquad\ \,+ \sbr{
 	\xi_i \rbr{
-		\mfrakH^i + N_j{}^{|i} \mfrakP^j + \rbr{N_j \mfrakP^i}^{|j} + N^{|i} 
+		\mfrakH_\text{G}^i + N_j{}^{|i} \mfrakP^j + \rbr{N_j \mfrakP^i}^{|j} + 
+N^{|i} 
 \mfrakP} +
 	\dot{\xi}_i \mfrakP^i} \Big\}
 \nonumber \\
@@ -375,7 +395,8 @@ G &= -\int\dd^3 x\,\Big\{ \sbr{
 \end{align}
 where the boundary terms have probably not been discussed so far, but are 
 surely needed for non-compact spatial topologies in order to cancel the second 
-spatial derivatives in the potential term in $\mfrakH^\perp$. The infinitesimal 
+spatial derivatives in the potential term in $\mfrakH_\text{G}^\perp$. The 
+infinitesimal 
 gauge transformations of $\cbr{N, N_i; \mfrakP, \mfrakP^i}$ are 
 \cite{Kiriushcheva2008}
 \begin{align}
@@ -397,14 +418,14 @@ where only the primary constraints are involved; transformations of
 $\cbr{g_{ij}; \mfrakp^{ij}}$ are
 \begin{align}
 \dva h_{ij} &= -\frpa{}{\mfrakp^{ij}}
-\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i} =
+\rbr{\xi_\perp \mfrakH_\text{G}^\perp + \xi_i \mfrakH_\text{G}^i} =
 -\rfun{\mscrH_{ij}}{\xi_\perp, \xi_i},
 % \nonumber \\
 % &= -\xi^\perp\,4\varkappa\,\mfrakG_{ijkl}\mfrakp^{kl}
 % - \xi_{i|j} - \xi_{j|i},
 \label{eq:gauge-hij} \\
 \dva \mfrakp^{ij} &= \frpa{}{h_{ij}}
-\rbr{\xi_\perp \mfrakH^\perp + \xi_i \mfrakH^i} =
+\rbr{\xi_\perp \mfrakH_\text{G}^\perp + \xi_i \mfrakH_\text{G}^i} =
 -\rfun{\mscrP^{ij}}{\xi_\perp, \xi_i},
 % \nonumber \\
 % &=
@@ -421,7 +442,8 @@ $\cbr{g_{ij}; \mfrakp^{ij}}$ are
 % -\mfrakp^{ij}h^{kl}}\xi_k}_{|l},
 \label{eq:gauge-pij}
 \end{align}
-where only the secondary constraints are involved. 
+where only the secondary constraints are involved, and surface contribution 
+has not been written down explicitly. 
 %$\sfun{G^{ij}}{h} = \sfun{R^{ij}}{h} - h^{ij}\sfun{R}{h}/2$, and
 
 % \Crefrange{eq:gauge-hij} could be different than what one would expect from 
@@ -576,10 +598,11 @@ $\sqrt{\mfrakh} \,\sfun{R}{h}$ reads
 \mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j|i}.
 \end{align}
 
-One can now write down the first variation of $N\mfrakH^\perp$ with respect to 
+One can now write down the first variation of $N\mfrakH_\text{G}^\perp$ with 
+respect to 
 $\cbr{h_{ij}, \mfrakp^{ij}}$,
 \begin{align}
-N\,\dva \mfrakH^\perp &= \dva h_{ij}\,\bigg\{
+N\,\dva \mfrakH_\text{G}^\perp &= \dva h_{ij}\,\bigg\{
 2\varkappa\,N\rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
 + 2 \mfrakF^{ijkl}} h_{kl}
 \nonumber \\
@@ -597,14 +620,16 @@ N\,\dva \mfrakH^\perp &= \dva h_{ij}\,\bigg\{
 \rbr{N\,\rbr{\dva h_{kl}}_{|j} - N_{|j}\,\dva h_{kl}} }_{|i},
 \end{align}
 where the terms in the last line will be pushed to the spatial boundary
-$\partial\Sigma$; the second term vanishes by $\fat{\dva h_{ij}}{\partial\Sigma} 
+$\partial\Sigma$; the second term vanishes by $\fat{\dva 
+h_{ij}}{\partial\Sigma} 
 = 0$, whereas the first one is cancelled by the boundary term.
 
-Finally, the first variation of $N_i \mfrakH^i$ with respect to $\cbr{h_{ij},
+Finally, the first variation of $N_i \mfrakH_\text{G}^i$ with respect to 
+$\cbr{h_{ij},
 \mfrakp^{ij}}$ is easier,
 \begin{align}
 &
-N_i\,\dva \mfrakH^i = \dva h_{ij}\,
+N_i\,\dva \mfrakH_\text{G}^i = \dva h_{ij}\,
 \cbr{\rbr{h^{ki}\mfrakp^{jl}+h^{kj}\mfrakp^{il}-h^{kl}\mfrakp^{ij}}N_k}_{|l}
 +\dva \mfrakp^{ij}\,2N_{(i|j)}
 \nonumber \\
@@ -703,10 +728,10 @@ is also useful.
 % boundary upon variation of the action, and will be cancelled by the boundary 
 % terms.
 
-Second variation of $N \mfrakH^\perp$
+Second variation of $N \mfrakH_\text{G}^\perp$
 \begin{align}
 &\quad\,
-\dva^2\rbr{N \mfrakH^\perp}
+\dva^2\rbr{N \mfrakH_\text{G}^\perp}
 \nonumber \\
 &= \dva h_{ij}\,\dva h_{kl}\,\bigg\{ 2\varkappa\bigg[
 \frac{1}{4}\rbr{h^{ik}h^{lj}+h^{il}h^{kj}+h^{ij}h^{kl}} \mfrakF^{mnrs} 
@@ -745,9 +770,9 @@ Second variation of $\Gamma^i{}_{jk}$
 - h^{im} \,\dva\Gamma^{l}{}_{jk} \,\dva h_{lm}.
 \end{align}
 
-Second variation of $\mfrakH^i$
+Second variation of $\mfrakH_\text{G}^i$
 \begin{align}
-\dva^2\rbr{\mfrakH^i} = -h^{im}p^{jk}
+\dva^2\rbr{\mfrakH_\text{G}^i} = -h^{im}p^{jk}
 \,\dva\Gamma^{l}{}_{jk}\,\dva h_{lm} + 2\,\dva\Gamma^{i}{}_{jk}\,\dva p^{jk}.
 \end{align}
 
