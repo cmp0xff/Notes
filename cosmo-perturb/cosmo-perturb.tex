@@ -724,18 +724,44 @@ order to calculate the second variation of the canonical
 Arnowitt--Deser--Misner action, the following variations needs to be 
 calculated, in addition to those calculated in \cref{ssec:first-var}.
 
-(The results are not yet solid)
+First variation of $\mfrakG^{ijkl}$
+\begin{align}
+\dva \mfrakG^{ijkl} &= \rbr{\frac{1}{2}\mfrakG^{ijkl} h^{mn}
+-h^{m(i} \mfrakG^{j)nkl} - \mfrakG^{ijk(l} h^{k)m}} \,\dva h_{mn}.
+\end{align}
+(check!)
 
 First variation of $\mfrakF^{ijkl}h_{kl}$
 \begin{align}
 \dva\rbr{\mfrakF^{ijkl}h_{kl}} &= \dva h_{kl}\,
 \rbr{-\frac{1}{2}\mfrakF^{ijmn}h^{kl}h_{mn}+\mfrakF^{ijkl}}
 \nonumber \\
-&\quad\,
-+\dva \mfrakp^{kl}\,\rbr{
-\mupdelta^{i}{}_{k}\mfrakG^{j}{}_{lmn} +
-\mupdelta^{i}{}_{m}\mfrakG^{j}{}_{nkl}}\mfrakp^{mn}.
+&\quad\,+
+\dva \mfrakp^{kl} \, h^{i(p}h^{q)j} \rbr{
+h_{kp} \mfrakG_{qlmn} + \mfrakG_{klmp} h_{qn}}.
+% \frac{1}{2\sqrt{\mfrakh}} \big(
+% 2 \delta^i{}_{(n} \delta^j{}_{l)} h_{km} +
+% 2 \delta^i{}_{(n} \delta^j{}_{k)} h_{lm} -
+% \delta^i{}_k \delta^j{}_l h_{mn} -
+% \delta^i{}_m \delta^j{}_n h_{kl} \big).
 \end{align}
+(check!)
+
+Concerning the derivative of $\bar{\dva}u^{ij}{}_k$, one needs
+\begin{align}
+\bar{\dva}u^{ik}{}_{j|k} = \rbr{\dva h_{kl}}_{|m|n}\,
+\frac{1}{2}\rbr{
+h^{i[m} h^{k]n} \delta^l{}_j + h^{i[m}h^{l]n} \delta^k{}_j
++ \frac{1}{\sqrt{\mfrakh}} \mfrakG^{inkl} \delta^m{}_j},
+\end{align}
+so that
+\begin{align}
+h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} &=
+% \rbr{\dva h_{kl}}_{|m|n}\,\mfrakh^{-1/2}\rbr{
+% h^{l(i}\mfrakG^{j)nmk} + h^{m(i}\mfrakG^{j)nkl}}.
+\end{align}
+
+The following results are not yet solid.
 
 First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
 \begin{align}
@@ -761,22 +787,6 @@ R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
 &\quad
 +\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
 - \frac{1}{2}h^{ij}\,\bar{\dva}u^{lk}{}_{l}}_{|k} \bigg\}.
-\end{align}
-
-For the following calculation, one also needs
-\begin{align}
-h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} &=
-% \frac{1}{2}\rbr{\dva h_{mn}}_{|l}\,\big\{
-% -\mupdelta^m{}_k\rbr{h^{in}h^{jl}-h^{ij}h^{ln}}
-% \nonumber \\
-% &\qquad\qquad
-% +\mupdelta^l{}_k\rbr{h^{im}h^{jn}-h^{ij}h^{mn}}
-% +\mupdelta^n{}_k\rbr{h^{il}h^{jm}-h^{ij}h^{lm}}\big\}
-% \nonumber \\
-% &=\frac{1}{2\mfrakh^{1/2}} \rbr{h_{mn}}_{|l} \rbr{
-% -\mupdelta^m{}_k\mfrakG^{ijln}
-% +\mupdelta^l{}_k\mfrakG^{ijmn}
-% +\mupdelta^n{}_k\mfrakG^{ijlm}};
 \end{align}
 
 
