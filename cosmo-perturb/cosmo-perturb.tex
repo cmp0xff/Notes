@@ -565,7 +565,7 @@ $\rfun{h_{ij}}{\vec{x}} = \rfun{a^2}{t}\mupdelta_{ij}\,
 Here some useful intermediate results are collected.
 
 %%%%%%%%%%%%%%%%
-\subsection{First variations}
+\subsection{For the first variations}
 \label{ssec:first-var}
 %%%%%%%%%%%%%%%%
 
@@ -599,11 +599,11 @@ which reads
 +h^{im}\mupdelta^n{}_j\mupdelta^l{}_k}\,\rbr{\dva h_{mn}}_{|l}.
 \end{align}
 
-The first variation of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$
+The first variations of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$ are
 \begin{align}
 \dva \sfun{R_{ij}}{h} &=
 \rbr{\dva\Gamma^k{}_{ji}}_{|k} - \rbr{\dva\Gamma^k{}_{ki}}_{|j},
-\label{eq:var-R_{ij}}
+\label{eq:dva-Rij-low}
 % \\
 % &=
 % \frac{1}{2}\rbr{\dva h_{kl}}_{|m|n}\,\big(
@@ -615,26 +615,33 @@ The first variation of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$
 % -\mupdelta^m{}_i\mupdelta^n{}_jh^{kl}\big),
 \\
 \dva \sfun{R^{ij}}{h} &=
--2R^{k(i}h^{j)l}\,\dva h_{kl} + h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l},
-\label{eq:var-Rijhu}
+-2R^{k(i}h^{j)l}\,\dva h_{kl} + h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l}
+\label{eq:var-Rijhu} \\
+&= -2R^{k(i}h^{j)l}\,\dva h_{kl}
+\nonumber \\
+&\quad\,+
+\rbr{h^{l(i}h^{j)[m}h^{k]n}+
+\frac{1}{2\mfrakh^{1/2}} h^{m(i}\mfrakG^{j)nkl}}\,\rbr{\dva h_{kl}}_{|m|n},
+\label{eq:dva-Rijhu-2}
 \end{align}
 where
 \begin{align}
 \bar{\dva}u^{ij}{}_{k} &\coloneqq
 h^{il}\,\dva\Gamma^{j}{}_{lk} - h^{ij}\,\dva\Gamma^{l}{}_{lk}
 \end{align}
-is related to the boundary terms. \Cref{eq:var-R_{ij}} can be obtained in 
-normal 
-coordinates.
+is related to the boundary terms, and \cref{eq:hki-dva-ujlk|l} has been used
+to obtain \cref{eq:dva-Rijhu-2}.
+\Cref{eq:dva-Rij-low} can be obtained in normal coordinates.
 
 For the first variation of the constraints, one also needs
 \begin{align}
 \bar{\dva}u^{ji}{}_{j} = \rbr{\dva h_{kl}}_{|j}
 \rbr{h^{i(k}h^{l)j}-h^{ij}h^{kl}}
-= \mfrakh^{-1/2}\mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j};
-\label{eq:ujij}
+= \mfrakh^{-1/2}\mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j}.
+\label{eq:dva-ujij}
 \end{align}
-therefore, 
+\Cref{eq:dva-ujij} is consistent with \cref{eq:dva-uikj|k}.
+Therefore, 
 \begin{align}
 \sqrt{\mfrakh}\,N \,\bar{\dva}u^{ji}{}_{j|i} =
 \dva h_{ij}\,\mfrakG^{ijkl}N_{|k|l}
@@ -648,19 +655,22 @@ $\mfrakG_{ijkl}\mfrakp^{ij}\mfrakp^{kl} \equiv
 \begin{align}
 &\quad\,\dva\rbr{ \mfrakG_{ijkl} \mfrakp^{ij}\mfrakp^{kl}}
 \equiv \dva\rbr{\mfrakF^{ijkl}h_{ij}h_{kl}}
-\nonumber \\
+\\
 &=\dva h_{ij}\,\rbr{-\frac{1}{2} h^{ij} \mfrakF^{klmn} h_{mn}
 + 2 \mfrakF^{ijkl} } h_{kl} 
 +\dva \mfrakp^{ij}\,2 \mfrakG_{ijkl}\mfrakp^{kl}.
+\label{eq:dva-Fhh}
 \end{align}
-Equipped with \cref{eq:ujij,eq:var-Rijhu}, the first variation of the 
+\Cref{eq:dva-Fhh} is consistent with \cref{eq:dva-Fh}.
+
+Equipped with \cref{eq:dva-ujij,eq:var-Rijhu}, the first variation of the 
 `potential' 
-$\sqrt{\mfrakh} \,\sfun{R}{h}$ reads
+$\sqrt{\mfrakh}\,\sfun{R}{h}$ reads
 \begin{align}
-\dva\rbr{\sqrt{\mfrakh}\sfun{R}{h}} &= \sqrt{\mfrakh}\,
-\cbr{-\sfun{G^{ij}}{h}\,\dva h_{ij} +
+\dva\rbr{\sqrt{\mfrakh}\,\sfun{R}{h}} &= \sqrt{\mfrakh}\,
+\rbr{-\sfun{G^{ij}}{h}\,\dva h_{ij} +
 \bar{\dva}u^{ji}{}_{j|i}}
-\nonumber \\
+\\
 &= -\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}\,\dva h_{ij} +
 \mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j|i}.
 \end{align}
@@ -715,7 +725,7 @@ $\fat{\dva h_{ij}}{\partial\Sigma} = 0 =
 \cite[ch.\ 4.2.7]{Poisson2004}.
 
 %%%%%%%%%%%%%%%%
-\subsection{Second variations}
+\subsection{For the second variations}
 \label{ssec:second-var}
 %%%%%%%%%%%%%%%%
 
@@ -738,27 +748,28 @@ First variation of $\mfrakF^{ijkl}h_{kl}$
 \nonumber \\
 &\quad\,+
 \dva \mfrakp^{kl} \, h^{i(p}h^{q)j} \rbr{
-h_{kp} \mfrakG_{qlmn} + \mfrakG_{klmp} h_{qn}}.
-% \frac{1}{2\sqrt{\mfrakh}} \big(
-% 2 \delta^i{}_{(n} \delta^j{}_{l)} h_{km} +
-% 2 \delta^i{}_{(n} \delta^j{}_{k)} h_{lm} -
-% \delta^i{}_k \delta^j{}_l h_{mn} -
-% \delta^i{}_m \delta^j{}_n h_{kl} \big).
+h_{kp} \mfrakG_{qlmn} + \mfrakG_{klmp} h_{qn}}\mfrakp^{mn}.
+\label{eq:dva-Fh}
 \end{align}
-(check!)
+\Cref{eq:dva-Fh} is consistent with \cref{eq:dva-Fhh}.
 
 Concerning the derivative of $\bar{\dva}u^{ij}{}_k$, one needs
 \begin{align}
-\bar{\dva}u^{ik}{}_{j|k} = \rbr{\dva h_{kl}}_{|m|n}\,
-\frac{1}{2}\rbr{
-h^{i[m} h^{k]n} \delta^l{}_j + h^{i[m}h^{l]n} \delta^k{}_j
-+ \frac{1}{\sqrt{\mfrakh}} \mfrakG^{inkl} \delta^m{}_j},
+&\quad\,
+\bar{\dva}u^{ik}{}_{j|k} 
+\nonumber \\
+&=
+\rbr{\dva h_{kl}}_{|m|n}\,
+\frac{1}{2} \rbr{h^{i[m} h^{k]n} \delta^l{}_j + h^{i[m}h^{l]n} \delta^k{}_j
++ \frac{1}{\sqrt{\mfrakh}} \mfrakG^{inkl} \delta^m{}_j}.
+\label{eq:dva-uikj|k}
 \end{align}
-so that
+\Cref{eq:dva-uikj|k} is consistent with \cref{eq:dva-ujij}, and leads to.
 \begin{align}
 h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} &=
-% \rbr{\dva h_{kl}}_{|m|n}\,\mfrakh^{-1/2}\rbr{
-% h^{l(i}\mfrakG^{j)nmk} + h^{m(i}\mfrakG^{j)nkl}}.
+\rbr{\dva h_{kl}}_{|m|n}\,\rbr{h^{l(i}h^{j)[m}h^{k]n}
++\frac{1}{2\mfrakh^{1/2}} h^{m(i}\mfrakG^{j)nkl}}.
+\label{eq:hki-dva-ujlk|l}
 \end{align}
 
 The following results are not yet solid.
