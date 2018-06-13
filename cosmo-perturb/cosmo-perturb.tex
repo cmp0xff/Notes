@@ -506,8 +506,29 @@ The relation between $\eta_\mu$ and $\cbr{\xi_\perp, \xi_i}$ are
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Let the variation of all the coordinates, momenta and velocities
+$\rbr{\dva 
+h_{ij}, \dva N, \dva N_i;
+\dva\mfrakp^{ij}, \dva\mfrakP, \dva\mfrakP^i;
+\dva V, \dva V_i}$ be denoted by
+$\rbr{f, M, M_i; \mfrakk^{ij}, \mfrakK, \mfrakK^i; W, W_i}$, respectively. Then
+the second variation of the action in \cref{eq:ADM-Hamiltonian-action} reads
 \begin{align}
-\dva^2 S &=
+\frac{1}{2} \dva^2 S &= \int \dd t\,\dd^d x\,\Big\{\!
+\dot f_{ij} \mfrakk^{ij} +\dot M \mfrakK+ \dot{M}_i \mfrakK^i
+\nonumber \\
+&\qquad
++\frac{1}{2}\rbr{\dva\rfun{\mscrK^{ij}}{N, N_i} \, f_{ij}
+-\dva\rfun{\mscrH_{ij}}{N, N_i} \, \mfrakk^{ij}
+-\dva\mfrakH^\perp_\text{G} \, M
++\dva\mfrakH^i_\text{G} \, M_i}
+\nonumber \\
+&\qquad
+-W \mfrakK - W_i \mfrakK^i \Big\}
+\nonumber \\
+&\quad\,
+-\frac{1}{2}\left.\int\dd^d x\,
+\cbr{\mfrakk^{ij} f_{ij} + \mfrakK M + \mfrakK^i M_i}\right|_{t_1}^{t_2}
 \end{align}
 
 
@@ -598,6 +619,11 @@ which reads
 +h^{in}\mupdelta^l{}_j\mupdelta^m{}_k
 +h^{im}\mupdelta^n{}_j\mupdelta^l{}_k}\,\rbr{\dva h_{mn}}_{|l}.
 \end{align}
+In particular,
+\begin{align}
+\dva \Gamma^j{}_{ji} = \rbr{\dva h_{kl}}_{|i}\,\frac{1}{2}h^{kl}.
+\end{align}
+
 
 The first variations of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$ are
 \begin{align}
@@ -734,10 +760,10 @@ order to calculate the second variation of the canonical
 Arnowitt--Deser--Misner action, the following variations needs to be 
 calculated, in addition to those calculated in \cref{ssec:first-var}.
 
-First variation of $\mfrakG^{ijkl}$
+First variation of $\mfrakG^{ijkl}$ reads
 \begin{align}
 \dva \mfrakG^{ijkl} &= \rbr{\frac{1}{2}\mfrakG^{ijkl} h^{mn}
--h^{m(i} \mfrakG^{j)nkl} - \mfrakG^{ijk(l} h^{k)m}} \,\dva h_{mn}.
+-h^{m(i} \mfrakG^{j)nkl} - \mfrakG^{ijn(l} h^{k)m}} \,\dva h_{mn}.
 \end{align}
 (check!)
 
@@ -764,13 +790,30 @@ Concerning the derivative of $\bar{\dva}u^{ij}{}_k$, one needs
 + \frac{1}{\sqrt{\mfrakh}} \mfrakG^{inkl} \delta^m{}_j}.
 \label{eq:dva-uikj|k}
 \end{align}
-\Cref{eq:dva-uikj|k} is consistent with \cref{eq:dva-ujij}, and leads to.
+\Cref{eq:dva-uikj|k} is consistent with \cref{eq:dva-ujij}, and leads to
 \begin{align}
 h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} &=
 \rbr{\dva h_{kl}}_{|m|n}\,\rbr{h^{l(i}h^{j)[m}h^{k]n}
 +\frac{1}{2\mfrakh^{1/2}} h^{m(i}\mfrakG^{j)nkl}}.
 \label{eq:hki-dva-ujlk|l}
 \end{align}
+(check!)
+
+First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
+\begin{align}
+&\quad\,
+\dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
+\nonumber \\
+&=\dva h_{kl}\,\rbr{-\frac{\mfrakh^{1/2}}{2}}
+\rbr{h^{ki}R^{jl}+h^{kj}R^{il}-h^{kl}R^{ij}
++G^{ki}h^{jl}+G^{kj}h^{il}-G^{kl}h^{ij}}
+\nonumber \\
+&\quad\,
++\rbr{\dva h_{kl}}_{|m|n}\,
+\rbr{\mfrakh^{1/2}h^{l(i}h^{j)[m}h^{k]n} + \frac{1}{2}\rbr{
+h^{m(i}\mfrakG^{j)nkl} - h^{ij}\mfrakG^{klmn}}}.
+\end{align}
+(check!)
 
 The following results are not yet solid.
 
@@ -784,45 +827,6 @@ First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
 &\quad\,
 +\dva p^{kl}\,\mfrakG_{ijkl}.
 \end{align}
-
-First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
-\begin{align}
-&
-\dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
-= \sqrt{\mfrakh}\bigg\{\dva h_{kl}\cdot
-\nonumber \\
-&\qquad\quad
-\rbr{-\frac{1}{2}}\rbr{
-R^{ik}h^{lj}+R^{il}h^{kj}-R^{ij}h^{kl}+h^{ik}G^{lj}+h^{il}G^{kj}-h^{ij}G^{kl}}
-\nonumber \\
-&\quad
-+\rbr{h^{il}\,\bar{\dva}u^{jk}{}_{l}
-- \frac{1}{2}h^{ij}\,\bar{\dva}u^{lk}{}_{l}}_{|k} \bigg\}.
-\end{align}
-
-
-
-About $\bar{\dva}u^{ij}{}_{k}$, the identity
-\begin{align}
-&
-\sqrt{\mfrakh}\,N h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} =
-% \sqrt{\mfrakh}\,\rbr{N h^{ij}\,\bar{\dva}u^{jl}{}_k
-% -N_{|k}\rbr{\ldots}^{ijmn}\,\dva h_{mn}}_{|l}
-% \nonumber \\
-% &\qquad
-% -\sqrt{\mfrakh}\,N_{|k|l}\rbr{\ldots}^{ijmn}\,\dva h_{mn}
-\end{align}
-is also useful.
-% , where
-% \begin{align}
-% \rbr{\ldots}^{ijmn} \coloneqq
-% -h^{im}h^{j[k}h^{n]l}+h^{in}h^{j[k}h^{l]m}+h^{il}h^{j[k}h^{m]n};
-% \end{align}
-
-%, which is not desired. 
-% Being a covariant divergence of a vector, it can be pushed to the 
-% boundary upon variation of the action, and will be cancelled by the boundary 
-% terms.
 
 Second variation of $N \mfrakH_\text{G}^\perp$
 \begin{align}
