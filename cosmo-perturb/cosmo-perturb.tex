@@ -300,7 +300,7 @@ where $\mfrakP$ and $\mfrakP^i$ are the primary constraints,
 are the secondary constraints, and
 \begin{align}
 \mfrakF^{ijkl} &\coloneqq \frac{1}{2\mfrakh^{1/2}}
-\rbr{\mfrakp^{ik}\mfrakp^{jl}+\mfrakp^{il}\mfrakp^{kj}
+\rbr{\mfrakp^{ik}\mfrakp^{lj}+\mfrakp^{il}\mfrakp^{kj}
 -\mfrakp^{ij}\mfrakp^{kl}}
 \end{align}
 is a convenient notation. In \cref{eq:ADM-Hamiltonian-action}, $V$ and $V_i$ 
@@ -518,7 +518,7 @@ the second variation of the action in \cref{eq:ADM-Hamiltonian-action} reads
 \dot f_{ij} \mfrakk^{ij} +\dot M \mfrakK+ \dot{M}_i \mfrakK^i
 \nonumber \\
 &\qquad
-+\frac{1}{2}\rbr{\dva\rfun{\mscrK^{ij}}{N, N_i} \, f_{ij}
++\frac{1}{2}\rbr{\dva\rfun{\mscrP^{ij}}{N, N_i} \, f_{ij}
 -\dva\rfun{\mscrH_{ij}}{N, N_i} \, \mfrakk^{ij}
 -\dva\mfrakH^\perp_\text{G} \, M
 +\dva\mfrakH^i_\text{G} \, M_i}
@@ -771,13 +771,100 @@ First variation of $\mfrakF^{ijkl}h_{kl}$
 \begin{align}
 \dva\rbr{\mfrakF^{ijkl}h_{kl}} &= \dva h_{kl}\,
 \rbr{-\frac{1}{2}\mfrakF^{ijmn}h^{kl}h_{mn}+\mfrakF^{ijkl}}
++
+\dva \mfrakp^{kl} \, \mfrakh^{-1/2}
 \nonumber \\
-&\quad\,+
-\dva \mfrakp^{kl} \, h^{i(p}h^{q)j} \rbr{
-h_{kp} \mfrakG_{qlmn} + \mfrakG_{klmp} h_{qn}}\mfrakp^{mn}.
+&\quad\,\cdot
+\rbr{\delta^{i}{}_{(k}h_{l)(m}\delta^{j}{}_{n)}-
+\delta^{i}{}_{(k}\delta^{j}{}_{n)}h_{mn} 
++ \rbr{kl}\leftrightarrow\rbr{mn}}
+\mfrakp^{mn}.
 \label{eq:dva-Fh}
 \end{align}
-\Cref{eq:dva-Fh} is consistent with \cref{eq:dva-Fhh}.
+\Cref{eq:dva-Fh} is consistent with \cref{eq:dva-Fhh,eq:dva-F}.
+
+First variation of $\mfrakF^{ijkl}$
+\begin{align}
+&\dva\mfrakF^{ijkl} = \dva h_{mn}\,\rbr{-\frac{1}{2}\mfrakF^{ijkl}h^{mn}}
++\dva\mfrakp^{mn}\,\mfrakh^{-1/2}
+\nonumber \\
+&\,\cdot \rbr{
+\delta^{i}{}_{(m} \delta^{(k}{}_{n)} \delta^{l)}{}_{(p} \delta^{j}{}_{q)} -
+\frac{1}{2}
+\delta^{i}{}_{(m} \delta^{j}{}_{n)} \delta^{k}{}_{(p} \delta^{l}{}_{q)}
++\rbr{mn}\leftrightarrow\rbr{pq}}\mfrakp^{pq}.
+\label{eq:dva-F}
+\end{align}
+\Cref{eq:dva-F} is consistent with \cref{eq:dva-Fh}.
+
+First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
+\begin{align}
+&\dva\rbr{\mfrakG_{ijkl}\mfrakp^{kl}} =
+\dva\mfrakp^{kl}\,\mfrakG_{ijkl}+\dva h_{kl}\,\mfrakp^{mn}
+\bigg\{-\frac{1}{2}\mfrakG_{ijmn}h^{kl} + \mfrakh^{-1/2}
+\nonumber \\
+&\,\cdot\bigg(
+\delta^{(k}{}_{i} \delta^{l)}{}_{(m} h_{n)j} +
+h_{i(m} \delta^{(k}{}_{n)} \delta^{l)}{}_{j} - \frac{1}{2}
+\delta^{(k}{}_{i} \delta^{l)}{}_{j} h_{mn} - \frac{1}{2}
+h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \bigg)\bigg\}.
+\label{eq:dva-Gp}
+\end{align}
+\Cref{eq:dva-Gp} is consistent with \cref{eq:dva-Fhh}.
+
+First variation of $\mfrakG_{ijkl}$
+\begin{align}
+&\dva \mfrakG_{ijkl} = \dva h_{mn}\,\bigg\{ -\frac{1}{2}\mfrakG_{ijkl} h^{mn}
++ \mfrakh^{-1/2}
+\nonumber \\
+&\,\cdot\rbr{
+\delta^{(m}{}_{i} \delta^{n)}{}_{(k} h_{l)j} +
+h_{i(k} \delta^{(m}{}_{l)} \delta^{n)}{}_{j} - \frac{1}{2}
+\delta^{(m}{}_{i} \delta^{n)}{}_{j} h_{kl} - \frac{1}{2}
+h_{ij} \delta^{(m}{}_{k} \delta^{n)}{}_{l}}
+\bigg\}.
+\label{eq:dva-G}
+\end{align}
+\Cref{eq:dva-G} agrees with \cref{eq:dva-Gp}.
+
+First variation of $N_{i|j}$
+\begin{align}
+\dva \rbr{N_{i|j}} &=
+\rbr{\dva N_{i}}_{|j} -
+\frac{1}{2} \rbr{\dva h_{kl}}_{|m}
+\nonumber \\
+&\quad\,\cdot \rbr{
+- h^{mn} \delta^{k}{}_{i} \delta^{l}{}_{j}
++ h^{nk} \delta^{l}{}_{i} \delta^{m}{}_{j}
++ h^{nl} \delta^{m}{}_{i} \delta^{k}{}_{j}}.
+\end{align}
+(check?)
+
+First variation of $\mscrH_{ij}$
+\begin{align}
+&\dva\mscrH{ij} = \dva N\,4\varkappa\mfrakG_{ijkl}\mfrakp^{kl}
++ \dva\mfrakp^{kl}\,4\varkappa N \mfrakG_{ijkl}
+\nonumber \\
+&\,+
+\dva h_{kl}\,4\varkappa N \mfrakp^{mn}
+\bigg\{-\frac{1}{2}\mfrakG_{ijmn}h^{kl} 
++ \mfrakh^{-1/2}
+\nonumber \\
+&\,\cdot\bigg(
+\delta^{(k}{}_{i} \delta^{l)}{}_{(m} h_{n)j} +
+h_{i(m} \delta^{(k}{}_{n)} \delta^{l)}{}_{j} - \frac{1}{2}
+\delta^{(k}{}_{i} \delta^{l)}{}_{j} h_{mn} - \frac{1}{2}
+h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \bigg)\bigg\}
+\nonumber \\
+&\,+
+\rbr{\dva N_k}_{|l}\, 2 \delta^{(k}{}_{i}\delta^{l)}{}_{j}
+\nonumber \\
+&\,+
+\rbr{\dva h_{kl}}_{|m}\, \rbr{
+h^{mn} \delta^{(k}{}_{i} \delta^{l)}{}_{j} - 2
+h^{n(k} \delta^{l)}{}_{(i} \delta^{m}{}_{j)}}.
+\end{align}
+
 
 Concerning the derivative of $\bar{\dva}u^{ij}{}_k$, one needs
 \begin{align}
@@ -816,17 +903,6 @@ h^{m(i}\mfrakG^{j)nkl} - h^{ij}\mfrakG^{klmn}}}.
 (check!)
 
 The following results are not yet solid.
-
-First variation of $\mfrakG_{ijkl}\mfrakp^{kl}$
-\begin{align}
-\dva\rbr{\mfrakG_{ijkl}\mfrakp^{kl}} &= \dva h_{kl}\,
-\rbr{-\frac{1}{2}\mfrakG_{ijmn}h^{kl}+
-\mupdelta^{k}{}_{i}\mfrakG^{l}{}_{jmn}+
-\mupdelta^{k}{}_{m}\mfrakG^{l}{}_{nij}}\mfrakp^{mn}
-\nonumber \\
-&\quad\,
-+\dva p^{kl}\,\mfrakG_{ijkl}.
-\end{align}
 
 Second variation of $N \mfrakH_\text{G}^\perp$
 \begin{align}
