@@ -701,18 +701,26 @@ $\sqrt{\mfrakh}\,\sfun{R}{h}$ reads
 \mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j|i}.
 \end{align}
 
-One can now write down the first variation of $N\mfrakH_\text{G}^\perp$ with 
-respect to 
-$\cbr{h_{ij}, \mfrakp^{ij}}$,
+One can now write down the first variation of $\mfrakH_\text{G}^\perp$.
+\begin{align}
+\dva \mfrakH_\text{G}^\perp &= 
+\dva h_{ij}\,\cbr{2\varkappa \rbr{-\frac{1}{2} h^{ij} \mfrakF^{klmn} h_{mn} + 
+2 \mfrakF^{ijkl}}h_{kl} + \frac{1}{2\varkappa} \sqrt{\mfrakh}\,G^{ij}}
+\nonumber \\
+&\quad\,
+-\rbr{\dva h_{ij}}_{|(l|k)}\,\frac{1}{2\varkappa} \mfrakG^{ijkl}
++\dva \mfrakp^{ij}\,2\mfrakG_{ijkl}\mfrakp^{kl},
+\end{align}
+so that
 \begin{align}
 N\,\dva \mfrakH_\text{G}^\perp &= \dva h_{ij}\,\bigg\{
 2\varkappa\,N\rbr{ -\frac{1}{2}h^{ij} \mfrakF^{klmn} h_{mn}
 + 2 \mfrakF^{ijkl}} h_{kl}
 \nonumber \\
-&\quad\,
+&\quad\,\qquad
 +\frac{1}{2\varkappa}
 \rbr{ \sqrt{\mfrakh}\,N\sfun{G^{ij}}{h}
--\mfrakG^{ijkl}N_{|k|l}}\bigg\}
+-\mfrakG^{ijkl}N_{|(k|l)}}\bigg\}
 \nonumber \\
 &\quad\,
 +\dva \mfrakp^{ij}\,4\varkappa\,N\mfrakG_{ijkl}\mfrakp^{kl}
@@ -727,25 +735,25 @@ $\partial\Sigma$; the second term vanishes by $\fat{\dva
 h_{ij}}{\partial\Sigma} 
 = 0$, whereas the first one is cancelled by the boundary term.
 
-Finally, the first variation of $N_i \mfrakH_\text{G}^i$ with respect to 
-$\cbr{h_{ij},
-\mfrakp^{ij}}$ is easier,
+Finally, the first variation of $\mfrakH_\text{G}^i$ is easier. One has
+\begin{align}
+\dva \mfrakH_G^i = \rbr{\dva h_{kl}}_{|j}\,
+\rbr{h^{ij}\mfrakp^{kl} - h^{il}\mfrakp^{kj} - h^{ik}\mfrakp^{lj}}
+-2\rbr{\dva \mfrakp^{ij}}_{|j},
+\end{align}
+so that
 \begin{align}
 &
-N_i\,\dva \mfrakH_\text{G}^i = \dva h_{ij}\,
-\cbr{\rbr{h^{ki}\mfrakp^{jl}+h^{kj}\mfrakp^{il}-h^{kl}\mfrakp^{ij}}N_k}_{|l}
+N_i\,\dva \mfrakH_\text{G}^i = \dva h_{ij}\,\cbr{\rbr{
+-h^{kl}\mfrakp^{ij} + h^{ki}\mfrakp^{jl} + h^{kj}\mfrakp^{il}} N_k}_{|l}
 +\dva \mfrakp^{ij}\,2N_{(i|j)}
 \nonumber \\
 &\qquad
-- \rbr{-h^{il}\mupdelta^m{}_j\mupdelta^n{}_k
-+h^{in}\mupdelta^l{}_j\mupdelta^m{}_k
-+h^{im}\mupdelta^n{}_j\mupdelta^l{}_k}
-\rbr{N_i\mfrakp^{jk}\,\dva h_{mn}}_{|l}
-\nonumber \\
-&\qquad
++\cbr{\dva h_{ij}\,\rbr{
+h^{kl}\mfrakp^{ij} - h^{ki}\mfrakp^{jl} - h^{kj}\mfrakp^{il}} N_k}_{|l}
 - 2\rbr{\dva \mfrakp^{ij}\,N_{j}}_{|i},
 \end{align}
-where the last two lines will be pushed to the spatial boundary and vanish by
+where the last line will be pushed to the spatial boundary and vanish by
 $\fat{\dva h_{ij}}{\partial\Sigma} = 0 =
 \fat{\dva \mfrakp^{ij}}{\partial\Sigma}$. The results can be checked with 
 \cite[ch.\ 4.2.7]{Poisson2004}.
