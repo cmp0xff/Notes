@@ -506,11 +506,17 @@ The relation between $\eta_\mu$ and $\cbr{\xi_\perp, \xi_i}$ are
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let the variation of all the coordinates, momenta and velocities
-\[\rbr{\dva h_{ij}, \dva N, \dva N_i; \dva\mfrakp^{ij}, \dva\mfrakP, 
-\dva\mfrakP^i; \dva V, \dva V_i}\]
-be denoted by
-$\rbr{f_{ij}, M, M_i; \mfrakk^{ij}, \mfrakK, \mfrakK^i; W, W_i}$, respectively. 
+Let the variation of all the coordinates, momenta and velocities be denoted 
+without $\dva$ by
+\begin{align}
+&\quad\,
+\rbr{\dva h_{ij}, \dva N, \dva N_i; \dva\mfrakp^{ij}, \dva\mfrakP, 
+\dva\mfrakP^i; \dva V, \dva V_i}
+\nonumber \\
+&\mapsto
+\rbr{f_{ij}, M, M_i; \mfrakk^{ij}, \mfrakK, \mfrakK^i; W, W_i}.
+\label{eq:vari-nodva}
+\end{align}
 Then the second variation of the action in \cref{eq:ADM-Hamiltonian-action} 
 reads
 \begin{align}
@@ -529,9 +535,9 @@ reads
 \nonumber \\
 &\quad\,
 -\frac{1}{2}\left.\int\dd^d x\,
-\cbr{\mfrakk^{ij} f_{ij} + \mfrakK M + \mfrakK^i M_i}\right|_{t_1}^{t_2}
+\cbr{\mfrakk^{ij} f_{ij} + \mfrakK M + \mfrakK^i M_i}\right|_{t_1}^{t_2},
 \end{align}
-
+where \cref{eq:vari-nodva} is to be applied again for the terms with $\dva$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Canonical perturbation of the Klein--Gordon field in curved space-time}
@@ -619,6 +625,7 @@ which reads
 &= \frac{1}{2} \cbr{-h^{il}\mupdelta^m{}_j\mupdelta^n{}_k
 +h^{in}\mupdelta^l{}_j\mupdelta^m{}_k
 +h^{im}\mupdelta^n{}_j\mupdelta^l{}_k}\,\rbr{\dva h_{mn}}_{|l}.
+\label{eq:dva-Gamma-ijk-2}
 \end{align}
 In particular,
 \begin{align}
@@ -631,34 +638,31 @@ The first variations of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$ are
 \dva \sfun{R_{ij}}{h} &=
 \rbr{\dva\Gamma^k{}_{ji}}_{|k} - \rbr{\dva\Gamma^k{}_{ki}}_{|j},
 \label{eq:dva-Rij-low}
-% \\
-% &=
-% \frac{1}{2}\rbr{\dva h_{kl}}_{|m|n}\,\big(
-% \mupdelta^k{}_ih^{ln}\mupdelta^m{}_j+
-% \mupdelta^m{}_i\mupdelta^l{}_jh^{kn}
-% \nonumber \\
-% &\qquad\qquad
-% -\mupdelta^k{}_i\mupdelta^l{}_jh^{mn}
-% -\mupdelta^m{}_i\mupdelta^n{}_jh^{kl}\big),
 \\
 \dva \sfun{R^{ij}}{h} &=
 -2R^{k(i}h^{j)l}\,\dva h_{kl} + h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l}
 \label{eq:var-Rijhu} \\
-&= -2R^{k(i}h^{j)l}\,\dva h_{kl}
+&= \dva h_{kl}\,\rbr{-2R^{k(i}h^{j)l}} + \rbr{\dva h_{kl}}_{|m|n}
 \nonumber \\
-&\quad\,+
-\rbr{h^{l(i}h^{j)[m}h^{k]n}+
-\frac{1}{2\mfrakh^{1/2}} h^{m(i}\mfrakG^{j)nkl}}\,\rbr{\dva h_{kl}}_{|m|n},
+&\quad\,\cdot
+\frac{1}{2} \rbr{ \mfrakh^{-1/2} h^{m(i} \mfrakG^{j)nkl}
+- h^{i(k}h^{l)[j}h^{n]m} - h^{j(k}h^{l)[i}h^{n]m}},
 \label{eq:dva-Rijhu-2}
 \end{align}
 where
 \begin{align}
 \bar{\dva}u^{ij}{}_{k} &\coloneqq
 h^{il}\,\dva\Gamma^{j}{}_{lk} - h^{ij}\,\dva\Gamma^{l}{}_{lk}
+\\
+&= \rbr{\dva h_{mn}}_{|l}\,\rbr{
+\frac{\mfrakh^{-1/2}}{2} \mfrakG^{ijmn} \delta^{l}{}_{k} -
+\delta^{(m}{}_{k}h^{n)[i}h^{j]l}}
+\label{eq:dvab-u-ijk-2}
 \end{align}
-is related to the boundary terms, and \cref{eq:hki-dva-ujlk|l} has been used
-to obtain \cref{eq:dva-Rijhu-2}.
-\Cref{eq:dva-Rij-low} can be obtained in normal coordinates.
+is related to the boundary terms; \cref{eq:hki-dva-ujlk|l} has been used
+to obtain \cref{eq:dva-Rijhu-2}, and \cref{eq:dva-Gamma-ijk-2} for 
+\cref{eq:dvab-u-ijk-2}. \Cref{eq:dva-Rij-low} can be obtained in normal 
+coordinates.
 
 For the first variation of the constraints, one also needs
 \begin{align}
@@ -791,14 +795,14 @@ h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \bigg)\bigg\}.
 
 First variation of $\mfrakG_{ijkl}$
 \begin{align}
-&\dva \mfrakG_{ijkl} = \dva h_{mn}\,\bigg\{ -\frac{1}{2}\mfrakG_{ijkl} h^{mn}
-+ \mfrakh^{-1/2}
-\nonumber \\
-&\,\cdot\rbr{
+\dva \mfrakG_{ijkl} &= \dva h_{mn}\,\bigg\{-\frac{1}{2}\mfrakG_{ijkl} h^{mn}
++ \mfrakh^{-1/2} \Big(
 \delta^{(m}{}_{i} \delta^{n)}{}_{(k} h_{l)j} +
-h_{i(k} \delta^{(m}{}_{l)} \delta^{n)}{}_{j} - \frac{1}{2}
-\delta^{(m}{}_{i} \delta^{n)}{}_{j} h_{kl} - \frac{1}{2}
-h_{ij} \delta^{(m}{}_{k} \delta^{n)}{}_{l}}
+h_{i(k} \delta^{(m}{}_{l)} \delta^{n)}{}_{j}
+\nonumber \\
+&\quad -
+\frac{1}{2} \delta^{(m}{}_{i} \delta^{n)}{}_{j} h_{kl} - \frac{1}{2}
+h_{ij} \delta^{(m}{}_{k} \delta^{n)}{}_{l} \Big)
 \bigg\}.
 \label{eq:dva-G}
 \end{align}
@@ -818,24 +822,24 @@ First variation of $N_{i|j}$
 
 First variation of $\mscrH_{ij}$
 \begin{align}
-&\rfun{\dva\mscrH{ij}}{N, N_i} = \dva N\,4\varkappa\mfrakG_{ijkl}\mfrakp^{kl}
+&\qquad
+\rfun{\dva\mscrH{ij}}{N, N_i} = \dva 
+N\,4\varkappa\mfrakG_{ijkl}\mfrakp^{kl}
 + \dva\mfrakp^{kl}\,4\varkappa N \mfrakG_{ijkl}
 \nonumber \\
-&\,+
+&+
 \dva h_{kl}\,4\varkappa N \mfrakp^{mn}
 \bigg\{-\frac{1}{2}\mfrakG_{ijmn}h^{kl} 
-+ \mfrakh^{-1/2}
++ \mfrakh^{-1/2} \Big(
+\delta^{(k}{}_{i} \delta^{l)}{}_{(m} h_{n)j} 
 \nonumber \\
-&\,\cdot\bigg(
-\delta^{(k}{}_{i} \delta^{l)}{}_{(m} h_{n)j} +
+&\quad +
 h_{i(m} \delta^{(k}{}_{n)} \delta^{l)}{}_{j} - \frac{1}{2}
 \delta^{(k}{}_{i} \delta^{l)}{}_{j} h_{mn} - \frac{1}{2}
-h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \bigg)\bigg\}
+h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \Big)\bigg\}
 \nonumber \\
-&\,+
-\rbr{\dva N_k}_{|l}\, 2 \delta^{(k}{}_{i}\delta^{l)}{}_{j}
-\nonumber \\
-&\,+
+& +
+\rbr{\dva N_k}_{|l}\, 2 \delta^{(k}{}_{i}\delta^{l)}{}_{j} +
 \rbr{\dva h_{kl}}_{|m}\, \rbr{
 h^{mn} \delta^{(k}{}_{i} \delta^{l)}{}_{j} - 2
 h^{n(k} \delta^{l)}{}_{(i} \delta^{m}{}_{j)}},
@@ -843,10 +847,31 @@ h^{n(k} \delta^{l)}{}_{(i} \delta^{m}{}_{j)}},
 so that
 \begin{align}
 &\quad\dva \mscrH_{ij} \mfrakk^{ij} =
-M \frakk^{ij}\cdot 4\varkappa \mfrakG_{ijkl} \mfrakp^{kl} +
-\mfrakk^{ij} \mfrakk^{kl}\cdot 4\varkappa
+M \mfrakk^{ij}\cdot 4\varkappa \mfrakG_{ijkl} \mfrakp^{kl} +
+\mfrakk^{ij} \mfrakk^{kl}\cdot 4\varkappa N \mfrakG_{ijkl}
+\nonumber \\
+& +
+\mfrakk^{ij} f_{kl}\cdot 4\varkappa N \mfrakp^{mn}
+\bigg\{-\frac{1}{2}\mfrakG_{ijmn}h^{kl} 
++ \mfrakh^{-1/2} \Big(
+\delta^{(k}{}_{i} \delta^{l)}{}_{(m} h_{n)j}
+\nonumber \\
+&\quad +
+h_{i(m} \delta^{(k}{}_{n)} \delta^{l)}{}_{j} - \frac{1}{2}
+\delta^{(k}{}_{i} \delta^{l)}{}_{j} h_{mn} - \frac{1}{2}
+h_{ij} \delta^{(k}{}_{m} \delta^{l)}{}_{n} \Big)\bigg\}
+\nonumber \\
+& -
+M_k \mfrakk^{ij}{}_{|l}\cdot 2\delta^{(k}{}_{i}\delta^{l)}{}_{j}
++ \mfrakk^{ij} f_{kl|m}\cdot\rbr{
+h^{mn} \delta^{(k}{}_{i} \delta^{l)}{}_{j} - 2
+h^{n(k} \delta^{l)}{}_{(i} \delta^{m}{}_{j)}}
+\nonumber \\
+& +
+\rbr{M_k \mfrakk^{ij}2\delta^{(k}{}_{i}\delta^{l)}{}_{j}}_{|l},
 \end{align}
-
+where \cref{eq:vari-nodva} has been applied. The last line is to be pushed to 
+the boundary and vanishes there.
 
 %%%%%%%%
 \subsubsection{$\dva\mscrP^{ij}$}
@@ -855,9 +880,11 @@ M \frakk^{ij}\cdot 4\varkappa \mfrakG_{ijkl} \mfrakp^{kl} +
 
 First variation of $\mfrakG^{ijkl}$ reads
 \begin{align}
-\dva \mfrakG^{ijkl} &= \cbr{\frac{1}{2}\mfrakG^{ijkl}h^{mn}
-+ \mfrakh^{1/2}\rbr{-h^{i(m}h^{n)(k}h^{l)j} + h^{i(m}h^{n)j}h^{kl} +
-\rbr{ij} \leftrightarrow \rbr{kl}} } \,\dva h_{mn}.
+\dva \mfrakG^{ijkl} &= \Big\{\frac{1}{2}\mfrakG^{ijkl}h^{mn}
++ \mfrakh^{1/2}(-h^{i(m}h^{n)(k}h^{l)j} + h^{i(m}h^{n)j}h^{kl}
+\nonumber \\
+&\qquad+
+\rbr{ij} \leftrightarrow \rbr{kl} ) \Big\} \,\dva h_{mn}.
 \end{align}
 
 First variation of $\mfrakF^{ijkl}h_{kl}$
@@ -890,25 +917,27 @@ First variation of $\mfrakF^{ijkl}$
 \end{align}
 \Cref{eq:dva-F} is consistent with \cref{eq:dva-Fh}.
 
-Concerning the derivative of $\bar{\dva}u^{ij}{}_k$, one needs
+Now one needs to deal with $\sqrt{\mfrakh}\,G^{ij}$. Concerning the derivative 
+of $\bar{\dva}u^{ij}{}_k$, one has (\cref{eq:dvab-u-ijk-2})
 \begin{align}
-&\quad\,
-\bar{\dva}u^{ik}{}_{j|k} 
-\nonumber \\
-&=
+\bar{\dva}u^{ik}{}_{j|k} =
 \rbr{\dva h_{kl}}_{|m|n}\,
-\frac{1}{2} \rbr{h^{i[m} h^{k]n} \delta^l{}_j + h^{i[m}h^{l]n} \delta^k{}_j
-+ \frac{1}{\sqrt{\mfrakh}} \mfrakG^{inkl} \delta^m{}_j}.
+\rbr{\frac{\mfrakh^{-1/2}}{2} \mfrakG^{inkl} \delta^m{}_j
+- \delta^{(k}{}_{j}h^{l)[i}h^{n]m}}.
 \label{eq:dva-uikj|k}
 \end{align}
 \Cref{eq:dva-uikj|k} is consistent with \cref{eq:dva-ujij}, and leads to
 \begin{align}
-h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} &=
-\rbr{\dva h_{kl}}_{|m|n}\,\rbr{h^{l(i}h^{j)[m}h^{k]n}
-+\frac{1}{2\mfrakh^{1/2}} h^{m(i}\mfrakG^{j)nkl}}.
+&\qquad
+h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} =
+\rbr{\dva h_{kl}}_{|m|n}
+\nonumber \\
+&\cdot
+\frac{1}{2}\rbr{ \mfrakh^{-1/2} h^{m(i}\mfrakG^{j)nkl}
+- h^{i(k}h^{l)[j}h^{n]m} - h^{j(k}h^{l)[i}h^{n]m}}.
 \label{eq:hki-dva-ujlk|l}
 \end{align}
-(check!)
+(check?)
 
 First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
 \begin{align}
