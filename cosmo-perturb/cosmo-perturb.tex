@@ -645,8 +645,8 @@ The first variations of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$ are
 &= \dva h_{kl}\,\rbr{-2R^{k(i}h^{j)l}} + \rbr{\dva h_{kl}}_{|m|n}
 \nonumber \\
 &\quad\,\cdot
-\frac{1}{2} \rbr{ \mfrakh^{-1/2} h^{m(i} \mfrakG^{j)nkl}
-- h^{i(k}h^{l)[j}h^{n]m} - h^{j(k}h^{l)[i}h^{n]m}},
+\frac{1}{2}\rbr{ \mfrakh^{-1/2} h^{m(i}\mfrakG^{j)nkl}
+- h^{k(i}h^{j)l}h^{mn} + h^{m(i}h^{j)(k}h^{l)n}},
 \label{eq:dva-Rijhu-2}
 \end{align}
 where
@@ -774,7 +774,7 @@ Arnowitt--Deser--Misner action, the following variations needs to be
 calculated, in addition to those calculated in \cref{ssec:first-var}.
 
 %%%%%%%%
-\subsubsection{$\dva\mscrH_{ij}$}
+\subsubsection{Variation of \texorpdfstring{$\mscrH^{ij}$}{$H^{ij}$}}
 
 %%%%%%%%
 
@@ -823,7 +823,7 @@ First variation of $N_{i|j}$
 First variation of $\mscrH_{ij}$
 \begin{align}
 &\qquad
-\rfun{\dva\mscrH{ij}}{N, N_i} = \dva 
+\rfun{\dva\mscrH_{ij}}{N, N_i} = \dva 
 N\,4\varkappa\mfrakG_{ijkl}\mfrakp^{kl}
 + \dva\mfrakp^{kl}\,4\varkappa N \mfrakG_{ijkl}
 \nonumber \\
@@ -874,7 +874,7 @@ where \cref{eq:vari-nodva} has been applied. The last line is to be pushed to
 the boundary and vanishes there.
 
 %%%%%%%%
-\subsubsection{$\dva\mscrP^{ij}$}
+\subsubsection{Variation of \texorpdfstring{$\mscrP^{ij}$}{$P^{ij}$}}
 
 %%%%%%%%
 
@@ -934,26 +934,26 @@ h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} =
 \nonumber \\
 &\cdot
 \frac{1}{2}\rbr{ \mfrakh^{-1/2} h^{m(i}\mfrakG^{j)nkl}
-- h^{i(k}h^{l)[j}h^{n]m} - h^{j(k}h^{l)[i}h^{n]m}}.
+- h^{k(i}h^{j)l}h^{mn} + h^{m(i}h^{j)(k}h^{l)n}}.
 \label{eq:hki-dva-ujlk|l}
 \end{align}
-(check?)
 
 First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
 \begin{align}
-&\quad\,
+&\qquad
 \dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
+= \dva h_{kl}\,\rbr{\frac{\mfrakh^{1/2}}{2}}
+(h^{kl}R^{ij}-R^{ki}h^{jl}-R^{kj}h^{il}
 \nonumber \\
-&=\dva h_{kl}\,\rbr{-\frac{\mfrakh^{1/2}}{2}}
-\rbr{h^{ki}R^{jl}+h^{kj}R^{il}-h^{kl}R^{ij}
-+G^{ki}h^{jl}+G^{kj}h^{il}-G^{kl}h^{ij}}
+&+
+G^{kl}h^{ij}-G^{ki}h^{jl}-G^{kj}h^{il}) +
+\rbr{\dva h_{kl}}_{|m|n}
 \nonumber \\
-&\quad\,
-+\rbr{\dva h_{kl}}_{|m|n}\,
-\rbr{\mfrakh^{1/2}h^{l(i}h^{j)[m}h^{k]n} + \frac{1}{2}\rbr{
-h^{m(i}\mfrakG^{j)nkl} - h^{ij}\mfrakG^{klmn}}}.
+&\cdot
+\frac{1}{2}
+\cbr{h^{m(i}\mfrakG^{j)nkl} - h^{ij}\mfrakG^{mnkl} +
+\mfrakh^{1/2}\rbr{h^{m(i}h^{j)(k}h^{l)n} - h^{k(i}h^{j)l}h^{mn}}}.
 \end{align}
-(check!)
 
 The following results are not yet solid.
 
