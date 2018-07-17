@@ -597,7 +597,7 @@ Here some useful intermediate results are collected.
 \label{ssec:first-var}
 %%%%%%%%%%%%%%%%
 
-The variation of $N$ with respect to $\cbr{g_{\mu\nu}}$ reads
+The variation of the lapse function $N$ with respect to $\cbr{g_{\mu\nu}}$ reads
 \begin{align}
 \dva N &= \frac{1}{2}\rbr{-g^{00}}^{-3/2}\,\dva g^{00}
 \\
@@ -609,15 +609,17 @@ The variation of $N$ with respect to $\cbr{g_{\mu\nu}}$ reads
 The first variation of the inverse metric $h^{ij}$ reads
 \begin{align}
 \dva h^{ij} = -h^{ik}h^{jl}\,\dva h_{kl} = - h^{i(k}h^{l)j}\,\dva h_{kl}.
+\label{eq:dva-hijup-1}
 \end{align}
 
-The first variation of $\mfrakh = \det h_{ij}$ reads
+The first variation of the metric determinant $\mfrakh = \det h_{ij}$ reads
 \begin{align}
 \dva \mfrakh = \mfrakh h^{ij}\,\dva h_{ij}.
+\label{eq:dva-dethijl-1}
 \end{align}
 
-The first variation of $\Gamma^i{}_{jk}$ can be obtained in normal coordinates,
-which reads
+The first variation of the Christoffel symbol $\Gamma^i{}_{jk}$ can be obtained 
+in normal coordinates, which reads
 \begin{align}
 \dva \Gamma^{i}{}_{jk} &= \frac{1}{2} h^{il}
 \cbr{-\rbr{\dva h_{jk}}_{|l} + \rbr{\dva h_{kl}}_{|j} + \rbr{\dva h_{lj}}_{|k}}
@@ -633,7 +635,8 @@ In particular,
 \end{align}
 
 
-The first variations of $\sfun{R_{ij}}{h}$ and $\sfun{R^{ij}}{h}$ are
+The first variations of the $(0,2)$ Ricci tensor $\sfun{R_{ij}}{h}$, and its 
+$(2,0)$ components $\sfun{R^{ij}}{h}$, are
 \begin{align}
 \dva \sfun{R_{ij}}{h} &=
 \rbr{\dva\Gamma^k{}_{ji}}_{|k} - \rbr{\dva\Gamma^k{}_{ki}}_{|j},
@@ -704,6 +707,7 @@ $\sqrt{\mfrakh}\,\sfun{R}{h}$ reads
 \\
 &= -\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}\,\dva h_{ij} +
 \mfrakG^{ijkl}\,\rbr{\dva h_{kl}}_{|j|i}.
+\label{eq:dva-pot-2}
 \end{align}
 
 One can now write down the first variation of $\mfrakH_\text{G}^\perp$.
@@ -938,22 +942,24 @@ h^{k(i}\,\bar{\dva}u^{j)l}{}_{k|l} =
 \label{eq:hki-dva-ujlk|l}
 \end{align}
 
-First variation of $\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
+First variation of the $(2,0)$ Einstein tensor times volume element 
+$\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}$
 \begin{align}
 &\qquad
 \dva\rbr{\sqrt{\mfrakh}\,\sfun{G^{ij}}{h}}
-= \dva h_{kl}\,\rbr{\frac{\mfrakh^{1/2}}{2}}
-(h^{kl}R^{ij}-R^{ki}h^{jl}-R^{kj}h^{il}
+= \dva h_{kl}\, \frac{\mfrakh^{1/2}}{2}
+\big\{h^{kl}R^{ij}-R^{ki}h^{jl}-R^{kj}h^{il}
 \nonumber \\
 &+
-G^{kl}h^{ij}-G^{ki}h^{jl}-G^{kj}h^{il}) +
-\rbr{\dva h_{kl}}_{|m|n}
+G^{kl}h^{ij}-G^{ki}h^{jl}-G^{kj}h^{il} \big\} +
+\rbr{\dva h_{kl}}_{|m|n}\, \frac{1}{2} \big\{ h^{m(i}\mfrakG^{j)nkl}
 \nonumber \\
-&\cdot
-\frac{1}{2}
-\cbr{h^{m(i}\mfrakG^{j)nkl} - h^{ij}\mfrakG^{mnkl} +
-\mfrakh^{1/2}\rbr{h^{m(i}h^{j)(k}h^{l)n} - h^{k(i}h^{j)l}h^{mn}}}.
+&-
+h^{ij}\mfrakG^{mnkl} +
+\mfrakh^{1/2}\rbr{h^{m(i}h^{j)(k}h^{l)n} - h^{k(i}h^{j)l}h^{mn}}\big\},
 \end{align}
+where \cref{eq:dva-hijup-1,eq:dva-dethijl-1,eq:dva-Rijhu-2,eq:dva-pot-2} have 
+been used.
 
 The following results are not yet solid.
 
