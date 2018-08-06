@@ -1,4 +1,4 @@
-[http://www.xact.es/xActCourse_Prague/]
+http://www.xact.es/xActCourse_Prague/
 
 # Lecture 1
 
@@ -85,13 +85,40 @@ Downvalues, upvalues; purefunction, Lambda-function.
 
 ## xTensor types: continuation
 
+### The delta tensor
+
+### Type `metric`
+
+### Properties of the metric
+
+### Working with multiple metrics
+
+### Summary and Exercises
+
+### Canonicalization in the presence of an unfrozen metric
+
+### Summary and Exercises
+The canonicalization involves an algorithm which finds a canonical index configuration for each tensor monomial of a tensorial polynomial. To learn more, read 
+https://doi.org/10.1016/j.cpc.2008.05.009
 
 
 # Lecture 5
 
 ## Canonicalization: continuation
 
+### Canonicalization of expressions with non-metric compatible covariant derivatives
 
+### Production of Christoffel tensors
+
+### Canonicalization without introducing Christoffel tensors
+
+### The implosion mechanism
+
+### Summary and Exercises
+
+## Pattern Indices
+
+### Summary and Exercises
 
 # Lecture 6
 
@@ -102,7 +129,6 @@ Downvalues, upvalues; purefunction, Lambda-function.
 # Lecture 7
 
 ## xTensor types: continuation
-
 
 
 # Lecture 8
@@ -134,30 +160,37 @@ Downvalues, upvalues; purefunction, Lambda-function.
 ## `xCoba`: component calculus
 Main pillars: `DefBasis`, `TensorValues`, `CTensor`
 
-### Component calculus with xCoba
+### Component calculus with `xCoba`
 
 ### Type `Basis`
+`DefBasis` introduces a frame field in a vector bundle.
 
-### Frame vectors and co-vectors. Basis and its properties
+### Frame vectors and co-vectors. `Basis` and its properties.
+`Basis` follows the same conventions of `delta` in relation to a metric.
 
-### Expansion of a tensor in Basis elements
+### Expansion of a tensor in `Basis` elements
+`SeparateBasis`, `TraceBasisDummy`, `ContractBasis`
 
-### Antisymmetric products of basis elements
+### Antisymmetric products of `Basis` elements
+The totally-antisymmetric `eta` tensor densities
 
 ### The parallel derivative
+There is a one-to-one correspondence between a frame field (up to a transformation) and a covariant derivative which has zero-curvature and gives zero when acting on a frame element.
 
 ### Type `Chart`
+A `Chart` is a holonomic frame in which the frame elements correspond to partial derivatives.
 
 ### Summary and Exercises
 
 
 ## Storage of components
+Two main ways of storing tensorial or connection components in `xCoba`: `TensorValues` and `CTensors`
 
-12.1.1. Storing tensor components in the TensorValues framework
+### Storing tensor components in the `TensorValues` framework
 
-12.1.2. Summary and Exercises
+### Summary and Exercises
 
-12.1.3. The CTensor container
+### The CTensor container
 
 12.1.4. Change of Basis
 
