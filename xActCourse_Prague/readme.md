@@ -1,4 +1,5 @@
-Table of contents of the _xAct_ course in Prague, 2018. Mathematica Notebooks can be found at http://www.xact.es/xActCourse_Prague/ .
+Table of contents of the _xAct_ course in Prague, 2018. Mathematica Notebooks 
+can be found at http://www.xact.es/xActCourse_Prague/ .
 
 # Lecture 1
 
@@ -198,6 +199,20 @@ Two main ways of storing tensorial or connection components in _xCoba_: `TensorV
 
 ### Summary and Exercises
 
+* `CTensor` is a container of information that is able to store the components of a tensor for any basis and any index configuration. 
+
+* ToCTensor is a converter  that is able to compute new CTensor expressions from a given tensor or CTensor for different bases or index configurations.
+
+* SetBasisChange stores the components of a basis change matrix relating two already defined basis. These components are automatically replaced when using ToCTensor. 
+
+* SetCMetric declares an appropriate CTensor expression as the metric for doing component computations.
+
+* MetricCompute computes the classical quantities (connection, curvature, etc) of a metric declared with SetCMetric. The metric can be given in coordinates or in a non-holonomic frame.
+
+
+
+
+
 
 
 # Lecture 13
@@ -206,11 +221,41 @@ Two main ways of storing tensorial or connection components in _xCoba_: `TensorV
 
 ### The tensorial properties of `CTensor`
 
+The `CTensor` container has a double role: it is a container to store the 
+components of a tensor in any basis but it can also work as an usual tensor 
+with abstract indices.
+
 ### Indexed `CTensor` expressions
+
+Following the standard behaviour in _xTensor_, the `CTensor` expressions have a 
+special output typesetting when indices are added.
 
 ### `CTensor`ial algebra
 
+`CTensor`  objects build a tensor algebra and its standard tensor algebra 
+operations proceed with identical notations to those in xTensor. 
+
 ### Summary
+
+* The `CTensor` container has a double role: it works as a container for the 
+components of a tensor and it it is also tensor with abstract indices.
+
+* CTensor is registered as a tensor (`xTensorQ` returns true upon acting on 
+it). Therefore it carries all the properties of a symbol belonging to the type 
+`Tensor`. These properties can be queried with the corresponding functions.
+
+* The main difference between `CTensor` and any other "ordinary tensor" is that 
+its head is not atomic. Therefore it is not introduced in the session through 
+`DefTensor` and it is not contained in the list `$Tensors`. 
+
+* There is a tensor algebra of `CTensor` objects similar to the tensor algebra 
+of tensors defined with DefTensor. The components stored in the CTensor are 
+also subject to the operations of this algebra. 
+
+* Use `ToCCanonical` to sort abstract indices of a `CTensor` object according 
+to a pre-defined convention. Symmetries of the `CTensor` are fully taken into 
+account.
+
 
 ### Introducing a metric
 
@@ -222,6 +267,23 @@ Two main ways of storing tensorial or connection components in _xCoba_: `TensorV
 
 ### Summary
 
+* The `CTensor` container is fully prepared to work with a metric and to 
+perform changes of basis.
+
+* Use `SetCMetric` to declare a given `CTensor` object as the metric of our 
+session. The index configuration of any other `CTensor` can be changed with 
+respect to this metric and the Levi-Civita covariant derivative compatible 
+with the metric is defined.
+
+* Use `SetBasisChange` to declare a basis change in our session or use the option 
+BasisChange of DefBasis at basis definition time.
+
+* Use `ToCTensor` as a converter to perform a change of basis on any `CTensor` 
+container. The components of the change of basis matrix will be automatically 
+replaced only if a change of basis was declared by following any of the 
+available methods.
+
+
 ### Representation of covariant derivatives: the `CCovD` container
 
 ### Torsion and curvature
@@ -230,9 +292,44 @@ Two main ways of storing tensorial or connection components in _xCoba_: `TensorV
 
 ### Summary
 
-### the _xCoba_ cache system
+* The `CCovD` container plays a role similar to the `CTensor` container but it 
+is designed to work with covariant derivatives.
+
+* It requires a covariant derivate taken as a reference and a `CTensor` giving 
+the components of the corresponding Christoffel tensor.
+
+* For the case of a Levi-Civita covariant derivative an additional argument
+specifying the metric tensor in the `CTensor` container can be given. 
+
+* The container `CCovD` can be used as the argument of other _xAct_ functions
+to do curvature computations and compute covariant derivatives. 
+
+* The converter of `CCovD` is `ToCCovD` (see examples in the next section).
+
+* Use `TensorDerivative` to compute covariant derivatives of `CTensor` objects.
+It has a `CCovD` object as its second argument and its output is another 
+`CTensor` object. 
+
+
+### The _xCoba_ cache system
+
+The computations involving operations with `CTensor` objects are cached. This 
+means that they are stored in a cache table and they are not recomputed again, 
+unless explicitly asked for by the user.
+
 
 ### Summary
+
+_xCoba_ has its own cache system to store automatically computations involving 
+`CTensor` objects:
+
+* Use `PrintxCobaCache` to see the contents of the cache table.
+
+* Use `ClearxCobaCache` to erase entries in the cache table.
+
+* Use `xCobaCacheTable` to change cache table entries manually.
+
+* Use `xCobaCache` to add entries to the cache table.
 
 
 # Lecture 14.
