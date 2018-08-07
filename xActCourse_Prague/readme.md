@@ -192,16 +192,33 @@ _xCoba_ is built around 3 main pillars:
 ### Component calculus with _xCoba_
 
 ### Type `Basis`
-`DefBasis` introduces a frame field in a vector bundle.
+`DefBasis` introduces a frame field in a vector bundle. In addition to the 
+basis name, we need to indicate the vector bundle and a set of numbers used to 
+label each element of the base. `DefBasis` supplies the geometric set-up 
+required for doing component computations.
 
 ### Frame vectors and co-vectors. `Basis` and its properties.
-`Basis` follows the same conventions of `delta` in relation to a metric.
+There is a special tensor used to represent any frame field. This tensor is 
+`Basis`.
 
 ### Expansion of a tensor in `Basis` elements
-`SeparateBasis`, `TraceBasisDummy`, `ContractBasis`
+Once we have a basis we can expand any abstract tensor or tensorial expression 
+with respect to the given basis. Use the pair `SeparateBasis`, 
+`TraceBasisDummy` for that.
+
+It is also ossible to get rid of basis objects in an expansion by means of 
+`ContractBasis` (This is achieved by carrying out the summation of the repeated 
+indices).
 
 ### Antisymmetric products of `Basis` elements
-The totally-antisymmetric `eta` tensor densities
+When defining a basis, the multi-vector and multi-co-vector representing the 
+wedge product of all the elements of the basis is automatically defined (the 
+eta tensors). These can be thought of as the generalization of the classical 
+permutation symbols ε<sub>i<sub>1</sub>i<sub>2</sub>...i<sub>n</sub></sub> and
+ε<sup>i<sup>1</sup>i<sup>2</sup>...i<sup>n</sup></sup> which is naturally 
+defined in classical tensor analysis. These objects are not true tensors, but 
+tensorial densities and therefore we need a special notation for them in order 
+to be able to use abstract indices for their representation .
 
 ### The parallel derivative
 There is a one-to-one correspondence between a frame field (up to a transformation) and a covariant derivative which has zero-curvature and gives zero when acting on a frame element.
