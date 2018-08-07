@@ -354,10 +354,12 @@ coordinates or in a non-holonomic frame.
 1. Exercise 1
 Introduce in the Schwarzschild metric defined previously the Klotsch--Ströbl 
 coordinates:
-	r = x y + 2 m,
-	t = x y + 2 m (1 + log(y/x)),
-	θ = Θ,
-	ϕ = Φ.
+\[
+r &= x y + 2 m,\\
+t &= x y + 2 m (1 + \log(y/x)),\\
+θ &= Θ,\\
+ϕ &= Φ.
+\]
 Find the metric in these new coordinates and carry out the computation of the 
 curvature tensors. 
 
