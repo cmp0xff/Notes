@@ -1,10 +1,10 @@
-http://www.xact.es/xActCourse_Prague/
+Table of contents of the _xAct_ course in Prague, 2018. Mathematica Notebooks can be found at http://www.xact.es/xActCourse_Prague/ .
 
 # Lecture 1
 
-## The xAct project
+## The _xAct_ project
 
-### The xAct project
+### The _xAct_ project
 
 ### Sylabus
 
@@ -83,7 +83,7 @@ Downvalues, upvalues; purefunction, Lambda-function.
 
 # Lecture 4
 
-## xTensor types: continuation
+## _xTensor_ types: continuation
 
 ### The delta tensor
 
@@ -128,7 +128,7 @@ https://doi.org/10.1016/j.cpc.2008.05.009
 
 # Lecture 7
 
-## xTensor types: continuation
+## _xTensor_ types: continuation
 
 
 # Lecture 8
@@ -157,10 +157,10 @@ https://doi.org/10.1016/j.cpc.2008.05.009
 
 # Lecture 12
 
-## `xCoba`: component calculus
+## _xCoba_: component calculus
 Main pillars: `DefBasis`, `TensorValues`, `CTensor`
 
-### Component calculus with `xCoba`
+### Component calculus with _xCoba_
 
 ### Type `Basis`
 `DefBasis` introduces a frame field in a vector bundle.
@@ -184,7 +184,7 @@ A `Chart` is a holonomic frame in which the frame elements correspond to partial
 
 
 ## Storage of components
-Two main ways of storing tensorial or connection components in `xCoba`: `TensorValues` and `CTensors`
+Two main ways of storing tensorial or connection components in _xCoba_: `TensorValues` and `CTensors`
 
 ### Storing tensor components in the `TensorValues` framework
 
@@ -192,16 +192,47 @@ Two main ways of storing tensorial or connection components in `xCoba`: `TensorV
 
 ### The CTensor container
 
-12.1.4. Change of Basis
+### Change of Basis
 
-12.1.5. Introduction of a metric
+### Introduction of a metric
 
-12.1.6. Summary and Exercises
+### Summary and Exercises
 
 
 
-Lecture 13. CTensor tensorial algebra
+# Lecture 13
 
+## `CTensor` tensorial algebra
+
+### The tensorial properties of `CTensor`
+
+### Indexed `CTensor` expressions
+
+### `CTensor`ial algebra
+
+### Summary
+
+### Introducing a metric
+
+### `ToCTensor`: changes of bases and change of index configuration
+
+### Extracting components
+
+### Session `CleanUp`
+
+### Summary
+
+### Representation of covariant derivatives: the `CCovD` container
+
+### Torsion and curvature
+
+### `TensorDerivative`
+
+### Summary
+
+### the _xCoba_ cache system
+
+### Summary
 
 
 # Lecture 14.
