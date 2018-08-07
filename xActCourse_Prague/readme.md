@@ -159,7 +159,35 @@ https://doi.org/10.1016/j.cpc.2008.05.009
 # Lecture 12
 
 ## _xCoba_: component calculus
-Main pillars: `DefBasis`, `TensorValues`, `CTensor`
+
+
+Main features of xCoba:
+
+* Easy translation from expressions written in abstract index notation to 
+expressions written with respect to a base.
+
+* Possibility of working with several different bases within the same session. 
+Easy change of basis in tensor components.
+
+* Full integration of covariant derivatives. Computation of the connection 
+components with respect to any frame.
+
+* Specialised functions to carry out the computation of the connection and 
+the curvature tensors for a Levi-Civita connection in holonomic and 
+non-holonomic frames. 
+
+_xCoba_ is built around 3 main pillars:
+
+* Geometric set-up: `DefBasis`.
+
+* Storage adapted to individual components: `TensorValues`.
+
+* Storage adapted to full sets of components: `CTensor`. 
+
+
+
+
+
 
 ### Component calculus with _xCoba_
 
