@@ -9,7 +9,7 @@ can be found at http://www.xact.es/xActCourse_Prague/ .
 
 ### Sylabus
 
-### Sample session in xTensor
+### Sample session in _xTensor_
 
 ### Working with coordinates
 
@@ -78,7 +78,7 @@ Downvalues, upvalues; purefunction, Lambda-function.
 
 # Lecture 3
 
-## xTensor: fast abstract tensor computer algebra
+## _xTensor_: fast abstract tensor computer algebra
 
 
 
@@ -88,7 +88,7 @@ Downvalues, upvalues; purefunction, Lambda-function.
 
 ### The delta tensor
 
-### Type `metric`
+### Type `Metric`
 
 ### Properties of the metric
 
@@ -369,6 +369,7 @@ curvature tensors.
 
 ## `CTensor` tensorial algebra
 
+
 ### The tensorial properties of `CTensor`
 
 The `CTensor` container has a double role: it is a container to store the 
@@ -382,8 +383,8 @@ special output typesetting when indices are added.
 
 ### `CTensor`ial algebra
 
-`CTensor`  objects build a tensor algebra and its standard tensor algebra 
-operations proceed with identical notations to those in xTensor. 
+`CTensor` objects build a tensor algebra and its standard tensor algebra 
+operations proceed with identical notations to those in _xTensor_. 
 
 ### Summary
 
@@ -409,11 +410,30 @@ account.
 
 ### Introducing a metric
 
+Once we have a metric field in our problem, there are many more things we can 
+do. In this section we focus on how to set a metric field, and which other 
+tensors are algebraically related to it. We can specify a metric field in 
+several possible ways. We start with the simpler case of a metric given in a 
+coordinate chart.
+
 ### `ToCTensor`: changes of bases and change of index configuration
+
+One of the most useful features of _xCoba_ in comparison with other tensor 
+CASs is its ability to manipulate several bases simultaneously and tensor 
+components in different, even mixed bases. We can also have `CTensor` objects 
+expressed in different bases, and we can easily change those bases, 
+effectively implementing the basic tensorial transformation law. 
 
 ### Extracting components
 
-### Session `CleanUp`
+Closely related to the problem of changes of bases we have that of extraction 
+of particular components. If necessary, a change of basis will be performed 
+automatically.
+
+### Session clean up
+
+We show here how to clean up a session in which we are working with `CTensor` 
+containers.
 
 ### Summary
 
@@ -436,9 +456,24 @@ available methods.
 
 ### Representation of covariant derivatives: the `CCovD` container
 
+The key idea is to represent a covariant derivative as another connection plus 
+a Christoffel `CTensor` expressing the relation between those two. Optionally, 
+we can also specify a metric `CTensor`, in case the connection is associated 
+to it. Note that in this subsection we do not need to raise and lower indices 
+automatically, and therefore there is no need to use `SetCMetric`.
+
 ### Torsion and curvature
 
+Given a 2-covariant symmetric `CTensor` object we can use it as a metric 
+field, from which we can compute curvature. This can be done step by step or 
+with the command `MetricCompute`. In this subsection we use the simpler 
+approach, and then we will give example of `MetricCompute` usage in the next 
+section.
+
 ### `TensorDerivative`
+
+The operator to compute covariant derivatives directly on `CTensor` objects is 
+`TensorDerivative`. The result of this operation is another `CTensor` object.
 
 ### Summary
 
