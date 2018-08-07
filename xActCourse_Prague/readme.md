@@ -192,16 +192,19 @@ _xCoba_ is built around 3 main pillars:
 ### Component calculus with _xCoba_
 
 ### Type `Basis`
+
 `DefBasis` introduces a frame field in a vector bundle. In addition to the 
 basis name, we need to indicate the vector bundle and a set of numbers used to 
 label each element of the base. `DefBasis` supplies the geometric set-up 
 required for doing component computations.
 
 ### Frame vectors and co-vectors. `Basis` and its properties.
+
 There is a special tensor used to represent any frame field. This tensor is 
 `Basis`.
 
 ### Expansion of a tensor in `Basis` elements
+
 Once we have a basis we can expand any abstract tensor or tensorial expression 
 with respect to the given basis. Use the pair `SeparateBasis`, 
 `TraceBasisDummy` for that.
@@ -211,52 +214,152 @@ It is also ossible to get rid of basis objects in an expansion by means of
 indices).
 
 ### Antisymmetric products of `Basis` elements
+
 When defining a basis, the multi-vector and multi-co-vector representing the 
 wedge product of all the elements of the basis is automatically defined (the 
 eta tensors). These can be thought of as the generalization of the classical 
 permutation symbols ε<sub>i<sub>1</sub>i<sub>2</sub>...i<sub>n</sub></sub> and
-ε<sup>i<sup>1</sup>i<sup>2</sup>...i<sup>n</sup></sup> which is naturally 
+ε<sup>i<sub>1</sub>i<sub>2</sub>...i<sub>n</sub></sup> which is naturally 
 defined in classical tensor analysis. These objects are not true tensors, but 
 tensorial densities and therefore we need a special notation for them in order 
-to be able to use abstract indices for their representation .
+to be able to use abstract indices for their representation.
 
 ### The parallel derivative
-There is a one-to-one correspondence between a frame field (up to a transformation) and a covariant derivative which has zero-curvature and gives zero when acting on a frame element.
+
+*Theorem*: let _B_ be a frame field defined on a vector bundle _S_(_M_). Then 
+there exists a covariant derivative _D_<sub>_a_</sub> with vanishing curvature 
+which is compatible with the frame _B_ in the sense that its action on any 
+frame element gives zero. Reciprocally, for any covariant derivative whose 
+curvature is zero there exists a frame field _B_ which is compatible with the 
+covariant derivative. The frame field is unique up to a transformation by the 
+structure group of the vector bundle. 
+
+We will call _parallel derivative_ to any covariant derivative that is 
+compatible with a frame field.
 
 ### Type `Chart`
-A `Chart` is a holonomic frame in which the frame elements correspond to partial derivatives.
 
-### Summary and Exercises
+A `chart` is a particular case of frame field (holonomic frame) in which the 
+frame elements correspond to partial derivatives of coordinates.
 
+
+### Summary
+
+* Frame fields are represented in _xCoba_ using the type `Basis`.
+
+* Coordinate charts are a particular type of frame fields. They are represented 
+with the type `Chart`.
+
+* Use `SeparateBasis` and `TraceBasisDummy` to expand any abstract tensor 
+expression with respect to a frame.
+
+* Use `ContractBasis` to carry out summations in repeated (basis) indices to 
+eliminate `Basis` objects and recover back an abstract tensor expression.
+
+### Exercise
+
+1. Prove by carrying out an explicit expansion that the product of 2 eta 
+tensors defined for a given frame is the generalized Kronecker delta `GDelta`.
 
 ## Storage of components
-Two main ways of storing tensorial or connection components in _xCoba_: `TensorValues` and `CTensors`
+
+In _xCoba_ there are two main ways of storing tensorial or connection 
+components:
+
+* Use the `TensorValues` framework. This framework is indicated when we need 
+to carry out computations with individual components. For example compute a 
+single component of the Riemann tensor for a metric which has a complicated 
+algebraic expression. 
+
+* Use the `CTensor` framework. This framework is indicated when we need to 
+work with complete sets of components. The components can be given with 
+respect to an arbitrary basis or tensor configuration and the change of basis 
+or configuration is very simple from the user point of view. For example 
+we have the set of components of a tensor in a given basis and for a given 
+index configuration and we change the basis and/or the index configuration.
+
+In addition there are facilities in _xCoba_ to change from one framework to 
+another.
+
 
 ### Storing tensor components in the `TensorValues` framework
 
-### Summary and Exercises
+In this framework we have lists of suitable depth to store all the components 
+of the tensor in a certain basis. If we have different basis then we will need 
+different sets of lists. 
+
+### Summary
+
+* Any abstract index tensorial expression can be transformed into an 
+expression with basis indices using `ToBasis`.
+
+* Any `Basis` index tensorial expression can be transformed into an array of 
+tensor components using `ComponentArray`.
+
+* Individual tensor components in a given basis are stored using 
+`ComponentValue`. They are stored in a `FoldedRule`.
+
+* The index configurations where tensor components have been stored are 
+accessed with `TensorValues`.
+
+* Individual tensor components are accessed with `ToValues`.
+
+### Exercises
+
+1. Obtain the (non-tensorial) transformation law of a connection under a 
+change of basis.
 
 ### The CTensor container
 
+The `CTensor` container is an alternative way of storing components of 
+tensors. The main idea is that we have a _container of information_ that is 
+able to store the components of a tensor for _any basis_ and 
+_any index configuration_. 
+
 ### Change of Basis
+
+We can give specific values to the matrix which does the change between bases 
+using `SetBasisChange`.
 
 ### Introduction of a metric
 
-### Summary and Exercises
+We can now introduce a metric in our session and carry out the traditional 
+computations with it (connection components, curvature tensors, etc). This is 
+a computation that can be carried out in both the `TensorValues` and `CTensor` 
+frameworks but here we illustrate only the latter. In the `CTensor` framework 
+it is not necessary to use `DefMetric`.
 
-* `CTensor` is a container of information that is able to store the components of a tensor for any basis and any index configuration. 
+### Summary
 
-* ToCTensor is a converter  that is able to compute new CTensor expressions from a given tensor or CTensor for different bases or index configurations.
+* `CTensor` is a container of information that is able to store the components 
+of a tensor for _any basis_ and _any index configuration_. 
 
-* SetBasisChange stores the components of a basis change matrix relating two already defined basis. These components are automatically replaced when using ToCTensor. 
+* `ToCTensor` is a converter that is able to compute new `CTensor` expressions 
+from a given tensor or `CTensor` for different bases or index configurations.
 
-* SetCMetric declares an appropriate CTensor expression as the metric for doing component computations.
+* `SetBasisChange` stores the components of a basis change matrix relating two 
+already defined basis. These components are automatically replaced when using 
+`ToCTensor`. 
 
-* MetricCompute computes the classical quantities (connection, curvature, etc) of a metric declared with SetCMetric. The metric can be given in coordinates or in a non-holonomic frame.
+* `SetCMetric` declares an appropriate `CTensor` expression as the metric for 
+doing component computations.
+
+* `MetricCompute` computes the classical quantities (connection, curvature, 
+etc) of a metric declared with `SetCMetric`. The metric can be given in 
+coordinates or in a non-holonomic frame.
 
 
+### Exercise
 
-
+1. Exercise 1
+Introduce in the Schwarzschild metric defined previously the Klotsch--Ströbl 
+coordinates:
+	r = x y + 2 m,
+	t = x y + 2 m (1 + log(y/x)),
+	θ = Θ,
+	ϕ = Φ.
+Find the metric in these new coordinates and carry out the computation of the 
+curvature tensors. 
 
 
 
