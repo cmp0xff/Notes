@@ -1,0 +1,555 @@
+%\special{papersize=8.5in,11in}
+%\setlength{\parindent}{0pt}
+\documentclass[12pt]{article}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\input{preambles}
+%%%% Packages %%%%
+
+% AMS--related
+\usepackage{amssymb,amsmath,amsthm}
+
+\usepackage{upgreek}
+\usepackage{mathtools}
+
+\usepackage{dsfont}
+\usepackage{slashed}
+\usepackage{cancel}
+\usepackage{fullpage}
+\setlength{\parskip}{1em}
+\usepackage{graphicx}
+
+\usepackage{mathrsfs}
+
+\usepackage[font=small,labelfont=bf]{caption} %Font size of Figure Caption
+\usepackage{float}
+
+\usepackage{authblk} % multiple authors
+
+
+\usepackage{braket}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{systeme}
+\usepackage{bm}% bold math symbol, \bm, \hm. for vectors
+
+\usepackage{epstopdf}% use eps figures
+
+\usepackage{natbib}
+% \usepackage[style=numeric-comp,
+% 			backend=biber,
+% 			natbib=true,
+% 			isbn=false,
+% 			url=false, 
+% 			doi=false,
+% 			eprint=true,
+% 			hyperref=true,
+% 			sorting=none]{biblatex}
+%https://tex.stackexchange.com/questions/116088/sort-biblatex-bibliography-by-ap
+%pearance-of-cites-in-the-document
+%\addbibresource{./eft.bib}
+
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    =  red
+}
+%\usepackage[noadjust]{cite}
+\usepackage{cleveref} 
+
+\usepackage{amsmath,amssymb}
+
+% ':=' as \coloneqq
+\usepackage{mathtools}
+% Physical bras and kets
+\usepackage{braket}
+% SI units
+\usepackage{siunitx}
+\sisetup{separate-uncertainty}
+
+%\usepackage[colorinlistoftodos]{todonotes}
+
+% Boxed equations. NEED TO BE LOADED BEFORE unicode-math!
+\usepackage{empheq}
+% Theorems
+
+
+% Plot
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{calc}
+% save compiled tikz plots; enable --shell-escape
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=./tikz/]
+
+
+\usepackage{subcaption}
+
+%%%% Chemical--Mathematical--Physical Constants %%%%
+\newcommand\mi{\mathrm{i}} % imaginary unit i
+\newcommand\me{\mathrm{e}} % natural number e
+
+\usepackage{upgreek}
+
+\newcommand\pp{\uppi}
+
+\newcommand\const{\mathrm{const}} % constant
+
+%%%% Math Commands without Parameter %%%%
+
+\newcommand\dif{\mathrm{d}}
+\newcommand\Dif{\mathrm{D}}
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\arcctgh}{arcctgh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+
+\DeclareMathOperator{\BesselJ}{J}
+\DeclareMathOperator{\BesselY}{Y}
+\DeclareMathOperator{\BesselF}{F}
+\DeclareMathOperator{\BesselG}{G}
+\DeclareMathOperator{\BesselI}{I}
+\DeclareMathOperator{\BesselK}{K}
+\DeclareMathOperator{\BesselL}{L}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\opdiv}{div}
+\DeclareMathOperator{\opdeg}{deg}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+
+\DeclareMathOperator{\ad}{ad}
+
+\DeclareMathOperator{\expi}{expi}
+
+
+%%%% Math Commands with Parameters %%%%
+
+% Bracket-like
+\newcommand{\rbr}[1]{{\left(#1\right)}}
+\newcommand{\sbr}[1]{{\left[#1\right]}}
+\newcommand{\cbr}[1]{{\left\{#1\right\}}}
+\newcommand{\abr}[1]{{\left<#1\right>}}
+\newcommand{\vbr}[1]{{\left|#1\right|}}
+\newcommand{\dvbr}[1]{{\left\|#1\right\|}}
+\newcommand{\fat}[2]{{\left.#1\right|_{#2}}}
+\newcommand*\abs[1]{\left|#1\right|}% \abs{}, absolute value bracket
+
+% Functions; note the space between the name and the bracket!
+\newcommand{\rfun}[2]{{#1}\mathopen{}\left(#2\right)\mathclose{}}
+\newcommand{\sfun}[2]{{#1}\mathopen{}\left[#2\right]\mathclose{}}
+\newcommand{\cfun}[2]{{#1}\mathopen{}\left\{#2\right\}\mathclose{}}
+\newcommand{\afun}[2]{{#1}\mathopen{}\left<#2\right>\mathclose{}}
+\newcommand{\vfun}[2]{{#1}\mathopen{}\left|#2\right|\mathclose{}}
+% Fraction-like
+\newcommand{\frde}[2]{{\frac{\dif{#1}}{\dif{#2}}}}
+\newcommand{\frDe}[2]{{\frac{\Dif{#1}}{\Dif{#2}}}}
+\newcommand{\frpa}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+%\newcommand{\frdva}[2]{{\frac{\dva{#1}}{\dva{#2}}}}
+
+% overline-like marks
+\newcommand{\ol}[1]{{\overline{{#1}}}}
+\newcommand{\ul}[1]{{\underline{{#1}}}}
+\newcommand{\tld}[1]{{\widetilde{{#1}}}}
+\newcommand{\ora}[1]{{\overrightarrow{#1}}}
+\newcommand{\ola}[1]{{\overleftarrow{#1}}}
+\newcommand{\td}[1]{{\widetilde{#1}}}
+\newcommand{\what}[1]{{\widehat{#1}}}
+%\newcommand{\prm}{{\symbol{"2032}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+
+\def\a{\alpha}
+\def\kap{\varkappa}
+\def\e{\varepsilon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*\ov[1]{\overset{(5)}{#1}}
+\newcommand*\ovn[1]{\overset{(n)}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%roman number
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{Effective action of spinor electrodynamics} 
+
+
+\date{}
+
+
+%\author[1,4]{Alexander A. Andrianov\thanks{a.andrianov@spbu.ru} }
+%\author[2]{Chen Lan\thanks{stlanchen@yandex.ru} }
+%\author[1]{Oleg O. Novikov\thanks{o.novikov@spbu.ru}}
+%\author[3]{Yi-Fan Wang\thanks{yfwang@thp.uni-koeln.de}}
+%\author[5]{Zhongyi Zhang\thanks{zhongyi@th.physik.uni-bonn.de}}
+
+
+
+%\affil[1]{Saint-Petersburg State University, St. Petersburg 198504, Russia}
+%\affil[2]{ELI-ALPS, ELI-Hu NKft, Dugonics t\'er 13, Szeged 6720, Hungary}
+%\affil[3]{Institut f\"ur Theoretische Physik, Universit\"at zu K\"oln,
+%Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
+%\affil[4]{Institut de Ci\`encies del Cosmos (ICCUB), Universitat de Barcelona, 
+%Spain}
+%\affil[5]{Physikalisches Institut, Universit\"at Bonn, Nussallee 12, 53115 
+%Bonn, Germany}
+
+
+\maketitle
+
+%\input{./sections/0abstract}
+%\abstract{}
+
+%\tableofcontents
+
+
+\section{Spinor electrodynamics in flat space-time}
+
+Maxwell Lagrangian
+\begin{equation}
+\sfun{S_\text{Maxwell}}{A_\mu} \coloneqq \int\dif^{d+1} x\,\rbr{
+-\frac{1}{4} F^{\mu\nu} F_{\mu\nu} }
+\end{equation}
+
+Dirac Lagrangian \citep[sec.~11]{weinberg1995}
+\begin{equation}
+\sfun{S_\text{Dirac}}{\psi, \bar\psi} \coloneqq \int\dif^{d+1} x\,
+\cbr{-\bar{\psi} \rbr{\gamma^\mu\partial_\mu + m}\psi}.
+\end{equation}
+
+Interaction term
+\begin{equation}
+\sfun{S_\text{IDM}}{A_\mu, \psi, \bar\psi} \coloneqq \int\dif^{d+1} 
+x\,\rbr{-\bar{\psi}\gamma^\mu\mi e A_\mu\psi}.
+\end{equation}
+
+The total action for spinor electrodynamics reads
+\begin{align}
+\sfun{S_{1/2}}{A_\mu, \psi, \bar\psi} &\coloneqq 
+S_\text{Dirac} + S_\text{IDM}+S_\text{Maxwell} \nonumber \\
+&= \int\dif^{d+1}x\,\cbr{-\bar\psi\rbr{\gamma^\mu \nabla_\mu+m}\psi
+-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
+\end{align}
+where
+\begin{align}
+\nabla_\mu\psi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\psi.
+\end{align}
+
+
+Generating functional
+\begin{equation}
+\sfun{\mathcal{Z}}{j^\mu, \bar\eta, \eta} \coloneqq
+\int\Dif A\,\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_{1/2}
++\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + \bar\eta \psi+\bar\psi \eta}}}
+\end{equation}
+
+Effective action
+\begin{equation}
+\sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
+\int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
+\sfun{\varGamma_\text{EH}}{A_\mu}
++\int\dif^{d+1} x \,j^\mu A_\mu}}.
+\end{equation}
+In other words,
+\begin{align}
+\cfun{\exp}{\mi\sfun{\varGamma_\text{EH}}{A_\mu}} &\equiv \int
+\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_\text{Dirac}+S_\text{IDM}}}
+\nonumber \\
+&\equiv \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,
+\bar{\psi} \rbr{-\slashed{\partial}-\mi e \slashed{A} - m}\psi}
+\nonumber \\
+&= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
+\rfun{\bar\psi}{x} \rfun{S^{-1}}{x, y} \rfun{\psi}{y}}
+\nonumber \\
+&= \tilde{\mathcal{N}}\sfun{\det}{-\mi \rfun{S^{-1}}{x, y}},
+\end{align}
+where
+\begin{equation}
+\rfun{S^{-1}}{x, y} \coloneqq \rbr{+\slashed{\partial}_y-\mi e 
+\rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
+\end{equation}
+
+\begin{align}
+\sfun{\varGamma_\text{EH}}{A_\mu} &\equiv
+-\mi\rbr{\ln\tilde{\mathcal{N}} + \ln \sfun{\det}{-\mi S^{-1}}} 
+\nonumber \\
+&= -\mi \rbr{\ln\tilde{\mathcal{N}} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, 
+y}}}.
+\end{align}
+
+Note that
+\begin{align}
+\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} &\equiv
+\Tr \sfun{\ln}{-\mi \rfun{M^\intercal}{x, y}} \nonumber \\
+&= \Tr \sfun{\ln}{\mi\rbr{ +\slashed{\partial}_y^\intercal -\mi e 
+\rfun{\slashed{A}^\intercal}{y} - m}\rfun{\delta^{d+1}}{x-y}} \nonumber \\
+&= \Tr \sfun{\ln}{\mi\rbr{ -\mathscr{C}\slashed{\partial}_y\mathscr{C}^{-1}
++\mi e \mathscr{C}\rfun{\slashed{A}}{y}\mathscr{C}^{-1}
+-\mathscr{C}m\mathscr{C}^{-1}} \rfun{\delta^{d+1}}{x-y}} \nonumber \\
+&= \cfun{\Tr}{\mathscr{C}\sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
++\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}\mathscr{C}^{-1}} 
+\nonumber \\
+&= \Tr \sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
++\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}.
+\end{align}
+where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
+\begin{equation}
+\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} =
+\frac{1}{2} \Tr \sfun{\ln}{\rfun{S_2^{-1}}{x, y}},
+\label{eq:Tr-M_2}
+\end{equation}
+where
+\begin{align}
+\rfun{S_2^{-1}}{x, y} \coloneqq \mathcal{S}_{2y}^{-1} 
+\rfun{\delta^{d+1}}{x-y},\quad
+\mathcal{S}_{2y}^{-1} \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
+\rfun{\slashed{A}}{y}}^2 - m^2}.
+\label{eq:M_2-def}
+\end{align}
+One may further simplify \cref{eq:M_2-def} by noting ($y$ suppressed)
+\begin{align}
+\rbr{\slashed{\partial} -\mi e \slashed{A}}^2 &=
+\partial^2 - e^2 A_\mu^2 -\mi e \frac{1}{2}\rbr{\sbr{\gamma^\mu, \gamma^\nu}_- 
++ \sbr{\gamma^\mu, \gamma^\nu}_+}
+\rbr{\partial_\mu A_\nu + A_\mu \partial_\nu + A_\nu \partial_\mu} 
+\nonumber \\
+&= \partial^2 - e^2 A_\mu^2 - \mi e \rbr{\partial_\mu A^\mu + 2A^\mu 
+\partial_\mu - \mi \sigma^{\mu\nu} \partial_\mu A_\nu} \nonumber \\
+&= \rbr{\partial_\mu - \mi e A_\mu}^2
+- e \sigma^{\mu\nu} \partial_{[\mu} A_{\nu]} \nonumber \\
+&= \rbr{\partial_\mu - \mi e A_\mu}^2 - \frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu},
+\end{align}
+so that
+\begin{align}
+\mathcal{S}_{2}^{-1} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2},
+\label{eq:M_2-simp}
+\end{align}
+where $y$ is suppressed as well. Now we may write
+\begin{align}
+\sfun{\varGamma_{\text{EH}}}{A_\mu} &= -\frac{\mi}{2} \Tr \cfun{\ln}{
+\mathcal{N}^{-1} \rfun{S_{2}^{-1}}{x,y}} \nonumber \\
+&= -\frac{\mi}{2} \Tr\int_0^{+\infty}\frac{\dif s}{s}\cbr{
+-\me^{\mi s\rbr{\rfun{S_{2}^{-1}}{x,y}+\mi 0^+}}
++\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}} \nonumber \\
+&= +\frac{\mi}{2} \int_0^{+\infty} \frac{\dif s}{s}
+\int\dif^{d+1}x\,\dif^{d+1}y\,\rfun{\delta^{d+1}}{x-y}\nonumber \\
+&\quad\cdot\cfun{\tr}{+\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+-\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}},
+\end{align}
+where $\tr$ takes place in the spinor space.
+
+
+\subsection{Constant background field in $\rbr{3+1}$-dimensions}
+
+\Cref{eq:Tr-M_2} can be solved exactly when $F_{\mu\nu}$ is constant throughout 
+space-time. %Take the case \citep{resetsky2012} where $\vec{E}\parallel\vec{B}$ 
+%and, without loss of generality, $\vec{B}\parallel\vec{z}$.
+One has
+\begin{equation}
+F_{0i} \equiv -F_{i0} = -E_i,\qquad
+F_{ij} \equiv -F_{ji} = \epsilon_{ijk}B^k,
+%F_{30} \equiv -F_{03} = E_3 \eqqcolon E,\qquad
+%F_{12} \equiv -F_{21} = B_3 \eqqcolon B.
+\label{eq:const-EM-strength}
+\end{equation}
+and the spinor part of \cref{eq:M_2-simp} can be calculated
+\begin{align}
+-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu} = -e
+\begin{bmatrix}
+\rbr{\vec B-\mi \vec E} \cdot\vec\sigma & 0 \\
+0 & \rbr{\vec B+\mi \vec E} \cdot\vec\sigma
+\end{bmatrix},
+\end{align}
+so that
+\begin{align}
+&\quad\tr\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
+\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+\nonumber \\
+&= \me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2
+- m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
+\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}},
+\end{align}
+in which
+\begin{align}
+\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}} &= 2\cbr{
+\rfun{\cos}{se\sqrt{\rbr{\vec B+\mi\vec E}^2}}+
+\rfun{\cos}{se\sqrt{\rbr{\vec B-\mi\vec E}^2}}} \\
+&= 4\rfun{\cos}{seB}\rfun{\cosh}{seE},\qquad\text{for}\quad
+\vec B = B \hat x^3,\quad \vec E = E \hat x^3.
+\end{align}
+
+A Landau-like choice of four-potential \citep{landau1930} reads
+\begin{align}
+A_{\mu} &\coloneqq \begin{pmatrix} 0 &
+-x^0 E_1 + x^3 B^2 &
+-x^0 E_2 + x^1 B^3 &
+-x^0 E_3 + x^2 B^1 \end{pmatrix}, %\nonumber \\
+%&=
+%\rbr{0, -x^0 E_i + \epsilon_{ijk} B^j x^k}.
+\end{align}
+applying which leads to \cref{eq:const-EM-strength}.
+
+Consider the case where $\vec B = B \hat x^3$, $\vec E = E \hat x^3$. 
+The scalar part of \cref{eq:M_2-simp} simplifies to
+\begin{align}
+\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2 &=
+-\partial_0^2 + \partial_1^2 + \rbr{\partial_2 - \mi e x^1 B}^2
++\rbr{\partial_3 + \mi e x^0 E}^2 - m^2 \nonumber \\
+&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
+\rbr{eE}^2 \rbr{x^0}^2} U^\dagger,
+\label{eq:scalar-part-M_2}
+\end{align}
+where
+\begin{align}
+U \coloneqq \me^{+\mi\rbr{\partial_1\partial_2/eB-\partial_3\partial_0/eE}}.
+\end{align}
+
+One can first solve the sub-eigensystem
+\begin{align}
+\cbr{+\partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 - \lambda}
+\rfun{\tilde{f}_\lambda}{x^1} = 0,
+\end{align}
+and the general solution is
+\begin{align}
+\rfun{\tilde{f}_\lambda}{x}
+= c_1 \rfun{\mathrm{D}_{-\frac{\lambda}{2eB}-\frac{1}{2}}}{\sqrt{2eB}x}
++ c_2 \rfun{\mathrm{D}_{+\frac{\lambda}{2eB}-\frac{1}{2}}}{\mi\sqrt{2eB}x},
+\label{eq:parabolic-cylinder}
+\end{align}
+where $\rfun{\mathrm{D}_\nu}{z}$ is the parabolic cylinder function. For
+\begin{align}
+\lambda = -(2n+1)eB,\qquad n = -\frac{1}{2}-\frac{\lambda}{2eB}
+\end{align}
+\cref{eq:parabolic-cylinder} reduces to a combination of the Hermite polynomials
+\begin{align}
+\rfun{\tilde{f}_n}{x}
+= c_1 2^{-n/2}\me^{-eBx^2/2}\rfun{\mathrm{H}_n}{\sqrt{eB}x}
++ c_2 2^{+\rbr{n+1}/2}\me^{+eBx^2/2}\rfun{\mathrm{H}_{-n-1}}{\mi\sqrt{eB}x}.
+\end{align}
+The first branch constitutes a complete orthogonal set of basis for 
+$\rfun{L^2}{\mathbb{R}}$ when $n\in\mathbb{Z}^+$, and its normalised version 
+will be denoted as $\cbr{f_n}$.
+
+It has been argued that the same solution applies for
+\begin{align}
+\cbr{-\partial_0^2 - \rbr{eE}^2 \rbr{x^0}^2 - \lambda}
+\rfun{\tilde{g}_\lambda}{x^0} = 0
+\end{align}
+if one applies $E\to\mi B$, so that the eigenfunctions are
+\begin{align}
+\rfun{g_n}{x} = \rfun{f_n}{x},\qquad n = -\frac{1}{2}-\frac{\mi \lambda}{2eE}
+\quad\text{or}\quad \lambda = \mi\rbr{2n+1}eE.
+\end{align}
+However, we know that complex differential equations are subtle!
+
+The eigenfunctions of \cref{eq:scalar-part-M_2} can now be written down
+\begin{align}
+&\quad\cbr{\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2}
+\cbr{U\rfun{f_n}{x^1}\rfun{g_k}{x^0}} \nonumber \\
+&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
+\rbr{eE}^2 \rbr{x^0}^2} \rfun{f_n}{x^1} \rfun{g_k}{x^0} \nonumber \\
+&= -\mi\rbr{2n+1}\rbr{2k+1}e^2BE \cbr{U \rfun{f_n}{x^1} \rfun{g_k}{x^0}},
+\end{align}
+and they are
+\begin{align}
+\rfun{\phi_{nk}}{x} \coloneqq U\rfun{f_n}{x^1}\rfun{g_k}{x^0}.
+\end{align}
+
+\begin{align}
+\rfun{\delta^4}{x-y} &=
+\sum_{n,k} \rfun{\phi_{nk}^\dagger}{x} \rfun{\phi_{nk}}{y} \nonumber \\
+&= \sum_{n,k}
+\cbr{\rfun{U}{x}\rfun{f_n}{x^1}\rfun{g_k}{x^0}}^\dagger 
+\cbr{\rfun{U}{y}\rfun{f_n}{y^1}\rfun{g_k}{y^0}}.
+\end{align}
+
+
+
+
+
+
+
+\cite{heisenberg1936}
+
+%Further using the trick
+%\begin{equation}
+%\rfun{\ln}{A+\mi 0^+} =
+%-\int_0^{+\infty}\frac{\dif s}{s}\,\me^{\mi s \rbr{A+\mi 0^+}},
+%\end{equation}
+%one obtains
+%\begin{align}
+%\sfun{\varGamma}{A_\mu} &= \frac{\mi}{2}\rbr{-\Tr \ln M_2-\ln \mathcal{N}_2}
+%\nonumber \\
+%&= \frac{\mi}{2}\rbr{\Tr\int_0^{+\infty}\frac{\dif s}{s}\,
+%\me^{\mi s \rbr{M_2 + \mi 0^+}}-\ln \mathcal{N}_2} \nonumber \\
+%&=
+%\end{align}
+
+
+
+%\section*{Acknowledgements}
+%\addcontentsline{toc}{section}{\protect\numberline{}Acknowledgements}%
+
+\appendix
+
+\section{Notions and conventions}
+
+The metric convention is mostly positive, i.e.\
+$\eta_{\mu\nu} \coloneqq \rfun{\diag}{-, +, +, \ldots}$
+
+
+\section{Fresnel functional integral}
+
+\citep[ch.~10]{mosel2004}
+
+\section{Algebra}
+\begin{align}
+\sbr{a\partial_1 \partial_2, x^1}_- = a\partial_2
+\end{align}
+central.
+
+Baker--Campbell--Hausdorff formula
+
+\begin{align}
+\me^{+a\partial_1\partial_2} x^1 \me^{-a\partial_1\partial_2}
+= x^1 + a \partial_2.
+\end{align}
+
+
+
+\bibliographystyle{plain}
+\bibliography{./eft}
+
+%\printbibliography
+
+\end{document}

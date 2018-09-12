@@ -37,19 +37,20 @@
 
 \usepackage{epstopdf}% use eps figures
 
-\usepackage[style=numeric-comp,
-			backend=biber,
-			sortlocale=de_DE,
-			natbib=true,
-			isbn=false,
-			url=false, 
-			doi=false,
-			eprint=true,
-			hyperref=true,
-			sorting=none]{biblatex}
+\usepackage{natbib}
+% \usepackage[style=numeric-comp,
+% 			backend=biber,
+% 			natbib=true,
+% 			isbn=false,
+% 			url=false, 
+% 			doi=false,
+% 			eprint=true,
+% 			hyperref=true,
+% 			sorting=none]{biblatex}
 %https://tex.stackexchange.com/questions/116088/sort-biblatex-bibliography-by-ap
 %pearance-of-cites-in-the-document
-\addbibresource{./eft.bib}
+%\addbibresource{./eft.bib}
+
 \usepackage{hyperref}
 \hypersetup{
      colorlinks   = true,
@@ -198,7 +199,7 @@
 
 \begin{document}
 
-\title{Euler-Heisenberg Effective Action} 
+\title{Effective action of scalar electrodynamics} 
 
 
 \date{}
@@ -207,15 +208,15 @@
 %\author[1,4]{Alexander A. Andrianov\thanks{a.andrianov@spbu.ru} }
 %\author[2]{Chen Lan\thanks{stlanchen@yandex.ru} }
 %\author[1]{Oleg O. Novikov\thanks{o.novikov@spbu.ru}}
-%\author[3]{Yi-Fan Wang\thanks{yfwang@thp.uni-koeln.de}}
+\author[3]{Yi-Fan Wang\thanks{yfwang@thp.uni-koeln.de}}
 %\author[5]{Zhongyi Zhang\thanks{zhongyi@th.physik.uni-bonn.de}}
 
 
 
 %\affil[1]{Saint-Petersburg State University, St. Petersburg 198504, Russia}
 %\affil[2]{ELI-ALPS, ELI-Hu NKft, Dugonics t\'er 13, Szeged 6720, Hungary}
-%\affil[3]{Institut f\"ur Theoretische Physik, Universit\"at zu K\"oln,
-%Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
+\affil[3]{Institut f\"ur Theoretische Physik, Universit\"at zu K\"oln,
+Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
 %\affil[4]{Institut de Ci\`encies del Cosmos (ICCUB), Universitat de Barcelona, 
 %Spain}
 %\affil[5]{Physikalisches Institut, Universit\"at Bonn, Nussallee 12, 53115 
@@ -229,295 +230,12 @@
 
 %\tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wick rotation}
 
-\section{Spinor electrodynamics in flat space-time}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Maxwell Lagrangian
-\begin{equation}
-\sfun{S_\text{Maxwell}}{A_\mu} \coloneqq \int\dif^{d+1} x\,\rbr{
--\frac{1}{4} F^{\mu\nu} F_{\mu\nu} }
-\end{equation}
-
-Dirac Lagrangian \citep[sec.~11]{weinberg1995}
-\begin{equation}
-\sfun{S_\text{Dirac}}{\psi, \bar\psi} \coloneqq \int\dif^{d+1} x\,
-\cbr{-\bar{\psi} \rbr{\gamma^\mu\partial_\mu + m}\psi}.
-\end{equation}
-
-Interaction term
-\begin{equation}
-\sfun{S_\text{IDM}}{A_\mu, \psi, \bar\psi} \coloneqq \int\dif^{d+1} 
-x\,\rbr{-\bar{\psi}\gamma^\mu\mi e A_\mu\psi}.
-\end{equation}
-
-The total action for spinor electrodynamics reads
-\begin{align}
-\sfun{S_{1/2}}{A_\mu, \psi, \bar\psi} &\coloneqq 
-S_\text{Dirac} + S_\text{IDM}+S_\text{Maxwell} \nonumber \\
-&= \int\dif^{d+1}x\,\cbr{-\bar\psi\rbr{\gamma^\mu \nabla_\mu+m}\psi
--\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
-\end{align}
-where
-\begin{align}
-\nabla_\mu\psi \coloneqq \rbr{\partial_\mu+\mi e A_\mu}\psi.
-\end{align}
-
-
-Generating functional
-\begin{equation}
-\sfun{\mathcal{Z}}{j^\mu, \bar\eta, \eta} \coloneqq
-\int\Dif A\,\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_{1/2}
-+\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + \bar\eta \psi+\bar\psi \eta}}}
-\end{equation}
-
-Effective action
-\begin{equation}
-\sfun{\mathcal{Z}}{j^\mu, 0, 0} \eqqcolon
-\int\Dif A\,\cfun{\exp}{\mi\rbr{S_\text{Maxwell} + 
-\sfun{\varGamma_\text{EH}}{A_\mu}
-+\int\dif^{d+1} x \,j^\mu A_\mu}}.
-\end{equation}
-In other words,
-\begin{align}
-\cfun{\exp}{\mi\sfun{\varGamma_\text{EH}}{A_\mu}} &\equiv \int
-\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\rbr{S_\text{Dirac}+S_\text{IDM}}}
-\nonumber \\
-&\equiv \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,
-\bar{\psi} \rbr{-\slashed{\partial}-\mi e \slashed{A} - m}\psi}
-\nonumber \\
-&= \int\Dif\psi\,\Dif\bar\psi\,\cfun{\exp}{\mi\int\dif^{d+1} x\,\dif^{d+1} y\,
-\rfun{\bar\psi}{x} \rfun{S^{-1}}{x, y} \rfun{\psi}{y}}
-\nonumber \\
-&= \tilde{\mathcal{N}}\sfun{\det}{-\mi \rfun{S^{-1}}{x, y}},
-\end{align}
-where
-\begin{equation}
-\rfun{S^{-1}}{x, y} \coloneqq \rbr{+\slashed{\partial}_y-\mi e 
-\rfun{\slashed{A}}{y} - m}\rfun{\delta^{d+1}}{x-y}.
-\end{equation}
-
-\begin{align}
-\sfun{\varGamma_\text{EH}}{A_\mu} &\equiv
--\mi\rbr{\ln\tilde{\mathcal{N}} + \ln \sfun{\det}{-\mi S^{-1}}} 
-\nonumber \\
-&= -\mi \rbr{\ln\tilde{\mathcal{N}} + \Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, 
-y}}}.
-\end{align}
-
-Note that
-\begin{align}
-\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} &\equiv
-\Tr \sfun{\ln}{-\mi \rfun{M^\intercal}{x, y}} \nonumber \\
-&= \Tr \sfun{\ln}{\mi\rbr{ +\slashed{\partial}_y^\intercal -\mi e 
-\rfun{\slashed{A}^\intercal}{y} - m}\rfun{\delta^{d+1}}{x-y}} \nonumber \\
-&= \Tr \sfun{\ln}{\mi\rbr{ -\mathscr{C}\slashed{\partial}_y\mathscr{C}^{-1}
-+\mi e \mathscr{C}\rfun{\slashed{A}}{y}\mathscr{C}^{-1}
--\mathscr{C}m\mathscr{C}^{-1}} \rfun{\delta^{d+1}}{x-y}} \nonumber \\
-&= \cfun{\Tr}{\mathscr{C}\sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
-+\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}\mathscr{C}^{-1}} 
-\nonumber \\
-&= \Tr \sfun{\ln}{\mi\rbr{-\slashed{\partial}_y
-+\mi e \rfun{\slashed{A}}{y} -m} \rfun{\delta^{d+1}}{x-y}}.
-\end{align}
-where the transpose ${}^\intercal$ is taken in the spinor space. Therefore
-\begin{equation}
-\Tr \sfun{\ln}{-\mi \rfun{S^{-1}}{x, y}} =
-\frac{1}{2} \Tr \sfun{\ln}{\rfun{S_2^{-1}}{x, y}},
-\label{eq:Tr-M_2}
-\end{equation}
-where
-\begin{align}
-\rfun{S_2^{-1}}{x, y} \coloneqq \mathcal{S}_{2y}^{-1} 
-\rfun{\delta^{d+1}}{x-y},\quad
-\mathcal{S}_{2y}^{-1} \coloneqq \rbr{\rbr{\slashed{\partial}_y-\mi e 
-\rfun{\slashed{A}}{y}}^2 - m^2}.
-\label{eq:M_2-def}
-\end{align}
-One may further simplify \cref{eq:M_2-def} by noting ($y$ suppressed)
-\begin{align}
-\rbr{\slashed{\partial} -\mi e \slashed{A}}^2 &=
-\partial^2 - e^2 A_\mu^2 -\mi e \frac{1}{2}\rbr{\sbr{\gamma^\mu, \gamma^\nu}_- 
-+ \sbr{\gamma^\mu, \gamma^\nu}_+}
-\rbr{\partial_\mu A_\nu + A_\mu \partial_\nu + A_\nu \partial_\mu} 
-\nonumber \\
-&= \partial^2 - e^2 A_\mu^2 - \mi e \rbr{\partial_\mu A^\mu + 2A^\mu 
-\partial_\mu - \mi \sigma^{\mu\nu} \partial_\mu A_\nu} \nonumber \\
-&= \rbr{\partial_\mu - \mi e A_\mu}^2
-- e \sigma^{\mu\nu} \partial_{[\mu} A_{\nu]} \nonumber \\
-&= \rbr{\partial_\mu - \mi e A_\mu}^2 - \frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu},
-\end{align}
-so that
-\begin{align}
-\mathcal{S}_{2}^{-1} \equiv \rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
-\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2},
-\label{eq:M_2-simp}
-\end{align}
-where $y$ is suppressed as well. Now we may write
-\begin{align}
-\sfun{\varGamma_{\text{EH}}}{A_\mu} &= -\frac{\mi}{2} \Tr \cfun{\ln}{
-\mathcal{N}^{-1} \rfun{S_{2}^{-1}}{x,y}} \nonumber \\
-&= -\frac{\mi}{2} \Tr\int_0^{+\infty}\frac{\dif s}{s}\cbr{
--\me^{\mi s\rbr{\rfun{S_{2}^{-1}}{x,y}+\mi 0^+}}
-+\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}} \nonumber \\
-&= +\frac{\mi}{2} \int_0^{+\infty} \frac{\dif s}{s}
-\int\dif^{d+1}x\,\dif^{d+1}y\,\rfun{\delta^{d+1}}{x-y}\nonumber \\
-&\quad\cdot\cfun{\tr}{+\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
-\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
--\me^{\mi s\rbr{\mathcal{N}+\mi 0^+}}},
-\end{align}
-where $\tr$ takes place in the spinor space.
-
-
-\subsection{Constant background field in $\rbr{3+1}$-dimensions}
-
-\Cref{eq:Tr-M_2} can be solved exactly when $F_{\mu\nu}$ is constant throughout 
-space-time. %Take the case \citep{resetsky2012} where $\vec{E}\parallel\vec{B}$ 
-%and, without loss of generality, $\vec{B}\parallel\vec{z}$.
-One has
-\begin{equation}
-F_{0i} \equiv -F_{i0} = -E_i,\qquad
-F_{ij} \equiv -F_{ji} = \epsilon_{ijk}B^k,
-%F_{30} \equiv -F_{03} = E_3 \eqqcolon E,\qquad
-%F_{12} \equiv -F_{21} = B_3 \eqqcolon B.
-\label{eq:const-EM-strength}
-\end{equation}
-and the spinor part of \cref{eq:M_2-simp} can be calculated
-\begin{align}
--\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu} = -e
-\begin{bmatrix}
-\rbr{\vec B-\mi \vec E} \cdot\vec\sigma & 0 \\
-0 & \rbr{\vec B+\mi \vec E} \cdot\vec\sigma
-\end{bmatrix},
-\end{align}
-so that
-\begin{align}
-&\quad\tr\me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2 - 
-\frac{e}{2} \sigma^{\mu\nu} F_{\mu\nu} - m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
-\nonumber \\
-&= \me^{\mi s\rbr{\rbr{\partial_{\mu} - \mi e A_\mu}^2
-- m^2+\mi 0^+}\rfun{\delta^{d+1}}{x-y}}
-\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}},
-\end{align}
-in which
-\begin{align}
-\tr\me^{\mi s\rbr{-\frac{e}{2}\sigma^{\mu\nu}F_{\mu\nu}}} &= 2\cbr{
-\rfun{\cos}{se\sqrt{\rbr{\vec B+\mi\vec E}^2}}+
-\rfun{\cos}{se\sqrt{\rbr{\vec B-\mi\vec E}^2}}} \\
-&= 4\rfun{\cos}{seB}\rfun{\cosh}{seE},\qquad\text{for}\quad
-\vec B = B \hat x^3,\quad \vec E = E \hat x^3.
-\end{align}
-
-A Landau-like choice of four-potential \citep{landau1930} reads
-\begin{align}
-A_{\mu} &\coloneqq \begin{pmatrix} 0 &
--x^0 E_1 + x^3 B^2 &
--x^0 E_2 + x^1 B^3 &
--x^0 E_3 + x^2 B^1 \end{pmatrix}, %\nonumber \\
-%&=
-%\rbr{0, -x^0 E_i + \epsilon_{ijk} B^j x^k}.
-\end{align}
-applying which leads to \cref{eq:const-EM-strength}.
-
-Consider the case where $\vec B = B \hat x^3$, $\vec E = E \hat x^3$. 
-The scalar part of \cref{eq:M_2-simp} simplifies to
-\begin{align}
-\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2 &=
--\partial_0^2 + \partial_1^2 + \rbr{\partial_2 - \mi e x^1 B}^2
-+\rbr{\partial_3 + \mi e x^0 E}^2 - m^2 \nonumber \\
-&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
-\rbr{eE}^2 \rbr{x^0}^2} U^\dagger,
-\label{eq:scalar-part-M_2}
-\end{align}
-where
-\begin{align}
-U \coloneqq \me^{+\mi\rbr{\partial_1\partial_2/eB-\partial_3\partial_0/eE}}.
-\end{align}
-
-One can first solve the sub-eigensystem
-\begin{align}
-\cbr{+\partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 - \lambda}
-\rfun{\tilde{f}_\lambda}{x^1} = 0,
-\end{align}
-and the general solution is
-\begin{align}
-\rfun{\tilde{f}_\lambda}{x}
-= c_1 \rfun{\mathrm{D}_{-\frac{\lambda}{2eB}-\frac{1}{2}}}{\sqrt{2eB}x}
-+ c_2 \rfun{\mathrm{D}_{+\frac{\lambda}{2eB}-\frac{1}{2}}}{\mi\sqrt{2eB}x},
-\label{eq:parabolic-cylinder}
-\end{align}
-where $\rfun{\mathrm{D}_\nu}{z}$ is the parabolic cylinder function. For
-\begin{align}
-\lambda = -(2n+1)eB,\qquad n = -\frac{1}{2}-\frac{\lambda}{2eB}
-\end{align}
-\cref{eq:parabolic-cylinder} reduces to a combination of the Hermite polynomials
-\begin{align}
-\rfun{\tilde{f}_n}{x}
-= c_1 2^{-n/2}\me^{-eBx^2/2}\rfun{\mathrm{H}_n}{\sqrt{eB}x}
-+ c_2 2^{+\rbr{n+1}/2}\me^{+eBx^2/2}\rfun{\mathrm{H}_{-n-1}}{\mi\sqrt{eB}x}.
-\end{align}
-The first branch constitutes a complete orthogonal set of basis for 
-$\rfun{L^2}{\mathbb{R}}$ when $n\in\mathbb{Z}^+$, and its normalised version 
-will be denoted as $\cbr{f_n}$.
-
-It has been argued that the same solution applies for
-\begin{align}
-\cbr{-\partial_0^2 - \rbr{eE}^2 \rbr{x^0}^2 - \lambda}
-\rfun{\tilde{g}_\lambda}{x^0} = 0
-\end{align}
-if one applies $E\to\mi B$, so that the eigenfunctions are
-\begin{align}
-\rfun{g_n}{x} = \rfun{f_n}{x},\qquad n = -\frac{1}{2}-\frac{\mi \lambda}{2eE}
-\quad\text{or}\quad \lambda = \mi\rbr{2n+1}eE.
-\end{align}
-However, we know that complex differential equations are subtle!
-
-The eigenfunctions of \cref{eq:scalar-part-M_2} can now be written down
-\begin{align}
-&\quad\cbr{\rbr{\partial_\mu - \mi e A_\mu}^2 - m^2}
-\cbr{U\rfun{f_n}{x^1}\rfun{g_k}{x^0}} \nonumber \\
-&= U \cbr{-\partial_0^2 + \partial_1^2 - \rbr{eB}^2 \rbr{x^1}^2 -
-\rbr{eE}^2 \rbr{x^0}^2} \rfun{f_n}{x^1} \rfun{g_k}{x^0} \nonumber \\
-&= -\mi\rbr{2n+1}\rbr{2k+1}e^2BE \cbr{U \rfun{f_n}{x^1} \rfun{g_k}{x^0}},
-\end{align}
-and they are
-\begin{align}
-\rfun{\phi_{nk}}{x} \coloneqq U\rfun{f_n}{x^1}\rfun{g_k}{x^0}.
-\end{align}
-
-\begin{align}
-\rfun{\delta^4}{x-y} &=
-\sum_{n,k} \rfun{\phi_{nk}^\dagger}{x} \rfun{\phi_{nk}}{y} \nonumber \\
-&= \sum_{n,k}
-\cbr{\rfun{U}{x}\rfun{f_n}{x^1}\rfun{g_k}{x^0}}^\dagger 
-\cbr{\rfun{U}{y}\rfun{f_n}{y^1}\rfun{g_k}{y^0}}.
-\end{align}
-
-
-
-
-
-
-
-\cite{heisenberg1936}
-
-%Further using the trick
-%\begin{equation}
-%\rfun{\ln}{A+\mi 0^+} =
-%-\int_0^{+\infty}\frac{\dif s}{s}\,\me^{\mi s \rbr{A+\mi 0^+}},
-%\end{equation}
-%one obtains
-%\begin{align}
-%\sfun{\varGamma}{A_\mu} &= \frac{\mi}{2}\rbr{-\Tr \ln M_2-\ln \mathcal{N}_2}
-%\nonumber \\
-%&= \frac{\mi}{2}\rbr{\Tr\int_0^{+\infty}\frac{\dif s}{s}\,
-%\me^{\mi s \rbr{M_2 + \mi 0^+}}-\ln \mathcal{N}_2} \nonumber \\
-%&=
-%\end{align}
-
-
-\section{Scalar electrodynamics in flat space-time}
-
-Complex Klein--Gordon Lagrangian
+Complex Klein--Gordon action
 \begin{align}
 \sfun{S_\text{CKG}}{\phi,\phi^*}\coloneqq\int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
 \rbr{\partial_\mu\phi}^* \rbr{\partial_\nu\phi} - m^2\phi^*\phi}.
@@ -531,9 +249,9 @@ Interaction term
 \end{align}
 The total action for scalar electrodynamics reads
 \begin{align}
-\sfun{S_0}{A_\mu, \phi, \phi^*} &\coloneqq 
+\sfun{S}{A_\mu, \phi, \phi^*} &\coloneqq 
 S_\text{CKG} + S_\text{ICKGM} + S_\text{Maxwell} \nonumber \\
-&= \int\dif^{d+1}x\,\cbr{-\rbr{\nabla_\mu\phi}^* \rbr{\nabla^\mu\phi} - 
+&= \int\dif^{d+1}x\,\cbr{-\rbr{\nabla_{\!\mu} \phi}^* \rbr{\nabla^\mu\phi} - 
 m^2\phi^*\phi -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
 % \nonumber \\
 % &= \int\dif^{d+1} x \cbr{\phi^*\rbr{-\nabla_\mu \nabla^\mu - m^2}\phi
@@ -545,11 +263,157 @@ where
 %,\qquad\text{b.t.} = \partial_\mu \rbr{\phi^*\nabla^\mu \phi}.
 \end{align}
 
+Wick rotation
+\begin{align}
+x_\text{E}^4 = \mi x^0,\quad A_4 = -\mi A_0,
+\end{align}
+so that
+\begin{align}
+\partial_{x^0} = \mi \partial_{x_\text{E}^4},\quad
+F_{0i} = \mi F_{4i}.
+\end{align}
+
+The Euclidean action reads
+\begin{align}
+\sfun{S_\text{E}}{A_I,\phi,\phi^*} = \int \dif^{D} x_\text{E}\,\rbr{
+	\frac{1}{4} F_{IJ} F^{IJ} + \rbr{\nabla_{\!I}\phi}^* \rbr{\nabla^I \phi} 
+	+ m^2 \phi^* \phi}.
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Euclidean signature}
+\label{sec:eucl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+\subsection{Weisskopf action}
+\label{ssec:eucl-weis}
+%%%%%%%%%%%%%%%%
+
+Current-free generating functional
+\begin{align}
+\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &\coloneqq
+\int\Dif A\,\Dif\phi^*\,\Dif\phi\,\cfun{\exp}{-\rbr{S_\text{E}
++\int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}}.
+\end{align}
+The scalar fields are to be integrated out. The derivative term can be 
+rearranged
+\begin{align}
+\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} = \partial_I\rbr{\phi^* 
+\nabla^{I}\phi} - \phi^* \nabla_{\! I} \nabla^{I} \phi.
+\end{align}
+Hence
+\begin{align}
+S_\text{E} = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
+\int \dif^D x\,\dif^D y\, \rfun{\phi^*}{x} \rfun{M}{x,y} \rfun{\phi}{y},
+\end{align}
+where
+\begin{align}
+\rfun{M_\text{E}}{x,y} \coloneqq \rbr{-\nabla_{\! x^I} \nabla^{x^I} + m^2} 
+\rfun{\delta^{(D)}}{x-y},
+\end{align}
+see \cite[ch.\ 6]{mosel2004} for details. Now the scalar field can formally be 
+integrated
+\begin{align}
+\sfun{\exp}{-\sfun{\varGamma_\text{SE}}{J^*, J}} &\coloneqq \int 
+	\Dif\phi^*\,\Dif\phi\, \cfun{\exp}{-\int\dif^{D} x\, \rbr{
+	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi 
+	+ J^* \phi + \phi^* J}}
+\nonumber \\
+&= \sbr{\det \rfun{M_{\text{E}}}{x,y}}^{-1}
+	\cfun{\exp}{-\int\dif^D x\,\dif^D y\,
+		\rfun{J^*}{x}\rfun{M_\text{E}^{-1}}{x,y} \rfun{J}{y} },
+\end{align}
+so that
+\begin{align}
+\sfun{\varGamma_{\text{SE}}}{J^*, J} &= \sfun{\varGamma_{\text{SE}}}{0,0} +
+	\int\dif^D x\,\dif^D y\,
+		\rfun{J^*}{x}\rfun{M_{\text{E}}^{-1}}{x,y} \rfun{J}{y},
+\\
+\sfun{\varGamma_{\text{SE}}}{0,0} &=
+	-\sfun{\ln}{\rbr{\det M_\text{E}}^{-1}} = \tr\ln M_\text{E},
+\end{align}
+which traces back to \cite{weisskopf1936}. The Euclidean generating functional 
+now reads
+\begin{align}
+\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &\coloneqq
+\int\Dif A\, \exp\!\bigg\{-\int \dif^D x\,
+\rbr{\frac{1}{4} F_{IJ} F^{IJ}} - \tr\ln M_\text{E}
+\nonumber \\
+&\qquad\qquad + \int \dif^D x\, j^{I} A_{I} 
+- \int\dif^D x\,\dif^D y\,
+	\rfun{J^*}{x}\rfun{M_\text{E}^{-1}}{x,y} \rfun{J}{y}\bigg\}.
+\label{eq:eucl-weis-100}
+\end{align}
+
+%%%%%%%%%%%%%%%%
+\subsection{World-line formalism}
+
+%%%%%%%%%%%%%%%%
+
+In \cref{eq:eucl-weis-100}, $\tr\ln M_\text{E}$ is crucial. Using the Schwinger 
+integral representation \cite{Schwinger1951}
+\begin{align}
+\ln \alpha = -\int_0^{+\infty} \frac{\dif s}{s}\,\me^{-\alpha s},
+\end{align}
+one has
+\begin{align}
+- \tr\ln M_\text{E} = \int_0^{+\infty} \frac{\dif T}{T}\,
+	\rfun{\exp}{-\frac{m^2 T}{2M}}\,
+	\tr \rfun{\exp}{-\frac{M_\text{E}}{2M}},
+\end{align}
+where $T$ has the dimension of time, and $M$ that of mass. Introduce the 
+Hamiltonian of a non-relativistic point particle (\textbf{check sign!})
+\begin{align}
+H \coloneqq \frac{1}{2M} \rbr{P_I + e A_I}^2,
+\end{align}
+so that quantisation yields the following representation (\textbf{check sign!})
+\begin{align}
+\tr \rfun{\exp}{-\frac{M_\text{E}}{2M}} &= \int_{-\infty}^{+\infty}\dif x\,
+\Braket{x | \me^{-\widehat{H} T} | x}
+\\
+&= \oint \Dif x\,\cfun{\exp}{-\int_{0}^{T}\dif T'\,
+	\rbr{\frac{M}{2} \rbr{\frde{x^I}{T'}}^2 + \mi e A_I \frde{x^I}{T'}}}.
+\end{align}
+Rescaling $T' \eqqcolon \lambda T$ gives
+\begin{align}
+- \tr\ln M_\text{E} = \int_{0}^{+\infty} \frac{\dif T}{T}\,
+	\rfun{\exp}{-\frac{m^2 T}{2M}}
+	\oint \Dif x\,\cfun{\exp}{-\frac{M}{2T} \int_{0}^{1} \dot{x}_I^2
+		- \mi e \oint A_I\,\dif x^I}.
+\end{align}
+
+%%%%%%%%%%%%%%%%
+\subsection{World-line instanton approximation}
+
+%%%%%%%%%%%%%%%%
+
+\cite{Affleck1982}
+
+
+%%%%%%%%%%%%%%%%
+\subsection{Application of instanton approximation}
+
+%%%%%%%%%%%%%%%%
+
+\cite{Dunne2005}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Flat space-time (Lorentzian signature)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 Generating functional
 \begin{equation}
-\sfun{\mathcal{Z}}{j^\mu, \bar J, J} \coloneqq
+\sfun{\mathcal{Z}}{j^\mu, J^*, J} \coloneqq
 \int\Dif A\,\Dif\phi\,\Dif\phi^*\,\cfun{\exp}{\mi\rbr{S_0
-+\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + J^* \psi+\psi^* J}}}.
++\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + J^* \phi+\phi^* J}}}.
 \end{equation}
 
 Effective action
@@ -732,9 +596,9 @@ Baker--Campbell--Hausdorff formula
 = x^1 + a \partial_2.
 \end{align}
 
+\bibliographystyle{plain}
+\bibliography{./eft}
 
-
-\printbibliography
-
+%\printbibliography
 
 \end{document}
