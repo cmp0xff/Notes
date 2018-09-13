@@ -235,12 +235,12 @@ Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Complex Klein--Gordon action
+Complex Klein--Gordon action in flat space-time
 \begin{align}
 \sfun{S_\text{CKG}}{\phi,\phi^*}\coloneqq\int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
 \rbr{\partial_\mu\phi}^* \rbr{\partial_\nu\phi} - m^2\phi^*\phi}.
 \end{align}
-Interaction term
+Interaction terms
 \begin{align}
 \sfun{S_\text{ICKGM}}{A_\mu,\phi,\phi^*} \coloneqq \int\dif^{d+1}x\,
 \eta^{\mu\nu}{}
@@ -286,12 +286,15 @@ The Euclidean action reads
 \label{sec:eucl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Working with the Euclidean signature is much easier than in the Lorentzian 
+signature.
+
 %%%%%%%%%%%%%%%%
-\subsection{Weisskopf action}
-\label{ssec:eucl-weis}
+\subsection{Effective action}
+\label{ssec:eucl-effe}
 %%%%%%%%%%%%%%%%
 
-Current-free generating functional
+Generating functional
 \begin{align}
 \sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &\coloneqq
 \int\Dif A\,\Dif\phi^*\,\Dif\phi\,\cfun{\exp}{-\rbr{S_\text{E}
@@ -306,7 +309,8 @@ rearranged
 Hence
 \begin{align}
 S_\text{E} = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
-\int \dif^D x\,\dif^D y\, \rfun{\phi^*}{x} \rfun{M}{x,y} \rfun{\phi}{y},
+	\int \dif^D x\,\dif^D y\,
+	\rfun{\phi^*}{x} \rfun{M_\text{E}}{x,y} \rfun{\phi}{y},
 \end{align}
 where
 \begin{align}
@@ -321,50 +325,77 @@ integrated
 	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi 
 	+ J^* \phi + \phi^* J}}
 \nonumber \\
-&= \sbr{\det \rfun{M_{\text{E}}}{x,y}}^{-1}
+&= \frac{1}{\det \rfun{M_{\text{E}}}{x,y}}
 	\cfun{\exp}{-\int\dif^D x\,\dif^D y\,
-		\rfun{J^*}{x}\rfun{M_\text{E}^{-1}}{x,y} \rfun{J}{y} },
+		\rfun{J^*}{x}\rfun{D_\text{E}}{x-y} \rfun{J}{y} },
 \end{align}
-so that
+where
+\begin{align}
+\rfun{D_\text{E}}{x-y} \coloneqq \rfun{M_\text{E}^{-1}}{x,y} = 
+	\frac{1}{\rbr{2\pp}^{D/2}} \rbr{\frac{m}{x}}^{\frac{D}{2}-1}
+	\rfun{\BesselK_{\frac{D}{2}-1}}{m\rbr{x-y}}
+\end{align}
+is the Euclidean Green's function, calculated by Chao-Ming Jian (Everett You's 
+notes). (\textbf{Check!})
+
+The effective action of the scalar fields reads
 \begin{align}
 \sfun{\varGamma_{\text{SE}}}{J^*, J} &= \sfun{\varGamma_{\text{SE}}}{0,0} +
 	\int\dif^D x\,\dif^D y\,
-		\rfun{J^*}{x}\rfun{M_{\text{E}}^{-1}}{x,y} \rfun{J}{y},
+		\rfun{J^*}{x}\rfun{D_{\text{E}}}{x-y} \rfun{J}{y},
 \\
 \sfun{\varGamma_{\text{SE}}}{0,0} &=
 	-\sfun{\ln}{\rbr{\det M_\text{E}}^{-1}} = \tr\ln M_\text{E},
 \end{align}
-which traces back to \cite{weisskopf1936}. The Euclidean generating functional 
-now reads
+which traces back to \cite{heisenberg1936,weisskopf1936}. The Euclidean 
+generating functional now reads
 \begin{align}
-\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &\coloneqq
-\int\Dif A\, \exp\!\bigg\{-\int \dif^D x\,
-\rbr{\frac{1}{4} F_{IJ} F^{IJ}} - \tr\ln M_\text{E}
+\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &=
+\cfun{\exp}{- \int\dif^D x\,\dif^D y\,
+	\rfun{J^*}{x}\rfun{D_\text{E}}{x,y} \rfun{J}{y}}
 \nonumber \\
-&\qquad\qquad + \int \dif^D x\, j^{I} A_{I} 
-- \int\dif^D x\,\dif^D y\,
-	\rfun{J^*}{x}\rfun{M_\text{E}^{-1}}{x,y} \rfun{J}{y}\bigg\}.
-\label{eq:eucl-weis-100}
+&\quad\,\cdot
+\int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
+\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}} - \tr\ln M_\text{E}}
+\nonumber \\
+&\eqqcolon
+\cfun{\exp}{- \int\dif^D x\,\dif^D y\,
+	\rfun{J^*}{x}\rfun{D_\text{E}}{x,y} \rfun{J}{y}}
+\sfun{\mathcal{Z}_\text{AE}}{0}
+		\abr{\rfun{\exp}{-\tr\ln M_\text{E}}}_{j^I},
+\label{eq:eucl-effe-100}
 \end{align}
+where the average is defined as
+\begin{align}
+\abr{\mathcal{O}}_{j^I} &\coloneqq \sfun{\mathcal{Z}_\text{AE}^{-1}}{0}
+\int\Dif A\, \mathcal{O}\,\cfun{\exp}{-\int \dif^D x\,
+	\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}},
+\\
+\sfun{\mathcal{Z}_\text{AE}}{j^I} &\coloneqq
+\int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
+\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}}.
+\end{align}
+
 
 %%%%%%%%%%%%%%%%
 \subsection{World-line formalism}
-
+\label{ssec:eucl-wlfm}
 %%%%%%%%%%%%%%%%
 
-In \cref{eq:eucl-weis-100}, $\tr\ln M_\text{E}$ is crucial. Using the Schwinger 
-integral representation \cite{Schwinger1951}
+In \cref{eq:eucl-effe-100}, $\tr\ln M_\text{E}$ is crucial. Using the Schwinger 
+integral representation \cite{Schwinger1951} (up to normalisation)
 \begin{align}
 \ln \alpha = -\int_0^{+\infty} \frac{\dif s}{s}\,\me^{-\alpha s},
 \end{align}
-one has
+one has (up to normalisation)
 \begin{align}
 - \tr\ln M_\text{E} = \int_0^{+\infty} \frac{\dif T}{T}\,
 	\rfun{\exp}{-\frac{m^2 T}{2M}}\,
 	\tr \rfun{\exp}{-\frac{M_\text{E}}{2M}},
 \end{align}
-where $T$ has the dimension of time, and $M$ that of mass. Introduce the 
-Hamiltonian of a non-relativistic point particle (\textbf{check sign!})
+where $T$ has the dimension of time, and $M$ that of mass, which will both be 
+eliminated later. Introduce the Hamiltonian of a non-relativistic point particle 
+(\textbf{check sign!})
 \begin{align}
 H \coloneqq \frac{1}{2M} \rbr{P_I + e A_I}^2,
 \end{align}
@@ -375,21 +406,72 @@ so that quantisation yields the following representation (\textbf{check sign!})
 \\
 &= \oint \Dif x\,\cfun{\exp}{-\int_{0}^{T}\dif T'\,
 	\rbr{\frac{M}{2} \rbr{\frde{x^I}{T'}}^2 + \mi e A_I \frde{x^I}{T'}}}.
+\label{eq:eucl-wlfm-050}
 \end{align}
 Rescaling $T' \eqqcolon \lambda T$ gives
 \begin{align}
 - \tr\ln M_\text{E} = \int_{0}^{+\infty} \frac{\dif T}{T}\,
 	\rfun{\exp}{-\frac{m^2 T}{2M}}
-	\oint \Dif x\,\cfun{\exp}{-\frac{M}{2T} \int_{0}^{1} \dot{x}_I^2
-		- \mi e \oint A_I\,\dif x^I}.
+	\oint \Dif x\,
+		\rfun{\exp}{-\frac{M}{2T} \int_{0}^{1} \dif \lambda\, \dot{x}_I^2
+			- \mi e \oint A_I\,\dif x^I}.
+\label{eq:eucl-wlfm-100}
 \end{align}
 
 %%%%%%%%%%%%%%%%
-\subsection{World-line instanton approximation}
-
+\subsection{Euler--Heisenberg effective Lagrangian}
+\label{ssec:eucl-ehel}
 %%%%%%%%%%%%%%%%
 
-\cite{Affleck1982}
+If the instanton magnetic field in \cref{eq:eucl-wlfm-050} is constant, the 
+path integral can be performed exactly \cite{Feynman1965}. The result is the 
+Euler--Heisenberg effective Lagrangian.
+
+It is difficult to obtain a classical solution for the motion of a point 
+particle in a more generic magnetic field, e.g.\ \cite{Kondo1964}. Therefore 
+the generalisation in this direction is limited.
+
+%%%%%%%%%%%%%%%%
+\subsection{World-line instanton approximations}
+\label{ssec:eucl-wlia}
+%%%%%%%%%%%%%%%%
+
+In \cref{eq:eucl-wlfm-100}, the $T$ integral can be performed first. Using the 
+integral expression and the asymptotic expansion for a modified Bessel function
+\begin{align}
+\rfun{\BesselK_0}{x} &= \frac{1}{2} \int_0^{+\infty} \frde{\dif t}{t}\,
+	\rfun{\exp}{-t-\frac{x^2}{4t}}
+\\
+&\approx \sqrt{\frac{\pp}{2x}}\,\me^{-x}\qquad
+	x \gg 1,
+\end{align}
+one has
+\begin{align}
+- \tr\ln M_\text{E} &= 2 \oint \Dif x\,
+	\rfun{\BesselK_0}{m\sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2}}
+		\rfun{\exp}{- \mi e \oint A_I\,\dif x^I}
+\\
+&\approx \sqrt{\frac{2\pp}{m}} \oint \Dif x\,
+	\rbr{\int_0^1 \dif\lambda\, \dot{x}_I^2}^{-1/4}
+	\rfun{\exp}{-m\sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2}
+		- \mi e \oint A_I\,\dif x^I},
+\label{eq::eucl-wlia-100}
+\end{align}
+where \cref{eq::eucl-wlia-100} works for
+\begin{align}
+m \sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2} \gg 1
+\quad\text{or}\quad
+\int_0^1 \dif\lambda\, \dot{x}_I^2 \gg m^{-2}.
+\end{align}
+This idea traces back to \cite{Affleck1982}
+
+
+Another loop-based approximation:
+\begin{align}
+\abr{\rfun{\exp}{-\tr\ln M_\text{E}}}_{j^I} \approx
+\rfun{\exp}{-\abr{\tr\ln M_\text{E}}_{j^I}}.
+\end{align}
+
 
 
 %%%%%%%%%%%%%%%%
@@ -521,7 +603,10 @@ where
 
 \appendix
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Notions and conventions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The metric convention is mostly positive, i.e.\
 $\eta_{\mu\nu} \coloneqq \rfun{\diag}{-, +, +, \ldots}$
@@ -533,7 +618,7 @@ Pauli matrices
 \sigma^3 \coloneqq \begin{pmatrix} +1 & 0 \\ 0 & -1 \end{pmatrix}.
 \end{equation}
 
-The $\gamma$-matrices satisfy \citep[sec.~5]{weinberg1995}
+The $\gamma$-matrices satisfy \cite[sec.~5]{weinberg1995}
 \begin{equation}
 \sbr{\gamma^\mu, \gamma^\nu}_+ \coloneqq 2\eta^{\mu\nu} \mathbf{1}_4.
 \end{equation}
@@ -578,10 +663,12 @@ where
 \end{cases}
 \end{align}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fresnel functional integral}
 
-\citep[ch.~10]{mosel2004}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\citep[ch.\ 10]{mosel2004}
 
 \section{Algebra}
 \begin{align}
@@ -596,9 +683,22 @@ Baker--Campbell--Hausdorff formula
 = x^1 + a \partial_2.
 \end{align}
 
-\bibliographystyle{plain}
-\bibliography{./eft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Schwinger integral}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{align}
+-\int_{\epsilon}^{+\infty} \frac{\dif t}{t}\,\me^{-\alpha t} =
+-\rfun{\Gamma}{0, \alpha \epsilon} = \upgamma_\text{E} + \ln\alpha + 
+\ln\epsilon + \rfun{O}{\epsilon},
+\end{align}
+where $\rfun{\Gamma}{a,z}$ is the incomplete Gamma function, 
+$\upgamma_\text{E}$ is Euler's constant.
+
+
+\bibliographystyle{plainnat}
+\bibliography{./eft}
 %\printbibliography
 
 \end{document}
