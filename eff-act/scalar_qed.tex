@@ -237,12 +237,12 @@ Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
 
 Complex Klein--Gordon action in flat space-time
 \begin{align}
-\sfun{S_\text{CKG}}{\phi,\phi^*}\coloneqq\int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
+\sfun{S_\text{S}}{\phi,\phi^*}\coloneqq\int\dif^{d+1}x\,\cbr{-\eta^{\mu\nu}
 \rbr{\partial_\mu\phi}^* \rbr{\partial_\nu\phi} - m^2\phi^*\phi}.
 \end{align}
 Interaction terms
 \begin{align}
-\sfun{S_\text{ICKGM}}{A_\mu,\phi,\phi^*} \coloneqq \int\dif^{d+1}x\,
+\sfun{S_\text{SM}}{A_\mu,\phi,\phi^*} \coloneqq \int\dif^{d+1}x\,
 \eta^{\mu\nu}{}
 \cbr{\mi e A_\mu \rbr{-\phi^*\partial_\nu\phi+\phi\partial_\nu\phi^*}
 +e^2 A_\mu A_\nu \phi^* \phi}.
@@ -250,7 +250,7 @@ Interaction terms
 The total action for scalar electrodynamics reads
 \begin{align}
 \sfun{S}{A_\mu, \phi, \phi^*} &\coloneqq 
-S_\text{CKG} + S_\text{ICKGM} + S_\text{Maxwell} \nonumber \\
+S_\text{S} + S_\text{SM} + S_\text{Maxwell} \nonumber \\
 &= \int\dif^{d+1}x\,\cbr{-\rbr{\nabla_{\!\mu} \phi}^* \rbr{\nabla^\mu\phi} - 
 m^2\phi^*\phi -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}},
 % \nonumber \\
@@ -294,10 +294,10 @@ signature.
 \label{ssec:eucl-effe}
 %%%%%%%%%%%%%%%%
 
-Generating functional
+Generating functional (omitting subscript E for Euclidean systematically)
 \begin{align}
-\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &\coloneqq
-\int\Dif A\,\Dif\phi^*\,\Dif\phi\,\cfun{\exp}{-\rbr{S_\text{E}
+\sfun{\mathcal{Z}}{j^I, J, J^*} &\coloneqq
+\int\Dif A\,\Dif\phi^*\,\Dif\phi\,\cfun{\exp}{-\rbr{S
 +\int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}}.
 \end{align}
 The scalar fields are to be integrated out. The derivative term can be 
@@ -306,74 +306,79 @@ rearranged
 \rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} = \partial_I\rbr{\phi^* 
 \nabla^{I}\phi} - \phi^* \nabla_{\! I} \nabla^{I} \phi.
 \end{align}
-Hence
+Hence up to boundary terms,
 \begin{align}
-S_\text{E} = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
+S = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
 	\int \dif^D x\,\dif^D y\,
-	\rfun{\phi^*}{x} \rfun{M_\text{E}}{x,y} \rfun{\phi}{y},
+	\rfun{\phi^*}{x} M[A_I; x-y) \rfun{\phi}{y},
 \end{align}
 where
 \begin{align}
-\rfun{M_\text{E}}{x,y} \coloneqq \rbr{-\nabla_{\! x^I} \nabla^{x^I} + m^2} 
+M[A_I; x-y) \coloneqq \rbr{-\nabla_{\! x^I} \nabla^{x^I} + m^2} 
 \rfun{\delta^{(D)}}{x-y},
 \end{align}
 see \cite[ch.\ 6]{mosel2004} for details. Now the scalar field can formally be 
 integrated
 \begin{align}
-\sfun{\exp}{-\sfun{\varGamma_\text{SE}}{J^*, J}} &\coloneqq \int 
+\cfun{\exp}{-\sfun{\mathcal{W}_\text{S}}{A_I; J^*, J}} &\coloneqq \int 
 	\Dif\phi^*\,\Dif\phi\, \cfun{\exp}{-\int\dif^{D} x\, \rbr{
 	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi 
 	+ J^* \phi + \phi^* J}}
 \nonumber \\
-&= \frac{1}{\det \rfun{M_{\text{E}}}{x,y}}
+&= \frac{1}{\det M[A_I; x-y)}
 	\cfun{\exp}{-\int\dif^D x\,\dif^D y\,
-		\rfun{J^*}{x}\rfun{D_\text{E}}{x-y} \rfun{J}{y} },
-\end{align}
-where
-\begin{align}
-\rfun{D_\text{E}}{x-y} \coloneqq \rfun{M_\text{E}^{-1}}{x,y} = 
-	\frac{1}{\rbr{2\pp}^{D/2}} \rbr{\frac{m}{x}}^{\frac{D}{2}-1}
-	\rfun{\BesselK_{\frac{D}{2}-1}}{m\rbr{x-y}}
-\end{align}
-is the Euclidean Green's function, calculated by Chao-Ming Jian (Everett You's 
-notes). (\textbf{Check!})
-
-The effective action of the scalar fields reads
-\begin{align}
-\sfun{\varGamma_{\text{SE}}}{J^*, J} &= \sfun{\varGamma_{\text{SE}}}{0,0} +
-	\int\dif^D x\,\dif^D y\,
-		\rfun{J^*}{x}\rfun{D_{\text{E}}}{x-y} \rfun{J}{y},
+		\rfun{J^*}{x} D[A_I; x-y) \rfun{J}{y} }
 \\
-\sfun{\varGamma_{\text{SE}}}{0,0} &=
-	-\sfun{\ln}{\rbr{\det M_\text{E}}^{-1}} = \tr\ln M_\text{E},
+&\eqqcolon \frac{1}{\det M[A_I; x-y)}
+	\cfun{\exp}{-\sfun{\mathcal{W}_\text{SJ}}{J^*, J}},
 \end{align}
-which traces back to \cite{heisenberg1936,weisskopf1936}. The Euclidean 
-generating functional now reads
+where the Euclidean Green's function
 \begin{align}
-\sfun{\mathcal{Z}_\text{E}}{j^I, J, J^*} &=
-\cfun{\exp}{- \int\dif^D x\,\dif^D y\,
-	\rfun{J^*}{x}\rfun{D_\text{E}}{x,y} \rfun{J}{y}}
-\nonumber \\
-&\quad\,\cdot
+D[A_I; x-y) \coloneqq M^{-1}[A_I; x,y);
+\end{align}
+for vanishing $A_I$,
+\begin{align}
+D[0; x-y) = 
+	\frac{1}{\rbr{2\pp}^{D/2}} \rbr{\frac{m}{x}}^{\frac{D}{2}-1}
+	\rfun{\BesselK_{\frac{D}{2}-1}}{m\rbr{x-y}},
+\end{align}
+calculated by Chao-Ming Jian (Everett You's notes). (\textbf{Check!})
+
+The connected generating functional of the scalar fields reads
+\begin{align}
+\sfun{\mathcal{W}_{\text{S}}}{A_I; J^*, J} &= 
+	\sfun{\mathcal{W}_{\text{S}}}{A_I; 0,0} +
+	\sfun{\mathcal{W}_\text{SJ}}{A_I; J^*, J},
+\\
+\sfun{\mathcal{W}_{\text{S}}}{A_I; 0,0} &=
+	-\sfun{\ln}{\rbr{\det M}^{-1}} = \tr\ln M,
+\end{align}
+which traces back to \cite{heisenberg1936,weisskopf1936}. Setting the scalar 
+current to zero, the Euclidean generating functional now reads
+\begin{align}
+\sfun{\mathcal{Z}}{j^I, 0, 0} &=
 \int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
-\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}} - \tr\ln M_\text{E}}
+\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}} - \tr\ln M}
 \nonumber \\
 &\eqqcolon
-\cfun{\exp}{- \int\dif^D x\,\dif^D y\,
-	\rfun{J^*}{x}\rfun{D_\text{E}}{x,y} \rfun{J}{y}}
-\sfun{\mathcal{Z}_\text{AE}}{0}
-		\abr{\rfun{\exp}{-\tr\ln M_\text{E}}}_{j^I},
+\sfun{\mathcal{Z}_\text{A}}{0}
+		\abr{\rfun{\exp}{-\tr\ln M}}_{j^I},
 \label{eq:eucl-effe-100}
 \end{align}
 where the average is defined as
 \begin{align}
-\abr{\mathcal{O}}_{j^I} &\coloneqq \sfun{\mathcal{Z}_\text{AE}^{-1}}{0}
+\abr{\mathcal{O}}_{j^I} &\coloneqq \sfun{\mathcal{Z}_\text{A}^{-1}}{0}
 \int\Dif A\, \mathcal{O}\,\cfun{\exp}{-\int \dif^D x\,
 	\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}},
 \\
-\sfun{\mathcal{Z}_\text{AE}}{j^I} &\coloneqq
+\sfun{\mathcal{Z}_\text{A}}{j^I} &\coloneqq
 \int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
 \rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}}.
+\end{align}
+The connected generating functional
+\begin{align}
+\sfun{\mathcal{W}}{j^I, 0, 0} &\coloneqq -\ln \sfun{\mathcal{Z}}{j^I, 0, 0}
+= -\ln \sfun{\mathcal{Z}_\text{A}}{0} - \ln \abr{\rfun{\exp}{-\tr\ln M}}_{j^I}.
 \end{align}
 
 
@@ -382,26 +387,26 @@ where the average is defined as
 \label{ssec:eucl-wlfm}
 %%%%%%%%%%%%%%%%
 
-In \cref{eq:eucl-effe-100}, $\tr\ln M_\text{E}$ is crucial. Using the Schwinger 
+In \cref{eq:eucl-effe-100}, $\tr\ln M$ is crucial. Using the Schwinger 
 integral representation \cite{Schwinger1951} (up to normalisation)
 \begin{align}
 \ln \alpha = -\int_0^{+\infty} \frac{\dif s}{s}\,\me^{-\alpha s},
 \end{align}
 one has (up to normalisation)
 \begin{align}
-- \tr\ln M_\text{E} = \int_0^{+\infty} \frac{\dif T}{T}\,
+- \tr\ln M = \int_0^{+\infty} \frac{\dif T}{T}\,
 	\rfun{\exp}{-\frac{m^2 T}{2M}}\,
-	\tr \rfun{\exp}{-\frac{M_\text{E}}{2M}},
+	\tr \rfun{\exp}{-\frac{M}{2M}},
 \end{align}
 where $T$ has the dimension of time, and $M$ that of mass, which will both be 
-eliminated later. Introduce the Hamiltonian of a non-relativistic point particle 
-(\textbf{check sign!})
+eliminated later. Introduce the Hamiltonian of a non-relativistic point 
+particle (\textbf{check sign!})
 \begin{align}
 H \coloneqq \frac{1}{2M} \rbr{P_I + e A_I}^2,
 \end{align}
 so that quantisation yields the following representation (\textbf{check sign!})
 \begin{align}
-\tr \rfun{\exp}{-\frac{M_\text{E}}{2M}} &= \int_{-\infty}^{+\infty}\dif x\,
+\tr \rfun{\exp}{-\frac{M}{2M}} &= \int_{-\infty}^{+\infty}\dif x\,
 \Braket{x | \me^{-\widehat{H} T} | x}
 \\
 &= \oint \Dif x\,\cfun{\exp}{-\int_{0}^{T}\dif T'\,
@@ -410,7 +415,7 @@ so that quantisation yields the following representation (\textbf{check sign!})
 \end{align}
 Rescaling $T' \eqqcolon \lambda T$ gives
 \begin{align}
-- \tr\ln M_\text{E} = \int_{0}^{+\infty} \frac{\dif T}{T}\,
+- \tr\ln M = \int_{0}^{+\infty} \frac{\dif T}{T}\,
 	\rfun{\exp}{-\frac{m^2 T}{2M}}
 	\oint \Dif x\,
 		\rfun{\exp}{-\frac{M}{2T} \int_{0}^{1} \dif \lambda\, \dot{x}_I^2
@@ -447,7 +452,7 @@ integral expression and the asymptotic expansion for a modified Bessel function
 \end{align}
 one has
 \begin{align}
-- \tr\ln M_\text{E} &= 2 \oint \Dif x\,
+- \tr\ln M &= 2 \oint \Dif x\,
 	\rfun{\BesselK_0}{m\sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2}}
 		\rfun{\exp}{- \mi e \oint A_I\,\dif x^I}
 \\
@@ -468,8 +473,8 @@ This idea traces back to \cite{Affleck1982}
 
 Another loop-based approximation:
 \begin{align}
-\abr{\rfun{\exp}{-\tr\ln M_\text{E}}}_{j^I} \approx
-\rfun{\exp}{-\abr{\tr\ln M_\text{E}}_{j^I}}.
+\abr{\rfun{\exp}{-\tr\ln M}}_{j^I} \approx
+\rfun{\exp}{-\abr{\tr\ln M}_{j^I}}.
 \end{align}
 
 
@@ -489,7 +494,7 @@ Another loop-based approximation:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+The content below needs revise.
 
 Generating functional
 \begin{equation}
