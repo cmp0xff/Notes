@@ -101,6 +101,7 @@
 
 \newcommand\dif{\mathrm{d}}
 \newcommand\Dif{\mathrm{D}}
+\newcommand\dva{\updelta}
 
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \DeclareMathOperator{\arccosh}{arccosh}
@@ -160,7 +161,7 @@
 \newcommand{\frde}[2]{{\frac{\dif{#1}}{\dif{#2}}}}
 \newcommand{\frDe}[2]{{\frac{\Dif{#1}}{\Dif{#2}}}}
 \newcommand{\frpa}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
-%\newcommand{\frdva}[2]{{\frac{\dva{#1}}{\dva{#2}}}}
+\newcommand{\frdva}[2]{{\frac{\dva{#1}}{\dva{#2}}}}
 
 % overline-like marks
 \newcommand{\ol}[1]{{\overline{{#1}}}}
@@ -294,21 +295,41 @@ signature.
 \label{ssec:eucl-effe}
 %%%%%%%%%%%%%%%%
 
-Generating functional (omitting subscript E for Euclidean systematically)
+\emph{Generating functional} and the \emph{connected generating functional} 
+(omitting subscript E for Euclidean systematically)
 \begin{align}
 \sfun{\mathcal{Z}}{j^I, J, J^*} &\coloneqq
-\int\Dif A\,\Dif\phi^*\,\Dif\phi\,\cfun{\exp}{-\rbr{S
-+\int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}}.
+\int\Dif A_I\,\Dif\phi^*\,\Dif\phi\,
+	\cfun{\exp}{-S+\int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}
+\\
+&\eqqcolon \cfun{\exp}{-\sfun{W}{j^I, J, J^*}}.
 \end{align}
-The scalar fields are to be integrated out. The derivative term can be 
-rearranged
+One would like to find an \emph{effective action} for $A$
+\begin{align}
+\sfun{\varGamma_A}{A^\text{c}_I} + \int \dif^D x\,j_\text{c}^I A^\text{c}_I
+&\coloneqq \sfun{W}{j_\text{c}^I, 0, 0}
+\equiv -\ln \sfun{\mathcal{Z}}{j_\text{c}^I, 0, 0},
+\label{eq:eucl-effe-100}
+\\
+\fat{\frdva{\sfun{W}{j, 0, 0}}{j^I}}{j^I = j_\text{c}^I}
+	&\coloneqq A^\text{c}_I.
+\end{align}
+One also has
+\begin{align}
+\sfun{\varGamma_A}{A^\text{c}_I} &\equiv
+-\ln \int \Dif A_I\,\Dif \phi^*\,\Dif \phi\,
+	\cfun{\exp}{-\sfun{S}{A^\text{c}_I+A_I, \phi, \phi^*}}.
+\end{align}
+For a discussion, see e.g.\ \cite[ch.\ 34]{Schwartz2013}.
+
+The derivative term of $\phi$ can be rearranged
 \begin{align}
 \rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} = \partial_I\rbr{\phi^* 
 \nabla^{I}\phi} - \phi^* \nabla_{\! I} \nabla^{I} \phi.
 \end{align}
 Hence up to boundary terms,
 \begin{align}
-S = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
+\sfun{S}{A_I, \phi, \phi^*} = \int \dif^D x\, \frac{1}{4} F_{IJ} F^{IJ} +
 	\int \dif^D x\,\dif^D y\,
 	\rfun{\phi^*}{x} M[A_I; x-y) \rfun{\phi}{y},
 \end{align}
@@ -317,68 +338,68 @@ where
 M[A_I; x-y) \coloneqq \rbr{-\nabla_{\! x^I} \nabla^{x^I} + m^2} 
 \rfun{\delta^{(D)}}{x-y},
 \end{align}
-see \cite[ch.\ 6]{mosel2004} for details. Now the scalar field can formally be 
-integrated
+see e.g.\ \cite[ch.\ 6]{mosel2004} for details. Now the scalar field can 
+formally be integrated, giving the (Euclidean) Euler--Heisenberg ``effective 
+action''
 \begin{align}
-\cfun{\exp}{-\sfun{\mathcal{W}_\text{S}}{A_I; J^*, J}} &\coloneqq \int 
-	\Dif\phi^*\,\Dif\phi\, \cfun{\exp}{-\int\dif^{D} x\, \rbr{
-	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi 
-	+ J^* \phi + \phi^* J}}
+\sfun{\mathcal{Z}}{j^I, 0, 0} &\eqqcolon
+\int \Dif A_I\,\cfun{\exp}{-\sfun{\varGamma_\text{EH}}{A_I}
++ \int \dif^D x\,j^I A_I},
+\\
+\sfun{\varGamma_\text{EH}}{A_I} - \int\dif^{D} x\,
+\frac{1}{4} F_{IJ} F^{IJ}
+&=
+-\ln \int \Dif\phi^*\,\Dif\phi\,
+	\cfun{\exp}{-\int\dif^{D} x\, \rbr{
+	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi}}
 \nonumber \\
-&= \frac{1}{\det M[A_I; x-y)}
-	\cfun{\exp}{-\int\dif^D x\,\dif^D y\,
-		\rfun{J^*}{x} D[A_I; x-y) \rfun{J}{y} }
-\\
-&\eqqcolon \frac{1}{\det M[A_I; x-y)}
-	\cfun{\exp}{-\sfun{\mathcal{W}_\text{SJ}}{J^*, J}},
+&= -\ln \frac{1}{\det M[A_I; x-y)} = \tr \ln M,
+\label{eq:eucl-effe-150}
 \end{align}
-where the Euclidean Green's function
-\begin{align}
-D[A_I; x-y) \coloneqq M^{-1}[A_I; x,y);
-\end{align}
-for vanishing $A_I$,
-\begin{align}
-D[0; x-y) = 
-	\frac{1}{\rbr{2\pp}^{D/2}} \rbr{\frac{m}{x}}^{\frac{D}{2}-1}
-	\rfun{\BesselK_{\frac{D}{2}-1}}{m\rbr{x-y}},
-\end{align}
-calculated by Chao-Ming Jian (Everett You's notes). (\textbf{Check!})
+where normalisation is implicit in $\det M$. \Cref{eq:eucl-effe-150} traces 
+back to \cite{heisenberg1936,weisskopf1936}.
 
-The connected generating functional of the scalar fields reads
-\begin{align}
-\sfun{\mathcal{W}_{\text{S}}}{A_I; J^*, J} &= 
-	\sfun{\mathcal{W}_{\text{S}}}{A_I; 0,0} +
-	\sfun{\mathcal{W}_\text{SJ}}{A_I; J^*, J},
-\\
-\sfun{\mathcal{W}_{\text{S}}}{A_I; 0,0} &=
-	-\sfun{\ln}{\rbr{\det M}^{-1}} = \tr\ln M,
-\end{align}
-which traces back to \cite{heisenberg1936,weisskopf1936}. Setting the scalar 
-current to zero, the Euclidean generating functional now reads
+Going back to \cref{eq:eucl-effe-100}, one now has
 \begin{align}
 \sfun{\mathcal{Z}}{j^I, 0, 0} &=
 \int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
-\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}} - \tr\ln M}
+\rbr{\frac{1}{4} F_{IJ} F^{IJ} - j^{I} A_{I}} - \tr\ln M}
 \nonumber \\
-&\eqqcolon
-\sfun{\mathcal{Z}_\text{A}}{0}
-		\abr{\rfun{\exp}{-\tr\ln M}}_{j^I},
-\label{eq:eucl-effe-100}
+&=
+\sfun{\mathcal{Z}_{A}}{0}
+	\Braket{j^I | \rfun{\exp}{-\tr\ln M} | j^I}
+\equiv \sfun{\mathcal{Z}_{A}}{0}
+	\Braket{A_I | \rfun{\exp}{-\tr\ln M} | A_I},
+\label{eq:eucl-effe-200}
 \end{align}
-where the average is defined as
+where the expectation is defined as
 \begin{align}
-\abr{\mathcal{O}}_{j^I} &\coloneqq \sfun{\mathcal{Z}_\text{A}^{-1}}{0}
-\int\Dif A\, \mathcal{O}\,\cfun{\exp}{-\int \dif^D x\,
-	\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}},
+\Braket{A_I | \mathcal{O} | A_I} &\coloneqq
+	\sfun{\mathcal{Z}_{A}^{-1}}{0}
+	\int\Dif A\, \mathcal{O}\,\cfun{\exp}{-\int \dif^D x\,
+		\rbr{\frac{1}{4} F_{IJ} F^{IJ} - j^{I} A_{I}}},
 \\
-\sfun{\mathcal{Z}_\text{A}}{j^I} &\coloneqq
+\sfun{\mathcal{Z}_{A}}{j^I} &\coloneqq
 \int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
-\rbr{\frac{1}{4} F_{IJ} F^{IJ} + j^{I} A_{I}}}.
+\rbr{\frac{1}{4} F_{IJ} F^{IJ} - j^{I} A_{I}}}.
 \end{align}
-The connected generating functional
+
+%%%%%%%%%%%%%%%%
+\subsection{Certain limit}
+\label{ssec:eucl-cert}
+%%%%%%%%%%%%%%%%
+In a certain limit (\textbf{which limit?}), the correlation between $\tr \ln M$ 
+can be omitted, so that \cref{eq:eucl-effe-200} goes
 \begin{align}
-\sfun{\mathcal{W}}{j^I, 0, 0} &\coloneqq -\ln \sfun{\mathcal{Z}}{j^I, 0, 0}
-= -\ln \sfun{\mathcal{Z}_\text{A}}{0} - \ln \abr{\rfun{\exp}{-\tr\ln M}}_{j^I}.
+\sfun{\mathcal{Z}}{j^I, 0, 0} &\approx
+\sfun{\mathcal{Z}_{A}}{0}
+	\rfun{\exp}{-\Braket{A_I | \tr\ln M | A_I}},
+\end{align}
+and \cref{eq:eucl-effe-100} goes
+\begin{align}
+\sfun{\varGamma_A}{A_I} &\approx -\ln \sfun{\mathcal{Z}_{A}}{0}
+	+ \Braket{A_I | \tr\ln M | A_I}.
+\label{eq:eucl-cert-100}
 \end{align}
 
 
@@ -387,8 +408,11 @@ The connected generating functional
 \label{ssec:eucl-wlfm}
 %%%%%%%%%%%%%%%%
 
-In \cref{eq:eucl-effe-100}, $\tr\ln M$ is crucial. Using the Schwinger 
-integral representation \cite{Schwinger1951} (up to normalisation)
+In \cref{eq:eucl-effe-150,eq:eucl-effe-200,eq:eucl-cert-100}, $\tr\ln M$ is 
+crucial.
+
+Using the Schwinger integral representation \cite{Schwinger1951} (up to 
+normalisation)
 \begin{align}
 \ln \alpha = -\int_0^{+\infty} \frac{\dif s}{s}\,\me^{-\alpha s},
 \end{align}
@@ -424,13 +448,13 @@ Rescaling $T' \eqqcolon \lambda T$ gives
 \end{align}
 
 %%%%%%%%%%%%%%%%
-\subsection{Euler--Heisenberg effective Lagrangian}
+\subsection{Euler--Heisenberg ``effective action''}
 \label{ssec:eucl-ehel}
 %%%%%%%%%%%%%%%%
 
 If the instanton magnetic field in \cref{eq:eucl-wlfm-050} is constant, the 
-path integral can be performed exactly \cite{Feynman1965}. The result is the 
-Euler--Heisenberg effective Lagrangian.
+path integral can be performed exactly \cite{Feynman1965}, so that 
+\cref{eq:eucl-effe-150} can be expressed in terms of an integral of $T$.
 
 It is difficult to obtain a classical solution for the motion of a point 
 particle in a more generic magnetic field, e.g.\ \cite{Kondo1964}. Therefore 
@@ -441,13 +465,14 @@ the generalisation in this direction is limited.
 \label{ssec:eucl-wlia}
 %%%%%%%%%%%%%%%%
 
-In \cref{eq:eucl-wlfm-100}, the $T$ integral can be performed first. Using the 
-integral expression and the asymptotic expansion for a modified Bessel function
+In \cref{eq:eucl-wlfm-100}, one may also perform the $T$ integral first. Using 
+the integral expression and the asymptotic expansion for a modified Bessel 
+function
 \begin{align}
 \rfun{\BesselK_0}{x} &= \frac{1}{2} \int_0^{+\infty} \frde{\dif t}{t}\,
 	\rfun{\exp}{-t-\frac{x^2}{4t}}
 \\
-&\approx \sqrt{\frac{\pp}{2x}}\,\me^{-x}\qquad
+&\approx \sqrt{\frac{\pp}{2x}}\,\me^{-x},\qquad
 	x \gg 1,
 \end{align}
 one has
@@ -465,22 +490,14 @@ one has
 where \cref{eq::eucl-wlia-100} works for
 \begin{align}
 m \sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2} \gg 1
-\quad\text{or}\quad
+\qquad\text{or}\qquad
 \int_0^1 \dif\lambda\, \dot{x}_I^2 \gg m^{-2}.
 \end{align}
 This idea traces back to \cite{Affleck1982}
 
 
-Another loop-based approximation:
-\begin{align}
-\abr{\rfun{\exp}{-\tr\ln M}}_{j^I} \approx
-\rfun{\exp}{-\abr{\tr\ln M}_{j^I}}.
-\end{align}
-
-
-
 %%%%%%%%%%%%%%%%
-\subsection{Application of instanton approximation}
+\subsection{Application of instanton approximations}
 
 %%%%%%%%%%%%%%%%
 
@@ -498,7 +515,7 @@ The content below needs revise.
 
 Generating functional
 \begin{equation}
-\sfun{\mathcal{Z}}{j^\mu, J^*, J} \coloneqq
+\sfun{\mathcal{Z}}{j^\mu, J, J^*} \coloneqq
 \int\Dif A\,\Dif\phi\,\Dif\phi^*\,\cfun{\exp}{\mi\rbr{S_0
 +\int\dif^{d+1} x\,\rbr{j^\mu A_\mu + J^* \phi+\phi^* J}}}.
 \end{equation}
