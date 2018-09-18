@@ -300,11 +300,18 @@ signature.
 \begin{align}
 \sfun{\mathcal{Z}}{j^I, J, J^*} &\coloneqq
 \int\Dif A_I\,\Dif\phi^*\,\Dif\phi\,
-	\cfun{\exp}{-S+\int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}
+	\cfun{\exp}{- S - \int\dif^{D} x\,\rbr{j^I A_I + J^* \phi+\phi^* J}}
 \\
 &\eqqcolon \cfun{\exp}{-\sfun{W}{j^I, J, J^*}}.
 \end{align}
-One would like to find an \emph{effective action} for $A$
+The expectation value of $A_I$, $\phi$ etc.
+\begin{align}
+	\sfun{A^\text{e}_I}{j^I, J, J^*} \coloneqq \frdva{W}{j^I},
+	\\
+	\sfun{\phi^\text{e}}{j^I, J, J^*} \coloneqq \frdva{W}{J^*}.
+\end{align}
+
+One would like to find \emph{an effective action for $A$}
 \begin{align}
 \sfun{\varGamma_A}{A^\text{c}_I} + \int \dif^D x\,j_\text{c}^I A^\text{c}_I
 &\coloneqq \sfun{W}{j_\text{c}^I, 0, 0}
@@ -469,7 +476,7 @@ In \cref{eq:eucl-wlfm-100}, one may also perform the $T$ integral first. Using
 the integral expression and the asymptotic expansion for a modified Bessel 
 function
 \begin{align}
-\rfun{\BesselK_0}{x} &= \frac{1}{2} \int_0^{+\infty} \frde{\dif t}{t}\,
+\rfun{\BesselK_0}{x} &= \frac{1}{2} \int_0^{+\infty} \frac{\dif t}{t}\,
 	\rfun{\exp}{-t-\frac{x^2}{4t}}
 \\
 &\approx \sqrt{\frac{\pp}{2x}}\,\me^{-x},\qquad
