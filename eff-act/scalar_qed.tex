@@ -231,9 +231,12 @@ Z\"ulpicher Stra\ss e 77, 50937 K\"oln, Germany}
 
 %\tableofcontents
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Wick rotation}
+The idea of a critical field traces back to \cite{Sauter1931}, where Dirac 
+equation in a linear potential was solved.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Classical field}
+\label{sec:cla-fie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Complex Klein--Gordon action in flat space-time
@@ -264,6 +267,19 @@ where
 %,\qquad\text{b.t.} = \partial_\mu \rbr{\phi^*\nabla^\mu \phi}.
 \end{align}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Functional quantisation}
+\label{sec:gen-fun}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%
+\subsection{Wick rotation}
+
+%%%%%%%%%%%%%%%%
+
+Lorentzian generating functional
+
 Wick rotation
 \begin{align}
 x_\text{E}^4 = \mi x^0,\quad A_4 = -\mi A_0,
@@ -282,17 +298,12 @@ The Euclidean action reads
 \end{align}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Euclidean signature}
-\label{sec:eucl}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Working with the Euclidean signature is much easier than in the Lorentzian 
+Working with the Euclidean signature is easier than in the Lorentzian 
 signature.
 
 %%%%%%%%%%%%%%%%
 \subsection{Effective action}
-\label{ssec:eucl-effe}
+\label{ssec:gen-fun-eff-act}
 %%%%%%%%%%%%%%%%
 
 \emph{Generating functional} and the \emph{connected generating functional} 
@@ -311,23 +322,40 @@ The expectation value of $A_I$, $\phi$ etc.
 	\sfun{\phi^\text{e}}{j^I, J, J^*} \coloneqq \frdva{W}{J^*}.
 \end{align}
 
-One would like to find \emph{an effective action for $A$}
+One would like to find \emph{an effective action for $A$}, defined by the 
+Legendre transformation
 \begin{align}
-\sfun{\varGamma_A}{A^\text{c}_I} + \int \dif^D x\,j_\text{c}^I A^\text{c}_I
-&\coloneqq \sfun{W}{j_\text{c}^I, 0, 0}
-\equiv -\ln \sfun{\mathcal{Z}}{j_\text{c}^I, 0, 0},
-\label{eq:eucl-effe-100}
+\sfun{\varGamma_A}{A_I} + \int \dif^D x\,\overline{j}^I A_I
+&\coloneqq \sfun{W}{\overline{j}^I, 0, 0}
+\equiv -\ln \sfun{\mathcal{Z}}{\overline{j}^I, 0, 0},
+\label{eq:gen-fun-eff-act-100}
 \\
-\fat{\frdva{\sfun{W}{j, 0, 0}}{j^I}}{j^I = j_\text{c}^I}
-	&\coloneqq A^\text{c}_I.
+\fat{\frdva{\sfun{W}{j, 0, 0}}{j^I}}{j^I = \overline{j}^I}
+	&\coloneqq A_I.
 \end{align}
-One also has
+
+In order to understand $\sfun{\varGamma_A}{A_I}$, take $j^I$ as the fundamental 
+field, and take functional derivative with respect to it in 
+\cref{eq:gen-fun-eff-act-100}, yielding
 \begin{align}
-\sfun{\varGamma_A}{A^\text{c}_I} &\equiv
--\ln \int \Dif A_I\,\Dif \phi^*\,\Dif \phi\,
-	\cfun{\exp}{-\sfun{S}{A^\text{c}_I+A_I, \phi, \phi^*}}.
+\frdva{\varGamma_A}{A_I}\frdva{A_I}{j^J} + A_J + j^I\frdva{A_I}{j^J} = 
+\frdva{W}{j^J} &= A_J,
 \end{align}
-For a discussion, see e.g.\ \cite[ch.\ 34]{Schwartz2013}.
+or
+\begin{empheq}[box=\fbox]{align}
+\frdva{\varGamma_A}{A_I} + j^I = 0.
+\label{eq:gen-fun-eff-act-gam-10}
+\end{empheq}
+At the leading order, \cref{eq:gen-fun-eff-act-gam-10} reduces to the 
+expression for classical action principle with source. One also has
+\begin{align}
+\sfun{\varGamma_A}{A^\text{e}_I} &\equiv
+-\ln \int \Dif A_I\,\Dif \phi^*\,\Dif \phi\,
+	\cfun{\exp}{-\sfun{S}{A^\text{c}_I+A_I, \phi, \phi^*}};
+\end{align}
+at the leading order, the external field $A^\text{e}_I$ reduces to the 
+classical field $A^\text{c}_I$. See \cite[ch.\ 34]{Schwartz2013}, and 
+better \cite[ch.\ 22]{Kleinert2015}.
 
 The derivative term of $\phi$ can be rearranged
 \begin{align}
@@ -361,12 +389,13 @@ action''
 	\rbr{\nabla_{\! I} \phi}^* \rbr{\nabla^{I} \phi} + m^2 \phi^* \phi}}
 \nonumber \\
 &= -\ln \frac{1}{\det M[A_I; x-y)} = \tr \ln M,
-\label{eq:eucl-effe-150}
+\label{eq:gen-fun-eff-act-150}
 \end{align}
-where normalisation is implicit in $\det M$. \Cref{eq:eucl-effe-150} traces 
+where normalisation is implicit in $\det M$. \Cref{eq:gen-fun-eff-act-150} 
+traces 
 back to \cite{heisenberg1936,weisskopf1936}.
 
-Going back to \cref{eq:eucl-effe-100}, one now has
+Going back to \cref{eq:gen-fun-eff-act-100}, one now has
 \begin{align}
 \sfun{\mathcal{Z}}{j^I, 0, 0} &=
 \int\Dif A\, \cfun{\exp}{-\int \dif^D x\,
@@ -377,7 +406,7 @@ Going back to \cref{eq:eucl-effe-100}, one now has
 	\Braket{j^I | \rfun{\exp}{-\tr\ln M} | j^I}
 \equiv \sfun{\mathcal{Z}_{A}}{0}
 	\Braket{A_I | \rfun{\exp}{-\tr\ln M} | A_I},
-\label{eq:eucl-effe-200}
+\label{eq:gen-fun-eff-act-200}
 \end{align}
 where the expectation is defined as
 \begin{align}
@@ -396,13 +425,13 @@ where the expectation is defined as
 \label{ssec:eucl-cert}
 %%%%%%%%%%%%%%%%
 In a certain limit (\textbf{which limit?}), the correlation between $\tr \ln M$ 
-can be omitted, so that \cref{eq:eucl-effe-200} goes
+can be omitted, so that \cref{eq:gen-fun-eff-act-200} goes
 \begin{align}
 \sfun{\mathcal{Z}}{j^I, 0, 0} &\approx
 \sfun{\mathcal{Z}_{A}}{0}
 	\rfun{\exp}{-\Braket{A_I | \tr\ln M | A_I}},
 \end{align}
-and \cref{eq:eucl-effe-100} goes
+and \cref{eq:gen-fun-eff-act-100} goes
 \begin{align}
 \sfun{\varGamma_A}{A_I} &\approx -\ln \sfun{\mathcal{Z}_{A}}{0}
 	+ \Braket{A_I | \tr\ln M | A_I}.
@@ -415,42 +444,44 @@ and \cref{eq:eucl-effe-100} goes
 \label{ssec:eucl-wlfm}
 %%%%%%%%%%%%%%%%
 
-In \cref{eq:eucl-effe-150,eq:eucl-effe-200,eq:eucl-cert-100}, $\tr\ln M$ is 
-crucial.
+In \cref{eq:gen-fun-eff-act-150,eq:gen-fun-eff-act-200,eq:eucl-cert-100}, 
+$\tr\ln M$ is crucial.
 
 Using the Schwinger integral representation \cite{Schwinger1951} (up to 
-normalisation)
+normalisation, see \cref{sec:sch-int})
 \begin{align}
 \ln \alpha = -\int_0^{+\infty} \frac{\dif s}{s}\,\me^{-\alpha s},
 \end{align}
-one has (up to normalisation)
+one has
 \begin{align}
 - \tr\ln M = \int_0^{+\infty} \frac{\dif T}{T}\,
-	\rfun{\exp}{-\frac{m^2 T}{2M}}\,
-	\tr \rfun{\exp}{-\frac{M}{2M}},
+	\rfun{\exp}{-\frac{m^2 T}{2\widetilde{m}}}\,
+	\tr \rfun{\exp}{-\frac{M}{2\widetilde{m}}},
 \end{align}
-where $T$ has the dimension of time, and $M$ that of mass, which will both be 
-eliminated later. Introduce the Hamiltonian of a non-relativistic point 
-particle (\textbf{check sign!})
+where $T$ has the dimension of time, and $\widetilde{m}$ that of mass, which 
+will both be eliminated later. Introduce the Hamiltonian of a non-relativistic 
+point particle in $D$ spatial dimensions (note originally one works in $d = 
+D-1$ spatial dimensions) (\textbf{check sign!})
 \begin{align}
-H \coloneqq \frac{1}{2M} \rbr{P_I + e A_I}^2,
+H \coloneqq \frac{1}{2 \widetilde{m}} \rbr{P_I + e A_I}^2,
 \end{align}
 so that quantisation yields the following representation (\textbf{check sign!})
 \begin{align}
-\tr \rfun{\exp}{-\frac{M}{2M}} &= \int_{-\infty}^{+\infty}\dif x\,
+\tr \rfun{\exp}{-\frac{M}{2\widetilde{m}}} &= \int_{-\infty}^{+\infty}\dif x\,
 \Braket{x | \me^{-\widehat{H} T} | x}
 \\
 &= \oint \Dif x\,\cfun{\exp}{-\int_{0}^{T}\dif T'\,
-	\rbr{\frac{M}{2} \rbr{\frde{x^I}{T'}}^2 + \mi e A_I \frde{x^I}{T'}}}.
+	\rbr{\frac{\widetilde{m}}{2} \rbr{\frde{x^I}{T'}}^2 +
+	\mi e A_I \frde{x^I}{T'}}}.
 \label{eq:eucl-wlfm-050}
 \end{align}
 Rescaling $T' \eqqcolon \lambda T$ gives
 \begin{align}
 - \tr\ln M = \int_{0}^{+\infty} \frac{\dif T}{T}\,
-	\rfun{\exp}{-\frac{m^2 T}{2M}}
+	\rfun{\exp}{-\frac{m^2 T}{2 \widetilde{m}}}
 	\oint \Dif x\,
-		\rfun{\exp}{-\frac{M}{2T} \int_{0}^{1} \dif \lambda\, \dot{x}_I^2
-			- \mi e \oint A_I\,\dif x^I}.
+		\rfun{\exp}{-\frac{\widetilde{m}}{2T} \int_{0}^{1} \dif \lambda\, 
+			\dot{x}_I^2 - \mi e \oint A_I\,\dif x^I}.
 \label{eq:eucl-wlfm-100}
 \end{align}
 
@@ -461,11 +492,11 @@ Rescaling $T' \eqqcolon \lambda T$ gives
 
 If the instanton magnetic field in \cref{eq:eucl-wlfm-050} is constant, the 
 path integral can be performed exactly \cite{Feynman1965}, so that 
-\cref{eq:eucl-effe-150} can be expressed in terms of an integral of $T$.
+\cref{eq:gen-fun-eff-act-150} can be expressed in terms of an integral of $T$.
 
 It is difficult to obtain a classical solution for the motion of a point 
-particle in a more generic magnetic field, e.g.\ \cite{Kondo1964}. Therefore 
-the generalisation in this direction is limited.
+particle in a more generic magnetic field. %, e.g.\ \cite{Kondo1964}. 
+Therefore the generalisation in this direction is limited.
 
 %%%%%%%%%%%%%%%%
 \subsection{World-line instanton approximations}
@@ -500,15 +531,36 @@ m \sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2} \gg 1
 \qquad\text{or}\qquad
 \int_0^1 \dif\lambda\, \dot{x}_I^2 \gg m^{-2}.
 \end{align}
-This idea traces back to \cite{Affleck1982}
+This idea traces back to \cite{Affleck1982}.
+
+In such a limit, estimate $\tr\ln M$ by the classical trajectory of the 
+non-linear instanton action
+\begin{align}
+S_\text{i} = -\ln\rfun{\BesselK_0}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}
++ \mi e \oint A_I\,\dif x^I.
+\end{align}
+The action principle gives
+\begin{align}
+0 = \frdva{S_\text{i}}{x_I} = -m 
+\frac{\rfun{\BesselK_1}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}}%
+{\rfun{\BesselK_0}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}}
+\frac{\ddot{x}^I}{\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}} - \mi e
+\end{align}
+
 
 
 %%%%%%%%%%%%%%%%
 \subsection{Application of instanton approximations}
-
+\label{ssec:eucl-appl}
 %%%%%%%%%%%%%%%%
 
 \cite{Dunne2005}
+
+%%%%%%%%%%%%%%%%
+\subsubsection{Constant electric field}
+\label{ssec:eucl-appl-cons}
+%%%%%%%%%%%%%%%%
+
 
 
 
@@ -714,7 +766,7 @@ Baker--Campbell--Hausdorff formula
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Schwinger integral}
-
+\label{sec:sch-int}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{align}
