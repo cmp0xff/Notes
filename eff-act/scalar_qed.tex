@@ -523,9 +523,9 @@ one has
 	\rbr{\int_0^1 \dif\lambda\, \dot{x}_I^2}^{-1/4}
 	\rfun{\exp}{-m\sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2}
 		- \mi e \oint A_I\,\dif x^I},
-\label{eq::eucl-wlia-100}
+\label{eq:eucl-wlia-100}
 \end{align}
-where \cref{eq::eucl-wlia-100} works for
+where \cref{eq:eucl-wlia-100} works for
 \begin{align}
 m \sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2} \gg 1
 \qquad\text{or}\qquad
@@ -533,20 +533,36 @@ m \sqrt{\int_0^1 \dif\lambda\, \dot{x}_I^2} \gg 1
 \end{align}
 This idea traces back to \cite{Affleck1982}.
 
-In such a limit, estimate $\tr\ln M$ by the classical trajectory of the 
+In such a limit, one may estimate $\tr\ln M$ by the classical trajectory of the 
 non-linear instanton action
 \begin{align}
 S_\text{i} = -\ln\rfun{\BesselK_0}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}
 + \mi e \oint A_I\,\dif x^I.
 \end{align}
-The action principle gives
+The action principle gives an integro-differential equation
 \begin{align}
 0 = \frdva{S_\text{i}}{x_I} = -m 
 \frac{\rfun{\BesselK_1}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}}%
 {\rfun{\BesselK_0}{m\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}}}
-\frac{\ddot{x}^I}{\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}} - \mi e
+\frac{\ddot{x}^I}{\sqrt{\int_0^1\dif\lambda\, \dot{x}_I^2}} +
+	\mi e F^{IJ} \dot{x}_J.
+\label{eq:eucl-wlia-200}
+\end{align}
+Contracting \cref{eq:eucl-wlia-200} with $\dot{x}_I$ yields
+\begin{align}
+\frde{\dot{x}_I^2}{\lambda} = 0,\qquad
+\dot{x}_I^2 \eqqcolon a^2,\quad a > 0.
+\end{align}
+Hence \cref{eq:eucl-wlia-200} turns into
+\begin{align}
+m \rfun{K}{a} \ddot{x}^I = \mi e F^{IJ} \dot{x}_J,\qquad
+\rfun{K}{a} \coloneqq \frac{1}{a} 
+\frac{\rfun{\BesselK_1}{ma}}{\rfun{\BesselK_0}{ma}}.
+\label{eq:eucl-wlia-10}
 \end{align}
 
+In Euclidean signature, \cref{eq:eucl-wlia-10} is intrinsically complex 
+\cite{Dumlu2011}.
 
 
 %%%%%%%%%%%%%%%%
@@ -556,11 +572,20 @@ The action principle gives
 
 \cite{Dunne2005}
 
-%%%%%%%%%%%%%%%%
+%%%%%%%%
 \subsubsection{Constant electric field}
 \label{ssec:eucl-appl-cons}
+%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+\subsection{Duality}
+\label{ssec:eucl-dual}
 %%%%%%%%%%%%%%%%
 
+Idea \cite{Semenoff2011}; book \cite[ch.\ 5]{Casalderrey-Solana2009}; review 
+\cite{Kawai2015}; 
+
+Neveu--Schwarz--Neveu--Schwarz two-form \cite{Becker2006}
 
 
 
