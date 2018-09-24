@@ -1,0 +1,131 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+
+
+\input{../preambles/preamble}
+\input{../preambles/unicode}
+
+\setmainlanguage{english}
+\setotherlanguages{german,greek,russian}
+
+\input{../preambles/math-single}
+\input{../preambles/math-brac}
+\input{../preambles/math-thm}
+\input{../preambles/phys-chem}
+
+%\setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\usepackage[%style=authoryear-icomp,
+			backend=biber]{biblatex}
+\addbibresource{./string.bib}
+
+\title{Classical string theory}
+\author{Yi-Fan Wang (王\ 一帆)}
+%\date{}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bosonic string}
+\label{sec:bos-str}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+\subsection{Nambu--Goto action}
+\label{sec:bos-str-nam}
+%%%%%%%%%%%%%%%%
+
+The action reads \cite{Nambu1970a,Goto1971}
+\begin{align}
+S_{\text{NG}} \coloneqq -T \int \dd A = 
+-T \int \dd^2 \sigma\,\sqrt{-\tsup[2]{\gamma}},
+\end{align}
+where
+\begin{align}
+\tsup[2]{\gamma} \coloneqq \det \gamma_{\alpha\beta} \equiv
+\gamma_{11}\gamma_{22} - \gamma_{12}\gamma_{21}
+\end{align}
+is the metric determinant, $\alpha, \beta, \ldots = 1, 2$ are the world-sheet 
+indices, $\rbr{\sigma^\alpha}$ are the world-sheet coordinates, 
+\begin{align}
+\gamma_{\alpha\beta} \coloneqq g_{\mu\nu} 
+X^{\mu}{}_{,\alpha} X^{\nu}{}_{,\beta},
+\end{align}
+is the induced metric on the world-sheet, $\rho, \nu, \ldots = 0, 1, \ldots d$ 
+are the target-space indices, $X^{\mu} = \rfun{X^{\mu}}{\sigma^{\alpha}}$ are 
+the world-sheet coordinates. $X^{\mu}$ are the dynamical variables.
+
+The inverse metric can also be expressed in a closed form
+\begin{align}
+\gamma^{\alpha\beta} &= \frac{1}{\rbr{2-1}!} 
+	\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
+	\tsup[2]{\gamma}^{-1} \gamma_{\gamma\delta}
+\nonumber \\
+&=
+	\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
+	\tsup[2]{\gamma}^{-1} \gamma_{\gamma\delta} =
+	\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} \gamma_{\gamma\delta}
+\\
+&=
+\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
+	\tsup[2]{\gamma}^{-1} g_{\rho\sigma} 
+	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta} =
+\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} g_{\rho\sigma} 
+	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta}
+\\
+&\equiv \tsup[2]{\gamma}^{-1}
+\begin{pmatrix}
+\gamma_{22} & -\gamma_{12} \\ -\gamma_{21} & \gamma_{11}
+\end{pmatrix}^{\alpha\beta}.
+\end{align}
+
+Variation of the induced metric determinant can be expressed in terms of that 
+of the induced metric
+\begin{align}
+\dva \tsup[2]{\gamma} = \tsup[2]{\gamma} \gamma^{\alpha\beta}\,\dva 
+	\gamma_{\alpha\beta}.
+\end{align}
+Variation of the induced metric in terms of the world-sheet coordinates reads 
+\begin{align}
+\dva \gamma_{\alpha\beta} = X^{\nu}{}_{,\beta} \rbr{
+	2 g_{\mu\nu}\, 	\dva X^{\mu}{}_{,\alpha} + 
+	X^{\rho}{}_{,\alpha} g_{\nu\rho,\mu}\, \dva X^{\mu}}.
+\end{align}
+
+
+Variation of the area element reads
+\begin{align}
+\dva \sqrt{-\tsup[2]{\gamma}} &=
+\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}\,
+\dva \gamma_{\alpha\beta}
+\nonumber \\
+&=
+-\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
+	\rbr{-\tsup[2]{\gamma}}^{-1/2}\, \gamma_{\gamma\delta}
+	\frpa{X^{\nu}}{\sigma^{\beta}}
+	g_{\mu\nu}\, \dva\frpa{X^{\mu}}{\sigma^{\alpha}} 
+\nonumber \\
+&=
+-\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
+	\bigg\{\frpa{}{\sigma^{\alpha}}
+		\sbr{\rbr{-\tsup[2]{\gamma}}^{-1/2}\, 
+		\gamma_{\gamma\delta}\frpa{X^{\nu}}{\sigma^{\beta}} g_{\mu\nu}\, 
+		\dva X^{\mu}}
+\nonumber \\
+&\qquad\qquad\ -
+\frpa{}{\sigma^{\alpha}}
+	\sbr{\rbr{-\tsup[2]{\gamma}}^{-1/2}\, 
+		\gamma_{\gamma[\delta} \frpa{X^{\nu}}{\sigma^{\beta]}} g_{\mu\nu}}\, 
+		\dva X^{\mu}
+	\bigg\}
+\end{align}
+
+
+
+\printbibliography
+
+\end{document}
