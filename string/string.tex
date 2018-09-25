@@ -91,11 +91,10 @@ of the induced metric
 \end{align}
 Variation of the induced metric in terms of the world-sheet coordinates reads 
 \begin{align}
-\dva \gamma_{\alpha\beta} = X^{\nu}{}_{,\beta} \rbr{
-	2 g_{\mu\nu}\, 	\dva X^{\mu}{}_{,\alpha} + 
-	X^{\rho}{}_{,\alpha} g_{\nu\rho,\mu}\, \dva X^{\mu}}.
+\dva \gamma_{\alpha\beta} = X^{\nu}{}_{,\alpha} \rbr{
+	2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
+	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}.
 \end{align}
-
 
 Variation of the area element reads
 \begin{align}
@@ -104,24 +103,51 @@ Variation of the area element reads
 \dva \gamma_{\alpha\beta}
 \nonumber \\
 &=
--\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\rbr{-\tsup[2]{\gamma}}^{-1/2}\, \gamma_{\gamma\delta}
-	\frpa{X^{\nu}}{\sigma^{\beta}}
-	g_{\mu\nu}\, \dva\frpa{X^{\mu}}{\sigma^{\alpha}} 
+\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}
+X^{\nu}{}_{,\alpha}\rbr{2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
+	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}
 \nonumber \\
 &=
--\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\bigg\{\frpa{}{\sigma^{\alpha}}
-		\sbr{\rbr{-\tsup[2]{\gamma}}^{-1/2}\, 
-		\gamma_{\gamma\delta}\frpa{X^{\nu}}{\sigma^{\beta}} g_{\mu\nu}\, 
-		\dva X^{\mu}}
+\rbr{\ldots}^{\beta}{}_{,\beta} - \cbr{
+\rbr{\sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta} 
+	X^{\nu}{}_{,\alpha} g_{\nu\lambda}}_{,\beta} - 
+\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} 
+X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}}\, \dva X^{\lambda}
 \nonumber \\
-&\qquad\qquad\ -
-\frpa{}{\sigma^{\alpha}}
-	\sbr{\rbr{-\tsup[2]{\gamma}}^{-1/2}\, 
-		\gamma_{\gamma[\delta} \frpa{X^{\nu}}{\sigma^{\beta]}} g_{\mu\nu}}\, 
-		\dva X^{\mu}
-	\bigg\}
+&=
+\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, \bigg\{
+	\square X^{\mu} g_{\mu\lambda} + 
+	\gamma^{\alpha\beta} X^{\nu}{}_{,\alpha}
+		g_{\nu\lambda,\rho} X^{\rho}{}_{,\beta} 
+\nonumber \\
+&\qquad\qquad\qquad\qquad -
+	\frac{1}{2} \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
+		g_{\nu\rho,\lambda} \bigg\}\, \dva X^{\lambda}
+\nonumber \\
+&=
+\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, \bigg\{
+	\square X^{\mu} g_{\mu\lambda} 
+\nonumber \\
+&\qquad\qquad\qquad\qquad + 
+	\frac{1}{2} \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
+		\rbr{-g_{\nu\rho,\lambda} + g_{\rho\lambda,\nu} + g_{\lambda\nu,\rho}}
+	\bigg\}\, \dva X^{\lambda}
+\nonumber \\
+&=
+\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, g_{\mu\lambda}
+	\cbr{ \square X^{\mu} + 
+	\Gamma^{\mu}{}_{\nu\rho} \gamma^{\alpha\beta}
+		X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
+	} \, \dva X^{\lambda},
+\end{align}
+where
+\begin{align}
+\rbr{\ldots}^{\beta} &\coloneqq \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}
+X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
+\\
+\square X^{\mu} &\coloneqq
+\frac{1}{\sqrt{-\tsup[2]{\gamma}}} \rbr{\sqrt{-\tsup[2]{\gamma}}\, 
+	\gamma^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}
 \end{align}
 
 
