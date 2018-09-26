@@ -30,6 +30,33 @@
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Point particle}
+\label{sec:pnt-ptc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+\subsection{Linear action}
+\label{sec:pnt-ptc-lin}
+%%%%%%%%%%%%%%%%
+
+\begin{align}
+\sfun{S_1}{x^{\mu}} \coloneqq -m \int_{\gamma} \dd s = 
+-m \int_{\gamma} \dd \lambda\, \sqrt{-g_{\mu\nu}
+	\dot{x}^{\mu} \dot{x}^{\nu} }.
+\end{align}
+
+%%%%%%%%%%%%%%%%
+\subsection{Quadratic action}
+\label{sec:pnt-ptc-qua}
+%%%%%%%%%%%%%%%%
+
+\begin{align}
+\sfun{S_2}{e, x^{\mu}} \coloneqq \frac{1}{2} \int_{\gamma} \dd\lambda\, e
+\rbr{e^{-2} g_{\mu\nu} \dot{x}^{\mu} \dot{x}^{\nu} - m^2}.
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bosonic string}
 \label{sec:bos-str}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,18 +68,18 @@
 
 The action reads \cite{Nambu1970a,Goto1971}
 \begin{align}
-S_{\text{NG}} \coloneqq -T \int \dd A = 
--T \int \dd^2 \sigma\,\sqrt{-\tsup[2]{\gamma}},
+\sfun{S_{\text{NG}}}{X^{\mu}} \coloneqq -T \int_{\Sigma} \dd A = 
+-T \int_{\Sigma} \dd^2 \sigma\,\sqrt{-\tsup[2]{\psi}},
 \end{align}
 where
 \begin{align}
-\tsup[2]{\gamma} \coloneqq \det \gamma_{\alpha\beta} \equiv
-\gamma_{11}\gamma_{22} - \gamma_{12}\gamma_{21}
+\tsup[2]{\psi} \coloneqq \det \psi_{\alpha\beta} \equiv
+\psi_{11}\psi_{22} - \psi_{12}\psi_{21}
 \end{align}
 is the metric determinant, $\alpha, \beta, \ldots = 1, 2$ are the world-sheet 
 indices, $\rbr{\sigma^\alpha}$ are the world-sheet coordinates, 
 \begin{align}
-\gamma_{\alpha\beta} \coloneqq g_{\mu\nu} 
+\psi_{\alpha\beta} \coloneqq g_{\mu\nu} 
 X^{\mu}{}_{,\alpha} X^{\nu}{}_{,\beta},
 \end{align}
 is the induced metric on the world-sheet, $\rho, \nu, \ldots = 0, 1, \ldots d$ 
@@ -61,96 +88,150 @@ the world-sheet coordinates. $X^{\mu}$ are the dynamical variables.
 
 The inverse metric can also be expressed in a closed form
 \begin{align}
-\gamma^{\alpha\beta} &= \frac{1}{\rbr{2-1}!} 
+\psi^{\alpha\beta} &= \frac{1}{\rbr{2-1}!} 
 	\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\tsup[2]{\gamma}^{-1} \gamma_{\gamma\delta}
+	\tsup[2]{\psi}^{-1} \psi_{\gamma\delta}
 \nonumber \\
 &=
 	\tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\tsup[2]{\gamma}^{-1} \gamma_{\gamma\delta} =
-	\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} \gamma_{\gamma\delta}
+	\tsup[2]{\psi}^{-1} \psi_{\gamma\delta} =
+	\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} \psi_{\gamma\delta}
 \\
 &=
 \tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\tsup[2]{\gamma}^{-1} g_{\rho\sigma} 
+	\tsup[2]{\psi}^{-1} g_{\rho\sigma} 
 	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta} =
 \epsilon^{\alpha\gamma} \epsilon^{\beta\delta} g_{\rho\sigma} 
 	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta}
 \\
-&\equiv \tsup[2]{\gamma}^{-1}
+&\equiv \frac{1}{\tsup[2]{\psi}}
 \begin{pmatrix}
-\gamma_{22} & -\gamma_{12} \\ -\gamma_{21} & \gamma_{11}
+\psi_{22} & -\psi_{12} \\ -\psi_{21} & \psi_{11}\psi
 \end{pmatrix}^{\alpha\beta}.
 \end{align}
+Unfortunately this is not useful.
 
 Variation of the induced metric determinant can be expressed in terms of that 
 of the induced metric
 \begin{align}
-\dva \tsup[2]{\gamma} = \tsup[2]{\gamma} \gamma^{\alpha\beta}\,\dva 
-	\gamma_{\alpha\beta}.
+\dva \tsup[2]{\psi} = \tsup[2]{\psi} \psi^{\alpha\beta}\,\dva 
+	\psi_{\alpha\beta}.
 \end{align}
 Variation of the induced metric in terms of the world-sheet coordinates reads 
 \begin{align}
-\dva \gamma_{\alpha\beta} = X^{\nu}{}_{,\alpha} \rbr{
+\dva \psi_{\alpha\beta} = X^{\nu}{}_{,\alpha} \rbr{
 	2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
 	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}.
 \end{align}
 
 Variation of the area element reads
 \begin{align}
-\dva \sqrt{-\tsup[2]{\gamma}} &=
-\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}\,
-\dva \gamma_{\alpha\beta}
+\dva \sqrt{-\tsup[2]{\psi}} &=
+\frac{1}{2} \sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}\,
+\dva \psi_{\alpha\beta}
 \nonumber \\
 &=
-\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}
+\frac{1}{2} \sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}
 X^{\nu}{}_{,\alpha}\rbr{2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
 	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}
 \nonumber \\
 &=
-\rbr{\ldots}^{\beta}{}_{,\beta} - \cbr{
-\rbr{\sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta} 
-	X^{\nu}{}_{,\alpha} g_{\nu\lambda}}_{,\beta} - 
-\frac{1}{2} \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} 
-X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}}\, \dva X^{\lambda}
-\nonumber \\
-&=
-\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, \bigg\{
-	\square X^{\mu} g_{\mu\lambda} + 
-	\gamma^{\alpha\beta} X^{\nu}{}_{,\alpha}
-		g_{\nu\lambda,\rho} X^{\rho}{}_{,\beta} 
-\nonumber \\
-&\qquad\qquad\qquad\qquad -
-	\frac{1}{2} \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
-		g_{\nu\rho,\lambda} \bigg\}\, \dva X^{\lambda}
-\nonumber \\
-&=
-\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, \bigg\{
-	\square X^{\mu} g_{\mu\lambda} 
-\nonumber \\
-&\qquad\qquad\qquad\qquad + 
-	\frac{1}{2} \gamma^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
-		\rbr{-g_{\nu\rho,\lambda} + g_{\rho\lambda,\nu} + g_{\lambda\nu,\rho}}
-	\bigg\}\, \dva X^{\lambda}
-\nonumber \\
-&=
-\rbr{\ldots}^{\beta}{}_{,\beta} - \sqrt{-\tsup[2]{\gamma}}\, g_{\mu\lambda}
-	\cbr{ \square X^{\mu} + 
-	\Gamma^{\mu}{}_{\nu\rho} \gamma^{\alpha\beta}
-		X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
-	} \, \dva X^{\lambda},
+-\frac{1}{T} \cbr{ \rbr{\ldots}_\text{NG}^{\beta}{}_{,\beta} +
+	\mscrL_{\text{NG}, X^{\lambda}}\,\dva X^\lambda},
 \end{align}
 where
 \begin{align}
-\rbr{\ldots}^{\beta} &\coloneqq \sqrt{-\tsup[2]{\gamma}}\, \gamma^{\alpha\beta}
-X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
-\\
-\square X^{\mu} &\coloneqq
-\frac{1}{\sqrt{-\tsup[2]{\gamma}}} \rbr{\sqrt{-\tsup[2]{\gamma}}\, 
-	\gamma^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}.
+\frac{1}{T} \rbr{\ldots}_\text{NG}^{\beta} &\coloneqq 
+-\sqrt{-\tsup[2]{\psi}}\, 
+\psi^{\alpha\beta} X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
 \end{align}
+is a boundary term,
+\begin{align}
+\frac{\mscrL_{\text{NG}, X^{\lambda}}}{T\sqrt{-\tsup[2]{\psi}}} &=
+	\square_\psi X^{\mu} g_{\mu\lambda} + 
+	\psi^{\alpha\beta} X^{\nu}{}_{,\alpha}
+		g_{\nu\lambda,\rho} X^{\rho}{}_{,\beta} -
+	\frac{1}{2} \psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
+		g_{\nu\rho,\lambda}
+\nonumber \\
+&=
+\square X^{\mu} g_{\mu\lambda} + 
+\frac{1}{2} \psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
+	\rbr{-g_{\nu\rho,\lambda} + g_{\rho\lambda,\nu} + g_{\lambda\nu,\rho}}
+\nonumber \\
+&=
+g_{\mu\lambda} \rbr{\square_\psi X^{\mu} + \Gamma^{\mu}{}_{\nu\rho} 
+\psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}}
+\end{align}
+gives the Euler--Lagrange derivative, in which
+\begin{align}
+\square_\psi X^{\mu} &\coloneqq
+\frac{1}{\sqrt{-\tsup[2]{\psi}}} \rbr{\sqrt{-\tsup[2]{\psi}}\, 
+	\psi^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}
+\end{align}
+is a d'Alembertian on the world-sheet with respect to $\psi_{\alpha\beta}$.
 
+%%%%%%%%%%%%%%%%
+\subsection{Polyakov action}
+\label{sec:bos-str-pol}
+%%%%%%%%%%%%%%%%
 
+The action reads \cite{Deser_1976,Brink_1976,Polyakov1981}
+\begin{align}
+\sfun{S_\text{P}}{h_{\alpha\beta}, X^{\mu}} = -\frac{T}{2} \int_{\Sigma}
+\dd^2 \sigma\, \sqrt{-\tsup[2]{h}}\, h^{\alpha\beta} \psi_{\alpha\beta}.
+\end{align}
+Variation of the integrand reads
+\begin{align}
+\dva \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta} \psi_{\alpha\beta}}
+&= \dva_h \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta}}\, \psi_{\alpha\beta}
++ \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta}}\, \dva_X  \psi_{\alpha\beta}
+\nonumber \\
+&= - \frac{2}{T} \cbr{ \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} + 
+\mscrL_{\text{P}, h^{\alpha\beta}}\, \dva h^{\alpha\beta} +
+\mscrL_{\text{P}, X^{\lambda}}\, \dva X^{\lambda} },
+\end{align}
+where
+\begin{align}
+\frac{2}{T} \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} &\coloneqq
+- 2\sqrt{-\tsup[2]{h}}\, 
+h^{\alpha\beta} X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
+\end{align}
+is a boundary term,
+\begin{align}
+\frac{2\mscrL_{\text{P}, h^{\alpha\beta}}}{T \sqrt{-\tsup[2]{h}}} &= 
+\rbr{\frac{1}{2} h^{\gamma\delta} h_{\alpha\beta} -
+	\delta^{\gamma}{}_{\alpha} \delta^{\delta}{}_{\beta}}
+X^{\mu}{}_{,\gamma} X^{\nu}{}_{,\delta} g_{\mu\nu}
+\end{align}
+gives the Euler--Lagrange derivative with respect to $h^{\alpha\beta}$,
+\begin{align}
+\frac{2 \mscrL_{\text{P}, X^{\lambda}}}{T\sqrt{-\tsup[2]{h}}}  &= 2
+g_{\mu\lambda}\rbr{\square_h X^{\mu} +
+\Gamma^{\mu}{}_{\nu\rho} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta} 
+h^{\alpha\beta}}
+\end{align}
+gives the Euler--Lagrange derivative with respect to $X^{\lambda}$, and
+\begin{align}
+\square_h X^{\mu} &\coloneqq
+\frac{1}{\sqrt{-\tsup[2]{h}}} \rbr{\sqrt{-\tsup[2]{h}}\, 
+	h^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}
+\end{align}
+is another d'Alembertian on the world-sheet with respect to $h_{\alpha\beta}$.
+
+% &= \sqrt{-\tsup[2]{h}}\, \bigg\{ \rbr{
+% 	-\frac{1}{2} h^{\alpha\beta} h_{\gamma\delta}\, \dva h^{\gamma\delta} + 
+% 	\dva h^{\alpha\beta} \psi_{\alpha\beta}} +
+% h^{\alpha\beta} X^{\nu}{}_{,\alpha} \rbr{2\, \dva X^{\lambda}{}_{\beta} 
+% 	g_{\nu\lambda} + X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\,
+% 	\dva X^{\lambda}} \bigg\}
+% \nonumber \\
+% &=
+% \sqrt{-\tsup[2]{h}}\, \bigg\{
+% \rbr{-}\, 
+% 		\dva h^{\alpha\beta} - 2
+% \bigg\}
+% \nonumber \\
 
 \printbibliography
 
