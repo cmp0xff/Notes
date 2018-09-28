@@ -22,7 +22,7 @@
 			backend=biber]{biblatex}
 \addbibresource{./string.bib}
 
-\title{Classical string theory}
+\title{Classical $p$-brane}
 \author{Yi-Fan Wang (王\ 一帆)}
 %\date{}
 
@@ -30,7 +30,7 @@
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Point particle}
+\section{Point particle: $0$-brane}
 \label{sec:pnt-ptc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -40,9 +40,9 @@
 %%%%%%%%%%%%%%%%
 
 \begin{align}
-\sfun{S_1}{x^{\mu}} \coloneqq -m \int_{\gamma} \dd s = 
--m \int_{\gamma} \dd \lambda\, \sqrt{-g_{\mu\nu}
-	\dot{x}^{\mu} \dot{x}^{\nu} }.
+\sfun{S_1}{x^{\Mu}} \coloneqq -m \int_{\gamma} \dd s = 
+-m \int_{\gamma} \dd\lambda\, \sqrt{-g_{\Mu\Nu}
+	\dot{x}^{\Mu} \dot{x}^{\Nu} }.
 \end{align}
 
 %%%%%%%%%%%%%%%%
@@ -51,15 +51,17 @@
 %%%%%%%%%%%%%%%%
 
 \begin{align}
-\sfun{S_2}{e, x^{\mu}} \coloneqq \frac{1}{2} \int_{\gamma} \dd\lambda\, e
-\rbr{e^{-2} g_{\mu\nu} \dot{x}^{\mu} \dot{x}^{\nu} - m^2}.
+\sfun{S_2}{e, x^{\Mu}} \coloneqq \frac{1}{2} \int_{\gamma} \dd\lambda\, e
+\rbr{e^{-2} g_{\Mu\Nu} \dot{x}^{\Mu} \dot{x}^{\Nu} - m^2}.
 \end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bosonic string}
+\section{Classical bosonic string: $1$-brane}
 \label{sec:bos-str}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cite{Johnson2000} contains a 
 
 %%%%%%%%%%%%%%%%
 \subsection{Nambu--Goto action}
@@ -68,7 +70,7 @@
 
 The action reads \cite{Nambu1970a,Goto1971}
 \begin{align}
-\sfun{S_{\text{NG}}}{X^{\mu}} \coloneqq -T \int_{\Sigma} \dd A = 
+\sfun{S_{\text{NG}}}{X^{\Mu}} \coloneqq -T \int_{\Sigma} \dd A = 
 -T \int_{\Sigma} \dd^2 \sigma\,\sqrt{-\tsup[2]{\psi}},
 \end{align}
 where
@@ -77,14 +79,15 @@ where
 \psi_{11}\psi_{22} - \psi_{12}\psi_{21}
 \end{align}
 is the metric determinant, $\alpha, \beta, \ldots = 1, 2$ are the world-sheet 
-indices, $\rbr{\sigma^\alpha}$ are the world-sheet coordinates, 
+indices, $\rbr{\Sigma^\alpha}$ are the world-sheet coordinates, 
 \begin{align}
-\psi_{\alpha\beta} \coloneqq g_{\mu\nu} 
-X^{\mu}{}_{,\alpha} X^{\nu}{}_{,\beta},
+\psi_{\alpha\beta} \coloneqq g_{\Mu\Nu} 
+X^{\Mu}{}_{,\alpha} X^{\Nu}{}_{,\beta},
 \end{align}
-is the induced metric on the world-sheet, $\rho, \nu, \ldots = 0, 1, \ldots d$ 
-are the target-space indices, $X^{\mu} = \rfun{X^{\mu}}{\sigma^{\alpha}}$ are 
-the world-sheet coordinates. $X^{\mu}$ are the dynamical variables.
+is the induced metric on the world-sheet, $\Rho, \Nu, \ldots = 0, 1, \ldots d$ 
+are the target-space indices, $X^{\Mu} = \rfun{X^{\Mu}}{\Sigma^{\alpha}}$ are 
+the world-sheet \cite{Susskind1970} coordinates. The immersion map 
+$\rfun{X^{\Mu}}{\sigma^\alpha}$ are the dynamical variables.
 
 The inverse metric can also be expressed in a closed form
 \begin{align}
@@ -99,10 +102,10 @@ The inverse metric can also be expressed in a closed form
 \\
 &=
 \tsup[1]{\epsilon}^{\alpha\gamma} \tsup[1]{\epsilon}^{\beta\delta} 
-	\tsup[2]{\psi}^{-1} g_{\rho\sigma} 
-	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta} =
-\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} g_{\rho\sigma} 
-	X^{\rho}{}_{,\gamma} X^{\sigma}{}_{,\delta}
+	\tsup[2]{\psi}^{-1} g_{\Rho\Sigma} 
+	X^{\Rho}{}_{,\gamma} X^{\Sigma}{}_{,\delta} =
+\epsilon^{\alpha\gamma} \epsilon^{\beta\delta} g_{\Rho\Sigma} 
+	X^{\Rho}{}_{,\gamma} X^{\Sigma}{}_{,\delta}
 \\
 &\equiv \frac{1}{\tsup[2]{\psi}}
 \begin{pmatrix}
@@ -119,9 +122,9 @@ of the induced metric
 \end{align}
 Variation of the induced metric in terms of the world-sheet coordinates reads 
 \begin{align}
-\dva \psi_{\alpha\beta} = X^{\nu}{}_{,\alpha} \rbr{
-	2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
-	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}.
+\dva \psi_{\alpha\beta} = X^{\Nu}{}_{,\alpha} \rbr{
+	2 g_{\Nu\Lambda}\, \dva X^{\Lambda}{}_{,\beta} + 
+	X^{\Rho}{}_{,\beta} g_{\Nu\Rho,\Lambda}\, \dva X^{\Lambda}}.
 \end{align}
 
 Variation of the area element reads
@@ -132,44 +135,71 @@ Variation of the area element reads
 \nonumber \\
 &=
 \frac{1}{2} \sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}
-X^{\nu}{}_{,\alpha}\rbr{2 g_{\nu\lambda}\, \dva X^{\lambda}{}_{,\beta} + 
-	X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\, \dva X^{\lambda}}
+X^{\Nu}{}_{,\alpha}\rbr{2 g_{\Nu\Lambda}\, \dva X^{\Lambda}{}_{,\beta} + 
+	X^{\Rho}{}_{,\beta} g_{\Nu\Rho,\Lambda}\, \dva X^{\Lambda}}
 \nonumber \\
 &=
 -\frac{1}{T} \cbr{ \rbr{\ldots}_\text{NG}^{\beta}{}_{,\beta} +
-	\mscrL_{\text{NG}, X^{\lambda}}\,\dva X^\lambda},
+	\mscrL_{\text{NG}, X^{\Lambda}}\,\dva X^\Lambda},
 \end{align}
 where
 \begin{align}
 \frac{1}{T} \rbr{\ldots}_\text{NG}^{\beta} &\coloneqq 
 -\sqrt{-\tsup[2]{\psi}}\, 
-\psi^{\alpha\beta} X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
+\psi^{\alpha\beta} X^{\Nu}{}_{,\alpha} g_{\Nu\Lambda}\,\dva X^{\Lambda},
 \end{align}
 is a boundary term,
 \begin{align}
-\frac{\mscrL_{\text{NG}, X^{\lambda}}}{T\sqrt{-\tsup[2]{\psi}}} &=
-	\square_\psi X^{\mu} g_{\mu\lambda} + 
-	\psi^{\alpha\beta} X^{\nu}{}_{,\alpha}
-		g_{\nu\lambda,\rho} X^{\rho}{}_{,\beta} -
-	\frac{1}{2} \psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
-		g_{\nu\rho,\lambda}
+\frac{\mscrL_{\text{NG}, X^{\Lambda}}}{T\sqrt{-\tsup[2]{\psi}}} &=
+	\square_\psi X^{\Mu} g_{\Mu\Lambda} + 
+	\psi^{\alpha\beta} X^{\Nu}{}_{,\alpha}
+		g_{\Nu\Lambda,\Rho} X^{\Rho}{}_{,\beta} -
+	\frac{1}{2} \psi^{\alpha\beta} X^{\Nu}{}_{,\alpha} X^{\Rho}{}_{,\beta}
+		g_{\Nu\Rho,\Lambda}
 \nonumber \\
 &=
-\square X^{\mu} g_{\mu\lambda} + 
-\frac{1}{2} \psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}
-	\rbr{-g_{\nu\rho,\lambda} + g_{\rho\lambda,\nu} + g_{\lambda\nu,\rho}}
+\square X^{\Mu} g_{\Mu\Lambda} + 
+\frac{1}{2} \psi^{\alpha\beta} X^{\Nu}{}_{,\alpha} X^{\Rho}{}_{,\beta}
+	\rbr{-g_{\Nu\Rho,\Lambda} + g_{\Rho\Lambda,\Nu} + g_{\Lambda\Nu,\Rho}}
 \nonumber \\
 &=
-g_{\mu\lambda} \rbr{\square_\psi X^{\mu} + \Gamma^{\mu}{}_{\nu\rho} 
-\psi^{\alpha\beta} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta}}
+g_{\Mu\Lambda} \rbr{\square_\psi X^{\Mu} + \Gamma^{\Mu}{}_{\Nu\Rho} 
+\psi^{\alpha\beta} X^{\Nu}{}_{,\alpha} X^{\Rho}{}_{,\beta}}
 \end{align}
 gives the Euler--Lagrange derivative, in which
 \begin{align}
-\square_\psi X^{\mu} &\coloneqq
+\square_\psi X^{\Mu} &\coloneqq
 \frac{1}{\sqrt{-\tsup[2]{\psi}}} \rbr{\sqrt{-\tsup[2]{\psi}}\, 
-	\psi^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}
+	\psi^{\alpha\beta} X^{\Mu}{}_{,\alpha}}_{,\beta}
 \end{align}
 is a d'Alembertian on the world-sheet with respect to $\psi_{\alpha\beta}$.
+
+
+%%%%%%%%%%%%%%%%
+\subsection{External symmetry}
+\label{sec:bos-str-ext-sym}
+%%%%%%%%%%%%%%%%
+
+If $\xi^\Mu$ is a Killing vector, one can show
+\begin{align}
+	\rbr{\sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}
+		X^{\Mu}{}_{,\alpha} \xi_{\Mu}}_{,\beta} = 0.
+\end{align}
+
+Geometrically, this corresponds to
+\begin{align}
+	\opdiv \xi^{\tang} = 0.
+\end{align}
+Since one also has
+\begin{align}
+	\BbbL_X \omega = \rbr{\opdiv X} \omega,
+\end{align}
+where $\omega$ is the volume form on $\Sigma$, one has 
+\begin{align}
+	\BbbL_{\xi^{\tang}} \omega = 0,
+\end{align}
+i.e.\ the volume form is invariant under diffeomorphism generated by 
+$\xi^{\tang}$.
 
 %%%%%%%%%%%%%%%%
 \subsection{Polyakov action}
@@ -178,7 +208,7 @@ is a d'Alembertian on the world-sheet with respect to $\psi_{\alpha\beta}$.
 
 The action reads \cite{Deser_1976,Brink_1976,Polyakov1981}
 \begin{align}
-\sfun{S_\text{P}}{h_{\alpha\beta}, X^{\mu}} = -\frac{T}{2} \int_{\Sigma}
+\sfun{S_\text{P}}{h_{\alpha\beta}, X^{\Mu}} = -\frac{T}{2} \int_{\Sigma}
 \dd^2 \sigma\, \sqrt{-\tsup[2]{h}}\, h^{\alpha\beta} \psi_{\alpha\beta}.
 \end{align}
 Variation of the integrand reads
@@ -189,49 +219,44 @@ Variation of the integrand reads
 \nonumber \\
 &= - \frac{2}{T} \cbr{ \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} + 
 \mscrL_{\text{P}, h^{\alpha\beta}}\, \dva h^{\alpha\beta} +
-\mscrL_{\text{P}, X^{\lambda}}\, \dva X^{\lambda} },
+\mscrL_{\text{P}, X^{\Lambda}}\, \dva X^{\Lambda} },
 \end{align}
 where
 \begin{align}
 \frac{2}{T} \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} &\coloneqq
 - 2\sqrt{-\tsup[2]{h}}\, 
-h^{\alpha\beta} X^{\nu}{}_{,\alpha} g_{\nu\lambda}\,\dva X^{\lambda},
+h^{\alpha\beta} X^{\Nu}{}_{,\alpha} g_{\Nu\Lambda}\,\dva X^{\Lambda},
 \end{align}
 is a boundary term,
 \begin{align}
 \frac{2\mscrL_{\text{P}, h^{\alpha\beta}}}{T \sqrt{-\tsup[2]{h}}} &= 
 \rbr{\frac{1}{2} h^{\gamma\delta} h_{\alpha\beta} -
 	\delta^{\gamma}{}_{\alpha} \delta^{\delta}{}_{\beta}}
-X^{\mu}{}_{,\gamma} X^{\nu}{}_{,\delta} g_{\mu\nu}
+X^{\Mu}{}_{,\gamma} X^{\Nu}{}_{,\delta} g_{\Mu\Nu}
 \end{align}
 gives the Euler--Lagrange derivative with respect to $h^{\alpha\beta}$,
 \begin{align}
-\frac{2 \mscrL_{\text{P}, X^{\lambda}}}{T\sqrt{-\tsup[2]{h}}}  &= 2
-g_{\mu\lambda}\rbr{\square_h X^{\mu} +
-\Gamma^{\mu}{}_{\nu\rho} X^{\nu}{}_{,\alpha} X^{\rho}{}_{,\beta} 
+\frac{2 \mscrL_{\text{P}, X^{\Lambda}}}{T\sqrt{-\tsup[2]{h}}}  &= 2
+g_{\Mu\Lambda}\rbr{\square_h X^{\Mu} +
+\Gamma^{\Mu}{}_{\Nu\Rho} X^{\Nu}{}_{,\alpha} X^{\Rho}{}_{,\beta} 
 h^{\alpha\beta}}
 \end{align}
-gives the Euler--Lagrange derivative with respect to $X^{\lambda}$, and
+gives the Euler--Lagrange derivative with respect to $X^{\Lambda}$, and
 \begin{align}
-\square_h X^{\mu} &\coloneqq
+\square_h X^{\Mu} &\coloneqq
 \frac{1}{\sqrt{-\tsup[2]{h}}} \rbr{\sqrt{-\tsup[2]{h}}\, 
-	h^{\alpha\beta} X^{\mu}{}_{,\alpha}}_{,\beta}
+	h^{\alpha\beta} X^{\Mu}{}_{,\alpha}}_{,\beta}
 \end{align}
 is another d'Alembertian on the world-sheet with respect to $h_{\alpha\beta}$.
 
-% &= \sqrt{-\tsup[2]{h}}\, \bigg\{ \rbr{
-% 	-\frac{1}{2} h^{\alpha\beta} h_{\gamma\delta}\, \dva h^{\gamma\delta} + 
-% 	\dva h^{\alpha\beta} \psi_{\alpha\beta}} +
-% h^{\alpha\beta} X^{\nu}{}_{,\alpha} \rbr{2\, \dva X^{\lambda}{}_{\beta} 
-% 	g_{\nu\lambda} + X^{\rho}{}_{,\beta} g_{\nu\rho,\lambda}\,
-% 	\dva X^{\lambda}} \bigg\}
-% \nonumber \\
-% &=
-% \sqrt{-\tsup[2]{h}}\, \bigg\{
-% \rbr{-}\, 
-% 		\dva h^{\alpha\beta} - 2
-% \bigg\}
-% \nonumber \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$p$-brane}
+\label{sec:p-bra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cite{Anciaux2010}
 
 \printbibliography
 
