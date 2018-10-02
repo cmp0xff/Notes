@@ -1,0 +1,81 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{scrartcl}
+
+
+
+\input{../preambles/preamble}
+\input{../preambles/unicode}
+
+\setmainlanguage{english}
+\setotherlanguages{german,greek,russian}
+
+\input{../preambles/math-single}
+\input{../preambles/math-brac}
+\input{../preambles/math-thm}
+\input{../preambles/phys-chem}
+
+%\setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\usepackage[%style=authoryear-icomp,
+			backend=biber]{biblatex}
+\addbibresource{./psg.bib}
+
+\title{Cheat Sheet for Pseudo-Riemannian Geometry}
+\author{Yi-Fan Wang (王\ 一帆)}
+%\date{}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%
+\subsection{Levi-Civita connection}
+
+%%%%%%%%%%%%%%%%
+An affine connection $\nabla$ is called a \emph{Levi-Civita connection} if
+
+\begin{itemize}
+\item
+it preserves the metric, i.e.\ $\nabla g = 0$.
+\item
+it is torsion-free, i.e.\ for any vector fields $X$ and 
+$Y$ we have $\nabla_{X}Y − \nabla_{Y}X
+= [X, Y]$, where $[X, Y]$ is the Lie bracket of the vector fields $X$ and 
+$Y$.
+
+Condition 1 above is sometimes referred to as compatibility with the 
+metric, and condition 2 is sometimes called symmetry, c.f.\ Do Carmo's text.
+
+If a Levi-Civita connection exists, it is uniquely determined. Using conditions 
+1 and the symmetry of the metric tensor $g$ we find:
+
+\begin{align}
+&\quad\,
+X \bigl(g(Y,Z)\bigr) + Y \bigl(g(Z,X)\bigr) - Z \bigl(g(Y,X)\bigr) 
+\nonumber \\
+&= \rfun{g}{\nabla_X Y + \nabla_Y X, Z} + g(\nabla_X Z - \nabla_Z X, Y) + 
+g(\nabla_Y Z - \nabla_Z Y, X).
+\end{align}
+By condition 2, the right hand side is equal to
+\begin{align}
+2g(\nabla_X Y, Z) - g\bigl([X,Y], Z\bigr) + g\bigl([X,Z],Y\bigr) + 
+g\bigl([Y,Z],X\bigr),
+\end{align}
+so we find the Koszul formula
+\begin{align}
+2 g(\nabla_X Y, Z) &= 
+X \bigl(g(Y,Z)\bigr) + Y \bigl(g(Z,X)\bigr) - Z \bigl(g(X,Y)\bigr) 
+\nonumber \\
+&\quad\, +
+g\bigl([X,Y],Z\bigr) - g\bigl([Y,Z], X\bigr) - g\bigl([X,Z], Y\bigr)
+\nonumber \\
+&= \BbbL_Y \rfun{g}{X,Z} + \rfun{\rbr{\dd Y^{\flat}}}{X, Z}.
+\end{align}
+Since $Z$ is arbitrary, this uniquely determines $\nabla_{X}Y$. Conversely, 
+using the last line as a definition one shows that the expression so defined is 
+a connection compatible with the metric, i.e.\ is a Levi-Civita connection.
+
+\printbibliography
+
+\end{document}
