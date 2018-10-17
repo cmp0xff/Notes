@@ -39,17 +39,23 @@
 \label{sec:pnt-ptc-lin}
 %%%%%%%%%%%%%%%%
 
+Arc-length term
 \begin{align}
 \sfun{S_1}{x^{\Mu}} \coloneqq -m \int_{\gamma} \dd s = 
--m \int_{\gamma} \dd\lambda\, \sqrt{-g_{\Mu\Nu}
-	\dot{x}^{\Mu} \dot{x}^{\Nu} }.
+-m \int_{\gamma} \dd\lambda\, \sqrt{\vbr{g_{\Mu\Nu}
+	\dot{x}^{\Mu} \dot{x}^{\Nu} }}.
 \end{align}
+
+Scalar term
+
+$1$-form term
 
 %%%%%%%%%%%%%%%%
 \subsection{Quadratic action}
 \label{sec:pnt-ptc-qua}
 %%%%%%%%%%%%%%%%
 
+Auxiliary term
 \begin{align}
 \sfun{S_2}{e, x^{\Mu}} \coloneqq \frac{1}{2} \int_{\gamma} \dd\lambda\, e
 \rbr{e^{-2} g_{\Mu\Nu} \dot{x}^{\Mu} \dot{x}^{\Nu} - m^2}.
@@ -71,7 +77,7 @@
 The action reads \cite{Nambu1970a,Goto1971}
 \begin{align}
 \sfun{S_{\text{NG}}}{X^{\Mu}} \coloneqq -T \int_{\Sigma} \dd A = 
--T \int_{\Sigma} \dd^2 \sigma\,\sqrt{-\tsup[2]{\psi}},
+-T \int_{\Sigma} \dd^2 \sigma\,\sqrt{\vbr{\tsup[2]{\psi}}},
 \end{align}
 where
 \begin{align}
@@ -129,12 +135,12 @@ Variation of the induced metric in terms of the world-sheet coordinates reads
 
 Variation of the area element reads
 \begin{align}
-\dva \sqrt{-\tsup[2]{\psi}} &=
-\frac{1}{2} \sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}\,
+\dva \sqrt{\vbr{\tsup[2]{\psi}}} &=
+\frac{1}{2} \sqrt{\vbr{\tsup[2]{\psi}}}\, \psi^{\alpha\beta}\,
 \dva \psi_{\alpha\beta}
 \nonumber \\
 &=
-\frac{1}{2} \sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}
+\frac{1}{2} \sqrt{\vbr{\tsup[2]{\psi}}}\, \psi^{\alpha\beta}
 X^{\Nu}{}_{,\alpha}\rbr{2 g_{\Nu\Lambda}\, \dva X^{\Lambda}{}_{,\beta} + 
 	X^{\Rho}{}_{,\beta} g_{\Nu\Rho,\Lambda}\, \dva X^{\Lambda}}
 \nonumber \\
@@ -145,12 +151,12 @@ X^{\Nu}{}_{,\alpha}\rbr{2 g_{\Nu\Lambda}\, \dva X^{\Lambda}{}_{,\beta} +
 where
 \begin{align}
 \frac{1}{T} \rbr{\ldots}_\text{NG}^{\beta} &\coloneqq 
--\sqrt{-\tsup[2]{\psi}}\, 
+-\sqrt{\vbr{\tsup[2]{\psi}}}\, 
 \psi^{\alpha\beta} X^{\Nu}{}_{,\alpha} g_{\Nu\Lambda}\,\dva X^{\Lambda},
 \end{align}
 is a boundary term,
 \begin{align}
-\frac{\mscrL_{\text{NG}, X^{\Lambda}}}{T\sqrt{-\tsup[2]{\psi}}} &=
+\frac{\mscrL_{\text{NG}, X^{\Lambda}}}{T\sqrt{\vbr{\tsup[2]{\psi}}}} &=
 	\square_\psi X^{\Mu} g_{\Mu\Lambda} + 
 	\psi^{\alpha\beta} X^{\Nu}{}_{,\alpha}
 		g_{\Nu\Lambda,\Rho} X^{\Rho}{}_{,\beta} -
@@ -169,7 +175,7 @@ g_{\Mu\Lambda} \rbr{\square_\psi X^{\Mu} + \Gamma^{\Mu}{}_{\Nu\Rho}
 gives the Euler--Lagrange derivative, in which
 \begin{align}
 \square_\psi X^{\Mu} &\coloneqq
-\frac{1}{\sqrt{-\tsup[2]{\psi}}} \rbr{\sqrt{-\tsup[2]{\psi}}\, 
+\vbr{\tsup[2]{\psi}}^{-1/2} \rbr{\sqrt{\vbr{\tsup[2]{\psi}}}\, 
 	\psi^{\alpha\beta} X^{\Mu}{}_{,\alpha}}_{,\beta}
 \end{align}
 is a d'Alembertian on the world-sheet with respect to $\psi_{\alpha\beta}$.
@@ -182,7 +188,7 @@ is a d'Alembertian on the world-sheet with respect to $\psi_{\alpha\beta}$.
 
 If $\xi^\Mu$ is a Killing vector, one can show
 \begin{align}
-	\rbr{\sqrt{-\tsup[2]{\psi}}\, \psi^{\alpha\beta}
+	\rbr{\sqrt{\vbr{\tsup[2]{\psi}}}\, \psi^{\alpha\beta}
 		X^{\Mu}{}_{,\alpha} \xi_{\Mu}}_{,\beta} = 0.
 \end{align}
 
@@ -209,13 +215,13 @@ $\xi^{\tang}$.
 The action reads \cite{Deser_1976,Brink_1976,Polyakov1981}
 \begin{align}
 \sfun{S_\text{P}}{h_{\alpha\beta}, X^{\Mu}} = -\frac{T}{2} \int_{\Sigma}
-\dd^2 \sigma\, \sqrt{-\tsup[2]{h}}\, h^{\alpha\beta} \psi_{\alpha\beta}.
+\dd^2 \sigma\, \sqrt{\vbr{\tsup[2]{h}}}\, h^{\alpha\beta} \psi_{\alpha\beta}.
 \end{align}
 Variation of the integrand reads
 \begin{align}
-\dva \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta} \psi_{\alpha\beta}}
-&= \dva_h \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta}}\, \psi_{\alpha\beta}
-+ \rbr{\sqrt{-\tsup[2]{h}}\, h^{\alpha\beta}}\, \dva_X  \psi_{\alpha\beta}
+\dva \rbr{\sqrt{\vbr{\tsup[2]{h}}}\, h^{\alpha\beta} \psi_{\alpha\beta}}
+&= \dva_h \rbr{\sqrt{\vbr{\tsup[2]{h}}}\, h^{\alpha\beta}}\, \psi_{\alpha\beta}
++ \rbr{\sqrt{\vbr{\tsup[2]{h}}}\, h^{\alpha\beta}}\, \dva_X  \psi_{\alpha\beta}
 \nonumber \\
 &= - \frac{2}{T} \cbr{ \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} + 
 \mscrL_{\text{P}, h^{\alpha\beta}}\, \dva h^{\alpha\beta} +
@@ -224,19 +230,19 @@ Variation of the integrand reads
 where
 \begin{align}
 \frac{2}{T} \rbr{\ldots}_{\text{P}}^{\beta}{}_{,\beta} &\coloneqq
-- 2\sqrt{-\tsup[2]{h}}\, 
+- 2\sqrt{\vbr{\tsup[2]{h}}}\, 
 h^{\alpha\beta} X^{\Nu}{}_{,\alpha} g_{\Nu\Lambda}\,\dva X^{\Lambda},
 \end{align}
 is a boundary term,
 \begin{align}
-\frac{2\mscrL_{\text{P}, h^{\alpha\beta}}}{T \sqrt{-\tsup[2]{h}}} &= 
+\frac{2\mscrL_{\text{P}, h^{\alpha\beta}}}{T \sqrt{\vbr{\tsup[2]{h}}}} &= 
 \rbr{\frac{1}{2} h^{\gamma\delta} h_{\alpha\beta} -
 	\delta^{\gamma}{}_{\alpha} \delta^{\delta}{}_{\beta}}
 X^{\Mu}{}_{,\gamma} X^{\Nu}{}_{,\delta} g_{\Mu\Nu}
 \end{align}
 gives the Euler--Lagrange derivative with respect to $h^{\alpha\beta}$,
 \begin{align}
-\frac{2 \mscrL_{\text{P}, X^{\Lambda}}}{T\sqrt{-\tsup[2]{h}}}  &= 2
+\frac{2 \mscrL_{\text{P}, X^{\Lambda}}}{T\sqrt{\vbr{\tsup[2]{h}}}}  &= 2
 g_{\Mu\Lambda}\rbr{\square_h X^{\Mu} +
 \Gamma^{\Mu}{}_{\Nu\Rho} X^{\Nu}{}_{,\alpha} X^{\Rho}{}_{,\beta} 
 h^{\alpha\beta}}
@@ -244,11 +250,16 @@ h^{\alpha\beta}}
 gives the Euler--Lagrange derivative with respect to $X^{\Lambda}$, and
 \begin{align}
 \square_h X^{\Mu} &\coloneqq
-\frac{1}{\sqrt{-\tsup[2]{h}}} \rbr{\sqrt{-\tsup[2]{h}}\, 
+\vbr{\tsup[2]{h}}^{-1/2} \rbr{\sqrt{\vbr{\tsup[2]{h}}}\, 
 	h^{\alpha\beta} X^{\Mu}{}_{,\alpha}}_{,\beta}
 \end{align}
 is another d'Alembertian on the world-sheet with respect to $h_{\alpha\beta}$.
 
+
+%%%%%%%%%%%%%%%%
+\subsection{NS--NS term}
+\label{sec:bos-str-nsns}
+%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
